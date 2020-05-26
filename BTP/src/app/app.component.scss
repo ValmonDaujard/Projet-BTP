@@ -1,0 +1,33 @@
+.headerLayout
+{
+  height : 170px;
+  background: url(C:\java\workspace\Projet-BTP\BTP\src\assets\header-bg2.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.policeTitle
+{
+  font-family: arial;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-size: 40pt;
+}
+
+.rowMenu
+{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  background-color: black;
+  height: 170px;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  border-top-color: rgb(246,194,59);
+}
+
+.colorLiensFooter:hover{
+  color: rgb(246,194,59);
+}

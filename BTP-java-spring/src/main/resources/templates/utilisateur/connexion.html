@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout2.html">
+<head>
+<meta charset="UTF-8">
+<title>Connexion</title>
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+	function w3_open() {
+		document.getElementById("main").style.marginLeft = "20%";
+		document.getElementById("mySidebar").style.width = "20%";
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("openNav").style.display = 'none';
+		document.getElementById("titre").style.marginLeft = "5%";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+	function w3_close() {
+		document.getElementById("main").style.marginLeft = "0%";
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("openNav").style.display = "inline-block";
+		document.getElementById("titre").style.marginLeft = "0%";
+		document.getElementById("myOverlay").style.display = "none";
+	}
+</script>
+</head>
+<body>
+	<header>
+	<!-- Affichage Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
+		
+	<!-- Affichage Menu avec bouton close dans la Sidebar -->
+			<div class="rowMenu row border-bottom border-warning">
+				<h1 class="m-auto">MENU</h1>
+				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+			</div>
+			
+	<!-- Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+		</div>
+
+	<!-- Affichage du bandeau en-tête -->
+		<div id="main">
+			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+				<div class="my-auto ml-5 mr-4">
+					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+				</div>
+				<div id="titre" class="my-auto col-sm-9">
+					<h1 class="policeTitle">BTP MANAGEMENT</h1>
+				</div>
+				<div class="m-auto">
+					<button class="btn text-white policeTitle border-left" id="user" data-toggle="modal"
+			data-target="#connexion"><i class="fas fa-user fa-3x mt-1"></i>
+					<h6>Nom de l'utilisateur</h6>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+	
+	<div class="container">	
+
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column justify-content-center">
+				<div class="row">
+					<div class="col-lg-6 col-md-8 mx-auto">
+						<div id="connexion" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="card-header bg-dark text-white">
+										<h3>Connexion</h3>
+									</div>
+									<div class="card-body">
+										<div class="form-group">
+											<label for="identifiant">Identifiant</label> <input
+												type="text" class="form-control" id="identifiant"
+												name="identifiant" style="border-radius: 25px">
+										</div>
+										<div class="form-group">
+											<label for="mdp">Mot de Passe</label> <input type="password"
+												class="form-control" id="mdp" name="mdp"
+												style="border-radius: 25px">
+											<button class="input-group-text">
+												<i class="fas fa-eye"></i>
+											</button>
+										</div>
+										<div class="col-md-12 text-center ">
+											<button type="submit" class=" btn btn-block btn-dark tx-tfm "
+												style="border-radius: 50px">Connexion</button>
+										</div>
+										<br />
+										<div class="col-md-12 text-center ">
+											<button type="submit"
+												class=" btn btn-block btn-warning tx-tfm "
+												style="border-radius: 50px">Créer un compte</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
+			<ul class="navbar-nav text-white m-auto">
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
+				<li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>
