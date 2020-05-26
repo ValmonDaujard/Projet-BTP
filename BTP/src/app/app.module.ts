@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { AccueilComponent } from './accueil/accueil.component';
+import { ProjetComponent } from './projet/projet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
+    ProjetComponent,
 
   ],
   imports: [
