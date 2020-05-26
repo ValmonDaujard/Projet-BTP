@@ -29,12 +29,12 @@
             ],
             "styles": [
 			"node_modules/bootstrap/scss/bootstrap.scss",
-			"src/styles.scss",
+			"node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css",
+			"node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-regular.css",
+			"node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css",
+			"node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css",  
 			"node_modules/w3-css/w3.css",
-			"node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss",
-			"node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss",
-			"node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss",
-			"node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss",  
+            "src/styles.scss"
             ],
             "scripts": [
 			"node_modules/jquery/dist/jquery.min.js",
