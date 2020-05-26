@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html 	xmlns:th="http://www.thymeleaf.org" 
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorator="C:\java\workspace\BTP\src\main\resources\layout2.html">
+<head>
+<meta charset="UTF-8">
+<title>Acceuil Maitre d'Ouvrage</title>
+<link
+	href="C:\java\workspace\BTP\src\main\resources\static\css\style.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<style type="text/css">
+.card-header{
+background-color: rgb(52,58,64);
+}
+.btn-lg{
+background-color: rgb(246,194,59);
+}
+.container-fluid{
+width: 1500px;
+margin-bottom:100px;
+padding-bottom: 20px;
+}
+.card-header{
+width: 102.1%;
+align-self: center;
+}
+.bandeau-acceuil{
+background-color: rgb(52,58,64);
+color:white;
+text-align: center;
+margin-bottom: 75px;
+}
+</style>
+</head>
+<body>
+
+	<section layout:fragment="monContenu">
+	<div class="container-fluid card mt-3 bandeau-acceuil shadow"><h1>Acceuil Maitre d'Ouvrage</h1>
+	</div>
+<!-- 	Projets en Cours -->
+		<div class="container-fluid card mt-3 shadow">
+			<div class="card-header text-white" >
+				<h2> Projets en cours</h2>
+			</div>
+			<div>
+				<input class="form-control" id="searchTableProjet" type="text"
+						placeholder="Chercher un projet..."
+						style="margin: 10px; width: 300px">
+			</div>
+			<div class="card-body">
+				<table id="tabProjet" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Lieu</th>
+							<th>N° de devis</th>
+							<th>Maitre d'œuvre</th>
+							<th>Date de démarrage</th>
+							<th>Date de fin du projet</th>
+							<th>Détails</th>
+						</tr>
+					</thead>
+				
+<!-- 					A changer pour projet  -->
+					<tbody>
+						<tr>
+							<td>Parking McDo</td>
+							<td>Mérignac</td>
+							<td>152369D</td>
+							<td>M. Dupont</td>
+							<td>12/03/2020</td>
+							<td>20/04/2020</td>
+							<td><div class="btn-group" style="width: 100 px;"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>252769F</td>
+							<td>M. Martin</td>
+							<td>10/05/2020</td>
+							<td>25/05/2020</td>
+							<td><div class="btn-group" style="width: 100 px"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
+						</tr>
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+		
+<!-- 		Appels offres en attentes -->
+		
+		<div class="container-fluid card mt-3 shadow">
+			<div class="card-header text-white" >
+				<h2>Appels d'offre en attente</h2>
+			</div>
+			<div>
+				<input class="form-control" id="searchTableAppel" type="text"
+					placeholder="Chercher un appel d'offre..."
+					style="margin: 10px; width: 300px">
+			</div>
+			<div class="card-body">
+				<table id="tabAppel" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Lieu</th>
+							<th>Objectif</th>
+							<th>Date limite de réponse</th>
+							<th>Détails</th>
+						</tr>
+					</thead>
+				
+					<tbody>
+						<tr >
+							<td>Demol</td>
+							<td>Bordeaux</td>
+							<td>Demolition résidence</td>
+							<td>12/06/2020</td>
+							<td><div class="btn-group" style="width: 100 px;"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="width: 100 px;"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
+						</tr>
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="card-footer">
+				<a class="btn btn-lg">
+					Création d'un nouvel Appel d'offre
+				</a>
+			</div>
+		</div>
+	</section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	$("#searchTableProjet").on("keyup", function() {
+		  var value = $(this).val().toLowerCase();
+		  $("#tabProjet tr").filter(function() {
+		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		   });
+	});
+	$("#searchTableAppel").on("keyup", function() {
+		  var value = $(this).val().toLowerCase();
+		  $("#tabAppel tr").filter(function() {
+		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		   });
+	});
+	</script>
+</body>
+</html>

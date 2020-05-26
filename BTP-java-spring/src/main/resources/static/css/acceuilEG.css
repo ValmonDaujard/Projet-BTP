@@ -1,0 +1,22 @@
+
+.card-header{
+background-color: rgb(52,58,64);
+}
+.btn-lg{
+background-color: rgb(246,194,59);
+}
+.container-fluid{
+width: 1500px;
+margin-bottom:100px;
+padding-bottom: 20px;
+}
+.card-header{
+width: 103.5%; 
+align-self: center;
+}
+.bandeau-acceuil{
+background-color: rgb(52,58,64);
+color:white;
+text-align: center;
+margin-bottom: 75px;
+}

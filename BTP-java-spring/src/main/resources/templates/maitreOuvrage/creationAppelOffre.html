@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="C:\java\workspace\BTP\src\main\resources\layout2.html">
+<head>
+<meta charset="UTF-8">
+<title>Élaboration Appel d'Offre</title>
+<link
+	href="C:\java\workspace\BTP\src\main\resources\static\css\style.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<style type="text/css">
+.card-header {
+	background-color: rgb(52, 58, 64);
+}
+
+.container-fluid {
+	width: 1500px;
+	margin-bottom: 100px;
+	padding-bottom: 20px;
+}
+
+.card-header {
+	width: 102.1%;
+	align-self: center;
+}
+
+.bandeau-acceuil {
+	background-color: rgb(52, 58, 64);
+	color: white;
+	text-align: center;
+	margin-bottom: 75px;
+}
+</style>
+</head>
+<body>
+
+	<section layout:fragment="monContenu">
+		<div class="container-fluid card mt-3 bandeau-acceuil shadow">
+			<h1>Élaboration d'un Appel d'Offre</h1>
+		</div>
+		<div class="container-fluid card mt-3 shadow">
+			<div class="card-body">
+				<div id="employeForm" class="mt-3">
+					<form>
+						<!-- 							<form style="display: none;"> -->
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label" for="nom">Nom du
+								projet: </label> <input type="text" class="form-control col" id="nom" />
+							<label class="col-sm-2 col-form-label" for="dtDebut">Date
+								de démarrage: </label> <input type="date" class="form-control col"
+								id="dtDebut" />
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label" for="obj">Objectif
+								du projet: </label> <input type="text" class="form-control col" id="obj" />
+							<label class="col-sm-2 col-form-label" for="dtFin">Date
+								de fin: </label> <input type="date" class="form-control col" id="dtFin" />
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label" for="nDevis">Numero
+								de Devis: </label> <input type="text" class="form-control col"
+								id="nDevis" /> <label class="col-sm-2 col-form-label"
+								for="dtLim">Date limite de réponse: </label> <input type="date"
+								class="form-control col" id="dtLim" />
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label" for="budget">
+								Budget: </label> <input type="number" class="form-control col-sm-4"
+								id="budget" style="width: 100px">
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label" for="rue">Rue: </label> <input
+								type="text" class="form-control col" id="rue" /> <label
+								class="col-sm-2 col-form-label" for="codePostal">Code
+								Postal: </label> <input type="number" class="form-control col"
+								id="codePostal" />
+						</div>
+						<div class="row mb-5">
+							<label class="col-sm-2 col-form-label" for="ville">Ville:
+							</label> <input type="text" class="form-control col" id="ville" /> <label
+								class="col-sm-2 col-form-label" for="pays">Pays: </label> <input
+								type="text" class="form-control col" id="pays" />
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label" for="ville">Maitres
+								d'oeuvres: </label> <select class="form-control col mr-5" id="selectMO">
+								<option>Veuillez sélectionner un maitre d'oeuvre</option>
+								<option>Michel</option>
+								<option>Peneloppe</option>
+								<option>Jean Louis</option>
+								<option>Isabelle</option>
+								<option>Arnaud</option>
+							</select>
+							<button class="btn btn-warning col ml-5 mr-5">Ajouter à
+								la liste des destinataires</button>
+						</div>
+						<div  style="width: 500px; margin-left: 230px; margin-top:50px">
+						<table id="tabAppel" class="table table-striped">
+							<thead>
+								<tr>
+									<th>Maitre d'oeuvre</th>
+									<th>Supprimer</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>Isabelle</td>
+									<td><div class="btn-group" style="width: 100 px;">
+											<a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+										</div></td>
+								</tr>
+								<tr>
+									<td>Michel</td>
+									<td><div class="btn-group" style="width: 100 px;">
+											<a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+										</div></td>
+								</tr>
+							</tbody>
+
+						</table>
+						</div>
+						<div>
+						<button class="btn btn-warning" style="margin-left: 600px; margin-top: 20px">Valider et envoyer l'appel d'offre</button>
+						</div>
+
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Menu Gestion Salarié/Matériel</title>
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/menuEmployeMateriel.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+<body style="background-color: #F8F8F8">
+
+	<header>
+	<!-- Affichage Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
+		
+	<!-- Affichage Menu avec bouton close dans la Sidebar -->
+			<div class="rowMenu row border-bottom border-warning">
+				<h1 class="m-auto">MENU</h1>
+				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+			</div>
+			
+	<!-- Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+		</div>
+
+	<!-- Affichage du bandeau en-tête -->
+		<div id="main">
+			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+				<div class="my-auto ml-5 mr-4">
+					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+				</div>
+				<div id="titre" class="my-auto col-sm-9">
+					<h1 class="policeTitle">BTP MANAGEMENT</h1>
+				</div>
+				<div class="m-auto">
+					<button class="btn text-white policeTitle border-left" id="user"><i class="fas fa-user fa-3x mt-1"></i>
+					<h6>Nom de l'utilisateur</h6>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+	
+	<div class="container-fluid">
+		<section layout:fragment="monContenu">
+
+			<div class="row">
+				<div class="card col shadow my-4 ml-5 mr-4" style="height: 700px;">
+					<div class="card-header bg-white border-bottom border-warning" >
+						<h3 class="font-weight-bold mb-0 my-3">Gestion des employés</h3>
+					</div>
+					<div class="card-body">
+						<div>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th style="width: 19%">Nom</th>
+										<th style="width: 18%">Prénom</th>
+										<th style="width: 22%">Métier</th>
+										<th style="width: 11%" class="text-center">Détails</th>
+										<th style="width: 15%" class="text-center">Modifier</th>
+										<th style="width: 15%" class="text-center">Supprimer</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div class="scrollTableEmploye">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 19%">Dupont</td>
+										<td style="width: 19%">Jean</td>
+										<td style="width: 22%">Plombier Chauffagiste</td>
+										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="card col shadow mr-5 ml-4 my-4" style="height: 700px;">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3 class="font-weight-bold mb-0 my-3"> Détails / création / modification</h3>
+					</div>
+					<div class="card-body">
+<!-- 						<div class="text-center mt-5"> -->
+<!-- 							<button class="btn text-success border border-success"><i class="fas fa-user-plus fa-4x"></i></button> -->
+<!-- 						</div> -->
+						<div id="employeForm" class="mt-3">
+							<form>
+<!-- 							<form style="display: none;"> -->
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="civilite"> Civilité : </label>
+									<div class="col-sm-9 btn-group btn-group-toggle">
+										<label class="btn btn-light btn-outline-secondary"><input type="radio" name="options" id="option1"> Monsieur</label>
+										<label class="btn btn-light btn-outline-secondary"><input type="radio" name="options" id="option2"> Madame</label>
+										<label class="btn btn-light btn-outline-secondary"><input type="radio" name="options" id="option3"> Mademoiselle</label>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="nom"> Nom : </label>
+									<input type="text" class="form-control col-sm-9" id="nom" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="prenom"> Prénom : </label>
+									<input type="text" class="form-control col-sm-9" id="prenom" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="metier"> Métier : </label>
+									<input type="text" class="form-control col-sm-9" id="metier" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="telephone"> Téléphone : </label>
+									<input type="text" class="form-control col-sm-9" id="telephone" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="email"> Email : </label>
+									<input type="email" class="form-control col-sm-9" id="email" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="adresse"> Adresse : </label>
+									<input type="text" class="form-control col-sm-9" id="adresse" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="codePostal"> Code Postal : </label>
+									<input type="text" class="form-control col-sm-9" id="codePostal" style="border-radius: 20px">
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" for="pays"> Pays : </label>
+									<input type="text" class="form-control col-sm-9" id="pays" style="border-radius: 20px">
+								</div>
+								<div class="row">
+									<button class="btn text-warning border border-warning my-3 mx-auto"><i class="fas fa-user-check"></i><p class="m-2"><b>Enregistrer</b></p></button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="card col shadow my-4 ml-5 mr-4" style="height: 400px;">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3 class="font-weight-bold mb-0 my-3">Gestion du matériel</h3>
+					</div>
+					<div class="card-body">
+						<div>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th style="width: 25%">Nom</th>
+										<th style="width: 23%">Quantité</th>
+										<th style="width: 22%">Unité</th>
+										<th style="width: 15%" class="text-center">Modifier</th>
+										<th style="width: 15%" class="text-center">Supprimer</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						
+						<div class="scrollTableMateriel">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 26%">Betonnière</td>
+										<td style="width: 24%">2</td>
+										<td style="width: 20%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+									<tr>
+										<td style="width: 25%">Betonnière</td>
+										<td style="width: 23%">2</td>
+										<td style="width: 22%">u</td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-trash-alt"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="card col shadow mr-5 ml-4 my-4" style="height: 400px;">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3 class="font-weight-bold mb-0 my-3"> Création / modification</h3>
+					</div>
+					<div class="card-body">
+<!-- 						<div class="text-center mt-5"> -->
+<!-- 							<button class="btn text-success border border-success"><i class="fas fa-tools fa-4x"></i><i class="fas fa-plus fa-2x"></i></button> -->
+<!-- 						</div> -->
+							<div id="employeForm" class="mt-3">
+								<form>
+<!-- 							<form style="display: none;"> -->
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label" for="nom"> Nom : </label>
+										<input type="text" class="form-control col-sm-9" id="nom" style="border-radius: 20px">
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label" for="quantite"> Quantité : </label>
+										<input type="text" class="form-control col-sm-9" id="quantite" style="border-radius: 20px">
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label" for="unite"> Unité : </label>
+										<input type="text" class="form-control col-sm-9" id="unite" style="border-radius: 20px">
+									</div>
+									<div class="row">
+										<button class="btn text-warning border border-warning my-3 mx-auto"><i class="fas fa-tools"></i><p class="m-2"><b>Enregistrer</b></p></button>
+									</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
+			<ul class="navbar-nav text-white m-auto">
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
+				<li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+	<script>
+		function w3_open() {
+			document.getElementById("main").style.marginLeft = "20%";
+			document.getElementById("mySidebar").style.width = "20%";
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("openNav").style.display = 'none';
+			document.getElementById("titre").style.marginLeft = "5%";
+			document.getElementById("myOverlay").style.display = "block";
+		}
+		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0%";
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+			document.getElementById("titre").style.marginLeft = "0%";
+			document.getElementById("myOverlay").style.display = "none";
+		}
+	</script>
+</body>
+
+</html>

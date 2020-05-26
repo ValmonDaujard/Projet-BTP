@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ReunionsMO</title>
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/dashboard.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+<body style="background-color: #F8F8F8">
+
+	<header>
+<!-- 	Affichage Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
+		
+<!-- 	Affichage Menu avec bouton close dans la Sidebar -->
+			<div class="rowMenu row border-bottom border-warning">
+				<h1 class="m-auto">MENU</h1>
+				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+			</div>
+			
+<!-- 	Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+		</div>
+
+<!-- 	Affichage du bandeau en-tête -->
+		<div id="main">
+			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+				<div class="my-auto ml-5 mr-4">
+					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+				</div>
+				<div id="titre" class="my-auto col-sm-9">
+					<h1 class="policeTitle">BTP MANAGEMENT</h1>
+				</div>
+				<div class="m-auto">
+					<button class="btn text-white policeTitle border-left" id="user"><i class="fas fa-user fa-3x mt-1"></i>
+					<h6>Nom de l'utilisateur</h6>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+	
+	<div class="container-fluid">
+		<div class="row mx-auto">
+				<div class="col-md-1 grid-margin">
+					<i class="fas fa-arrow-left " style="font-size: 32px"></i>
+				</div>
+				<div class="col-md-10 grid-margin">
+					<div>
+						<h4 class="font-weight-bold mb-0" style="text-align: center;">Réunion</h4>
+					</div>
+				</div>
+		</div>
+			<div class="row">
+				<div class="col-md-3 grid-margin stretch-card">
+					<div class="card shadow p-3 mb-5 bg-white rounded">
+						<div class="card-body">
+							<p class="card-title text-md-center text-xl-left">Date</p>
+							<div
+								class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+								<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">08/04/2020</h3>
+								<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 grid-margin stretch-card mx-auto">
+					<div class="card shadow p-3 mb-5 bg-white rounded">
+						<div class="card-body">
+							<p class="card-title text-md-center text-xl-left">Nom Réunion</p>
+							<div
+								class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+								<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Mise en place</h3>
+								<i class="fas fa-users"
+									style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 grid-margin stretch-card">
+					<div class="card shadow p-3 mb-5 bg-white rounded">
+						<div class="card-body">
+							<p class="card-title text-md-center text-xl-left">Motif</p>
+							<div
+								class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+								<p class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Début et commandes</p>
+								<i class="fas fa-ellipsis-v"
+									style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-wrapper">
+				<div class="row"  >
+					<div class="col-md-12 grid-margin stretch-card" >
+						<h4 class="font-weight-bold mb-0">Compte-rendu</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 grid-margin stretch-card">
+					<div class="card shadow p-3 mb-5 bg-white rounded"  style="height:400px;">
+						<div class="card-body">
+							<button type="button" class="btn btn-primary">Ajout d'un document
+							<i class="far fa-file-pdf"
+									style="font-size: 30px"></i></button>
+							<br><br>
+							  <form action="/action_page.php">
+    							<div class="form-group">
+     								 <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+     								  <button type="submit" class="btn btn-primary">Soumettre</button>
+   								 </div>
+ 							 </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<footer>
+		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
+			<ul class="navbar-nav text-white m-auto">
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
+				<li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</footer>
+	
+	<script>
+		function w3_open() { 
+		document.getElementById("main").style.marginLeft = "20%";
+ 			document.getElementById("mySidebar").style.width = "20%";
+ 			document.getElementById("mySidebar").style.display = "block";
+ 			document.getElementById("openNav").style.display = 'none';
+ 			document.getElementById("titre").style.marginLeft = "5%";
+ 			document.getElementById("myOverlay").style.display = "block";
+ 		}
+ 		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0%";
+ 			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+ 			document.getElementById("titre").style.marginLeft = "0%";
+ 			document.getElementById("myOverlay").style.display = "none";
+		} 
+	</script>  
+	
+</body>
+</html>
