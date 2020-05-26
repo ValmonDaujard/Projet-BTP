@@ -1,17 +1,17 @@
 <!DOCTYPE html>
+
+<html>
 <head>
 <meta charset="UTF-8">
 <title>ActionMO</title>
 <link
 	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link
-	href="C:/java/workspace/BTP/src/main/resources/static/css/dashboard.css"
-	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+
 </head>
 <body style="background-color: #F8F8F8">
 
@@ -129,9 +129,12 @@
 				<div class="col-md-12 grid-margin stretch-card">
 					<div class="card shadow p-3 mb-5 bg-white rounded"  style="height:400px;">
 						<div class="card-body">
-							<button type="button" class="btn btn-primary">Ajout d'un document
-							<i class="far fa-file-pdf"
-									style="font-size: 30px"></i></button>
+							<div >
+						<label class="btn btn-primary"><b>Ajouter un document</b>
+   						 <input  class="customInput" type="file" style="display:none" />  						 
+ 						</label>
+ 						<label  id="nomFichier"></label>
+						</div>
 							<br><br>
 							  <form action="/action_page.php">
     							<div class="form-group">
