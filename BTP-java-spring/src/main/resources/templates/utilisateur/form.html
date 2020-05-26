@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>Création de compte</title>
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<script>
+	function w3_open() {
+		document.getElementById("main").style.marginLeft = "20%";
+		document.getElementById("mySidebar").style.width = "20%";
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("openNav").style.display = 'none';
+		document.getElementById("titre").style.marginLeft = "5%";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+	function w3_close() {
+		document.getElementById("main").style.marginLeft = "0%";
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("openNav").style.display = "inline-block";
+		document.getElementById("titre").style.marginLeft = "0%";
+		document.getElementById("myOverlay").style.display = "none";
+	}
+</script>
+</head>
+<body>
+	<header>
+	<!-- Affichage Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
+		
+	<!-- Affichage Menu avec bouton close dans la Sidebar -->
+			<div class="rowMenu row border-bottom border-warning">
+				<h1 class="m-auto">MENU</h1>
+				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+			</div>
+			
+	<!-- Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+		</div>
+
+	<!-- Affichage du bandeau en-tête -->
+		<div id="main">
+			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+				<div class="my-auto ml-5 mr-4">
+					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+				</div>
+				<div id="titre" class="my-auto col-sm-9">
+					<h1 class="policeTitle">BTP MANAGEMENT</h1>
+				</div>
+				<div class="m-auto">
+					<button class="btn text-white policeTitle border-left" id="user"><i class="fas fa-user fa-3x mt-1"></i>
+					<h6>Nom de l'utilisateur</h6>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+
+	<form method="post">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column justify-content-center">
+				<div class="row">
+					<div class="col-lg-6 col-md-8 mx-auto">
+		<div class="card mt-3">
+			<div class="card-header bg-dark text-white">
+				<h3>Création de compte</h3>
+			</div>
+			<div class="card-body">
+				<!-- 				<div class="form-group"> -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-warning text-dark">Maître
+						d'ouvrage</button>
+					<button type="button" class="btn btn-dark text-white">Maître
+						d'oeuvre</button>
+					<button type="button" class="btn btn-warning text-dark">Prestataire</button>
+				</div>
+				<!-- 					<div class="custom-control custom-radio"> -->
+				<!-- 						<input type="radio" class="custom-control-input" id="maitreOuvrage" name="maitreOuvrageRadio">  -->
+				<!-- 							<label class="custom-control-label" for="maitreOuvrage">Maître d'ouvrage</label> -->
+				<!-- 						<input type="radio" class="custom-control-input" id="maitreOeuvre" name="maitreOeuvreRadio">  -->
+				<!-- 							<label class="custom-control-label" for="maitreOeuvre">Maître d'oeuvre</label> -->
+				<!-- 						<input type="radio" class="custom-control-input" id="prestataire" name="prestataireRadio">  -->
+				<!-- 							<label class="custom-control-label" for="prestataire">Prestataire</label> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+				<div class="form-group">
+					<label for="nom">Nom:</label> <input type="text"
+						class="form-control" id="nom" name="nom" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="prenom">Prénom:</label> <input type="text"
+						class="form-control" id="prenom" name="prenom" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="mail">Email:</label> <input type="email"
+						class="form-control" id="mail" name="mail" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="telephone">Téléphone:</label> <input type="text"
+						class="form-control" id="telephone" name="telephone" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="siret">Numéro de Siret:</label> <input type="number"
+						class="form-control" id="siret" name="siret" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="tva">Numéro de TVA:</label> <input type="number"
+						class="form-control" id="tva" name="tva" style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="identifiant">Identifiant</label> <input type="text"
+						class="form-control" id="identifiant" name="identifiant"
+						style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="mdp">Mot de Passe</label> <input type="password"
+						class="form-control" id="mdp" name="mdp"
+						style="border-radius: 25px">
+				</div>
+				<div class="form-group">
+					<label for="mdpConfirmed">Confirmation du mot de passe</label> <input type="password"
+						class="form-control" id="mdpConfirmed" name="mdpConfirmed"
+						style="border-radius: 25px">
+				</div>
+			</div>
+			<div class="card-footer">
+				<div class="btn-group btn-group-lg float-right">
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-check"></i>
+					</button>
+					<a class="btn btn-warning"> <i class="fa fa-undo"></i>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</form>
+	<br/>
+	
+	<footer>
+		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
+			<ul class="navbar-nav text-white m-auto">
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
+				<li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+</body>
+</html>
