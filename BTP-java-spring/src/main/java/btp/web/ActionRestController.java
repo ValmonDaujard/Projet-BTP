@@ -47,10 +47,10 @@ public class ActionRestController {
 		}
 	}
 	
-	@GetMapping("/by-project-and-effectuee/{nom}:{effectuee}")
+	@GetMapping("/by-project-and-effectuee/{id}:{effectuee}")
 	@JsonView(Views.ViewAction.class)
-	public List<Action> findAllByProjetAndEffectuee(@PathVariable String nom, @PathVariable Boolean effectuee) {
-		return actionRepo.findAllByProjetAndEffectuee(nom, effectuee);
+	public List<Action> findAllByProjetAndEffectuee(@PathVariable Long id, @PathVariable Boolean effectuee) {
+		return actionRepo.findAllByProjetAndEffectuee(id, effectuee);
 	}
 	
 	@PostMapping("")

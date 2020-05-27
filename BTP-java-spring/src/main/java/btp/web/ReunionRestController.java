@@ -1,6 +1,5 @@
 package btp.web;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,10 +48,16 @@ public class ReunionRestController {
 		}
 	}
 	
-	@GetMapping("/by-date/{dtReunion}")
+	@GetMapping("/effectuee")
 	@JsonView(Views.ViewReunion.class)
-	public List<Reunion> findAllByDate(@PathVariable Date dtReunion){
-		return reunionRepo.findAllByDate(dtReunion);
+	public List<Reunion> findAllEffectuee(){
+		return reunionRepo.findAllEffectuee();
+	}
+	
+	@GetMapping("/planifiee")
+	@JsonView(Views.ViewReunion.class)
+	public List<Reunion> findAllPlanifiee(){
+		return reunionRepo.findAllPlanifiee();
 	}
 	
 	@PostMapping("")
