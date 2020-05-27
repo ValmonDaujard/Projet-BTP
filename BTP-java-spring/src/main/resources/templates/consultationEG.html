@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Consultation EG</title>
+<link
+	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+<body style="background-color: #F8F8F8">
+
+	<header>
+	<!-- Affichage Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
+		
+	<!-- Affichage Menu avec bouton close dans la Sidebar -->
+			<div class="rowMenu row border-bottom border-warning">
+				<h1 class="m-auto">MENU</h1>
+				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+			</div>
+			
+	<!-- Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
+			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+		</div>
+
+	<!-- Affichage du bandeau en-tête -->
+		<div id="main">
+			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+				<div class="my-auto ml-5 mr-4">
+					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+				</div>
+				<div id="titre" class="my-auto col-sm-9">
+					<h1 class="policeTitle">BTP MANAGEMENT</h1>
+				</div>
+				<div class="m-auto">
+					<button class="btn text-white policeTitle border-left" id="user"><i class="fas fa-user fa-3x mt-1"></i>
+					<h6>Nom de l'utilisateur</h6>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+	
+	<div class="container-fluid">
+<!-- 	<div class="container-fluid" style="font-family: 'Didact Gothic', sans-serif;"> -->
+
+			<h4 class="my-5" style="text-align: center; font-family: 'Didact Gothic', sans-serif;">
+							Liste des consultations</h4>
+							
+			<div class="card shadow my-5 mx-auto pr-5 pl-5" style="width: 1200px">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3 class="font-weight-bold mb-0 my-3">Projet : nom du projet</h3>
+					</div>
+					<div class="card-body">
+						<div class="row ml-3 py-4">
+							<label class="col-sm-2 col-form-label" for="maitreOeuvre"> Maître d'œuvre : </label>
+							<div class="form-control col-sm-9 text-center" id="maitreOeuvre" style="border-radius: 20px;">Nom du maitre d'oeuvre</div>
+						</div>
+						<div class="row ml-3 py-4">
+							<label class="col-sm-2 col-form-label" for="projet"> Projet : </label>
+							<div class="form-control col-sm-9 text-center" id="projet" style="border-radius: 20px;">Nom du projet</div>
+						</div>
+						<div class="row ml-3 py-4">
+							<label class="col-sm-2 col-form-label" for="lieu"> Lieu : </label>
+							<div class="form-control col-sm-9 text-center" id="lieu" style="border-radius: 20px;">Lieu du projet</div>
+						</div>
+						<div class="row ml-3 py-4">
+							<label class="col-sm-2 col-form-label" for="date"> Date : </label>
+							<div class="form-control col-sm-9 text-center" id="date" style="border-radius: 20px;">Date de la consultation</div>
+						</div>
+						<div  class="row ml-3 py-4">
+							<label class="col-sm-4 col-form-label pb-3" for="motifConsult"> Motif de la consultation : </label>
+							<div class="ml-3 form-control" id="date" style="border-radius: 20px; height: 200px;">Texte</div>
+						</div>
+					</div>
+			</div>
+			<div class="row mb-5">
+				<button class="btn btn-outline-warning mx-auto p-3"><b>Refuser la consultation</b></button>
+				<button class="btn btn-outline-warning mx-auto p-3"><b>Répondre à la consultation</b></button>
+			</div>
+	</div>
+	
+	<footer>
+		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
+			<ul class="navbar-nav text-white m-auto">
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+				<li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
+				<li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+	<script>
+		function w3_open() {
+			document.getElementById("main").style.marginLeft = "20%";
+			document.getElementById("mySidebar").style.width = "20%";
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("openNav").style.display = 'none';
+			document.getElementById("titre").style.marginLeft = "5%";
+			document.getElementById("myOverlay").style.display = "block";
+		}
+		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0%";
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+			document.getElementById("titre").style.marginLeft = "0%";
+			document.getElementById("myOverlay").style.display = "none";
+		}
+	</script>
+</body>
+</html>
