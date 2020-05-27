@@ -6,9 +6,6 @@
 <link
 	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link
-	href="C:/java/workspace/BTP/src/main/resources/static/css/dashboard.css"
-	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <!-- <link -->
@@ -16,6 +13,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 </head>
 <body style="background-color: #F8F8F8">
 
@@ -55,302 +54,377 @@
 		</div>
 	</header>
 	
-	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
 	
-	<div class="container-fluid">
-			<div class="row mx-auto">
-				<div class="col-md-1 grid-margin">
-					<i class="fas fa-arrow-left " style="font-size: 32px"></i>
-				</div>
-				<div class="col-md-10 grid-margin">
-					<div>
-						<h3 class="font-weight-bold mb-0" style="text-align: center;">Projet Mairie St Médard</h3>
-					</div>
-				</div>
-			</div>
-			<div class="row mx-auto">
-				<div class="col-md-2 grid-margin">
-						<h3 class="font-weight-bold mb-0" style="text-align: center;">Prestations :</h3>
-				</div>
-			</div>
-		<div class="row">
-			<div class="card col shadow my-4 ml-5 mr-4">
-				<div class="card-header bg-white border-bottom border-warning">
-						<div class="row">
-<!-- 							<h3 class="font-weight-bold mb-0 my-3">Prestation en cours : </h3> -->
-<!-- 							<select > -->
-<!--    								<option>Sélectionnez</option> -->
-<!--     							<option>Install. Clim</option> -->
-<!--     							<option>Isolation</option> -->
-<!-- 							</select> -->
-							<h4>Prestation en cours : </h4>
-							<div class="dropdown col-md-2">
-    							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     								 Sélectionnez
-    							</button>
-    								<div class="dropdown-menu">
-   									    <a class="dropdown-item" href="#">Install. Clim</a>
-      									<a class="dropdown-item" href="#">Isolation</a>
-  							  		</div>
- 							</div>
-						</div>
-						</div>
-				<div class="card-body border-bottom border-grey">
-						<div class="row">
-							<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
-							 <p class="col-md-1"><h4>Date de fin : </h4></p>
-						</div>
-				</div>
-					 <p><h4>Employés affectés : </h4></p>
-							<table class="my-auto table">
-								<thead class="thead-dark">
-									<tr>
-										<th style="width: 19%">Nom</th>
-										<th style="width: 18%">Prénom</th>
-										<th style="width: 22%">Métier</th>
-										<th style="width: 11%" class="text-center">Détails</th>
-										<th style="width: 15%" class="text-center">Modifier</th>
-										<th style="width: 15%" class="text-center">Supprimer</th>
-									</tr>
-								</thead>
-							</table>
-						<div class="scrollTableEmploye">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td style="width: 19%">Dupont</td>
-										<td style="width: 19%">Jean</td>
-										<td style="width: 22%">Plombier Chauffagiste</td>
-										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-									<tr>
-										<td>Dupont</td>
-										<td>Jean</td>
-										<td>Plombier Chauffagiste</td>
-										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-			</div>
-			<div class="card col shadow my-4 ml-5 mr-4">
-					<div class="card-header bg-white border-bottom border-warning">
-			<div class="row">
-<!-- 							<h3 class="font-weight-bold mb-0 my-3">Prestation en cours : </h3> -->
-<!-- 							<select > -->
-<!--    								<option>Sélectionnez</option> -->
-<!--     							<option>Install. Clim</option> -->
-<!--     							<option>Isolation</option> -->
-<!-- 							</select> -->
-							<h4>Prestation plannifiée : </h4>
-							<div class="dropdown col-md-2">
-    							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     								 Sélectionnez
-    							</button>
-    								<div class="dropdown-menu">
-   									    <a class="dropdown-item" href="#">Install. Clim</a>
-      									<a class="dropdown-item" href="#">Isolation</a>
-  							  		</div>
- 							</div>
-						</div>
-						</div>
-				<div class="card-body">
-						<div class="row border-bottom border-grey">
-							<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
-							 <p class="col-md-1"><h4>Prévue le : </h4></p>
-						</div>
-						<div class="row border-bottom border-grey">
-						<p class="col-md-1 "><h4>Durée : </h4></p>
-						</div>
-						
-						<div class="row border-bottom border-grey">
-							<p class="col-md-1"><h4>Employés : </h4></p>
-							
-							<div class="dropdown col-md-3">
-    							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     								 Sélectionnez
-    							</button>
-    								<div class="dropdown-menu">
-   									    <a class="dropdown-item" href="#">Jean DUPONT</a>
-  							  		</div>
- 							</div>
- 							<button type="button" class="btn btn-primary ml-auto">Affecter</button>
- 							</div>
-			
-					 <p><h4>Employés affectés : </h4></p>
-							<table class="my-auto table">
-								<thead class="thead-dark">
-									<tr>
-										<th style="width: 19%">Nom</th>
-										<th style="width: 18%">Prénom</th>
-										<th style="width: 22%">Métier</th>
-										<th style="width: 11%" class="text-center">Détails</th>
-										<th style="width: 15%" class="text-center">Modifier</th>
-										<th style="width: 15%" class="text-center">Supprimer</th>
-									</tr>
-								</thead>
-							</table>
-						<div class="scrollTableEmploye">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td style="width: 19%">Dupont</td>
-										<td style="width: 19%">Jean</td>
-										<td style="width: 22%">Plombier Chauffagiste</td>
-										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-									<tr>
-										<td>Dupont</td>
-										<td>Jean</td>
-										<td>Plombier Chauffagiste</td>
-										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-							</div>
-			</div>
+<div class="container-fluid">
+	<div class="row mx-auto">
+		<div class="col-md-1 grid-margin">
+			<i class="fas fa-arrow-left " style="font-size: 32px"></i>
 		</div>
-		<div class="row">
-			<div class="card col shadow my-4 ml-5 mr-4">
-					<div class="card-header bg-white border-bottom border-warning">
-			<div class="row">
-<!-- 							<h3 class="font-weight-bold mb-0 my-3">Prestation en cours : </h3> -->
-<!-- 							<select > -->
-<!--    								<option>Sélectionnez</option> -->
-<!--     							<option>Install. Clim</option> -->
-<!--     							<option>Isolation</option> -->
-<!-- 							</select> -->
-							<h4>Prestation terminée : </h4>
-							<div class="dropdown col-md-2">
-    							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     								 Sélectionnez
-    							</button>
-    								<div class="dropdown-menu">
-   									    <a class="dropdown-item" href="#">Install. Clim</a>
-      									<a class="dropdown-item" href="#">Isolation</a>
-  							  		</div>
- 							</div>
-						</div>
-						</div>
-				<div class="card-body">
-						<div class="row">
-							<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
-							 <p class="col-md-1"><h4>Date de fin : </h4></p>
-						</div>
-				</div>
-					 <p><h4>Employés affectés : </h4></p>
-							<table class="my-auto table">
-								<thead class="thead-dark">
-									<tr>
-										<th style="width: 19%">Nom</th>
-										<th style="width: 18%">Prénom</th>
-										<th style="width: 22%">Métier</th>
-										<th style="width: 11%" class="text-center">Détails</th>
-										<th style="width: 15%" class="text-center">Modifier</th>
-										<th style="width: 15%" class="text-center">Supprimer</th>
-									</tr>
-								</thead>
-							</table>
-						<div class="scrollTableEmploye">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td style="width: 19%">Dupont</td>
-										<td style="width: 19%">Jean</td>
-										<td style="width: 22%">Plombier Chauffagiste</td>
-										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-									<tr>
-										<td>Dupont</td>
-										<td>Jean</td>
-										<td>Plombier Chauffagiste</td>
-										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-			</div>
-		</div>
-		<div class="row mx-auto">
-				<div class="col-md-2 grid-margin">
-						<h3 class="font-weight-bold mb-0" style="text-align: center;">Actions :</h3>
-				</div>
-		</div>
-		<div class="row">
-			<div class="card col shadow my-4 ml-5 mr-4">
-					<div class="card-header bg-white border-bottom border-warning">
-			<div class="row">
-<!-- 							<h3 class="font-weight-bold mb-0 my-3">Actions traitées : </h3> -->
-<!-- 							<select > -->
-<!--    								<option>Sélectionnez</option> -->
-<!--     							<option>Install. Clim</option> -->
-<!--     							<option>Isolation</option> -->
-<!-- 							</select> -->
-							<h4>Actions traitées : </h4>
-							<div class="dropdown col-md-2">
-    							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     								 Sélectionnez
-    							</button>
-    								<div class="dropdown-menu">
-   									    <a class="dropdown-item" href="#">Install. Clim</a>
-      									<a class="dropdown-item" href="#">Isolation</a>
-  							  		</div>
- 							</div>
-						</div>
-						</div>
-				<div class="card-body">
-					 <p><h4>Employés affectés : </h4></p>
-							<table class="my-auto table">
-								<thead class="thead-dark">
-									<tr>
-										<th style="width: 19%">Nom</th>
-										<th style="width: 18%">Prénom</th>
-										<th style="width: 22%">Métier</th>
-										<th style="width: 11%" class="text-center">Détails</th>
-										<th style="width: 15%" class="text-center">Modifier</th>
-										<th style="width: 15%" class="text-center">Supprimer</th>
-									</tr>
-								</thead>
-							</table>
-						<div class="scrollTableEmploye">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td style="width: 19%">Dupont</td>
-										<td style="width: 19%">Jean</td>
-										<td style="width: 22%">Plombier Chauffagiste</td>
-										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-									<tr>
-										<td>Dupont</td>
-										<td>Jean</td>
-										<td>Plombier Chauffagiste</td>
-										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
-										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+		<div class="col-md-10 grid-margin">
+			<div>
+				<h2 class="font-weight-bold mb-0" style="text-align: center;">Projet Mairie St Médard</h2>
 			</div>
 		</div>
 	</div>
-	
+			
+	<div class="row mx-auto"  style="width:1500px">
+		<div class="card col shadow my-4 ml-5 mr-4">
+			<div class="card-header bg-white border-bottom border-warning">
+				<div class="row" style="display: flex">
+					<h3 class="font-weight-bold mb-0">Prestation en cours : </h3>
+						<div class="pt-2 ml-auto">
+							<select class="form-control col">
+   								<option>Sélectionnez</option>
+    							<option>Install. Clim</option>
+    							<option>Isolation</option>
+							</select>
+						</div>
+				</div>
+			</div>
+			<div class="card-body border-bottom border-grey">
+				<div class="row">
+					<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+			    	<p class="pr-2"><h4>Date de fin : </h4></p>
+				</div>
+			</div>
+				 <p><h4>Employés affectés : </h4></p>
+				<table class="my-auto table">
+					<thead class="thead-dark">
+						<tr>
+							<th style="width: 19%">Nom</th>
+							<th style="width: 18%">Prénom</th>
+							<th style="width: 22%">Métier</th>
+							<th style="width: 11%" class="text-center">Détails</th>
+							<th style="width: 15%" class="text-center">Modifier</th>
+							<th style="width: 15%" class="text-center">Supprimer</th>
+						</tr>
+					</thead>
+				</table>
+				<div class="scrollTableEmploye">
+					<table class="table table-striped">
+						<tbody>
+							<tr>
+								<td style="width: 19%">Dupont</td>
+								<td style="width: 19%">Jean</td>
+								<td style="width: 22%">Plombier Chauffagiste</td>
+								<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+								<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+								<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+							</tr>
+							<tr>
+								<td>Dupont</td>
+								<td>Jean</td>
+								<td>Plombier Chauffagiste</td>
+								<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+								<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+								<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row mx-auto"  style="width:1500px">
+				<div class="card col shadow my-4 ml-5 mr-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<div class="row">
+							<h3 class="font-weight-bold mb-0">Prestation planifiée : </h3>
+								<div class="pt-2 ml-auto">
+									<select class="form-control col">
+   										<option>Sélectionnez</option>
+    									<option>Install. Clim</option>
+    									<option>Isolation</option>
+									</select>
+								</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row border-bottom border-grey">
+							<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+							 <p class="pr-2"><h4>Prévue le : </h4></p>
+						</div>
+						<div class="row border-bottom border-grey">
+							<p class="pr-1 "><h4>Durée : </h4></p>
+						</div>
+						<div class="row border-bottom border-grey">
+							<p class="pr-1"><h4>Employés : </h4></p>
+							<div class="pt-1 pl-2">
+    							<select class="form-control col">
+   									<option>Sélectionnez</option>
+    								<option>Jean Dupont</option>
+    								<option>José Dubois</option>
+								</select>
+ 							</div>
+ 							<button type="button" class="btn btn-primary ml-auto">Affecter</button>
+ 						</div>
+ 					</div>
+					 	<p><h4>Employés affectés : </h4></p>
+						<table class="my-auto table">
+							<thead class="thead-dark">
+								<tr>
+									<th style="width: 19%">Nom</th>
+									<th style="width: 18%">Prénom</th>
+									<th style="width: 22%">Métier</th>
+									<th style="width: 11%" class="text-center">Détails</th>
+									<th style="width: 15%" class="text-center">Modifier</th>
+									<th style="width: 15%" class="text-center">Supprimer</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="scrollTableEmploye">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 19%">Dupont</td>
+										<td style="width: 19%">Jean</td>
+										<td style="width: 22%">Plombier Chauffagiste</td>
+										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="pb-3 pl-2">
+							<button type="button" class="btn btn-primary">Valider</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mx-auto"  style="width:1500px">
+				<div class="card col shadow my-4 ml-5 mr-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<div class="row">
+							<h3 class="font-weight-bold mb-0">Prestation terminée : </h3>
+							<div class="pt-2 ml-auto">
+								<select class="form-control col">
+   									<option>Sélectionnez</option>
+    								<option>Install. Clim</option>
+    								<option>Isolation</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row border-bottom border-grey">
+							<i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+							 <p class="pr-2"><h4>Date de fin : </h4></p>
+						</div>
+					</div>
+					 <p><h4>Employés affectés : </h4></p>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th style="width: 19%">Nom</th>
+										<th style="width: 18%">Prénom</th>
+										<th style="width: 22%">Métier</th>
+										<th style="width: 11%" class="text-center">Détails</th>
+										<th style="width: 15%" class="text-center">Modifier</th>
+										<th style="width: 15%" class="text-center">Supprimer</th>
+									</tr>
+								</thead>
+							</table>
+						<div class="scrollTableEmploye">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 19%">Dupont</td>
+										<td style="width: 19%">Jean</td>
+										<td style="width: 22%">Plombier Chauffagiste</td>
+										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			<div class="row mx-auto"  style="width:1500px">
+				<div class="card col shadow my-4 ml-5 mr-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<div class="row">
+							<h3 class="font-weight-bold mb-0">Actions traitées : </h3>
+								<div class="pt-2 ml-auto">
+									<select class="form-control col">
+   										<option>Sélectionnez</option>
+    									<option>Install. Clim</option>
+    									<option>Isolation</option>
+									</select>
+								</div>
+						</div>
+					</div>
+					<div>
+					 <p><h4>Employés affectés : </h4></p>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th style="width: 19%">Nom</th>
+										<th style="width: 18%">Prénom</th>
+										<th style="width: 22%">Métier</th>
+										<th style="width: 11%" class="text-center">Détails</th>
+										<th style="width: 15%" class="text-center">Modifier</th>
+										<th style="width: 15%" class="text-center">Supprimer</th>
+									</tr>
+								</thead>
+							</table>
+						<div class="scrollTableEmploye">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 19%">Dupont</td>
+										<td style="width: 19%">Jean</td>
+										<td style="width: 22%">Plombier Chauffagiste</td>
+										<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+										<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+										<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="card col shadow my-4 ml-5 mr-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<div class="row">
+							<h3 class="font-weight-bold mb-0">Actions demandées : </h3>
+								<div class="pt-2 ml-auto">
+									<select class="form-control col">
+   										<option>Sélectionnez</option>
+    									<option>Install. Clim</option>
+    									<option>Isolation</option>
+									</select>
+								</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row border-bottom border-grey">
+						<p><h4>Employés : </h4></p>
+							<div class="pt-1 pl-2">
+    							<select class="form-control col">
+   									<option>Sélectionnez</option>
+    								<option>Jean Dupont</option>
+    								<option>José Dubois</option>
+								</select>
+							</div>
+ 							<button type="button" class="btn btn-primary ml-auto">Affecter</button>
+ 						</div>
+ 					</div>
+ 			<div>
+					<p><h4>Employés affectés : </h4></p>
+					<table class="my-auto table">
+						<thead class="thead-dark">
+							<tr>
+								<th style="width: 19%">Nom</th>
+								<th style="width: 18%">Prénom</th>
+								<th style="width: 22%">Métier</th>
+								<th style="width: 11%" class="text-center">Détails</th>
+								<th style="width: 15%" class="text-center">Modifier</th>
+								<th style="width: 15%" class="text-center">Supprimer</th>
+							</tr>
+						</thead>
+					</table>
+				<div class="scrollTableEmploye">
+					<table class="table table-striped">
+						<tbody>
+							<tr>
+								<td style="width: 19%">Dupont</td>
+								<td style="width: 19%">Jean</td>
+								<td style="width: 22%">Plombier Chauffagiste</td>
+								<td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+								<td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+								<td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+							</tr>
+							<tr>
+								<td>Dupont</td>
+								<td>Jean</td>
+								<td>Plombier Chauffagiste</td>
+								<td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+								<td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+								<td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="pb-3 pl-2">
+					<button class="btn btn-primary">Valider</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mx-auto"  style="width:1500px">
+		<div class="card col shadow my-4 ml-5 mr-4">
+			<div class="card-header bg-white">
+				<div class="row">
+					<h3 class="font-weight-bold mb-0">Factures émises : </h3>
+						<div class="pt-2 pl-2">
+							<select class="form-control col">
+   								<option>Sélectionnez</option>
+    							<option>Install. Clim</option>
+    							<option>Isolation</option>
+							</select>
+						</div>
+					<button class="btn btn-primary ml-auto">Créer et envoyer une facture</button>
+				</div>
+			</div>
+		</div>
+		<div class="card col shadow my-4 ml-5 mr-4">
+			<div class="card-header bg-white">
+				<div class="row">
+					<h3 class="font-weight-bold mb-0">Factures validées : </h3>
+						<div class="pt-2 ml-auto">
+							<select class="form-control col">
+   								<option>Sélectionnez</option>
+    							<option>Install. Clim</option>
+    							<option>Isolation</option>
+							</select>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mx-auto pl-4" style="width:1455px">
+		<div class="card shadow p-3 mb-5 bg-white rounded">
+			<div class="card-body">
+				<div class="row">
+					<h3 class="font-weight-bold mb-0">Documents relatifs :</h3>
+						<div class="pt-2 ml-auto">
+							<label class="btn btn-primary"><b>Ajouter un document</b>
+   							 <input  class="customInput" type="file" style="display:none" />  						 
+ 							</label>
+ 							<label  id="nomFichier"></label>
+ 						</div>
+ 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
 	<footer>
 		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
 			<ul class="navbar-nav text-white m-auto">
@@ -381,3 +455,4 @@
 
 </body>
 </html>
+
