@@ -216,78 +216,70 @@
 
 						</div>
 						<div class="card-body">
-							<div style="display: flex; margin-bottom: 5%"></div>
-							<div class="list-wrapper pt-2">
-								<ul
-									class="d-flex flex-column-reverse todo-list todo-list-custom"
-									style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-									<li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
+							<div>
+								<table class="my-auto table">
+									<thead class="thead-dark">
+										<tr>
+											<th style="width: 30%">Action</th>
+											<th style="width: 20%">Entreprise</th>		
+											<th style="width: 20%"></th>								
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="scrollTablePrestations">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td style="width: 30%">		<div class="form-check form-check-flat">
 											<label class="form-check-label"> <input
 												class="checkbox" type="checkbox"> Réparation
 												flexible hydraulique pelle Kobelco 20T
 											</label>
-										</div>
-										<button class="btn text-danger border border-danger"
-											style="margin-left: auto">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</li>
-									<li class="completed"
-										style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
+										</div></td>
+											<td style="width: 19%">Non définie</td>
+										<td style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"><i class="fas fa-times"></i></span></td>
+										
+										<tr>
+											<td style="width: 30%"><div class="form-check form-check-flat">
 											<label class="form-check-label"> <input
 												class="checkbox" type="checkbox" checked> Livraison
 												compacteur V4
 											</label>
-										</div>
-										<button class="btn text-danger border border-danger"
-											style="margin-left: auto">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</li>
-									<li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
+										</div></td>
+											<td style="width: 19%">Non définie</td>
+											<td style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"><i class="fas fa-times"></i></span></td>
+									
+										</tr>
+										<tr>
+											<td style="width: 30%"><div class="form-check form-check-flat">
 											<label class="form-check-label"> <input
 												class="checkbox" type="checkbox"> Passage balayeuse
 												hebdomadaire
 											</label>
-										</div>
-										<button class="btn text-danger border border-danger"
-											style="margin-left: auto">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</li>
-									<li class="completed"
-										style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
+										</div></td>
+											<td style="width: 19%">Colas </td>
+											<td style="width: 19%"><span style="font-size: 32px; color: rgb(246, 194, 59)"><i class="fas fa-check"></i></span></td>
+											
+										</tr>	
+										<tr>
+											<td style="width: 30%"><div class="form-check form-check-flat">
 											<label class="form-check-label"> <input
-												class="checkbox" type="checkbox" checked> Ranger
-												l'atelier
+												class="checkbox" type="checkbox"> Passage balayeuse
+												hebdomadaire
 											</label>
-										</div>
-										<button class="btn text-danger border border-danger"
-											style="margin-left: auto">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</li>
-									<li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
-											<label class="form-check-label"> <input
-												class="checkbox" type="checkbox"> Faire livrer des
-												bacs pour tri selectif
-											</label>
-										</div>
-										<button class="btn text-danger border border-danger"
-											style="margin-left: auto">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</li>
-								</ul>
+										</div></td>
+											<td style="width: 19%">Colas</td>
+											<td style="width: 19%"><span style="font-size: 32px; color: rgb(246, 194, 59)"><i class="fas fa-check 9x"></i></span></td>
+											
+										</tr>							
+									</tbody>
+								</table>
 							</div>
+							<div style="display: flex; margin-bottom: 5%"></div>							
 							<div class="add-items d-flex mb-0 mt-4">
 								<input type="text" class="form-control todo-list-input mr-2"
-									placeholder="Créer une nouvelle action">
+									placeholder="Affecter une entreprise générale aux tâches sélectionnées">
 								<button
 									class="add btn btn-icon text-warning todo-list-add-btn bg-transparent">
 									<i class="far fa-check"></i>
@@ -313,13 +305,21 @@
 									class="d-flex flex-column-reverse todo-list todo-list-custom"
 									style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
 									<li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-										<div class="form-check form-check-flat">
-											<label class="form-check-label"> <input
-												class="checkbox" type="checkbox"> Changer godet
+										<div >
+											<label >  Changer godet 	
 											</label>
 										</div>
-								
+										<div style="margin-left: auto">
+										<button class="btn text-warning border border-warning"
+											>
+											Voir détail
+										</button>
+										<button class="btn text-danger border border-danger">
+											<i class="fas fa-trash-alt"></i>
+										</button>
+										</div>
 									</li>
+									</ul>
 							</div>
 						</div>
 					</div>
