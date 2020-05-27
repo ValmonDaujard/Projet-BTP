@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,18 +23,19 @@ import btp.persistence.IPrestationSupplementaireRepository;
 import btp.model.Views;
 
 @RestController
+@RequestMapping("/prestationSupplementaire")
 public class PrestationSupplementaireRestController {
 
 	@Autowired
 	private IPrestationSupplementaireRepository prestationSupplementaireRepo;
 
-	@GetMapping("/prestationSupplementaire")
+	@GetMapping("")
 	@JsonView(Views.ViewPrestationSupplementaire.class)
 	public List<PrestationSupplementaire> findAll() {
 		return prestationSupplementaireRepo.findAll();
 	}
 
-	@GetMapping("/prestationSupplementaire/{id}")
+	@GetMapping("/{id}")
 	@JsonView(Views.ViewPrestationSupplementaire.class)
 	public PrestationSupplementaire find(@PathVariable Long id) {
 
@@ -46,14 +48,14 @@ public class PrestationSupplementaireRestController {
 		}
 	}
 	
-	@PostMapping("/prestationSupplementaire")
+	@PostMapping("")
 	public PrestationSupplementaire create(@RequestBody PrestationSupplementaire prestationSupplementaire) {
 		prestationSupplementaire = prestationSupplementaireRepo.save(prestationSupplementaire);
 
 		return prestationSupplementaire;
 	}
 	
-	@PutMapping("/prestationSupplementaire/{id}")
+	@PutMapping("/{id}")
 	public PrestationSupplementaire update(@RequestBody PrestationSupplementaire prestationSupplementaire, @PathVariable Long id) {
 		if (!prestationSupplementaireRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -63,11 +65,8 @@ public class PrestationSupplementaireRestController {
 
 		return prestationSupplementaire;
 	}
-
-// 	@Patch
-//	{}
 	
-	@DeleteMapping("/prestationSupplementaire/{id}")
+	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
 		prestationSupplementaireRepo.deleteById(id);
 	}

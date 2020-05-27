@@ -47,6 +47,12 @@ public class FactureRestController {
 		}
 	}
 	
+	@GetMapping("/by-projet-and-payee/{id}:{payee}:{nomPresta}")
+	@JsonView(Views.ViewFacture.class)
+	public List<Facture> findAllByProjetAndPayee(@PathVariable Long id, @PathVariable Boolean payee, @PathVariable("nomPresta") String nom){
+		return factureRepo.findAllByProjetAndPayee(id, payee, nom);
+	}
+	
 	@PostMapping("")
 	public Facture create(@RequestBody Facture facture) {
 		facture = factureRepo.save(facture);
@@ -69,5 +75,4 @@ public class FactureRestController {
 	public void delete (@PathVariable Long id) {
 		factureRepo.deleteById(id);
 	}
-	
 }

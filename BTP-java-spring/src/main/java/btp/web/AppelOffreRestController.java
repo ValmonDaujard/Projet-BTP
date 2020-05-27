@@ -69,5 +69,4 @@ public class AppelOffreRestController {
 	public void delete (@PathVariable Long id) {
 		appelOffreRepo.deleteById(id);
 	}
-	
 }

@@ -23,15 +23,15 @@ public class Societe {
 	private Long id;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@Column(unique=true)
+//	@Column(unique=true)
 	@JsonView(Views.ViewCommon.class)
 	private String siret;
 	@JsonView(Views.ViewCommon.class)
 	private String telephone;
-	@Column(unique=true)
+//	@Column(unique=true)
 	@JsonView(Views.ViewCommon.class)
 	private String mail;
-	@Column(unique=true)
+//	@Column(unique=true)
 	@JsonView(Views.ViewCommon.class)
 	private String numeroDeTva;
 	

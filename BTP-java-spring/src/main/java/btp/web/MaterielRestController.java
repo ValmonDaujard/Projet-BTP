@@ -46,6 +46,12 @@ public class MaterielRestController {
 		}
 	}
 	
+	@GetMapping("/by-entreprise/{nom}")
+	@JsonView(Views.ViewMateriel.class)
+	public List<Materiel> findByEntreprise(@PathVariable String nom){
+		return materielRepo.findByEntreprise(nom);
+	}
+	
 	@PostMapping("")
 	public Materiel create(@RequestBody Materiel materiel) {
 		materiel = materielRepo.save(materiel);
@@ -68,7 +74,5 @@ public class MaterielRestController {
 	public void delete (@PathVariable Long id) {
 		materielRepo.deleteById(id);
 	}
-
-
 }
 
