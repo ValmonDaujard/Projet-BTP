@@ -1,17 +1,17 @@
 <!DOCTYPE html>
+
+<html>
 <head>
 <meta charset="UTF-8">
 <title>ActionMO</title>
 <link
 	href="C:/java/workspace/BTP/src/main/resources/static/css/layout.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link
-	href="C:/java/workspace/BTP/src/main/resources/static/css/dashboard.css"
-	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+
 </head>
 <body style="background-color: #F8F8F8">
 
@@ -60,7 +60,7 @@
 				</div>
 				<div class="col-md-10 grid-margin">
 					<div>
-						<h4 class="font-weight-bold mb-0" style="text-align: center;">Action</h4>
+						<h2 class="font-weight-bold mb-0" style="text-align: center;">Action</h2>
 					</div>
 				</div>
 		</div>
@@ -84,7 +84,7 @@
 							<p class="card-title text-md-center text-xl-left">Nom Action</p>
 							<div
 								class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-								<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Isolation Toit</h3>
+								<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Isolation toit</h3>
 								<i class="fas fa-drafting-compass"
 									style="font-size: 32px; color: rgb(246, 194, 59)"></i>
 							</div>
@@ -118,31 +118,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-wrapper">
-				<div class="row"  >
-					<div class="col-md-12 grid-margin stretch-card" >
-						<h4 class="font-weight-bold mb-0">Compte-rendu</h4>
-					</div>
-				</div>
+	<div class="mx-auto">
+		<div class="card shadow p-1 mb-5 bg-white rounded">
+			<div class="card-body">
+				<div class="row">
+					<h3 class="font-weight-bold mb-0">Documents relatifs :</h3>
+						<div class="pt-2 ml-auto">
+							<label class="btn btn-primary"><b>Ajouter un document</b>
+   							 <input  class="customInput" type="file" style="display:none" />  						 
+ 							</label>
+ 							<label  id="nomFichier"></label>
+ 						</div>
+ 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 grid-margin stretch-card">
-					<div class="card shadow p-3 mb-5 bg-white rounded"  style="height:400px;">
-						<div class="card-body">
-							<button type="button" class="btn btn-primary">Ajout d'un document
-							<i class="far fa-file-pdf"
-									style="font-size: 30px"></i></button>
-							<br><br>
-							  <form action="/action_page.php">
-    							<div class="form-group">
-     								 <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-     								  <button type="submit" class="btn btn-primary">Soumettre</button>
-   								 </div>
- 							 </form>
-						</div>
-					</div>
-				</div>
-			</div>
+		</div>
+	</div>
 		</div>
 	<footer>
 		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">

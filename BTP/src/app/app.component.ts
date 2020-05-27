@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BTP';
+  constructor(public router: Router){}
 
   w3_open() {
     document.getElementById("main").style.marginLeft = "20%";
@@ -24,3 +26,8 @@ export class AppComponent {
     document.getElementById("myOverlay").style.display = "none";
   }
 }
+
+
+
+
+
