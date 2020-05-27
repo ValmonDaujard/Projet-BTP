@@ -3,7 +3,6 @@ package btp.web;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,8 +18,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.Reunion;
-import btp.persistence.IReunionRepository;
 import btp.model.Views;
+import btp.persistence.IReunionRepository;
 
 @RestController
 @RequestMapping("/reunion")

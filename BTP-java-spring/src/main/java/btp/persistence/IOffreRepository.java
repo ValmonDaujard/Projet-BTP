@@ -11,7 +11,7 @@ import btp.model.Offre;
 public interface IOffreRepository extends JpaRepository<Offre, Long> {
 
 	//Liste des appels offre en consultation pour le maitre oeuvre 
-	@Query("select o from Offre o where o.etat = consult and o.maitreOeuvre.id = :id")
+	@Query("select o from Offre o where o.etat = 'consult' and o.maitreOeuvre.id = :id")
 	List<Offre> findAllByMaitreOeuvreEnConsult(@Param("id") Long id);
 	
 }

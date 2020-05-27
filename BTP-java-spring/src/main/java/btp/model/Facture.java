@@ -20,6 +20,7 @@ public class Facture {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
@@ -29,6 +30,7 @@ public class Facture {
 	
 	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFacturation;
 	
 	@JsonView(Views.ViewCommon.class)
@@ -39,6 +41,7 @@ public class Facture {
 	
 	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtEcheance;
 	
 	@JsonView(Views.ViewCommon.class)

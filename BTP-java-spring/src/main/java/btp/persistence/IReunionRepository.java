@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import btp.model.Reunion;
 
 public interface IReunionRepository extends JpaRepository<Reunion, Long>{
-
 	
 	//Affichage des reunions effectuées
 	@Query("select r from Reunion r where r.dtReunion < current_date")

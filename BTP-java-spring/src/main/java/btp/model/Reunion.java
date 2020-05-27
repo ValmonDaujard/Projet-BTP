@@ -22,6 +22,7 @@ public class Reunion {
 	private String sujet;
 	@JsonView(Views.ViewCommon.class)
 	private Integer numeroCompteRendu;
+	@Temporal(TemporalType.DATE)
 	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	private Date dtReunion;
