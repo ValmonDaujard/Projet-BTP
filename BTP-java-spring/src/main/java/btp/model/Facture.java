@@ -12,32 +12,44 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Facture {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
+	@JsonView(Views.ViewCommon.class)
 	private int numeroFacture;
 	
+	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	private Date dtFacturation;
 	
+	@JsonView(Views.ViewCommon.class)
 	private Float prixHT;
 	
+	@JsonView(Views.ViewCommon.class)
 	private Float remise;
 	
+	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	private Date dtEcheance;
 	
+	@JsonView(Views.ViewCommon.class)
 	private Float penaliteRetard;
 	
+	@JsonView(Views.ViewCommon.class)
 	private Boolean payee;
 	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
+	@JsonView(Views.ViewCommon.class)
 	private Prestataire prestataire;
 	
 	@ManyToOne
@@ -47,6 +59,7 @@ public class Facture {
 	private MaitreOuvrage maitreOuvrage;
 	
 	@OneToOne
+	@JsonView(Views.ViewCommon.class)
 	private Projet projet;
 	
 	@OneToOne

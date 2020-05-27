@@ -12,6 +12,6 @@ import btp.model.Action;
 public interface IActionRepository extends JpaRepository<Action, Long>{
 
 	//affichage des actions par projet et par etat
-	@Query("select a from Action a where a.projet.offre.appelOffre.nom = :nom and a.effectuee = :effectuee")
-	List<Action> findAllByProjetAndEffectuee(@Param("nom") String nom, @Param("effectuee") Boolean effectuee);
+	@Query("select a from Action a where a.projet.id = :id and a.effectuee = :effectuee")
+	List<Action> findAllByProjetAndEffectuee(@Param("id") Long id, @Param("effectuee") Boolean effectuee);
 }

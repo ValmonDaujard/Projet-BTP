@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -21,6 +23,7 @@ public class Reunion {
 	@JsonView(Views.ViewCommon.class)
 	private Integer numeroCompteRendu;
 	@JsonView(Views.ViewCommon.class)
+	@Temporal(TemporalType.DATE)
 	private Date dtReunion;
 	@ManyToOne
 	@JoinColumn(name= "projet_id")

@@ -17,6 +17,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -36,6 +38,7 @@ public class Prestation {
 	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut ;
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyy")
 	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	private PhasePresta phasePresta;
