@@ -3,9 +3,9 @@
 	layout:decorator="layout2.html">
 <head>
 <meta charset="UTF-8">
-<title>Connexion</title>
+<title>Réponse appel d'offre</title>
 <link
-	href="C:\java\workspace\BTP\src\main\resources\static\css\default.css"
+	href="C:\java\workspace\BTP\src\main\resources\static\css\layout.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -32,43 +32,523 @@
 </head>
 <body>
 	<header>
-	<!-- Affichage Sidebar -->
-		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"	style="display: none; z-index: 5" id="mySidebar">
-		
-	<!-- Affichage Menu avec bouton close dans la Sidebar -->
+		<!-- Affichage Sidebar -->
+		<div
+			class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"
+			style="display: none; z-index: 5" id="mySidebar">
+
+			<!-- Affichage Menu avec bouton close dans la Sidebar -->
 			<div class="rowMenu row border-bottom border-warning">
 				<h1 class="m-auto">MENU</h1>
 				<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
 			</div>
-			
-	<!-- Affichage contenu (liens) de la Sidebar -->
-			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Appels	d'offre	</a> 
-			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> 
-			<a href="#" class="w3-bar-item btn btn-dark p-5"><i class="fas fa-tasks mr-4 text-warning"></i> Actions	</a> 
-			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="fas fa-users mr-4 text-warning"></i> Réunions </a> 
-			<a href="#" class="w3-bar-item btn btn-dark p-5"> <i class="far fa-calendar-alt mr-4 text-warning"></i> Planning </a>
+
+			<!-- Affichage contenu (liens) de la Sidebar -->
+			<a href="#" class="w3-bar-item btn btn-dark p-5"><i
+				class="fas fa-angle-double-right mr-4 text-warning"></i> Appels
+				d'offre </a> <a href="#" class="w3-bar-item btn btn-dark p-5"><i
+				class="fas fa-angle-double-right mr-4 text-warning"></i> Projets </a> <a
+				href="#" class="w3-bar-item btn btn-dark p-5"><i
+				class="fas fa-tasks mr-4 text-warning"></i> Actions </a> <a href="#"
+				class="w3-bar-item btn btn-dark p-5"> <i
+				class="fas fa-users mr-4 text-warning"></i> Réunions
+			</a> <a href="#" class="w3-bar-item btn btn-dark p-5"> <i
+				class="far fa-calendar-alt mr-4 text-warning"></i> Planning
+			</a>
 		</div>
 
-	<!-- Affichage du bandeau en-tête -->
+		<!-- Affichage du bandeau en-tête -->
 		<div id="main">
-			<div class="row bg-dark text-white headerLayout border-bottom border-dark">
+			<div
+				class="row bg-dark text-white headerLayout border-bottom border-dark">
 				<div class="my-auto ml-5 mr-4">
-					<button id="openNav" class="btn btn-dark px-3 py-2 w3-xlarge border" onclick="w3_open()">&#9776;</button>
+					<button id="openNav"
+						class="btn btn-dark px-3 py-2 w3-xlarge border"
+						onclick="w3_open()">&#9776;</button>
 				</div>
 				<div id="titre" class="my-auto col-sm-9">
 					<h1 class="policeTitle">BTP MANAGEMENT</h1>
 				</div>
 				<div class="m-auto">
-					<button class="btn text-white policeTitle border-left" id="user"><i class="fas fa-user fa-3x mt-1"></i>
-					<h6>Nom de l'utilisateur</h6>
+					<button class="btn text-white policeTitle border-left" id="user">
+						<i class="fas fa-user fa-3x mt-1"></i>
+						<h6>Nom de l'utilisateur</h6>
 					</button>
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" id="myOverlay"></div>
+	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()"
+		style="cursor: pointer" id="myOverlay"></div>
 
-	
+	<div class="container-fluid">
+		<div class="col">
+			<div class="card col mr-3 my-4 mx-4">
+				<div class="card-header bg-white border-bottom border-warning">
+					<h3>Appels d'offres</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<table class="my-auto table">
+							<thead class="thead-dark">
+								<tr>
+									<th class="text-center" style="width: 20%">Dénomination</th>
+									<th class="text-center" style="width: 25%">Date limite</th>
+									<th class="text-center" style="width: 50%">Adresse</th>
+									<th class="text-center" style="width: 5%">Détails</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div>
+						<table class="mx-auto table table-striped">
+							<tbody>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 20%">Lidl</td>
+									<td class="text-center" style="width: 25%">02/11/2020</td>
+									<td class="text-center" style="width: 50%">99 rue des
+										Dunes, 5400 SAINT-MALO</td>
+									<td class="text-center" style="width: 5%"><button
+											class="btn btn-warning">
+											<i class="fas fa-info-circle"></i>
+										</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="card col my-4 mx-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3>Sélection des entreprises</h3>
+					</div>
+					<div class="my-4">
+						<form>
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Sélectionnez une
+									EG</label> <select class="form-control" id="exampleFormControlSelect1">
+									<option>EG 1</option>
+									<option>EG 2</option>
+									<option>EG 3</option>
+									<option>EG 4</option>
+									<option>EG 5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="descriptif">Décrivez le motif de la
+									consultation</label>
+								<textarea class="form-control" id="descriptif" rows="3"></textarea>
+							</div>
+						</form>
+					</div>
+					<div>
+						<table class="my-auto table">
+							<thead class="thead-dark">
+								<tr>
+									<th class="text-center" style="width: 70%">Entreprise</th>
+									<th class="text-center" style="width: 15%">Ajouter</th>
+									<th class="text-center" style="width: 15%">Supprimer</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div>
+						<table class="mx-auto table table-striped">
+							<tbody>
+								<tr>
+									<td class="text-center" style="width: 70%">Lidl</td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-primary">
+											<i class="fas fa-plus-circle"></i>
+										</button></td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-danger">
+											<i class="fas fa-ban"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 70%">Lidl</td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-primary">
+											<i class="fas fa-plus-circle"></i>
+										</button></td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-danger">
+											<i class="fas fa-ban"></i>
+										</button></td>
+								</tr>
+								<tr>
+									<td class="text-center" style="width: 70%">Lidl</td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-primary">
+											<i class="fas fa-plus-circle"></i>
+										</button></td>
+									<td class="text-center" style="width: 15%"><button
+											class="btn btn-danger">
+											<i class="fas fa-ban"></i>
+										</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card col my-4 mx-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3>Réponse des entreprises génrérales</h3>
+					</div>
+					<div class="my-4">
+						<h5>Les entreprises suivantes ont répondus à vos
+							consultations !</h5>
+					</div>
+					<div class="my-1">
+						<div>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th class="text-center" style="width: 20%">Entreprise</th>
+										<th class="text-center" style="width: 30%">Prestation</th>
+										<th class="text-center" style="width: 10%">Prix</th>
+										<th class="text-center" style="width: 15%">Supprimer</th>
+										<th class="text-center" style="width: 15%">Ajouter</th>
+										<th class="text-center" style="width: 10%">Statut</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div>
+							<table class="mx-auto table table-striped table-dark">
+								<tbody>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 30%">Fondations</td>
+										<td class="text-center" style="width: 10%">250€</td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-primary">
+												<i class="fas fa-plus-circle"></i>
+											</button></td>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<td class="text-center" style="width: 10%"><div
+												class="progress">
+												<div class="progress-bar progress-bar-striped bg-warning "
+													role="progressbar" style="width: 50%" aria-valuenow="50"
+													aria-valuemin="0" aria-valuemax="100"></div>
+											</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="card col my-4 mx-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3>Construction de votre offre</h3>
+					</div>
+					<div class="my-4">
+						<div>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th class="text-center" style="width: 20%">Société</th>
+										<th class="text-center" style="width: 35%">Prestation</th>
+										<th class="text-center" style="width: 10%">Prix</th>
+										<th class="text-center" style="width: 15%">Supprimer</th>
+										<th class="text-center" style="width: 20%">Taux de marge</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div>
+							<table class="mx-auto table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 35%">Fondations</td>
+										<th class="text-center" style="width: 10%">250€</th>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<th class="text-center" style="width: 20%">25%</th>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 35%">Fondations</td>
+										<th class="text-center" style="width: 10%">250€</th>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<th class="text-center" style="width: 20%">25%</th>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 35%">Fondations</td>
+										<th class="text-center" style="width: 10%">250€</th>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<th class="text-center" style="width: 20%">25%</th>
+									</tr>
+									<tr>
+										<td class="text-center" style="width: 20%">Lidl</td>
+										<td class="text-center" style="width: 35%">Fondations</td>
+										<th class="text-center" style="width: 10%">250€</th>
+										<td class="text-center" style="width: 15%"><button
+												class="btn btn-danger">
+												<i class="fas fa-ban"></i>
+											</button></td>
+										<th class="text-center" style="width: 20%">25%</th>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="5"><button
+												class="btn btn-block btn-primary tx-tfm">
+												Ajouter une ligne<br /> <i class="fas fa-plus"></i>
+											</button></td>
+									</tr>
+									<tr>
+										<td colspan="3">Prix Total HT</td>
+										<td colspan="2">14 000€</td>
+									<tr>
+										<td colspan="3">Prix Total TTC</td>
+										<td colspan="2">19 000€</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<br />
+						<button class="btn btn-block btn-warning tx-tfm">
+							Valider et envoyer votre offre au maitre d'ouvrage<br /> <i
+								class="fas fa-cart-plus"></i>
+						</button>
+					</div>
+				</div>
+				<div class="card col my-4 mx-4">
+					<div class="card-header bg-white border-bottom border-warning">
+						<h3>Calendar</h3>
+					</div>
+					<div class="row">
+						<div class="ml-5 my-1">
+							<div class="my-1">
+								<form>
+									<div class="card col my-4 mx-4">
+										<div class="card-header bg-white border-bottom border-warning">
+											<h3>Prestation</h3>
+										</div>
+										<div class="form-group my-3">
+											<label for="exampleFormControlSelect1">Sélectionnez
+												une EG</label> <select class="form-control"
+												id="exampleFormControlSelect1">
+												<option>Presta 1</option>
+												<option>Presta 2</option>
+												<option>Presta 3</option>
+												<option>Presta 4</option>
+												<option>Presta 5</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="descriptif">Date de Début</label> <input
+												type="date"></input>
+										</div>
+										<div class="form-group">
+											<label for="descriptif">Date de Début</label> <input
+												type="date"></input>
+										</div>
+									</div>
+								</form>
+								<br/>
+							</div>
+							<div class="my-1">
+								<form>
+									<div class="card col my-4 mx-4">
+										<div class="card-header bg-white border-bottom border-warning">
+											<h3>Projet</h3>
+										</div>
+										<div class="form-group my-3">
+											<label for="descriptif">Date de Début</label> <input
+												type="date"></input>
+										</div>
+										<div class="form-group">
+											<label for="descriptif">Date de Début</label> <input
+												type="date"></input>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="ml-5 my-1">
+							<i class="far fa-9x fa-calendar-alt"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
