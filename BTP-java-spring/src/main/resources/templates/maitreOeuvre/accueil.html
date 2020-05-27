@@ -24,7 +24,7 @@
 
 .container-fluid {
 	width: 1500px;
-	margin-bottom: 100px;
+ 	margin-bottom: 100px; 
 	padding-bottom: 20px;
 }
 
@@ -41,7 +41,11 @@
 }
 
 .tabProjet {
-	height: 400px;
+	height: 300px;
+	overflow: auto;
+}
+.tabAppel {
+	height: 300px;
 	overflow: auto;
 }
 </style>
@@ -58,7 +62,7 @@
 				<h2>Projets en cours</h2>
 			</div>
 			<div>
-				<input class="form-control" id="searchTable" type="text"
+				<input class="form-control" type="text"
 					placeholder="Chercher un projet..."
 					style="margin: 10px; width: 300px">
 			</div>
@@ -226,15 +230,12 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- 		Appels offres en attentes -->
-
 		<div class="container-fluid card mt-3 shadow">
 			<div class="card-header text-white">
 				<h2>Appels d'offre en attente</h2>
 			</div>
 			<div>
-				<input class="form-control" id="searchTableAppel" type="text"
+				<input class="form-control" type="text"
 					placeholder="Chercher un appel d'offre..."
 					style="margin: 10px; width: 300px">
 			</div>
@@ -243,31 +244,66 @@
 					<thead class="thead-dark">
 						<tr>
 							<th style="width: 20%">Nom</th>
-							<th style="width: 18%">Lieu</th>
+							<th style="width: 17.5%">Lieu</th>
 							<th style="width: 22%">Objectif</th>
-							<th style="width: 26%" class="text-center">Date limite de réponse</th>
-							<th style="width: 14%">Détails</th>
+							<th style="width: 26%" >Date limite de réponse</th>
+							<th style="width: 14.5%">Détails</th>
 						</tr>
 					</thead>
 				</table>
-				<table id="tabAppel" class="table table-striped">
-					<thead>
-						<tr>
-							<th>Nom</th>
-							<th>Lieu</th>
-							<th>Objectif</th>
-							<th>Date limite de réponse</th>
-							<th>Détails</th>
-						</tr>
-					</thead>
-
-					<!-- 					A changer pour projet  -->
+				<div class="tabAppel">
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td>Demol</td>
-							<td>Bordeaux</td>
-							<td>Demolition résidence</td>
-							<td>12/06/2020</td>
+							<td style="width: 20%">Demol</td>
+							<td style="width: 18%">Bordeaux</td>
+							<td style="width: 22%">Demolition résidence</td>
+							<td style="width: 26%">12/06/2020</td>
+							<td style="width: 14%"><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
 							<td><div class="btn-group" style="margin-left: 20px">
 									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
 								</div></td>
@@ -284,6 +320,7 @@
 					</tbody>
 
 				</table>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -291,29 +328,5 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript">
-		$("#searchTableProjet").on(
-				"keyup",
-				function() {
-					var value = $(this).val().toLowerCase();
-					$("#tabProjet tr").filter(
-							function() {
-								$(this).toggle(
-										$(this).text().toLowerCase().indexOf(
-												value) > -1)
-							});
-				});
-		$("#searchTableAppel").on(
-				"keyup",
-				function() {
-					var value = $(this).val().toLowerCase();
-					$("#tabAppel tr").filter(
-							function() {
-								$(this).toggle(
-										$(this).text().toLowerCase().indexOf(
-												value) > -1)
-							});
-				});
-	</script>
 </body>
 </html>
