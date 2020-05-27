@@ -8,6 +8,7 @@ export class Facture {
   dtEcheance: Date;
   penaliteRetard: number;
   payee: boolean;
+  quantite: number;
   // prestataire: Prestataire;
   // maitreOeuvre: MaitreOeuvre;
   // maitreOuvrage: MaitreOuvrage;

@@ -7,9 +7,7 @@ import {FactureComponent} from "./facture/facture.component";
 
 const routes: Routes = [
   {path: "", component: AccueilComponent},
-  {path: "projet", component: ProjetComponent}
-];
-const routes: Routes = [
+  {path: "projet", component: ProjetComponent},
   {path: 'facture', component: FactureComponent}
 ];
 

@@ -12,7 +12,7 @@ import { ProjetComponent } from './projet/projet.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FactureComponent
+    FactureComponent,
     AppComponent,
     AccueilComponent,
     ProjetComponent,
