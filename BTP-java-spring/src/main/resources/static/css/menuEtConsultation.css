@@ -1,0 +1,18 @@
+.scrollTableEmploye {
+	height: 520px;
+	overflow: auto;
+}
+
+.scrollTableMateriel {
+	height: 220px;
+	overflow: auto;
+}
+
+.devis {
+	color: rgb(246, 194, 59);
+	font-weight: bold;
+}
+
+.consultationNomClient {
+	border: solid 1px rgb(246, 194, 59);
+}
