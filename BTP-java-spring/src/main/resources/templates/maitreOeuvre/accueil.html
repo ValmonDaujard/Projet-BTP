@@ -1,154 +1,332 @@
 <!DOCTYPE html>
-<html 	xmlns:th="http://www.thymeleaf.org" 
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-		layout:decorator="C:\java\workspace\BTP\src\main\resources\layout2.html">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="C:\java\workspace\BTP\src\main\resources\layout2.html">
 <head>
 <meta charset="UTF-8">
-<title >Accueil Maitre d'Œuvre</title>
+<title>Accueil Maitre d'Œuvre</title>
 <link
 	href="C:\java\workspace\BTP\src\main\resources\static\css\style.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
 <style type="text/css">
-.card-header{
-background-color: rgb(52,58,64);
+.card-header {
+	background-color: rgb(52, 58, 64);
 }
-.btn-lg{
-background-color: rgb(246,194,59);
+
+.btn-lg {
+	background-color: rgb(246, 194, 59);
 }
-.container-fluid{
-width: 1500px;
-margin-bottom:100px;
-padding-bottom: 20px;
+
+.container-fluid {
+	width: 1500px;
+ 	margin-bottom: 100px; 
+	padding-bottom: 20px;
 }
-.card-header{
-width: 102.1%;
-align-self: center;
+
+.card-header {
+	width: 102.1%;
+	align-self: center;
 }
-.bandeau-accueil{
-background-color: rgb(52,58,64);
-color:white;
-text-align: center;
-margin-bottom: 75px;
+
+.bandeau-accueil {
+	background-color: rgb(52, 58, 64);
+	color: white;
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+.tabProjet {
+	height: 300px;
+	overflow: auto;
+}
+.tabAppel {
+	height: 300px;
+	overflow: auto;
 }
 </style>
 </head>
 <body>
 
 	<section layout:fragment="monContenu">
-	<div class="container-fluid card mt-3 bandeau-accueil shadow"><h1>Accueil Maitre d'Œuvre</h1>
-	</div>
-<!-- 	Projets en Cours -->
+		<div class="container-fluid card mt-3 bandeau-accueil shadow">
+			<h1>Accueil Maitre d'Œuvre</h1>
+		</div>
+		<!-- 	Projets en Cours -->
 		<div class="container-fluid card mt-3 shadow">
-			<div class="card-header text-white" >
-				<h2> Projets en cours</h2>
+			<div class="card-header text-white">
+				<h2>Projets en cours</h2>
 			</div>
 			<div>
-				<input class="form-control" id="searchTable" type="text"
-						placeholder="Chercher un projet..."
-						style="margin: 10px; width: 300px">
+				<input class="form-control" type="text"
+					placeholder="Chercher un projet..."
+					style="margin: 10px; width: 300px">
 			</div>
 			<div class="card-body">
-				<table id="tabProjet" class="table table-striped">
-					<thead>
+				<table class="my-auto table">
+					<thead class="thead-dark">
 						<tr>
-							<th>Nom</th>
-							<th>Lieu</th>
-							<th>N° de devis</th>
-							<th>Date de démarrage</th>
-							<th>Date de fin du projet</th>
-							<th>Détails</th>
+							<th style="width: 18%">Nom</th>
+							<th style="width: 18%">Lieu</th>
+							<th style="width: 17%">N° de devis</th>
+							<th style="width: 18%">Date de démarrage</th>
+							<th style="width: 19%">Date de fin du
+								projet</th>
+							<th style="width: 10%">Détails</th>
 						</tr>
 					</thead>
-				
-					<tbody>
-						<tr>
-							<td>Parking McDo</td>
-							<td>Mérignac</td>
-							<td>152369D</td>
-							<td>12/03/2020</td>
-							<td>20/04/2020</td>
-							<td><div class="btn-group" style="margin-left: 20px"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
-						</tr>
-						<tr th:each="proj : ${projets}">
-							<td>Mairie Talence</td>
-							<td>Talence</td>
-							<td>252769F</td>
-							<td>10/05/2020</td>
-							<td>25/05/2020</td>
-							<td><div class="btn-group" style="margin-left: 20px"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
-						</tr>
-					</tbody>
-					
 				</table>
+				<div class="tabProjet">
+					<table class="table table-striped ">
+						<tbody>
+							<tr>
+								<td style="width: 18%">Parking McDo</td>
+								<td style="width: 18%">Mérignac</td>
+								<td style="width: 18%">152369D</td>
+								<td style="width: 18%">12/03/2020</td>
+								<td style="width: 18%">20/04/2020</td>
+								<td style="width: 10%"><div class="btn-group"
+										style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+							<tr>
+								<td>Mairie Talence</td>
+								<td>Talence</td>
+								<td>252769F</td>
+								<td>10/05/2020</td>
+								<td>25/05/2020</td>
+								<td><div class="btn-group" style="margin-left: 30px">
+										<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+									</div></td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
 			</div>
 		</div>
-		
-<!-- 		Appels offres en attentes -->
-		
 		<div class="container-fluid card mt-3 shadow">
-			<div class="card-header text-white" >
+			<div class="card-header text-white">
 				<h2>Appels d'offre en attente</h2>
 			</div>
 			<div>
-				<input class="form-control" id="searchTableAppel" type="text"
+				<input class="form-control" type="text"
 					placeholder="Chercher un appel d'offre..."
 					style="margin: 10px; width: 300px">
 			</div>
 			<div class="card-body">
-				<table id="tabAppel" class="table table-striped">
-					<thead>
+				<table class="my-auto table">
+					<thead class="thead-dark">
 						<tr>
-							<th>Nom</th>
-							<th>Lieu</th>
-							<th>Objectif</th>
-							<th>Date limite de réponse</th>
-							<th>Détails</th>
+							<th style="width: 20%">Nom</th>
+							<th style="width: 17.5%">Lieu</th>
+							<th style="width: 22%">Objectif</th>
+							<th style="width: 26%" >Date limite de réponse</th>
+							<th style="width: 14.5%">Détails</th>
 						</tr>
 					</thead>
-				
-<!-- 					A changer pour projet  -->
+				</table>
+				<div class="tabAppel">
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td>Demol</td>
-							<td>Bordeaux</td>
-							<td>Demolition résidence</td>
-							<td>12/06/2020</td>
-							<td><div class="btn-group" style="margin-left: 20px"><a class="btn btn-sm btn-lg" ><i class="fas fa-info"></i></a></div></td>
+							<td style="width: 20%">Demol</td>
+							<td style="width: 18%">Bordeaux</td>
+							<td style="width: 22%">Demolition résidence</td>
+							<td style="width: 26%">12/06/2020</td>
+							<td style="width: 14%"><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
 						</tr>
 						<tr>
 							<td>Mairie Talence</td>
 							<td>Talence</td>
 							<td>Chantier CVC</td>
 							<td>10/05/2020</td>
-							<td><div class="btn-group" style="margin-left: 20px"><a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a></div></td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Mairie Talence</td>
+							<td>Talence</td>
+							<td>Chantier CVC</td>
+							<td>10/05/2020</td>
+							<td><div class="btn-group" style="margin-left: 20px">
+									<a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+								</div></td>
 						</tr>
 					</tbody>
-					
+
 				</table>
+				</div>
 			</div>
 		</div>
 	</section>
-	
+
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript">
-	$("#searchTableProjet").on("keyup", function() {
-		  var value = $(this).val().toLowerCase();
-		  $("#tabProjet tr").filter(function() {
-		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		   });
-	});
-	$("#searchTableAppel").on("keyup", function() {
-		  var value = $(this).val().toLowerCase();
-		  $("#tabAppel tr").filter(function() {
-		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		   });
-	});
-	</script>
 </body>
 </html>
