@@ -28,7 +28,6 @@ public class Facture {
 	@JsonView(Views.ViewCommon.class)
 	private int numeroFacture;
 	
-	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	@JsonView(Views.ViewCommon.class)
 	private Date dtFacturation;
@@ -39,7 +38,6 @@ public class Facture {
 	@JsonView(Views.ViewCommon.class)
 	private Float remise;
 	
-	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	@JsonView(Views.ViewCommon.class)
 	private Date dtEcheance;

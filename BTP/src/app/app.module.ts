@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProjetComponent } from './projet/projet.component';
 import { HomeComponent } from './home/home.component';
+import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HomeComponent } from './home/home.component';
     AccueilComponent,
     ProjetComponent,
     HomeComponent,
-
+    GestionMaterielSalarieComponent,
   ],
   imports: [
     BrowserModule,

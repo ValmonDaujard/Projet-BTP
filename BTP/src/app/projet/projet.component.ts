@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 })
 export class ProjetComponent implements OnInit {
 
-  projetForm: Projet = null;
+  projet: Projet = new Projet();
 
   constructor(private projetService: ProjetService) {
   }
@@ -23,32 +23,32 @@ export class ProjetComponent implements OnInit {
   }
 
   add() {
-    this.projetForm = new Projet();
+    this.projet = new Projet();
   }
 
   edit(id: number) {
-    this.projetService.findById(id).subscribe(resp => this.projetForm = resp, error => console.log(error));
+    this.projetService.findById(id).subscribe(resp => this.projet = resp, error => console.log(error));
   }
 
   save() {
-    if (!this.projetForm.id) {
-      this.projetService.create(this.projetForm).subscribe(resp => {
-          this.projetForm = null;
+    if (!this.projet.id) {
+      this.projetService.create(this.projet).subscribe(resp => {
+          this.projet = null;
           this.projetService.load();
         },
         error => console.log(error)
       )
       ;
     } else {
-      this.projetService.modify(this.projetForm).subscribe(resp => {
-        this.projetForm = null;
+      this.projetService.modify(this.projet).subscribe(resp => {
+        this.projet = null;
         this.projetService.load();
       }, error => console.log(error));
     }
   }
 
   cancel() {
-    this.projetForm = null;
+    this.projet = null;
   }
 
   delete(id: number) {
