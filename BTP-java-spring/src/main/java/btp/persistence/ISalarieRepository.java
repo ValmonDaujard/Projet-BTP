@@ -8,12 +8,18 @@ import org.springframework.data.repository.query.Param;
 
 import btp.model.Salarie;
 
-public interface ISalarieRepository extends JpaRepository<Salarie, Long>{
+public interface ISalarieRepository extends JpaRepository<Salarie, Long> {
 
-	@Query("select s from Salarie s where s.prestataire.nom = :nom")
-	List<Salarie> findByEntreprise(@Param("nom") String nom);
-	
-	@Query("select s from Salarie s join s.prestations presta where presta.offre.appelOffre.nom = :nom")
-	List<Salarie> findByProjet(@Param("nom") String nom);
-	
+	// Salariés par entreprise
+	@Query("select s from Salarie s where s.prestataire.id = :id")
+	List<Salarie> findByEntreprise(@Param("id") String id);
+
+	// Salariés sur une prestation (vue entreprise)
+	@Query("select s from Salarie s join s.prestations presta where presta.id = :id")
+	List<Salarie> findByPrestation(@Param("id") Long id);
+
+	// Salariés sur une action (vue entreprise)
+	@Query("select s from Salarie s join s.actions acts where acts.id = :id")
+	List<Salarie> findByAction(@Param("id") Long id);
+
 }

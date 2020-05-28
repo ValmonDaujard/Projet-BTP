@@ -51,23 +51,47 @@ public class PrestationRestController {
 		}
 	}
 	
-	@GetMapping("/en-cours-par-projet/{nom}")
+	@GetMapping("/par-projet/{id}")
 	@JsonView(Views.ViewPrestation.class)
-	public List<Prestation> findPrestationEnCoursParProjet(@PathVariable String nom){
-		return prestationRepo.findPrestationEnCoursParProjet(nom);
+	public List<Prestation> findAllByProjet(@PathVariable Long id){
+		return prestationRepo.findAllByProjet(id);
 	}
 	
-	@GetMapping("/effectuee-par-projet/{nom}")
+	@GetMapping("/en-cours-par-projet/{id}")
 	@JsonView(Views.ViewPrestation.class)
-	public List<Prestation> findPrestationEffectuéeParProjet(@PathVariable String nom){
-		return prestationRepo.findPrestationEffectuéeParProjet(nom);
+	public List<Prestation> findPrestationEnCoursParProjet(@PathVariable Long id){
+		return prestationRepo.findPrestationEnCoursParProjet(id);
+	}
+	
+	@GetMapping("/effectuee-par-projet/{id}")
+	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findPrestationEffectuéeParProjet(@PathVariable Long id){
+		return prestationRepo.findPrestationEffectuéeParProjet(id);
 	}
 	
 	
-	@GetMapping("/planifiee-par-projet/{nom}")
+	@GetMapping("/planifiee-par-projet/{id}")
 	@JsonView(Views.ViewPrestation.class)
-	public List<Prestation> findPrestationPlanifiéeParProjet(@PathVariable String nom){
-		return prestationRepo.findPrestationPlanifiéeParProjet(nom);
+	public List<Prestation> findPrestationPlanifiéeParProjet(@PathVariable Long id){
+		return prestationRepo.findPrestationPlanifiéeParProjet(id);
+	}
+	
+	@GetMapping("/en-cours-par-projet-par-EG/{id}:{idPresta}")
+	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findPrestationEnCoursParProjetParEG(@PathVariable Long id, @PathVariable Long idPresta){
+		return prestationRepo.findPrestationEnCoursParProjetParEG(id, idPresta);
+	}
+	
+	@GetMapping("/effectuee-par-projet-par-EG/{id}:{idPresta}")
+	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findPrestationEffectuéeParProjetParEG(@PathVariable Long id, @PathVariable Long idPresta){
+		return prestationRepo.findPrestationEffectuéeParProjetParEG(id, idPresta);
+	}
+	
+	@GetMapping("/planifiee-par-projet-par-EG/{id}:{idPresta}")
+	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findPrestationPlanifiéeParProjetParEG(@PathVariable Long id, @PathVariable Long idPresta){
+		return prestationRepo.findPrestationPlanifiéeParProjetParEG(id, idPresta);
 	}
 	
 	@GetMapping("/by-phase/{phase}:{id}")

@@ -11,6 +11,7 @@ import btp.model.Action;
 import btp.model.Adresse;
 import btp.model.AppelOffre;
 import btp.model.Categorie;
+import btp.model.Civilite;
 import btp.model.Etat;
 import btp.model.Facture;
 import btp.model.MaitreOeuvre;
@@ -441,8 +442,8 @@ class BtpApplicationTests {
 		bouygues = prestataireRepository.save(bouygues);
 
 		// salarié
-		Salarie jeanLouis = new Salarie("DUCHMON", "Jean-Louis", "Cariste");
-		Salarie jeanJacques = new Salarie("TRUC", "Jean-Jacques", "Carreleur");
+		Salarie jeanLouis = new Salarie(Civilite.M, "DUCHMON", "Jean-Louis", "Cariste");
+		Salarie jeanJacques = new Salarie(Civilite.M, "TRUC", "Jean-Jacques", "Carreleur");
 
 		jeanLouis = salarieRepository.save(jeanLouis);
 		jeanJacques = salarieRepository.save(jeanJacques);
@@ -509,8 +510,8 @@ class BtpApplicationTests {
 		presta2 = prestationRepository.save(presta2);
 
 		// salarié
-		Salarie jeanLouis = new Salarie("DUCHMON", "Jean-Louis", "Cariste");
-		Salarie jeanJacques = new Salarie("TRUC", "Jean-Jacques", "Carreleur");
+		Salarie jeanLouis = new Salarie(Civilite.M, "DUCHMON", "Jean-Louis", "Cariste");
+		Salarie jeanJacques = new Salarie(Civilite.M, "TRUC", "Jean-Jacques", "Carreleur");
 
 		jeanLouis = salarieRepository.save(jeanLouis);
 		jeanJacques = salarieRepository.save(jeanJacques);
@@ -578,8 +579,8 @@ class BtpApplicationTests {
 	@Test
 	public void salarie() throws ParseException {
 		// salarié
-		Salarie jeanLouis = new Salarie("DUCHMON", "Jean-Louis", "Cariste");
-		Salarie jeanJacques = new Salarie("TRUC", "Jean-Jacques", "Carreleur");
+		Salarie jeanLouis = new Salarie(Civilite.M, "DUCHMON", "Jean-Louis", "Cariste");
+		Salarie jeanJacques = new Salarie(Civilite.M, "TRUC", "Jean-Jacques", "Carreleur");
 
 		// prestataire
 		Prestataire colas = new Prestataire("COLAS", "448631348", "0593671425", "colas@groupecolas.fr",

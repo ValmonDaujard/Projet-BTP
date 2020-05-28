@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,6 +26,9 @@ public class Salarie {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
+	private Civilite civilite;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
@@ -65,16 +70,12 @@ public class Salarie {
 		super();
 	}
 	
-	public Salarie(String nom, String prenom, String metier) {
+	public Salarie(Civilite civilite, String nom, String prenom, String metier) {
 		super();
+		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.metier = metier;
-	}
-
-	public Salarie(String nom) {
-		super();
-		this.nom = nom;
 	}
 
 	public Long getId() {
@@ -91,6 +92,14 @@ public class Salarie {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+	
+	public Civilite getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
 	}
 
 	public String getNom() {

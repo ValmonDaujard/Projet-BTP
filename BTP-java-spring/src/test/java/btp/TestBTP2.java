@@ -9,6 +9,7 @@ import btp.model.Action;
 import btp.model.Adresse;
 import btp.model.AppelOffre;
 import btp.model.Categorie;
+import btp.model.Civilite;
 import btp.model.Etat;
 import btp.model.Facture;
 import btp.model.MaitreOeuvre;
@@ -148,8 +149,8 @@ public class TestBTP2 {
 		
 		
 		// salariés
-		Salarie jeanLouis = new Salarie("DUCHMON", "Jean-Louis", "Cariste");
-		Salarie jeanJacques = new Salarie("TRUC", "Jean-Jacques", "Carreleur");
+		Salarie jeanLouis = new Salarie(Civilite.M, "DUCHMON", "Jean-Louis", "Cariste");
+		Salarie jeanJacques = new Salarie(Civilite.M, "TRUC", "Jean-Jacques", "Carreleur");
 		
 		
 		// utilisateurs
