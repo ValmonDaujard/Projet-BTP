@@ -4,6 +4,7 @@ import {Prestation} from "./prestation";
 
 export class Offre{
   id:number;
+  version: number;
   prix: number;
   numeroDevis: number;
   dtDebut: Date;
@@ -13,7 +14,7 @@ export class Offre{
   // appelOffre: AppelOffre;
 
 
-  constructor(id?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date) {
+  constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date) {
     this.id = id;
     this.prix = prix;
     this.numeroDevis = numeroDevis;

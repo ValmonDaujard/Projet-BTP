@@ -4,6 +4,7 @@ import {Projet} from "./projet";
 
 export class Action {
   id: number;
+  version: number;
   nomAction: string;
   dtCreation: Date;
   dtLimite: Date;
@@ -14,7 +15,7 @@ export class Action {
   // projet: Projet;
 
 
-  constructor(id?: number, nomAction?: string, dtCreation?: Date, dtLimite?: Date, description?: string, effectuee?: boolean) {
+  constructor(id?: number,version?: number, nomAction?: string, dtCreation?: Date, dtLimite?: Date, description?: string, effectuee?: boolean) {
     this.id = id;
     this.nomAction = nomAction;
     this.dtCreation = dtCreation;
