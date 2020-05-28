@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Facture} from "../model/facture";
+import {FactureService} from "./facture.service";
 
 @Component({
   selector: 'app-facture',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FactureComponent implements OnInit {
 
-  constructor() { }
+  factureForm: Facture = new Facture();
+
+  constructor(private factureService : FactureService) { }
 
   ngOnInit(): void {
   }
+
+  save() {
+      this.factureService.create(this.factureForm).subscribe(resp => {
+          this.factureForm = null;
+        },
+        error => console.log(error)
+      )
+      ;
+    }
+
+  // cancel() {
+  //   this.factureForm = null;
+  // }
 
 }
