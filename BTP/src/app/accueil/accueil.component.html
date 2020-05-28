@@ -61,21 +61,21 @@
                 </div>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="identifiant">Identifiant</label> <input
-                    type="text" class="form-control" id="identifiant"
-                    name="identifiant" style="border-radius: 25px">
+                    <label for="identifiantForm">Identifiant</label> <input
+                    type="text" class="form-control" id="identifiantForm"
+                    name="identifiantForm" style="border-radius: 25px">
                   </div>
                   <div class="form-group">
-                    <label for="mdp">Mot de Passe</label> <input type="password"
-                                                                 class="form-control" id="mdp" name="mdp"
+                    <label for="mdpForm">Mot de Passe</label> <input type="password"
+                                                                 class="form-control" id="mdpForm" name="mdpForm"
                                                                  style="border-radius: 25px">
                     <button class="input-group-text">
                       <i class="fas fa-eye"></i>
                     </button>
                   </div>
                   <div class="col-md-12 text-center ">
-                    <button type="submit" class=" btn btn-block btn-dark tx-tfm "
-                            style="border-radius: 50px" >Connexion</button>
+                    <button data-toggle="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "
+                            style="border-radius: 50px" (click)="accueil()">Connexion</button>
                   </div>
                   <br />
                   <div class="col-md-12 text-center ">

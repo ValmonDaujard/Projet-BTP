@@ -16,7 +16,7 @@ public class Utilisateur {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
-	@Column(unique=true)
+//	@Column(unique=true)
 	@JsonView(Views.ViewCommon.class)
 	private String identifiant;
 	private String motDePasse;

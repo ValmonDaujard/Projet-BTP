@@ -18,8 +18,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.Action;
-import btp.persistence.IActionRepository;
 import btp.model.Views;
+import btp.persistence.IActionRepository;
 
 @RestController
 @RequestMapping("/action")
@@ -45,6 +45,12 @@ public class ActionRestController {
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+	}
+	
+	@GetMapping("/by-project-and-effectuee/{id}:{effectuee}")
+	@JsonView(Views.ViewAction.class)
+	public List<Action> findAllByProjetAndEffectuee(@PathVariable Long id, @PathVariable Boolean effectuee) {
+		return actionRepo.findAllByProjetAndEffectuee(id, effectuee);
 	}
 	
 	@PostMapping("")

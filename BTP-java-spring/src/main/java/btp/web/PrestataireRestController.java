@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,18 +23,19 @@ import btp.persistence.IPrestataireRepository;
 import btp.model.Views;
 
 @RestController
+@RequestMapping("/prestataire")
 public class PrestataireRestController {
 
 	@Autowired
 	private IPrestataireRepository prestataireRepo;
 
-	@GetMapping("/prestataire")
+	@GetMapping("")
 	@JsonView(Views.ViewPrestataire.class)
 	public List<Prestataire> findAll() {
 		return prestataireRepo.findAll();
 	}
 
-	@GetMapping("/prestataire/{id}")
+	@GetMapping("/{id}")
 	@JsonView(Views.ViewPrestataire.class)
 	public Prestataire find(@PathVariable Long id) {
 
@@ -46,14 +48,14 @@ public class PrestataireRestController {
 		}
 	}
 	
-	@PostMapping("/prestataire")
+	@PostMapping("")
 	public Prestataire create(@RequestBody Prestataire prestataire) {
 		prestataire = prestataireRepo.save(prestataire);
 
 		return prestataire;
 	}
 	
-	@PutMapping("/prestataire/{id}")
+	@PutMapping("/{id}")
 	public Prestataire update(@RequestBody Prestataire prestataire, @PathVariable Long id) {
 		if (!prestataireRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -63,11 +65,8 @@ public class PrestataireRestController {
 
 		return prestataire;
 	}
-
-// 	@Patch
-//	{}
 	
-	@DeleteMapping("/prestataire/{id}")
+	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
 		prestataireRepo.deleteById(id);
 	}

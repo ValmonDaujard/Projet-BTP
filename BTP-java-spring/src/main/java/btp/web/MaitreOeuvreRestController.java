@@ -69,6 +69,4 @@ public class MaitreOeuvreRestController {
 	public void delete (@PathVariable Long id) {
 		maitreOeuvreRepo.deleteById(id);
 	}
-
-
 }

@@ -10,8 +10,9 @@ import btp.model.Materiel;
 
 public interface IMaterielRepository extends JpaRepository<Materiel, Long>{
 
-	@Query("select m from Materiel m where m.prestataire.nom = :nom")
-	List<Materiel> findByEntreprise(@Param("nom") String nom);
+	
+	@Query("select m from Materiel m where m.prestataire.id = :id")
+	List<Materiel> findByEntreprise(@Param("id") Long id);
 	
 	
 }

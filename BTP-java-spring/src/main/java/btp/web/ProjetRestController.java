@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,18 +23,19 @@ import btp.persistence.IProjetRepository;
 import btp.model.Views;
 
 @RestController
+@RequestMapping("/projet")
 public class ProjetRestController {
 
 	@Autowired
 	private IProjetRepository projetRepo;
 
-	@GetMapping("/projet")
+	@GetMapping("")
 	@JsonView(Views.ViewProjet.class)
 	public List<Projet> findAll() {
 		return projetRepo.findAll();
 	}
 
-	@GetMapping("/projet/{id}")
+	@GetMapping("/{id}")
 	@JsonView(Views.ViewProjet.class)
 	public Projet find(@PathVariable Long id) {
 
@@ -46,14 +48,31 @@ public class ProjetRestController {
 		}
 	}
 	
-	@PostMapping("/projet")
+	@GetMapping("/by-maitre-ouvrage/{id}")
+	@JsonView(Views.ViewProjet.class)
+	public List<Projet> findAllByMaitreOuvrage(@PathVariable Long id) {
+		return projetRepo.findAllByMaitreOuvrage(id);
+	}
+	
+	@GetMapping("/by-maitre-oeuvre/{id}")
+	@JsonView(Views.ViewProjet.class)
+	public List<Projet> findAllByMaitreOeuvre(@PathVariable Long id){
+		return projetRepo.findAllByMaitreOeuvre(id);
+	}
+	@GetMapping("/by-prestataire/{id}")
+	@JsonView(Views.ViewProjet.class)
+	public List<Projet> findAllByPrestataire(@PathVariable Long id){
+		return projetRepo.findAllByPrestataire(id);
+	}
+	
+	@PostMapping("")
 	public Projet create(@RequestBody Projet projet) {
 		projet = projetRepo.save(projet);
 
 		return projet;
 	}
 	
-	@PutMapping("/projet/{id}")
+	@PutMapping("/{id}")
 	public Projet update(@RequestBody Projet projet, @PathVariable Long id) {
 		if (!projetRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -64,10 +83,7 @@ public class ProjetRestController {
 		return projet;
 	}
 
-// 	@Patch
-//	{}
-	
-	@DeleteMapping("/projet/{id}")
+	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
 		projetRepo.deleteById(id);
 	}

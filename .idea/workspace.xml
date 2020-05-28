@@ -21,6 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1ec045c7-5531-4914-9f8c-db8589132ad9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/MenuGestionSalarieMateriel.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/MenuGestionSalarieMateriel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/ReponseConsultationEG.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/ReponseConsultationEG.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/consultationEG.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/consultationEG.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/accueil/accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/accueil/accueil.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/app.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <updated>1590497381644</updated>
       <workItem from="1590497382846" duration="2411000" />
       <workItem from="1590503697199" duration="1308000" />
-      <workItem from="1590565529151" duration="1990000" />
+      <workItem from="1590565529151" duration="3456000" />
     </task>
     <servers />
   </component>

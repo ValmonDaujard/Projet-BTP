@@ -6,4 +6,5 @@ import btp.model.MaitreOeuvre;
 
 public interface IMaitreOeuvreRepository extends JpaRepository<MaitreOeuvre, Long>{
 
+	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,18 +23,19 @@ import btp.persistence.ISalarieRepository;
 import btp.model.Views;
 
 @RestController
+@RequestMapping("/salarie")
 public class SalarieRestController {
 
 	@Autowired
 	private ISalarieRepository salarieRepo;
 
-	@GetMapping("/salarie")
+	@GetMapping("")
 	@JsonView(Views.ViewSalarie.class)
 	public List<Salarie> findAll() {
 		return salarieRepo.findAll();
 	}
 
-	@GetMapping("/salarie/{id}")
+	@GetMapping("/{id}")
 	@JsonView(Views.ViewSalarie.class)
 	public Salarie find(@PathVariable Long id) {
 
@@ -46,14 +48,26 @@ public class SalarieRestController {
 		}
 	}
 	
-	@PostMapping("/salarie")
+	@GetMapping("/by-entreprise/{nom}")
+	@JsonView(Views.ViewSalarie.class)
+	public List<Salarie> findByEntreprise(@PathVariable String nom){
+		return salarieRepo.findByEntreprise(nom);
+	}
+	
+	@GetMapping("/by-projet/{nom}")
+	@JsonView(Views.ViewSalarie.class)
+	public List<Salarie> findByProjet(@PathVariable String nom){
+		return salarieRepo.findByProjet(nom);
+	}
+	
+	@PostMapping("")
 	public Salarie create(@RequestBody Salarie salarie) {
 		salarie = salarieRepo.save(salarie);
 
 		return salarie;
 	}
 	
-	@PutMapping("/salarie/{id}")
+	@PutMapping("/{id}")
 	public Salarie update(@RequestBody Salarie salarie, @PathVariable Long id) {
 		if (!salarieRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -64,10 +78,7 @@ public class SalarieRestController {
 		return salarie;
 	}
 
-// 	@Patch
-//	{}
-	
-	@DeleteMapping("/salarie/{id}")
+	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
 		salarieRepo.deleteById(id);
 	}

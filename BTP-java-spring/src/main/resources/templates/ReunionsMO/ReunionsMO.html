@@ -63,8 +63,8 @@
 					</div>
 				</div>
 		</div>
-			<div class="row">
-				<div class="col-md-3 grid-margin stretch-card">
+			<div class="row mx-auto">
+				<div class="col-md-4 grid-margin stretch-card">
 					<div class="card shadow p-3 mb-5 bg-white rounded">
 						<div class="card-body">
 							<p class="card-title text-md-center text-xl-left">Date</p>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 grid-margin stretch-card mx-auto">
+				<div class="col-md-4 grid-margin stretch-card mx-auto">
 					<div class="card shadow p-3 mb-5 bg-white rounded">
 						<div class="card-body">
 							<p class="card-title text-md-center text-xl-left">Nom Réunion</p>
@@ -89,7 +89,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 grid-margin stretch-card">
+				<div class="col-md-4 grid-margin stretch-card">
 					<div class="card shadow p-3 mb-5 bg-white rounded">
 						<div class="card-body">
 							<p class="card-title text-md-center text-xl-left">Motif</p>
@@ -103,35 +103,22 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-wrapper">
-				<div class="row"  >
-					<div class="col-md-12 grid-margin stretch-card" >
-						<h4 class="font-weight-bold mb-0">Compte-rendu</h4>
-					</div>
-				</div>
+			
+			<div class="mx-auto">
+		<div class="card shadow p-1 mb-5 bg-white rounded">
+			<div class="card-body">
+				<div class="row">
+					<h3 class="font-weight-bold mb-0">Compte-rendu :</h3>
+						<div class="pt-2 ml-auto">
+							<label class="btn btn-warning">
+							<input class="input-file" type="file">
+ 							</label>
+ 							<label  id="nomFichier"></label>
+ 						</div>
+ 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 grid-margin stretch-card">
-					<div class="card shadow p-3 mb-5 bg-white rounded"  style="height:400px;">
-						<div class="card-body">
-							<div >
-						
-						<label class="btn btn-primary"><b>Ajouter un document</b>
-   						 <input  class="customInput" type="file" style="display:none" />  						 
- 						</label>
- 						<label  id="nomFichier"></label>
-						</div>
-							<br><br>
-							  <form action="/action_page.php">
-    							<div class="form-group">
-     								 <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-     								  <button type="submit" class="btn btn-primary">Soumettre</button>
-   								 </div>
- 							 </form>
-						</div>
-					</div>
-				</div>
-			</div>
+		</div>
+	</div>
 		</div>
 	<footer>
 		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">

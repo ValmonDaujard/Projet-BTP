@@ -10,8 +10,12 @@ import btp.model.Reunion;
 public interface IReunionRepository extends JpaRepository<Reunion, Long>{
 
 	
-	//Affichage des reunion effectuées ou planifiées
+	//Affichage des reunions effectuées
+	@Query("select r from Reunion r where r.dtReunion < current_date")
+	List<Reunion> findAllEffectuee();
+	
+	//Affichage des reunions  planifiées
 	@Query("select r from Reunion r where r.dtReunion > current_date")
-	List<Reunion> findAllByDate();
+	List<Reunion> findAllPlanifiee();
 	
 }

@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProjetComponent } from './projet/projet.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProjetComponent } from './projet/projet.component';
     AppComponent,
     AccueilComponent,
     ProjetComponent,
+    HomeComponent,
 
   ],
   imports: [
