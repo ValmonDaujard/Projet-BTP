@@ -13,8 +13,8 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  accueil(){
-    this.router.navigate(['accueil']);
-  }
+  // accueil(){
+  //   this.router.navigate(['accueil']);
+  // }
 
 }
