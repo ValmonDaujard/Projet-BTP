@@ -3,6 +3,7 @@ import {Adresse} from "./adresse";
 
 export class Societe{
   id:number;
+  version: number;
   nom:string;
   siret: string;
   telephone:string;
@@ -12,7 +13,7 @@ export class Societe{
   adresse: Adresse;
 
 
-  constructor(id?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, adresse?: Adresse) {
+  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, adresse?: Adresse) {
     this.id = id;
     this.nom = nom;
     this.siret = siret;
