@@ -4,6 +4,7 @@ import {PrestationSupplementaire} from "./prestationSupplementaire";
 
 export class Materiel {
   id: number;
+  version: number;
   nom: string;
   quantite: number;
   unite: string;
@@ -12,8 +13,9 @@ export class Materiel {
   // prestataire: Prestataire;
 
 
-  constructor(id?: number, nom?: string, quantite?: number, unite?: string) {
+  constructor(id?: number, version?: number, nom?: string, quantite?: number, unite?: string) {
     this.id = id;
+    this.version = version;
     this.nom = nom;
     this.quantite = quantite;
     this.unite = unite;
