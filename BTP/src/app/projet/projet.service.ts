@@ -11,7 +11,7 @@ export class ProjetService {
   private projets: Array<Projet> = new Array<Projet>();
 
   constructor(private http: HttpClient) {
-    this.load();
+
   }
 
   findAll(): Array<Projet> {
@@ -19,7 +19,7 @@ export class ProjetService {
   }
 
   findById(id: number): Observable<Projet> {
-    return this.http.get<Projet>("http://localhost:8080/api/projet/" + id);
+    return this.http.get<Projet>("http://localhost:8080/projet/" + id);
   }
 
 

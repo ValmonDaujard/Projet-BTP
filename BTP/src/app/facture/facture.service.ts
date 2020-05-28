@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
+
 import {HttpClient} from "@angular/common/http";
 import {Facture} from "../model/facture";
 import {Observable} from "rxjs";

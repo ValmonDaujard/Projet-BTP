@@ -10,7 +10,7 @@ export class Offre{
   dtFin: Date;
   // prestations: Array<Prestation>;
   // projet: Projet;
-  // appelOffre: AppelOffre;
+  appelOffre: AppelOffre;
 
 
   constructor(id?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date) {
