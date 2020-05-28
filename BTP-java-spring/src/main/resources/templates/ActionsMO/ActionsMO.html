@@ -118,22 +118,60 @@
 					</div>
 				</div>
 			</div>
-	<div class="mx-auto">
+		<div class="row">
+		<div class="col-md-6 grid-margin stretch-card">
+			<div class="card shadow p-1 mb-5 bg-white rounded p-3">
+					<div>
+					 <p><h4>Employés affectés : </h4></p>
+							<table class="my-auto table">
+								<thead class="thead-dark">
+									<tr>
+										<th style="width: 19%">Nom</th>
+										<th style="width: 18%">Prénom</th>
+										<th style="width: 22%">Métier</th>
+									</tr>
+								</thead>
+							</table>
+						<div class="scrollTableEmploye">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td style="width: 19%">Dupont</td>
+										<td style="width: 19%">Jean</td>
+										<td style="width: 22%">Plombier Chauffagiste</td>
+									</tr>
+									<tr>
+										<td>Dupont</td>
+										<td>Jean</td>
+										<td>Plombier Chauffagiste</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	<div class="col-md-6 grid-margin stretch-card">
 		<div class="card shadow p-1 mb-5 bg-white rounded">
 			<div class="card-body">
 				<div class="row">
 					<h3 class="font-weight-bold mb-0">Documents relatifs :</h3>
 						<div class="pt-2 ml-auto">
-							<label class="btn btn-primary"><b>Ajouter un document</b>
-   							 <input  class="customInput" type="file" style="display:none" />  						 
+							<label class="btn btn-warning">
+							<input class="input-file" type="file">
  							</label>
  							<label  id="nomFichier"></label>
  						</div>
- 				</div>
+ 					</div>
+				</div>
 			</div>
 		</div>
+		<div class="input-file-container">
+  <input class="input-file" id="my-file" type="file">
+</div>
+<p class="file-return"></p>
 	</div>
-		</div>
 	<footer>
 		<nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
 			<ul class="navbar-nav text-white m-auto">
