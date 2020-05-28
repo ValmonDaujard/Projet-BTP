@@ -59,7 +59,7 @@ public class Facture {
 	private MaitreOuvrage maitreOuvrage;
 	
 	@OneToOne
-	@JsonView(Views.ViewCommon.class)
+//	@JsonView(Views.ViewCommon.class)
 	private Projet projet;
 	
 	@OneToOne

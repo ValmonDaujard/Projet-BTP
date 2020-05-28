@@ -12,7 +12,7 @@ export class Projet {
   offre: Offre;
 
 
-  constructor(id?: number,version?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, arret?: number, rapport?: string) {
+  constructor(id?: number,version?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, arret?: number, rapport?: string, offre?:Offre) {
     this.id = id;
     this.numeroDevis = numeroDevis;
     this.dtDebut = dtDebut;
