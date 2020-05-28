@@ -10,49 +10,22 @@ import {Observable} from "rxjs";
 })
 export class ProjetComponent implements OnInit {
 
-  projetForm: Projet = null;
+  projet: Projet = new Projet();
+  id: number;
+
 
   constructor(private projetService: ProjetService) {
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit():  {
 
-  list(): Array<Projet> {
-    return this.projetService.findAll();
-  }
+  });
 
-  add() {
-    this.projetForm = new Projet();
-  }
 
-  edit(id: number) {
-    this.projetService.findById(id).subscribe(resp => this.projetForm = resp, error => console.log(error));
-  }
 
-  save() {
-    if (!this.projetForm.id) {
-      this.projetService.create(this.projetForm).subscribe(resp => {
-          this.projetForm = null;
-          this.projetService.load();
-        },
-        error => console.log(error)
-      )
-      ;
-    } else {
-      this.projetService.modify(this.projetForm).subscribe(resp => {
-        this.projetForm = null;
-        this.projetService.load();
-      }, error => console.log(error));
     }
+
   }
 
-  cancel() {
-    this.projetForm = null;
-  }
 
-  delete(id: number) {
-    this.projetService.deleteById(id);
-  }
-}
 
