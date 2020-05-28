@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -18,6 +19,9 @@ public class Reunion {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@Version
+	@JsonView(Views.ViewCommon.class)
+	private int version;
 	@JsonView(Views.ViewCommon.class)
 	private String sujet;
 	@JsonView(Views.ViewCommon.class)

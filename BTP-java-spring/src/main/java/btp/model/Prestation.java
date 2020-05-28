@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,6 +28,9 @@ public class Prestation {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@Version
+	@JsonView(Views.ViewCommon.class)
+	private int version;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private Categorie categorie;
