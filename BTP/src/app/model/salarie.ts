@@ -18,6 +18,7 @@ export class Salarie{
   constructor(id?: number, civilite?: string, nom?: string, prenom?: string, metier?: string) {
     this.id = id;
     this.civilite = civilite;
+    this.version = version;
     this.nom = nom;
     this.prenom = prenom;
     this.metier = metier;

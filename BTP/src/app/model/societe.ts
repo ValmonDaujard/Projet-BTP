@@ -15,6 +15,7 @@ export class Societe{
 
   constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, adresse?: Adresse) {
     this.id = id;
+    this.version = version;
     this.nom = nom;
     this.siret = siret;
     this.telephone = telephone;

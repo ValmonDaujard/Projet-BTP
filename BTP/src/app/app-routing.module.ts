@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "", component: AccueilComponent},
   {path: "projet/:id", component: ProjetComponent},
   {path: 'facture', component: FactureComponent},
-  {path: 'accueil', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'gestionMaterielSalarie', component: GestionMaterielSalarieComponent}
 ];
 

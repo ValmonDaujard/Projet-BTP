@@ -17,6 +17,7 @@ export class Action {
 
   constructor(id?: number,version?: number, nomAction?: string, dtCreation?: Date, dtLimite?: Date, description?: string, effectuee?: boolean) {
     this.id = id;
+    this.version = version;
     this.nomAction = nomAction;
     this.dtCreation = dtCreation;
     this.dtLimite = dtLimite;

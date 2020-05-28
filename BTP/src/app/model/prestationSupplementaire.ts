@@ -27,6 +27,7 @@ export class PrestationSupplementaire {
 
   constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean) {
     this.id = id;
+    this.version = version;
     this.categorie = categorie;
     this.nom = nom;
     this.prix = prix;
