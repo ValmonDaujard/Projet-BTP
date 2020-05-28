@@ -8,6 +8,7 @@ import {Facture} from "./facture";
 
 export class Prestation {
   id: number;
+  version: number;
   categorie: string;
   nom: string;
   prix: number;
@@ -24,7 +25,7 @@ export class Prestation {
   // facture: Facture;
 
 
-  constructor(id?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean) {
+  constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean) {
     this.id = id;
     this.categorie = categorie;
     this.nom = nom;

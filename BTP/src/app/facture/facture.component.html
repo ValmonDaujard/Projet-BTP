@@ -25,7 +25,8 @@
         </div>
         <div class="ml-auto pr-5" style="height:140px;">
           <h1>FACTURE</h1>
-          <p> Date de création : 22/05/2020</p>
+          <p> Date de création : 22/05/2020
+          <br>ID/Nom Projet </p>
 
         </div>
       </div>
@@ -33,37 +34,37 @@
         <form>
           <div class="form-group border-bottom border-warning">
             <label for="maitreOuvrage">Destinataire :</label> <input
-            type="text" class="form-control" id="maitreOuvrage" style="border-radius: 20px">
+            type="text" class="form-control" id="maitreOuvrage" style="border-radius: 20px" disabled>
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="adrME">Adresse destinataire :</label> <input
-            type="text" class="form-control" id="adrME" style="border-radius: 20px">
+            type="text" class="form-control" id="adrME" style="border-radius: 20px" disabled>
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
-            <label for="projet">Projet associé :</label> <input
-            type="text" class="form-control" id="projet" style="border-radius: 20px">
+            <label for="numeroFacture">N° facture :</label> <input
+            type="number" class="form-control" id="numeroFacture" style="border-radius: 20px" [(ngModel)]="factureForm.numeroFacture">
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="dtFacturation">Date d'accord prestation :</label> <input
-            type="date" class="form-control" id="dtFacturation" style="border-radius: 20px">
+            type="date" class="form-control" id="dtFacturation" style="border-radius: 20px" [(ngModel)]="factureForm.dtFacturation">
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="prestation">Prestation :</label> <input
-            type="text" class="form-control" id="prestation" style="border-radius: 20px">
+            type="text" class="form-control" id="prestation" style="border-radius: 20px" disabled>
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="quantite">Quantité :</label> <input
-            type="number" class="form-control" id="quantite" style="border-radius: 20px">
+            type="number" class="form-control" id="quantite" style="border-radius: 20px" [(ngModel)]="factureForm.quantite">
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="prixHT">Prix HT:</label> <input
-            type="number" class="form-control" id="prixHT" style="border-radius: 20px">
+            type="number" class="form-control" id="prixHT" style="border-radius: 20px" [(ngModel)]="factureForm.prixHT">
             <br>
           </div>
           <div class="form-group border-bottom border-warning">
@@ -73,16 +74,16 @@
           </div>
           <div class="form-group border-bottom border-warning">
             <label for="dtEcheance">Date échéance réglement :</label> <input
-            type="date" class="form-control" id="dtEcheance" style="border-radius: 20px">
+            type="date" class="form-control" id="dtEcheance" style="border-radius: 20px" [(ngModel)]="factureForm.dtEcheance">
             <br>
           </div>
           <div class="form-group">
             <label for="penaliteRetard">Pénalités si retard :</label> <input
-            type="number" class="form-control" id="penaliteRetard" style="border-radius: 20px">
+            type="number" class="form-control" id="penaliteRetard" style="border-radius: 20px" [(ngModel)]="factureForm.penaliteRetard">
             <br>
           </div>
         </form>
-        <button type="submit" class="btn btn-warning">Créer la facture</button>
+        <button type="submit" class="btn btn-warning" (click)="save()">Créer la facture</button>
       </div>
     </div>
   </div>

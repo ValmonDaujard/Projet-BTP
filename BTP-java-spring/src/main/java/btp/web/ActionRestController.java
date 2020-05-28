@@ -53,6 +53,12 @@ public class ActionRestController {
 		return actionRepo.findAllByProjetAndEffectuee(id, effectuee);
 	}
 	
+	@GetMapping("/by-project-and-effectuee-and-EG/{id}:{effectuee}:{idPresta}")
+	@JsonView(Views.ViewAction.class)
+	public List<Action> findAllByByEGProjetAndEffectuee(@PathVariable Long id, @PathVariable Boolean effectuee, @PathVariable Long idPresta) {
+		return actionRepo.findAllByProjetByEGAndEffectuee(id, effectuee, idPresta);
+	}
+	
 	@PostMapping("")
 	public Action create(@RequestBody Action action) {
 		action = actionRepo.save(action);
