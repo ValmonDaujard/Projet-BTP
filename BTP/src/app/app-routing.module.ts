@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'facture', component: FactureComponent},
   {path: 'accueil', component: HomeComponent},
   {path: 'gestionMaterielSalarie', component: GestionMaterielSalarieComponent},
-  {path: 'reponseAppelOffre', component: ReponseAppelOffreComponent}
+  {path: 'reponseAppelOffre/:id', component: ReponseAppelOffreComponent}
 ];
 
 @NgModule({

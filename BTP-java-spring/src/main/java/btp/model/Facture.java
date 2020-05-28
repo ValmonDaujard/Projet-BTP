@@ -50,7 +50,7 @@ public class Facture {
 	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
-	@JsonView(Views.ViewCommon.class)
+//	@JsonView(Views.ViewCommon.class)
 	private Prestataire prestataire;
 	
 	@ManyToOne

@@ -9,13 +9,17 @@
           <form>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Sélectionnez une
-                EG</label> <select class="form-control" id="exampleFormControlSelect1">
-              <option>EG 1</option>
-              <option>EG 2</option>
-              <option>EG 3</option>
-              <option>EG 4</option>
-              <option>EG 5</option>
-            </select>
+                EG</label>
+<!--              <select class="form-control" id="exampleFormControlSelect1" *ngFor="let eg of list()">-->
+<!--              <option>EG 1</option>-->
+<!--              <option>EG 2</option>-->
+<!--              <option>EG 3</option>-->
+<!--              <option>EG 4</option>-->
+<!--              <option>EG 5</option>-->
+<!--            </select>-->
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option *ngFor="let eg of list()" [ngValue]="eg">{{eg.nom}}</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="descriptif">Décrivez le motif de la
