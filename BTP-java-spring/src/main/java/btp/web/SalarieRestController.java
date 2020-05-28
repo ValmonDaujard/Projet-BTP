@@ -54,10 +54,16 @@ public class SalarieRestController {
 		return salarieRepo.findByEntreprise(nom);
 	}
 	
-	@GetMapping("/by-projet/{nom}")
+	@GetMapping("/by-prestation/{id}")
 	@JsonView(Views.ViewSalarie.class)
-	public List<Salarie> findByProjet(@PathVariable String nom){
-		return salarieRepo.findByProjet(nom);
+	public List<Salarie> findByPrestation(@PathVariable Long id){
+		return salarieRepo.findByPrestation(id);
+	}
+	
+	@GetMapping("/by-action/{id}")
+	@JsonView(Views.ViewSalarie.class)
+	public List<Salarie> findByAction(@PathVariable Long id){
+		return salarieRepo.findByPrestation(id);
 	}
 	
 	@PostMapping("")

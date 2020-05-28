@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
 import com.fasterxml.jackson.annotation.JsonView;
+
 import btp.model.MaitreOeuvre;
 import btp.model.Views;
 import btp.persistence.IMaitreOeuvreRepository;
@@ -30,6 +32,12 @@ public class MaitreOeuvreRestController {
 	@JsonView(Views.ViewMaitreOeuvre.class)
 	public List<MaitreOeuvre> findAll() {
 		return maitreOeuvreRepo.findAll();
+	}
+	
+	@GetMapping("/par-projet/{id}")
+	@JsonView(Views.ViewMaitreOeuvre.class)
+	public List<MaitreOeuvre> findByProjet(@PathVariable Long id){
+		return maitreOeuvreRepo.findByProjet(id);
 	}
 	
 	@GetMapping("/{id}")
