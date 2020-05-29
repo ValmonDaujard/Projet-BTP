@@ -12,9 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
 import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-offre.component';
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
-import { AccueilMOeComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilMouvrageComponent } from './accueil-mouvrage/accueil-mouvrage.component';
 import { AccueilMoeuvreComponent } from './accueil-moeuvre/accueil-moeuvre.component';
+import { AccueilMOeComponent } from './accueil-moe/accueil-moe.component';
 
 @NgModule({
   declarations: [

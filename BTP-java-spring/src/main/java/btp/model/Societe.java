@@ -11,11 +11,23 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 15)
+@JsonTypeInfo(
+		  use = JsonTypeInfo.Id.NAME, 
+		  include = JsonTypeInfo.As.PROPERTY, 
+		  property = "type")
+@JsonSubTypes({ 
+		  @Type(value = MaitreOeuvre.class, name = "MOeuvre"), 
+		  @Type(value = MaitreOuvrage.class, name = "MOuvrage"),
+		  @Type(value = Prestataire.class, name = "Prestataire")
+		})
 public class Societe {
 	@Id
 	@GeneratedValue
