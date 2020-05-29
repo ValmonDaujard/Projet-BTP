@@ -64,8 +64,7 @@
           <h3 class="font-weight-bold mb-0 my-3">Réponse des entreprises générales</h3>
         </div>
         <div class="my-4">
-          <h5>Les entreprises suivantes ont répondus à vos
-            consultations !</h5>
+          <h5>Ces demandes de prestation sont en attente</h5>
         </div>
         <div class="my-1">
           <div>
@@ -84,10 +83,10 @@
           <div>
             <table class="mx-auto table table-striped">
               <tbody>
-              <tr *ngFor="let presta of ">
-                <td class="text-center" style="width: 20%">Lidl</td>
-                <td class="text-center" style="width: 30%">Fondations</td>
-                <td class="text-center" style="width: 10%">250€</td>
+              <tr *ngFor="let presta of listPrestaValideeEG()">
+                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
+                <td class="text-center" style="width: 30%">{{presta.nom}}</td>
+                <td class="text-center" style="width: 10%">{{presta.prix}} €</td>
                 <td class="text-center" style="width: 20%"><button
                   class="btn btn-primary">
                   <i class="fas fa-plus-circle"></i>
@@ -214,11 +213,11 @@
                   </select>
                   </div>
                   <div class="form-group">
-                    <label for="descriptif">Date de Début</label>
+                    <label for="descriptif">Date de Début :</label>
                     <input type="date">
                   </div>
                   <div class="form-group">
-                    <label for="descriptif">Date de Début</label>
+                    <label for="descriptif">Date de Début :</label>
                     <input type="date">
                   </div>
                 </div>
@@ -232,11 +231,11 @@
                     <h3>Projet</h3>
                   </div>
                   <div class="form-group my-3">
-                    <label for="descriptif">Date de Début</label>
+                    <label for="descriptif">Date de Début : </label>
                     <input type="date">
                   </div>
                   <div class="form-group">
-                    <label for="descriptif">Date de Début</label>
+                    <label for="descriptif">Date de Début : </label>
                     <input type="date">
                   </div>
                 </div>

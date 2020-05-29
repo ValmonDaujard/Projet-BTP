@@ -19,8 +19,10 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.MaitreOuvrage;
+import btp.model.Utilisateur;
 import btp.model.Views;
 import btp.persistence.IMaitreOuvrageRepository;
+import btp.persistence.IUtilisateurRepository;
 
 
 @RestController
@@ -30,6 +32,9 @@ public class MaitreOuvrageRestController {
 	
 	@Autowired
 	private IMaitreOuvrageRepository maitreOuvrageRepo;
+	
+	@Autowired
+	private IUtilisateurRepository utilisateurRepo;
 	
 	@GetMapping("")
 	@JsonView(Views.ViewMaitreOuvrage.class)
@@ -58,6 +63,9 @@ public class MaitreOuvrageRestController {
 	
 	@PostMapping("")
 	public MaitreOuvrage create(@RequestBody MaitreOuvrage maitreOuvrage) {
+		Utilisateur utilisateur = utilisateurRepo.save(maitreOuvrage.getUtilisateur());
+		
+		maitreOuvrage.setUtilisateur(utilisateur);
 		maitreOuvrage = maitreOuvrageRepo.save(maitreOuvrage);
 
 		return maitreOuvrage;
