@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 export class AccueilMOEService {
 
   private projets: Array<Projet> = new Array<Projet>();
-  private offres : Array<Offre> = new Array<Offre>();
+  private offres: Array<Offre> = new Array<Offre>();
 
   constructor(private http: HttpClient) {
     this.load();
