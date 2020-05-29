@@ -13,12 +13,12 @@ export class AppelOffre{
   dtLimite: Date;
   bpu: boolean;
   prixBpu: number;
-  // adresse: Adresse;
+  adresse: Adresse;
   // maitreOuvrage: MaitreOuvrage;
   // offres: Array<Offre>;
 
 
-  constructor(id?: number, version?: number, nom?: string, objectif?: string, budget?: number, dtDebut?: Date, dtFin?: Date, dtLimite?: Date, bpu?: boolean, prixBpu?: number) {
+  constructor(id?: number, version?: number, nom?: string, objectif?: string, budget?: number, dtDebut?: Date, dtFin?: Date, dtLimite?: Date, bpu?: boolean, prixBpu?: number, adresse?: Adresse) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -29,5 +29,6 @@ export class AppelOffre{
     this.dtLimite = dtLimite;
     this.bpu = bpu;
     this.prixBpu = prixBpu;
+    this.adresse = adresse;
   }
 }

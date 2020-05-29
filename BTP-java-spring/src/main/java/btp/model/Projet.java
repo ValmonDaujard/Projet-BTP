@@ -14,10 +14,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
+@CrossOrigin("*")
 public class Projet {
 	@Id
 	@GeneratedValue
