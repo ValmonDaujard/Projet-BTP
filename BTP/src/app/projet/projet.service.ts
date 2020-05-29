@@ -6,6 +6,8 @@ import {Offre} from "../model/offre";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Action} from "../model/action";
+import {Reunion} from "../model/reunion";
+import {Facture} from "../model/facture";
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +41,17 @@ export class ProjetService {
     return this.http.get<Array<Action>>("http://localhost:8080/action/par-projet/" + id);
   }
 
+  findReunionsPlanifiees(id:number) : Observable<Array<Reunion>> {
+    return this.http.get<Array<Reunion>>( "http://localhost:8080/reunion/planifiee/" + id)
+  }
+
+  findReunionsEffectuees(id:number) : Observable<Array<Reunion>> {
+    return this.http.get<Array<Reunion>>( "http://localhost:8080/reunion/effectuee/" + id)
+  }
 
 
+  findFactures(id:number) : Observable<Array<Facture>> {
+    return this.http.get<Array<Facture>>("http://localhost:8080/facture/par-projet/" + id )
+  }
 }
 

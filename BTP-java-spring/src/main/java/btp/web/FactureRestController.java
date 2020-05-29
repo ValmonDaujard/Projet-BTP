@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import btp.model.Action;
 import btp.model.Facture;
 import btp.model.Views;
 import btp.persistence.IFactureRepository;
@@ -47,6 +48,12 @@ public class FactureRestController {
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+	}
+	
+	@GetMapping("/par-projet/{id}")
+	@JsonView(Views.ViewFacture.class)
+	public List<Facture> findAllByFacture(@PathVariable Long id){
+		return factureRepo.findAllByProjet(id);
 	}
 	
 	@GetMapping("/by-projet-and-payee/{id}:{payee}:{nomPresta}")

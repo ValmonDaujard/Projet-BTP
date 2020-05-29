@@ -8,7 +8,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProjetComponent } from './projet/projet.component';
-import { HomeComponent } from './home/home.component';
 import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
 import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-offre.component';
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
@@ -23,7 +22,6 @@ import { AccueilMOeComponent } from './accueil-moe/accueil-moe.component';
     AppComponent,
     AccueilComponent,
     ProjetComponent,
-    HomeComponent,
     GestionMaterielSalarieComponent,
     ReponseAppelOffreComponent,
     AccueilMouvrageComponent,

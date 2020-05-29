@@ -204,11 +204,11 @@
             </div>
             <div class="card-body">
 
-              <div class="list-wrapper pt-2">
-                <ul *ngFor="let action of actionref"
+              <div *ngFor="let action of actionref" class="list-wrapper pt-2">
+                <ul *ngIf="action.effectuee==true"
                   class="d-flex flex-column-reverse todo-list todo-list-custom"
                   style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
-                  <li *ngIf="action.effectuee==true" style="display: flex; margin-bottom: 2%; margin-right: 2%">
+                  <li  style="display: flex; margin-bottom: 2%; margin-right: 2%">
                     <div >
                       <label >  {{action.nomAction}}
                       </label>
@@ -243,14 +243,13 @@
               </div>
               <div class="card-body">
 
-                <div class="list-wrapper pt-2">
+                <div class="list-wrapper pt-2" *ngFor="let reunion of reunionrefplanifie" >
                   <ul
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
                     <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
                       <div class="form-check form-check-flat">
-                        <label >  Réunion du
-                          12/08/2020
+                        <label >  {{reunion.sujet}}
                         </label>
                       </div>
 
@@ -270,14 +269,13 @@
               </div>
               <div class="card-body">
 
-                <div class="list-wrapper pt-2">
+                <div class="list-wrapper pt-2" *ngFor="let reunion of reunionrefeffectue">
                   <ul
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
                     <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
                       <div >
-                        <label >  Réunion du
-                          12/05/2020
+                        <label >  {{reunion.sujet}}
                         </label>
                       </div>
 
@@ -304,29 +302,18 @@
               </div>
               <div class="card-body">
 
-                <div class="list-wrapper pt-2">
-                  <ul
+                <div class="list-wrapper pt-2" *ngFor="let facture of factureref">
+                  <ul *ngIf="facture.payee==false"
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
                     <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
                       <div class="form-check form-check-flat">
                         <label class="form-check-label"> <input
-                          class="checkbox" type="checkbox"> Facture
-                          prestation Michel TP location compacteur
+                          class="checkbox" type="checkbox"> {{facture.numeroFacture}}
                         </label>
                       </div>
-
                     </li>
-                    <li class="completed"
-                        style="display: flex; margin-bottom: 2%; margin-right: 2%">
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label"> <input
-                          class="checkbox" type="checkbox" checked> Facture
-                          prestation Bob le bricoleur interim manoeuvre
-                        </label>
-                      </div>
 
-                    </li>
 
                   </ul>
                 </div>
@@ -354,29 +341,18 @@
               </div>
               <div class="card-body">
 
-                <div class="list-wrapper pt-2">
-                  <ul
+                <div class="list-wrapper pt-2" *ngFor="let facture of factureref">
+                  <ul *ngIf="facture.payee==true"
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
                     <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
                       <div class="form-check form-check-flat">
                         <label class="form-check-label"> <input
-                          class="checkbox" type="checkbox"> Facture
-                          prestation Michel TP location bulldozer
+                          class="checkbox" type="checkbox"> {{facture.numeroFacture}}
                         </label>
                       </div>
 
-                    </li>
-                    <li class="completed"
-                        style="display: flex; margin-bottom: 2%; margin-right: 2%">
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label"> <input
-                          class="checkbox" type="checkbox" checked> Facture
-                          prestation Michel TP evacuation déchets industriels banals
-                        </label>
-                      </div>
 
-                    </li>
 
                   </ul>
                 </div>

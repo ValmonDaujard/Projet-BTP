@@ -154,7 +154,7 @@ class Test3 {
 				
 				// prestation
 				Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 10000F, sdf.parse("10/04/2020"),
-						sdf.parse("10/05/2020"), false, PhasePresta.ValideEG);
+						sdf.parse("10/05/2020"), false, PhasePresta.enConsult);
 				Prestation presta2 = new Prestation(Categorie.secondOeuvre, "Plomberie", 9000F, sdf.parse("15/09/2020"),
 						sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre);
 				
