@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Offre} from "../model/offre";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
+import {Action} from "../model/action";
 
 @Component({
   selector: 'app-projet',
@@ -15,26 +16,24 @@ import {Prestation} from "../model/prestation";
 export class ProjetComponent implements OnInit {
 
   projet: Projet = null;
-  offreref: Offre = new Offre();
- prestationref: Array<Prestation> = new Array<Prestation>();
-
+  prestationref: Array<Prestation> = new Array<Prestation>();
+  actionref: Array<Action> = new Array<Action>();
 
 
   constructor(private projetService: ProjetService, private route: ActivatedRoute) {
-    this.route.params.subscribe(parameters=> {
+    this.route.params.subscribe(parameters => {
       this.projetService.findById(parameters.id).subscribe(resp => {
         this.projet = resp;
-
-
-        // call appel offre
-        this.projetService.findOffre(this.projet.offre.id).subscribe(resp => {
-          this.offreref =resp;}) ;
-        this.projetService.findPrestations(this.projet.id).subscribe(resp => {
-          this.prestationref =resp;}) ;
         console.log(resp);
-        })
-      })
-    }
+      }, error => console.log(error));
+      this.projetService.findPrestations(parameters.id).subscribe(resp => {
+        this.prestationref = resp;
+      }, error => console.log(error));
+      this.projetService.findActions(parameters.id).subscribe(resp => {
+        this.actionref = resp;
+      }, error => console.log(error));
+    })
+  }
 
 
   ngOnInit(): void {
@@ -42,7 +41,7 @@ export class ProjetComponent implements OnInit {
   }
 
 
-  }
+}
 
 
 
