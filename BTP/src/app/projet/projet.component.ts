@@ -12,7 +12,7 @@ import {Offre} from "../model/offre";
 })
 export class ProjetComponent implements OnInit {
 
-  projet: Projet = new Projet();
+  projet: Projet = null;
   offreref: Offre = new Offre();
 
 
@@ -25,7 +25,7 @@ export class ProjetComponent implements OnInit {
 
         // call appel offre
         this.projetService.findOffre(this.projet.offre.id).subscribe(resp => {
-          this.offreref =resp;})
+          this.offreref = resp;});
         console.log(resp);
         })
       })

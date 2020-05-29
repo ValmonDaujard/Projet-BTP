@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'projet/:id', component: ProjetComponent},
   {path: 'facture', component: FactureComponent},
-  {path: 'home/:id', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'gestionMaterielSalarie', component: GestionMaterielSalarieComponent},
   {path: 'reponseAppelOffre/:id', component: ReponseAppelOffreComponent}
 ];

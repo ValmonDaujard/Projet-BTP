@@ -18,8 +18,8 @@ export class HomeService {
   //   return this.projets;
   // }
 
-  findAllByMaitreOeuvre(id: number): Observable<Projet>{
-    return this.http.get<Projet>('http://localhost:8080/projet/by-maitre-oeuvre/' + id);
+  findAllByMaitreOeuvre(id: number): Observable<Array<Projet>>{
+    return this.http.get<Array<Projet>>('http://localhost:8080/projet/by-maitre-oeuvre/' + id);
   }
 
   load(){

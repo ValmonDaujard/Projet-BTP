@@ -52,7 +52,7 @@ public class Offre {
 	private MaitreOeuvre maitreOeuvre;
 
 	@ManyToOne
-	@JsonView(Views.ViewOffre.class)
+	@JsonView(Views.ViewCommon.class)
 	private AppelOffre appelOffre;
 
 

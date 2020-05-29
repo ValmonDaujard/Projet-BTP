@@ -198,8 +198,8 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="container-fluid card mt-3 bandeau-accueil shadow">
-  <h1>Accueil Maitre d'Œuvre</h1>
+<div>
+  <h1 class="font-weight-bold my-5" style="text-align: center;">Accueil</h1>
 </div>
 <!-- 	Projets en Cours -->
 <div class="container-fluid card mt-3 shadow">
@@ -207,7 +207,7 @@
     <h3 class="font-weight-bold mb-0 my-3">Projets en cours</h3>
   </div>
   <div>
-    <input class="form-control" type="text"
+    <input class="form-control mt-4" type="text"
            placeholder="Chercher un projet..."
            style="margin: 10px; width: 300px">
   </div>
@@ -227,14 +227,13 @@
     <div class="tabProjet">
       <table class="table table-striped ">
         <tbody>
-        <tr *ngFor="let proj of list()">
-          <td style="width: 18%">{{proj.offre.appelOffre.nom}}</td>
-          <td style="width: 18%">{{proj.offre.appelOffre.adresse.ville}}</td>
+        <tr *ngFor="let proj of projets">
+          <td style="width: 18%">{{proj.offre.appelOffre?.nom}}</td>
+          <td style="width: 18%">{{proj.offre.appelOffre?.adresse?.ville}}</td>
           <td style="width: 18%">{{proj.numeroDevis}}</td>
-          <td style="width: 18%">{{proj.dtDebut}}</td>
+          <td style="width: 18%">{{proj.dtDebut|date:'dd/MM/yyyy'}}</td>
           <td style="width: 18%">{{proj.dtFin}}</td>
-          <td style="width: 10%"><div class="btn-group"
-                                      style="margin-left: 30px">
+          <td style="width: 10%"><div class="btn-group" style="margin-left: 30px">
             <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
           </div></td>
         </tr>
@@ -379,7 +378,7 @@
     <h3 class="font-weight-bold mb-0 my-3">Appels d'offres en attentes</h3>
   </div>
   <div>
-    <input class="form-control" type="text"
+    <input class="form-control mt-4" type="text"
            placeholder="Chercher un appel d'offre..."
            style="margin: 10px; width: 300px">
   </div>

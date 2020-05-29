@@ -46,6 +46,7 @@ public class AppelOffre {
 	private Float prixBpu;
 
 	@Embedded
+	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse;
 
 	@ManyToOne

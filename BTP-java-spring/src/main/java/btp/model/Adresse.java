@@ -3,14 +3,20 @@ package btp.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
+	@JsonView(Views.ViewCommon.class)
 	@Column
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	@Column
 	private String complement;
+	@JsonView(Views.ViewCommon.class)
 	@Column
 	private String codePostal;
+	@JsonView(Views.ViewCommon.class)
 	@Column
 	private String ville;
 

@@ -10,9 +10,11 @@ import {Observable} from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  projetList: Projet = null;
+  projets: Array<Projet> = new Array<Projet>();
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService) {
+    this.list(7);
+  }
 
   ngOnInit(): void {
   }
@@ -21,8 +23,8 @@ export class HomeComponent implements OnInit {
   //   return  this.homeService.findAll();
   // }
 
-  list(id: number): Observable<Projet>{
-    return this.homeService.findAllByMaitreOeuvre(id);
+  list(id: number){
+    this.homeService.findAllByMaitreOeuvre(id).subscribe(resp => this.projets = resp, error => console.log(error));
   }
 
 }
