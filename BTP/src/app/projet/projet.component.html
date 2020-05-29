@@ -40,7 +40,7 @@
               démarrage</p>
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtDebut}}</h3>
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtDebut|date:'dd/MM/yyyy'}}</h3>
               <i class="fas fa-calendar-day " style="font-size: 32px"></i>
             </div>
           </div>
@@ -54,7 +54,7 @@
               de projet</p>
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtFin}}</h3>
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtFin|date:'dd/MM/yyyy'}}</h3>
               <i class="fas fa-calendar-check " style="font-size: 32px"></i>
             </div>
           </div>
@@ -104,47 +104,12 @@
               </div>
               <div class="scrollTablePrestations">
                 <table class="table table-striped">
-                  <tbody>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 19%">pose BBSG 0/10</td>
-                    <td style="width: 19%">Colas</td>
-                    <td style="width: 22%">04/08/2020</td>
-                    <td style="width: 22%">14/08/2020</td>
+                  <tbody *ngFor="let prestation of prestationref">
+                  <tr    *ngIf="prestation.phasePresta=='ValideMOeuvre'">
+                    <td style="width: 19%">{{prestation.nom}}</td>
+                    <td style="width: 19%">{{prestation.prestataire.nom}}</td>
+                    <td style="width: 22%">{{prestation.dtDebut|date:'dd/MM/yyyy'}}</td>
+                    <td style="width: 22%">{{prestation.dtFin|date:'dd/MM/yyyy'}}</td>
                   </tr>
                   </tbody>
                 </table>

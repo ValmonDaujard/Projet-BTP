@@ -1,4 +1,4 @@
-import {PrestationSupplementaire} from "./prestationSupplementaire";
+  import {PrestationSupplementaire} from "./prestationSupplementaire";
 import {Materiel} from "./materiel";
 import {Projet} from "./projet";
 import {Offre} from "./offre";
@@ -20,12 +20,12 @@ export class Prestation {
   // materiels: Array<Materiel>;
   // projet: Projet;
   // offre: Offre;
-  // prestataire: Prestataire;
+   prestataire: Prestataire;
   // salaries: Array<Salarie>;
   // facture: Facture;
 
 
-  constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean) {
+  constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean, prestataire?: Prestataire) {
     this.id = id;
     this.categorie = categorie;
     this.nom = nom;
@@ -34,5 +34,6 @@ export class Prestation {
     this.dtFin = dtFin;
     this.phasePresta = phasePresta;
     this.obsolete = obsolete;
+    this.prestataire = prestataire;
   }
 }

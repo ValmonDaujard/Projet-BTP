@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
 import {Offre} from "../model/offre";
+import {Prestataire} from "../model/prestataire";
+import {Prestation} from "../model/prestation";
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +26,13 @@ export class ProjetService {
   }
 
   findOffre(id: number): Observable<Offre> {
-    return this.http.get<Offre>("http://localhost:8080/offre/" + id);
+    let offreObservable = this.http.get<Offre>("http://localhost:8080/offre/" + id);
+    return offreObservable;
   }
 
-
+  findPrestations(id: number) : Observable<Array<Prestation>> {
+    return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/par-projet/" + id);
+  }
 
 
 

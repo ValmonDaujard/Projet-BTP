@@ -4,6 +4,8 @@ import {Projet} from "../model/projet";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {Offre} from "../model/offre";
+import {Prestataire} from "../model/prestataire";
+import {Prestation} from "../model/prestation";
 
 @Component({
   selector: 'app-projet',
@@ -14,6 +16,7 @@ export class ProjetComponent implements OnInit {
 
   projet: Projet = new Projet();
   offreref: Offre = new Offre();
+ prestationref: Array<Prestation> = new Array<Prestation>();
 
 
 
@@ -25,7 +28,9 @@ export class ProjetComponent implements OnInit {
 
         // call appel offre
         this.projetService.findOffre(this.projet.offre.id).subscribe(resp => {
-          this.offreref =resp;})
+          this.offreref =resp;}) ;
+        this.projetService.findPrestations(this.projet.id).subscribe(resp => {
+          this.prestationref =resp;}) ;
         console.log(resp);
         })
       })
