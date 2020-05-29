@@ -20,6 +20,7 @@ export class Salarie{
     this.id = id;
     this.version = version;
     this.civilite = civilite;
+    // this.version = version;
     this.nom = nom;
     this.prenom = prenom;
     this.metier = metier;

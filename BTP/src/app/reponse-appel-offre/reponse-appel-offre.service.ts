@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Prestataire} from "../model/prestataire";
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
+import {Offre} from "../model/offre";
+import {Prestation} from "../model/prestation";
 
 
 @Injectable({
@@ -18,6 +19,10 @@ export class ReponseAppelOffreService {
 
   findAll(): Array<Prestataire> {
     return this.egs
+  }
+
+  createOffre(offre: Offre) {
+    return this.http.post<Offre>("http://localhost:8080/offre/", offre);
   }
 
   load() {

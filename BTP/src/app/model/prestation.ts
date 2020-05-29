@@ -14,18 +14,19 @@ export class Prestation {
   prix: number;
   dtDebut: Date;
   dtFin: Date;
-  phasePresta: string;
+  phasePresta: PhasePresta;
   obsolete: boolean;
-  // prestationSupplementaire: PrestationSupplementaire;
+  prestationSupplementaire: PrestationSupplementaire;
   // materiels: Array<Materiel>;
-  // projet: Projet;
-  // offre: Offre;
-   prestataire: Prestataire;
+  projet: Projet;
+  offre: Offre;
+  prestataire: Prestataire;
   // salaries: Array<Salarie>;
   // facture: Facture;
 
 
-  constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date, dtFin?: Date, phasePresta?: string, obsolete?: boolean, prestataire?: Prestataire) {
+  constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date,
+              dtFin?: Date, phasePresta?: string, obsolete?: boolean, projet?: Projet, offre?: Offre, prestataire?: Prestataire) {
     this.id = id;
     this.categorie = categorie;
     this.nom = nom;
@@ -34,6 +35,8 @@ export class Prestation {
     this.dtFin = dtFin;
     this.phasePresta = phasePresta;
     this.obsolete = obsolete;
-    this.prestataire = prestataire;
+    this.projet = projet;
+    this.offre = offre;
+    this.prestataire = prestataire
   }
 }

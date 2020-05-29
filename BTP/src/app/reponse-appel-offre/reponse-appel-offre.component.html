@@ -8,8 +8,7 @@
         <div class="my-4">
           <form>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Sélectionnez une
-                EG</label>
+              <label for="exampleFormControlSelect1">Sélectionnez un prestataire</label>
 <!--              <select class="form-control" id="exampleFormControlSelect1" *ngFor="let eg of list()">-->
 <!--              <option>EG 1</option>-->
 <!--              <option>EG 2</option>-->
@@ -17,15 +16,16 @@
 <!--              <option>EG 4</option>-->
 <!--              <option>EG 5</option>-->
 <!--            </select>-->
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="prestaEG.prestataire" name="prestataire">
                 <option *ngFor="let eg of list()" [ngValue]="eg">{{eg.nom}}</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="descriptif">Décrivez le motif de la
-                consultation</label>
-              <textarea class="form-control" id="descriptif" rows="3"></textarea>
+              <label for="descriptif">Motif de la
+                consultation :</label>
+              <input type="text" class="form-control" id="descriptif" rows="3" [(ngModel)]="prestaEG.nom" name="nom">
             </div>
+            <button class="btn btn-block btn-warning tx-tfm" (click)="addToPrestaList()">Ajouter à la liste</button>
           </form>
         </div>
         <div>
@@ -41,23 +41,9 @@
         <div>
           <table class="mx-auto table table-striped">
             <tbody>
-            <tr>
-              <td class="text-center" style="width: 70%">Lidl</td>
-              <td class="text-center" style="width: 30%"><button
-                class="btn btn-danger">
-                <i class="fas fa-ban"></i>
-              </button></td>
-            </tr>
-            <tr>
-              <td class="text-center" style="width: 70%">Lidl</td>
-              <td class="text-center" style="width: 30%"><button
-                class="btn btn-danger">
-                <i class="fas fa-ban"></i>
-              </button></td>
-            </tr>
-            <tr>
-              <td class="text-center" style="width: 70%">Lidl</td>
-              <td class="text-center" style="width: 30%"><button
+            <tr *ngFor="let prestaEG of prestaList; let i = index">
+              <td class="text-center" style="width: 70%">{{prestaEG.prestataire.nom}}</td>
+              <td class="text-center" style="width: 30%" (click)="suppPrestaList(i)"><button
                 class="btn btn-danger">
                 <i class="fas fa-ban"></i>
               </button></td>
@@ -67,7 +53,7 @@
         </div>
         <div>
           <br />
-          <button class="btn btn-block btn-warning tx-tfm">
+          <button class="btn btn-block btn-warning tx-tfm" (click)="addToOffre(prestaList)">
             Envoyer la consultation aux destinataires<br /><i class="far fa-paper-plane"></i>
           </button>
         </div>

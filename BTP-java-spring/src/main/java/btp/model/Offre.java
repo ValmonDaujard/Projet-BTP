@@ -55,7 +55,6 @@ public class Offre {
 	@JsonView(Views.ViewCommon.class)
 	private AppelOffre appelOffre;
 
-
 	@OneToMany(mappedBy = "offre")
 	@JsonView(Views.ViewOffre.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
