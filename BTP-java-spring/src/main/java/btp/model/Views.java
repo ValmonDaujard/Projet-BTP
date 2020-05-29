@@ -18,6 +18,8 @@ public class Views {
 	
 	public static class ViewProjet extends ViewCommon {}
 	
+	public static class ViewProjetDetail extends ViewProjet {}
+	
 	public static class ViewPrestationSupplementaire extends ViewCommon {}
 	
 	public static class ViewPrestation extends ViewCommon {}
