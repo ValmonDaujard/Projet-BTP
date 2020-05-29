@@ -9,16 +9,17 @@ export class Offre{
   numeroDevis: number;
   dtDebut: Date;
   dtFin: Date;
+  appelOffre: AppelOffre;
   // prestations: Array<Prestation>;
   // projet: Projet;
-  appelOffre: AppelOffre;
 
 
-  constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date) {
+  constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, appelOffre? : AppelOffre) {
     this.id = id;
     this.prix = prix;
     this.numeroDevis = numeroDevis;
     this.dtDebut = dtDebut;
     this.dtFin = dtFin;
+    this.appelOffre = appelOffre;
   }
 }

@@ -5,6 +5,7 @@ import {PrestationSupplementaire} from "./prestationSupplementaire";
 
 export class Salarie{
   id: number;
+  version: number;
   civilite: string;
   nom: string;
   prenom: string;
@@ -15,12 +16,13 @@ export class Salarie{
   // prestationSupplementaires: Array<PrestationSupplementaire>;
 
 
-  constructor(id?: number, civilite?: string, nom?: string, prenom?: string, metier?: string) {
+  constructor(id?: number, civilite?: string, nom?: string, prenom?: string, metier?: string, version?: number) {
     this.id = id;
     this.civilite = civilite;
     this.version = version;
     this.nom = nom;
     this.prenom = prenom;
     this.metier = metier;
+    this.version = version;
   }
 }

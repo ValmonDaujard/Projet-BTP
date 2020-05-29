@@ -3,6 +3,7 @@ import {ProjetService} from "./projet.service";
 import {Projet} from "../model/projet";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {Offre} from "../model/offre";
 
 @Component({
   selector: 'app-projet',
@@ -12,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class ProjetComponent implements OnInit {
 
   projet: Projet = new Projet();
+  offreref: Offre = new Offre();
 
 
 
@@ -19,12 +21,16 @@ export class ProjetComponent implements OnInit {
     this.route.params.subscribe(parameters=> {
       this.projetService.findById(parameters.id).subscribe(resp => {
         this.projet = resp;
-        console.log(resp);
+
 
         // call appel offre
-      }, error => console.log(error))
-    })
-  }
+        this.projetService.findOffre(this.projet.offre.id).subscribe(resp => {
+          this.offreref =resp;})
+        console.log(resp);
+        })
+      })
+    }
+
 
   ngOnInit(): void {
 
