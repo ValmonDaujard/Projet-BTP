@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Projet} from "../model/projet";
+import {AccueilEGService} from "./accueil-eg.service";
+import {Prestation} from "../model/prestation";
 
 @Component({
   selector: 'app-accueil-eg',
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilEGComponent implements OnInit {
 
-  constructor() { }
+  projets: Array<Projet> = new Array<Projet>();
+  prestations: Array<Prestation> = new Array<Prestation>();
+
+  constructor(private accueilEGService: AccueilEGService) {
+    this.list(49);
+  }
+
+
+  list(id: number){
+    this.accueilEGService.findAllByPrestataire(id).subscribe(resp => this.projets = resp, error => console.log(error));
+    this.accueilEGService.findPrestationByPhaseByEG(id).subscribe(resp => this.prestations = resp, error => console.log(error));
+  }
 
   ngOnInit(): void {
   }

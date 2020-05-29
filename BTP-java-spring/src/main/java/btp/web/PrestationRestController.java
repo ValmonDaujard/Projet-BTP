@@ -99,7 +99,7 @@ public class PrestationRestController {
 		return prestationRepo.findPrestationByPhase(phase);
 	}
 	
-	@GetMapping("/by-phase/{phase}:{id}")
+	@GetMapping("/by-phase-and-EG/{phase}:{id}")
 	@JsonView(Views.ViewPrestation.class)
 	public List<Prestation> findPrestationByPhaseAndProjet(@PathVariable PhasePresta phase, @PathVariable Long id) {
 		return prestationRepo.findPrestationByPhaseAndProjet(phase, id);

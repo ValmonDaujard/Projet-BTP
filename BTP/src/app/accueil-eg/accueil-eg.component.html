@@ -30,10 +30,10 @@
       <div class="tabProjet">
         <table id="tab" class="table table-striped" id="projetTable">
           <tbody>
-          <tr>
-            <td style="width: 30%">Parking McDo</td>
-            <td style="width: 30%">Mérignac</td>
-            <td style="width: 30%">M. Dupont</td>
+          <tr *ngFor="let proj of projets">
+            <td style="width: 30%">{{proj.offre.appelOffre.nom}}</td>
+            <td style="width: 30%">{{proj.offre.appelOffre.adresse.ville}}</td>
+            <td style="width: 30%">{{proj.offre.maitreOeuvre.nom}}</td>
             <td style="width: 10%"><div class="btn-group ml-3">
               <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
             </div></td>
@@ -107,26 +107,32 @@
            style="margin: 10px; width: 300px">
   </div>
     <div class="card-body">
-      <table class="my-auto table">
+      <table class="my-auto table" >
         <thead class="thead-dark">
         <tr>
-          <th style="width: 20%">Nom</th>
-          <th style="width: 17.5%">Catégorie</th>
-          <th style="width: 18%">Lieu</th>
-          <th style="width: 27%">Date limite de réponse</th>
-          <th style="width: 17.5%">Répondre</th>
+          <th style="width: 30%">Nom</th>
+          <th style="width: 28.5%">Catégorie</th>
+          <th style="width: 26%">Lieu</th>
+          <th style="width: 15.5%">Répondre</th>
         </tr>
         </thead>
       </table>
       <div class="tabAppel">
         <table class="table table-striped" id="consultTable">
           <tbody>
+          <tr *ngFor="let presta of prestations">
+            <td style="width: 26%">{{presta.nom}}</td>
+            <td style="width: 30%">{{presta.categorie}}</td>
+            <td style="width: 30%">{{presta.projet.offre.appelOffre.adresse.ville}}</td>
+            <td style="width: 14%"><div class="btn-group ml-4">
+              <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
+            </div></td>
+          </tr>
           <tr>
-            <td style="width: 21%">Chantier</td>
-            <td style="width: 17.5%">Maçonnerie</td>
-            <td style="width: 18%">Bordeaux</td>
-            <td style="width: 27%">12/06/2020</td>
-            <td style="width: 16.5%"><div class="btn-group ml-4">
+            <td style="width: 30%">Mairie Talence</td>
+            <td style="width: 30%">CVC</td>
+            <td style="width: 25%">Talence</td>
+            <td style="width: 15%"><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
           </tr>
@@ -134,7 +140,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -143,7 +148,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -152,7 +156,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -161,7 +164,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -170,7 +172,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -179,7 +180,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
@@ -188,16 +188,6 @@
             <td>Mairie Talence</td>
             <td>CVC</td>
             <td>Talence</td>
-            <td>10/05/2020</td>
-            <td><div class="btn-group ml-4">
-              <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
-            </div></td>
-          </tr>
-          <tr>
-            <td>Mairie Talence</td>
-            <td>CVC</td>
-            <td>Talence</td>
-            <td>10/05/2020</td>
             <td><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
