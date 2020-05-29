@@ -3,6 +3,8 @@ import {ReponseAppelOffreService} from "./reponse-appel-offre.service";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
+import {Observable} from "rxjs";
+import {Projet} from "../model/projet";
 
 @Component({
   selector: 'app-reponse-appel-offre',
@@ -14,13 +16,16 @@ export class ReponseAppelOffreComponent implements OnInit {
   prestaEG: Prestation = new Prestation();
   prestaList: Array<Prestation> = new Array<Prestation>();
   offre: Offre = new Offre();
+  projet84: Projet = new Projet();
+
+
 
   constructor(private reponseAppelOffreService: ReponseAppelOffreService) { }
 
   ngOnInit(): void {
   }
-
-  list(): Array<Prestataire> {
+  
+  listEG(): Array<Prestataire> {
     return this.reponseAppelOffreService.findAll();
   }
 
@@ -38,15 +43,22 @@ export class ReponseAppelOffreComponent implements OnInit {
     this.prestaList.splice(index, 1);
   }
 
-  addToOffre(prestations: Array<Prestation>) {
-      // this.prestaEG.phasePresta = "En Consultation";
+  addToOffre() {
       this.offre.prestations = this.prestaList;
+      // this.offre.projet.id = 84;
+      for(let presta of this.offre.prestations) {
+        presta.phasePresta= "enConsult";
+      }
       console.log(this.offre.prestations)
       this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
-          this.prestaEG= null;
           this.reponseAppelOffreService.load();
         },
         error => console.log(error)
       )
   }
+
+  listPrestaEG(): Observable<Array<Prestation>> {
+    return this.reponseAppelOffreService.findPrestationByPhase();
+  }
+
 }
