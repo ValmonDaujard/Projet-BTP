@@ -14,7 +14,7 @@ export class Prestation {
   prix: number;
   dtDebut: Date;
   dtFin: Date;
-  phasePresta: PhasePresta;
+  phasePresta: string;
   obsolete: boolean;
   prestationSupplementaire: PrestationSupplementaire;
   // materiels: Array<Materiel>;
