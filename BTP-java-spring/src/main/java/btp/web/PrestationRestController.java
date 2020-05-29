@@ -97,7 +97,7 @@ public class PrestationRestController {
 	@GetMapping("/by-phase/{phase}:{id}")
 	@JsonView(Views.ViewPrestation.class)
 	public List<Prestation> findPrestationByPhase(@PathVariable PhasePresta phase, @PathVariable Long id){
-		return prestationRepo.findPrestationByPhase(phase, id);
+		return prestationRepo.findPrestationByPhaseAndProjet(phase, id);
 	}
 	
 	@PostMapping("")

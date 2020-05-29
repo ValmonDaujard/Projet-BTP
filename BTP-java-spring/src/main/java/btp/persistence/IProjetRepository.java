@@ -10,16 +10,16 @@ import btp.model.Projet;
 
 public interface IProjetRepository extends JpaRepository<Projet, Long>{
 
-	//Page accueil Maitre Ouvrage liste deroulante projets
-	@Query("select p from Projet p where p.offre.maitreOuvrage.id= :id")
+	//Page accueil Maitre Ouvrage liste deroulante projets en cours
+	@Query("select p from Projet p where p.offre.maitreOuvrage.id= :id and p.dtFin > current_date")
 	List <Projet> findAllByMaitreOuvrage(@Param("id") Long id);
 	
-	//Page accueil EG liste deroulante projets
-	@Query("select p from Projet p join p.prestations presta join presta.prestataire pres where pres.id= :id")
+	//Page accueil EG liste deroulante projets en cours
+	@Query("select p from Projet p join p.prestations presta join presta.prestataire pres where pres.id= :id and p.dtFin > current_date")
 	List <Projet> findAllByPrestataire(@Param("id") Long id);
 	
-	//Page accueil Maitre œuvre liste deroulante projets
-	@Query("select p from Projet p where p.offre.maitreOeuvre.id= :id")
+	//Page accueil Maitre œuvre liste deroulante projets en cours
+	@Query("select p from Projet p where p.offre.maitreOeuvre.id= :id and p.dtFin > current_date")
 	List <Projet> findAllByMaitreOeuvre(@Param("id") Long id);
 	
 }

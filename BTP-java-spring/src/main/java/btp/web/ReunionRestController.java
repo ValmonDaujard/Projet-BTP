@@ -52,13 +52,13 @@ public class ReunionRestController {
 	@GetMapping("/effectuee/{id}")
 	@JsonView(Views.ViewReunion.class)
 	public List<Reunion> findAllEffectuee(@PathVariable Long id){
-		return reunionRepo.findAllEffectuee(id);
+		return reunionRepo.findAllEffectueeByProjet(id);
 	}
 	
 	@GetMapping("/planifiee/{id}")
 	@JsonView(Views.ViewReunion.class)
 	public List<Reunion> findAllPlanifiee(@PathVariable Long id){
-		return reunionRepo.findAllPlanifiee(id);
+		return reunionRepo.findAllPlanifieeByProjet(id);
 	}
 	
 	@PostMapping("")

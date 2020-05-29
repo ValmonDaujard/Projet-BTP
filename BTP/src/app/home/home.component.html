@@ -198,16 +198,16 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="container-fluid card mt-3 bandeau-accueil shadow">
-  <h1>Accueil Maitre d'Œuvre</h1>
+<div>
+  <h1 class="font-weight-bold my-5" style="text-align: center;">Accueil</h1>
 </div>
 <!-- 	Projets en Cours -->
 <div class="container-fluid card mt-3 shadow">
-  <div class="card-header bg-white border-bottom border-warning" style="margin-left: 80px; margin-right: 80px;">
+  <div class="card-header bg-white border-bottom border-warning">
     <h3 class="font-weight-bold mb-0 my-3">Projets en cours</h3>
   </div>
   <div>
-    <input class="form-control" type="text"
+    <input class="form-control mt-4" type="text"
            placeholder="Chercher un projet..."
            style="margin: 10px; width: 300px">
   </div>
@@ -219,8 +219,7 @@
         <th style="width: 18%">Lieu</th>
         <th style="width: 17%">N° de devis</th>
         <th style="width: 18%">Date de démarrage</th>
-        <th style="width: 19%">Date de fin du
-          projet</th>
+        <th style="width: 19%">Date de fin du projet</th>
         <th style="width: 10%">Détails</th>
       </tr>
       </thead>
@@ -228,147 +227,146 @@
     <div class="tabProjet">
       <table class="table table-striped ">
         <tbody>
-        <tr>
-          <td style="width: 18%">Parking McDo</td>
-          <td style="width: 18%">Mérignac</td>
-          <td style="width: 18%">152369D</td>
-          <td style="width: 18%">12/03/2020</td>
-          <td style="width: 18%">20/04/2020</td>
-          <td style="width: 10%"><div class="btn-group"
-                                      style="margin-left: 30px">
+        <tr *ngFor="let proj of projets">
+          <td style="width: 18%">{{proj.offre.appelOffre?.nom}}</td>
+          <td style="width: 18%">{{proj.offre.appelOffre?.adresse?.ville}}</td>
+          <td style="width: 18%">{{proj.numeroDevis}}</td>
+          <td style="width: 18%">{{proj.dtDebut|date:'dd/MM/yyyy'}}</td>
+          <td style="width: 18%">{{proj.dtFin}}</td>
+          <td style="width: 10%"><div class="btn-group" style="margin-left: 30px">
             <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
           </div></td>
         </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
-        <tr>
-          <td>Mairie Talence</td>
-          <td>Talence</td>
-          <td>252769F</td>
-          <td>10/05/2020</td>
-          <td>25/05/2020</td>
-          <td><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
-          </div></td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Mairie Talence</td>-->
+<!--          <td>Talence</td>-->
+<!--          <td>252769F</td>-->
+<!--          <td>10/05/2020</td>-->
+<!--          <td>25/05/2020</td>-->
+<!--          <td><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
         </tbody>
 
       </table>
@@ -380,7 +378,7 @@
     <h3 class="font-weight-bold mb-0 my-3">Appels d'offres en attentes</h3>
   </div>
   <div>
-    <input class="form-control" type="text"
+    <input class="form-control mt-4" type="text"
            placeholder="Chercher un appel d'offre..."
            style="margin: 10px; width: 300px">
   </div>

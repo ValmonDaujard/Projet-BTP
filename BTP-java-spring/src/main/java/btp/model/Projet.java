@@ -14,10 +14,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
+@CrossOrigin("*")
 public class Projet {
 	@Id
 	@GeneratedValue
@@ -39,23 +42,23 @@ public class Projet {
 	@JsonView(Views.ViewCommon.class)
 	private String rapport;
 	@OneToMany(mappedBy = "projet")
-	@JsonView(Views.ViewProjet.class)
+	@JsonView(Views.ViewProjetDetail.class)
 	private List<Reunion> reunions = new ArrayList<Reunion>();
 	@OneToMany(mappedBy = "projet")
-	@JsonView(Views.ViewProjet.class)
+	@JsonView(Views.ViewProjetDetail.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 	@OneToMany(mappedBy = "projet")
-	@JsonView(Views.ViewProjet.class)
+	@JsonView(Views.ViewProjetDetail.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	@OneToOne(mappedBy = "projet")
-	@JsonView(Views.ViewProjet.class)
+	@JsonView(Views.ViewProjetDetail.class)
 	private Facture facture;
 	@OneToOne
 	@JoinColumn(name = "offre_id")
 	@JsonView(Views.ViewProjet.class)
 	private Offre offre;
 	@OneToMany(mappedBy = "projet")
-	@JsonView(Views.ViewProjet.class)
+	@JsonView(Views.ViewProjetDetail.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
 	public Projet() {

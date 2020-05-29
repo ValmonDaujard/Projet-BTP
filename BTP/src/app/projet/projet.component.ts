@@ -14,7 +14,7 @@ import {Prestation} from "../model/prestation";
 })
 export class ProjetComponent implements OnInit {
 
-  projet: Projet = new Projet();
+  projet: Projet = null;
   offreref: Offre = new Offre();
  prestationref: Array<Prestation> = new Array<Prestation>();
 

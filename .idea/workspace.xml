@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1ec045c7-5531-4914-9f8c-db8589132ad9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Salarie.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Salarie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/BtpApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/BtpApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/TestBTP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/TestBTP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Projet.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Projet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/MenuGestionSalarieMateriel.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/resources/templates/MenuGestionSalarieMateriel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/model/appelOffre.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/model/appelOffre.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/model/projet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/model/projet.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP/src/app/model/salarie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/model/salarie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/projet/projet.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/projet/projet.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../formation-angular" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -60,6 +65,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\java\workspace\Projet-BTP\BTP\src\app\home" />
       <recent name="C:\java\workspace\Projet-BTP\BTP\src\app\gestion-materiel-salarie" />
     </key>
   </component>
@@ -76,7 +82,8 @@
       <workItem from="1590497382846" duration="2411000" />
       <workItem from="1590503697199" duration="1308000" />
       <workItem from="1590565529151" duration="4223000" />
-      <workItem from="1590651391496" duration="6824000" />
+      <workItem from="1590651391496" duration="8991000" />
+      <workItem from="1590677351886" duration="8854000" />
     </task>
     <servers />
   </component>

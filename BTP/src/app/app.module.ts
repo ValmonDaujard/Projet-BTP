@@ -21,7 +21,7 @@ import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-
     ProjetComponent,
     HomeComponent,
     GestionMaterielSalarieComponent,
-    ReponseAppelOffreComponent,
+    ReponseAppelOffreComponent
   ],
   imports: [
     BrowserModule,
