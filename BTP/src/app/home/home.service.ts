@@ -24,6 +24,10 @@ export class HomeService {
     return this.http.get<Array<Offre>>('http://localhost:8080/offre/by-maitre-oeuvre-en-consult/' + id);
   }
 
+  findAllByMaitreOuvrage(id: number): Observable<Array<Projet>>{
+    return this.http.get<Array<Projet>>('http://localhost:8080/by-maitre-ouvrage/' + id);
+  }
+
   load(){
     this.http.get<Array<Projet>>('http://localhost:8080/projet').subscribe(resp => {this.projets = resp;
     }, error => console.log(error));

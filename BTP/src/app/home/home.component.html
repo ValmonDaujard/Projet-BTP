@@ -93,7 +93,7 @@
 <!--    </div>-->
 <!--  </div>-->
 
-<!--  &lt;!&ndash; 		Appels offres en attentes &ndash;&gt;-->
+  <!-- 		Consultations -->
 
 <!--  <div class="container-fluid card col mt-3 shadow my-4 mr-5">-->
 <!--    <div class="card-header bg-white border-bottom border-warning"-->
@@ -214,13 +214,103 @@
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!--ACCUEIL MAITRE OEUVRE-->
 
+<!--<div>-->
+<!--  <h1 class="font-weight-bold my-5" style="text-align: center;">Accueil</h1>-->
+<!--</div>-->
+<!-- 	Projets en Cours -->
+<!--<div class="container-fluid card mt-3 shadow">-->
+<!--  <div class="card-header bg-white border-bottom border-warning">-->
+<!--    <h3 class="font-weight-bold my-3">Projets en cours</h3>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <input class="form-control mt-4" type="text"-->
+<!--           placeholder="Chercher un projet..."-->
+<!--           style="margin: 10px; width: 300px">-->
+<!--  </div>-->
+<!--  <div class="card-body">-->
+<!--    <table class="my-auto table">-->
+<!--      <thead class="thead-dark">-->
+<!--      <tr>-->
+<!--        <th style="width: 18%">Nom</th>-->
+<!--        <th style="width: 18%">Lieu</th>-->
+<!--        <th style="width: 17%">N° de devis</th>-->
+<!--        <th style="width: 18%">Date de démarrage</th>-->
+<!--        <th style="width: 19%">Date de fin du projet</th>-->
+<!--        <th style="width: 10%">Détails</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--    </table>-->
+<!--    <div class="tabProjet">-->
+<!--      <table class="table table-striped ">-->
+<!--        <tbody>-->
+<!--        <tr *ngFor="let proj of projets">-->
+<!--          <td style="width: 18%">{{proj.offre.appelOffre.nom}}</td>-->
+<!--          <td style="width: 18%">{{proj.offre.appelOffre.adresse?.ville}}</td>-->
+<!--          <td style="width: 18%">{{proj.numeroDevis}}</td>-->
+<!--          <td style="width: 18%">{{proj.dtDebut|date:'dd/MM/yyyy'}}</td>-->
+<!--          <td style="width: 18%">{{proj.dtFin}}</td>-->
+<!--          <td style="width: 10%"><div class="btn-group" style="margin-left: 30px">-->
+<!--            <a class="btn btn-sm btn-lg" [routerLink]="['/projet/:id']"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; 	Appels d'offre en attente &ndash;&gt;-->
+<!--<div class="container-fluid card mt-3 shadow">-->
+<!--  <div class="card-header bg-white border-bottom border-warning" >-->
+<!--    <h3 class="font-weight-bold my-3">Appels d'offres en attentes</h3>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <input class="form-control mt-4" type="text"-->
+<!--           placeholder="Chercher un appel d'offre..."-->
+<!--           style="margin: 10px; width: 300px">-->
+<!--  </div>-->
+<!--  <div class="card-body">-->
+<!--    <table class="my-auto table">-->
+<!--      <thead class="thead-dark">-->
+<!--      <tr>-->
+<!--        <th style="width: 20%">Nom</th>-->
+<!--        <th style="width: 17.5%">Lieu</th>-->
+<!--        <th style="width: 22%">Objectif</th>-->
+<!--        <th style="width: 26%" >Date limite de réponse</th>-->
+<!--        <th style="width: 14.5%">Détails</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--    </table>-->
+<!--    <div class="tabAppel">-->
+<!--      <table class="table table-striped">-->
+<!--        <tbody>-->
+<!--        <tr *ngFor="let off of offres">-->
+<!--          <td style="width: 20%">{{off.appelOffre.nom}}</td>-->
+<!--          <td style="width: 18%">{{off.appelOffre.adresse.ville}}</td>-->
+<!--          <td style="width: 22%">{{off.appelOffre.objectif}}</td>-->
+<!--          <td style="width: 26%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>-->
+<!--          <td style="width: 14%"><div class="btn-group" style="margin-left: 20px">-->
+<!--            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>-->
+<!--          </div></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!--ACCUEIL MAITRE OUVRAGE-->
+
 <div>
   <h1 class="font-weight-bold my-5" style="text-align: center;">Accueil</h1>
 </div>
 <!-- 	Projets en Cours -->
 <div class="container-fluid card mt-3 shadow">
   <div class="card-header bg-white border-bottom border-warning">
-    <h3 class="font-weight-bold my-3">Projets en cours</h3>
+    <h3 class="font-weight-bold mb-0 my-3">Projets en cours</h3>
   </div>
   <div>
     <input class="form-control mt-4" type="text"
@@ -231,11 +321,12 @@
     <table class="my-auto table">
       <thead class="thead-dark">
       <tr>
-        <th style="width: 18%">Nom</th>
-        <th style="width: 18%">Lieu</th>
-        <th style="width: 17%">N° de devis</th>
-        <th style="width: 18%">Date de démarrage</th>
-        <th style="width: 19%">Date de fin du projet</th>
+        <th style="width: 15%">Nom</th>
+        <th style="width: 14.5%">Lieu</th>
+        <th style="width: 15%">N° de devis</th>
+        <th style="width: 15%">Maitre d'oeuvre</th>
+        <th style="width: 15%">Date de démarrage</th>
+        <th style="width: 15.5%">Date de fin du projet</th>
         <th style="width: 10%">Détails</th>
       </tr>
       </thead>
@@ -390,10 +481,12 @@
   </div>
 </div>
 
-<!-- 	Appels d'offre en attente -->
-<div class="container-fluid card mt-3 shadow">
-  <div class="card-header bg-white border-bottom border-warning" >
-    <h3 class="font-weight-bold my-3">Appels d'offres en attentes</h3>
+<!-- 		Appels offres en attentes -->
+
+<div class="container-fluid card mt-3 shadow ">
+  <div class="card-header bg-white border-bottom border-warning">
+    <h3 class="font-weight-bold mb-0 my-3">Appels d'offres en
+      attente</h3>
   </div>
   <div>
     <input class="form-control mt-4" type="text" id="appelSearch"
@@ -405,28 +498,87 @@
       <thead class="thead-dark">
       <tr>
         <th style="width: 20%">Nom</th>
-        <th style="width: 17.5%">Lieu</th>
-        <th style="width: 22%">Objectif</th>
-        <th style="width: 26%" >Date limite de réponse</th>
-        <th style="width: 14.5%">Détails</th>
+        <th style="width: 20%">Lieu</th>
+        <th style="width: 25%">Objectif</th>
+        <th style="width: 25%">Date limite de réponse</th>
+        <th style="width: 10%">Détails</th>
       </tr>
       </thead>
     </table>
     <div class="tabAppel">
       <table class="table table-striped" id="appelTable">
         <tbody>
-        <tr *ngFor="let off of offres">
-          <td style="width: 20%">{{off.appelOffre.nom}}</td>
-          <td style="width: 18%">{{off.appelOffre.adresse.ville}}</td>
-          <td style="width: 22%">{{off.appelOffre.objectif}}</td>
-          <td style="width: 26%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
-          <td style="width: 14%"><div class="btn-group" style="margin-left: 20px">
+        <tr>
+          <td style="width: 20%">Demol</td>
+          <td style="width: 20%">Bordeaux</td>
+          <td style="width: 25%">Demolition résidence</td>
+          <td style="width: 25%">12/06/2020</td>
+          <td style="width: 10%"><div class="btn-group"
+                                      style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Mairie Talence</td>
+          <td>Talence</td>
+          <td>Chantier CVC</td>
+          <td>10/05/2020</td>
+          <td><div class="btn-group" style="margin-left: 20px">
             <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
           </div></td>
         </tr>
         </tbody>
+
       </table>
     </div>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-lg"> Création d'un nouvel Appel d'offre </a>
   </div>
 </div>
 

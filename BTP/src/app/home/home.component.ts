@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   list(id: number){
     this.homeService.findAllByMaitreOeuvre(id).subscribe(resp => this.projets = resp, error => console.log(error));
     this.homeService.findAllByMaitreOeuvreEnConsult(id).subscribe(resp => this.offres = resp, error => console.log(error));
+    this.homeService.findAllByMaitreOuvrage(id).subscribe(resp => this.projets = resp, error => console.log(error));
   }
 
   rechercheProj() {
