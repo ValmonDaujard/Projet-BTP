@@ -20,7 +20,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.Prestataire;
+import btp.model.Utilisateur;
 import btp.persistence.IPrestataireRepository;
+import btp.persistence.IUtilisateurRepository;
 import btp.model.Views;
 
 @RestController
@@ -30,6 +32,9 @@ public class PrestataireRestController {
 
 	@Autowired
 	private IPrestataireRepository prestataireRepo;
+	
+	@Autowired
+	private IUtilisateurRepository utilisateurRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewPrestataire.class)
@@ -52,6 +57,10 @@ public class PrestataireRestController {
 	
 	@PostMapping("")
 	public Prestataire create(@RequestBody Prestataire prestataire) {
+		Utilisateur utilisateur = utilisateurRepo.save(prestataire.getUtilisateur());
+		
+		prestataire.setUtilisateur(utilisateur);
+		
 		prestataire = prestataireRepo.save(prestataire);
 
 		return prestataire;

@@ -3,6 +3,9 @@ package btp.web;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Transient;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,8 +22,10 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.MaitreOeuvre;
+import btp.model.Utilisateur;
 import btp.model.Views;
 import btp.persistence.IMaitreOeuvreRepository;
+import btp.persistence.IUtilisateurRepository;
 
 @RestController
 @RequestMapping("/maitreOeuvre")
@@ -29,6 +34,9 @@ public class MaitreOeuvreRestController {
 	
 	@Autowired
 	private IMaitreOeuvreRepository maitreOeuvreRepo;
+	
+	@Autowired
+	private IUtilisateurRepository utilisateurRepo;
 	
 	@GetMapping("")
 	@JsonView(Views.ViewMaitreOeuvre.class)
@@ -58,6 +66,10 @@ public class MaitreOeuvreRestController {
 	@PostMapping("")
 	@JsonView(Views.ViewMaitreOeuvre.class)
 	public MaitreOeuvre create(@RequestBody MaitreOeuvre maitreOeuvre) {
+		Utilisateur utilisateur = utilisateurRepo.save(maitreOeuvre.getUtilisateur());
+		
+		maitreOeuvre.setUtilisateur(utilisateur);
+		
 		maitreOeuvre = maitreOeuvreRepo.save(maitreOeuvre);
 
 		return maitreOeuvre;
@@ -79,4 +91,5 @@ public class MaitreOeuvreRestController {
 	public void delete (@PathVariable Long id) {
 		maitreOeuvreRepo.deleteById(id);
 	}
+	
 }

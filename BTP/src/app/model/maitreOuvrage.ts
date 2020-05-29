@@ -11,8 +11,8 @@ export class MaitreOuvrage extends Societe{
   // factures: Array<Facture>;
 
 
-  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, adresse?: Adresse) {
-    super(id, version, nom, siret, telephone, mail, numeroTva, adresse);
+  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
+    super(id, version, nom, siret, telephone, mail, numeroTva, utilisateur, adresse);
     // this.appelOffres = appelOffres;
     // this.offres = offres;
     // this.factures = factures;

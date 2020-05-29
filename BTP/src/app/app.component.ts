@@ -25,6 +25,10 @@ export class AppComponent {
     document.getElementById('titre').style.marginLeft = '0%';
     document.getElementById('myOverlay').style.display = 'none';
   }
+
+  deconnexion(){
+
+  }
 }
 
 

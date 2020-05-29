@@ -3,6 +3,7 @@ import {Projet} from '../model/projet';
 import {HomeService} from './home.service';
 import {Observable} from 'rxjs';
 import {Offre} from '../model/offre';
+import { AccueilComponent } from '../accueil/accueil.component';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   search : string;
   projets: Array<Projet> = new Array<Projet>();
   offres: Array<Offre> = new Array<Offre>();
+  constructor(private accueilComponent: AccueilComponent) { }
 
   constructor(private homeService: HomeService) {
     this.list(8);
@@ -83,4 +85,16 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+  choix(){
+    if (this.accueilComponent.userForm){
+      return 0;
+    }
+    else if (this.accueilComponent.userForm){
+      return 1;
+    }
+    else if (this.accueilComponent.userForm){
+      return 2;
+    }
+  }
+
 }
