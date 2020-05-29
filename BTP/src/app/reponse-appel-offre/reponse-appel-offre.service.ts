@@ -12,6 +12,7 @@ import {Observable} from "rxjs";
 export class ReponseAppelOffreService {
 
   private egs: Array<Prestataire> = new Array<Prestataire>();
+  private prestaValideeEG: Array<Prestation> = new Array<Prestation>();
 
 
   constructor(private http: HttpClient) {
@@ -23,11 +24,12 @@ export class ReponseAppelOffreService {
   }
 
   findPrestationByPhase(): Observable<Array<Prestation>> {
-    return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult:84");
+    // return this.prestaValideeEG;
+    return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult");
   }
 
-  createOffre(offre: Offre) {
-    return this.http.post<Offre>("http://localhost:8080/offre/", offre);
+  createPrestations(prestations: Array<Prestation>) {
+    return this.http.post<Array<Prestation>>("http://localhost:8080/prestation/multiple", prestations);
   }
 
   load() {
