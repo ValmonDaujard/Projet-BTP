@@ -10,6 +10,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ProjetComponent } from './projet/projet.component';
 import { HomeComponent } from './home/home.component';
 import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
+import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-offre.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gest
     ProjetComponent,
     HomeComponent,
     GestionMaterielSalarieComponent,
+    ReponseAppelOffreComponent,
   ],
   imports: [
     BrowserModule,
