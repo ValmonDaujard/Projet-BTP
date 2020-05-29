@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Prestataire} from "../model/prestataire";
 import {Offre} from "../model/offre";
 import {Prestation} from "../model/prestation";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -19,6 +20,10 @@ export class ReponseAppelOffreService {
 
   findAll(): Array<Prestataire> {
     return this.egs
+  }
+
+  findPrestationByPhase(): Observable<Array<Prestation>> {
+    return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult:84");
   }
 
   createOffre(offre: Offre) {

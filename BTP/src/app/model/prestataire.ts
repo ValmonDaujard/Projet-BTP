@@ -7,6 +7,7 @@ import {Materiel} from "./materiel";
 import {PrestationSupplementaire} from "./prestationSupplementaire";
 import {Salarie} from "./salarie";
 import {Adresse} from "./adresse";
+import {Utilisateur} from "./utilisateur";
 
 export class Prestataire extends Societe{
   // actions: Array<Action>;
@@ -17,7 +18,7 @@ export class Prestataire extends Societe{
   // materiels: Array<Materiel>;
 
 
-  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, adresse?: Adresse) {
-    super(id,version, nom, siret, telephone, mail, numeroTva, adresse);
+  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
+    super(id,version, nom, siret, telephone, mail, numeroTva, utilisateur, adresse);
   }
 }

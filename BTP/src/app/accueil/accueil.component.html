@@ -16,7 +16,7 @@
     </div>
     <ul class="actions">
       <li><a href="#" class="button mr-5" data-toggle="modal" data-target="#connexion">Connexion</a>
-        <a href="#" class="button" data-toggle="modal" data-target="#inscription">Inscription</a></li>
+        <a href="#" class="button" data-toggle="modal" data-target="#inscription" (click)="add()">Inscription</a></li>
     </ul>
   </div>
 </div>
@@ -70,21 +70,19 @@
                 </div>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="identifiantForm">Identifiant</label> <input
-                    type="text" class="form-control" id="identifiantForm"
-                    name="identifiantForm" style="border-radius: 25px">
+                    <label for="identifiantForm">Identifiant</label>
+                    <input type="text" class="form-control" id="identifiantForm" name="identifiantForm" style="border-radius: 25px" [(ngModel)]="userForm.identifiant">
                   </div>
                   <div class="form-group">
-                    <label for="mdpForm">Mot de Passe</label> <input type="password"
-                                                                 class="form-control" id="mdpForm" name="mdpForm"
-                                                                 style="border-radius: 25px">
+                    <label for="mdpForm">Mot de Passe</label>
+                    <input type="password" class="form-control" id="mdpForm" name="mdpForm" style="border-radius: 25px" [(ngModel)]="userForm.motDePasse">
                     <button class="input-group-text">
                       <i class="fas fa-eye"></i>
                     </button>
                   </div>
                   <div class="col-md-12 text-center ">
                     <button data-dismiss="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "
-                            style="border-radius: 50px" [routerLink]="['/accueil']">Connexion</button>
+                            style="border-radius: 50px" [routerLink]="['/home']" (click)="connexion(userForm.identifiant,userForm.motDePasse)">Connexion</button>
                   </div>
                   <br />
                   <div class="col-md-12 text-center ">
@@ -118,56 +116,67 @@
                 <h3>Création de compte</h3>
               </div>
               <div class="card-body">
-                <!-- 				<div class="form-group"> -->
-                <div class="btn-group">
-                  <button type="button" class="btn btn-warning text-dark">Maître
-                    d'ouvrage</button>
-                  <button type="button" class="btn btn-dark text-white">Maître
-                    d'oeuvre</button>
-                  <button type="button" class="btn btn-warning text-dark">Prestataire</button>
-                </div>
-                <!-- 					<div class="custom-control custom-radio"> -->
-                <!-- 						<input type="radio" class="custom-control-input" id="maitreOuvrage" name="maitreOuvrageRadio">  -->
-                <!-- 							<label class="custom-control-label" for="maitreOuvrage">Maître d'ouvrage</label> -->
-                <!-- 						<input type="radio" class="custom-control-input" id="maitreOeuvre" name="maitreOeuvreRadio">  -->
-                <!-- 							<label class="custom-control-label" for="maitreOeuvre">Maître d'oeuvre</label> -->
-                <!-- 						<input type="radio" class="custom-control-input" id="prestataire" name="prestataireRadio">  -->
-                <!-- 							<label class="custom-control-label" for="prestataire">Prestataire</label> -->
-                <!-- 					</div> -->
-                <!-- 				</div> -->
-                <div class="form-group">
-                  <label for="nom">Nom:</label> <input type="text"
-                                                       class="form-control" id="nom" name="nom" style="border-radius: 25px">
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-warning text-dark">Maître-->
+<!--                    d'ouvrage</button>-->
+<!--                  <button type="button" class="btn btn-dark text-white">Maître-->
+<!--                    d'oeuvre</button>-->
+<!--                  <button type="button" class="btn btn-warning text-dark">Prestataire</button>-->
+<!--                </div>-->
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-warning">
+                    <input type="radio" name="options" id="mORadio" autocomplete="off" (click)="type(0)">Maître d'ouvrage
+                  </label>
+                  <label class="btn btn-dark">
+                    <input type="radio" name="options" id="mOERadio" autocomplete="off" (click)="type(1)">Maître d'oeuvre
+                  </label>
+                  <label class="btn btn-warning">
+                    <input type="radio" name="options" id="prestataireRadio" autocomplete="off" (click)="type(2)">Prestataire
+                  </label>
                 </div>
                 <div class="form-group">
-                  <label for="prenom">Prénom:</label> <input type="text"
-                                                             class="form-control" id="prenom" name="prenom" style="border-radius: 25px">
+                  <label for="nom">Nom:</label>
+                  <input type="text" class="form-control" id="nom" name="nom" style="border-radius: 25px" [(ngModel)]="societeForm.nom">
                 </div>
                 <div class="form-group">
-                  <label for="mail">Email:</label> <input type="email"
-                                                          class="form-control" id="mail" name="mail" style="border-radius: 25px">
+                  <label for="mail">Email:</label>
+                  <input type="email" class="form-control" id="mail" name="mail" style="border-radius: 25px" [(ngModel)]="societeForm.mail">
                 </div>
                 <div class="form-group">
-                  <label for="telephone">Téléphone:</label> <input type="text"
-                                                                   class="form-control" id="telephone" name="telephone" style="border-radius: 25px">
+                  <label for="telephone">Téléphone:</label>
+                  <input type="text" class="form-control" id="telephone" name="telephone" style="border-radius: 25px" [(ngModel)]="societeForm.telephone">
                 </div>
                 <div class="form-group">
-                  <label for="siret">Numéro de Siret:</label> <input type="number"
-                                                                     class="form-control" id="siret" name="siret" style="border-radius: 25px">
+                  <label for="siret">Numéro de Siret:</label>
+                  <input type="number" class="form-control" id="siret" name="siret" style="border-radius: 25px" [(ngModel)]="societeForm.siret">
                 </div>
                 <div class="form-group">
-                  <label for="tva">Numéro de TVA:</label> <input type="number"
-                                                                 class="form-control" id="tva" name="tva" style="border-radius: 25px">
+                  <label for="tva">Numéro de TVA:</label>
+                  <input type="text" class="form-control" id="tva" name="tva" style="border-radius: 25px" [(ngModel)]="societeForm.numeroDeTva">
                 </div>
                 <div class="form-group">
-                  <label for="identifiant">Identifiant</label> <input type="text"
-                                                                      class="form-control" id="identifiant" name="identifiant"
-                                                                      style="border-radius: 25px">
+                  <label for="rue">Rue:</label>
+                  <input type="text" class="form-control" id="rue" name="rue" style="border-radius: 25px" [(ngModel)]="societeForm.adresse.rue">
                 </div>
                 <div class="form-group">
-                  <label for="mdp">Mot de Passe</label> <input type="password"
-                                                               class="form-control" id="mdp" name="mdp"
-                                                               style="border-radius: 25px">
+                  <label for="complement">Complément:</label>
+                  <input type="text" class="form-control" id="complement" name="complement"  style="border-radius: 25px" [(ngModel)]="societeForm.adresse.complement">
+                </div>
+                <div class="form-group">
+                  <label for="codePostal">Code postal:</label>
+                  <input type="text" class="form-control" id="codePostal" name="codePostal" style="border-radius: 25px" [(ngModel)]="societeForm.adresse.codePostal">
+                </div>
+                <div class="form-group">
+                  <label for="ville">Ville:</label>
+                  <input type="text" class="form-control" id="ville" name="ville" style="border-radius: 25px" [(ngModel)]="societeForm.adresse.ville">
+                </div>
+                <div class="form-group">
+                  <label for="identifiant">Identifiant</label>
+                  <input type="text" class="form-control" id="identifiant" name="identifiant" style="border-radius: 25px" [(ngModel)]="societeForm.utilisateur.identifiant">
+                </div>
+                <div class="form-group">
+                  <label for="mdp">Mot de Passe</label>
+                  <input type="password" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" [(ngModel)]="societeForm.utilisateur.motDePasse">
                 </div>
 <!--                <div class="form-group">-->
 <!--                  <label for="mdpConfirmed">Confirmation du mot de passe</label> <input type="password"-->
@@ -177,7 +186,7 @@
               </div>
               <div class="card-footer">
                 <div class="btn-group btn-group-lg float-right">
-                  <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal">
+                  <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal" (click)="save()">
                     <i class="fa fa-check"></i>
                   </button>
                   <a class="btn btn-warning" data-dismiss="modal" data-target="#inscription"> <i class="fa fa-undo"></i>

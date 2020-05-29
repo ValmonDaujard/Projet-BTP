@@ -19,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import btp.model.Action;
+import btp.model.Prestation;
 import btp.model.Views;
 import btp.persistence.IActionRepository;
 
@@ -67,6 +68,13 @@ public class ActionRestController {
 
 		return action;
 	}
+	
+	@GetMapping("/par-projet/{id}")
+	@JsonView(Views.ViewAction.class)
+	public List<Action> findAllByProjet(@PathVariable Long id){
+		return actionRepo.findAllByProjet(id);
+	}
+	
 
 	@PutMapping("/{id}")
 	public Action update(@RequestBody Action action, @PathVariable Long id) {

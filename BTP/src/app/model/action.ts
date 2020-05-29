@@ -11,11 +11,11 @@ export class Action {
   description: string;
   effectuee: boolean;
   // salaries: Array<Salarie>;
-  // prestataire: Prestataire;
+  prestataire: Prestataire;
   // projet: Projet;
 
 
-  constructor(id?: number,version?: number, nomAction?: string, dtCreation?: Date, dtLimite?: Date, description?: string, effectuee?: boolean) {
+  constructor(id?: number,version?: number, nomAction?: string, dtCreation?: Date, dtLimite?: Date, description?: string, effectuee?: boolean, prestataire?: Prestataire) {
     this.id = id;
     this.version = version;
     this.nomAction = nomAction;
@@ -23,5 +23,6 @@ export class Action {
     this.dtLimite = dtLimite;
     this.description = description;
     this.effectuee = effectuee;
+    this.prestataire = prestataire;
   }
 }
