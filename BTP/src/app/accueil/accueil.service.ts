@@ -36,7 +36,7 @@ export class AccueilService {
   }
 
   findByIdentifiantAndMotDePasse(identifiant: string, mdp: string): Observable<Utilisateur>{
-    return this.http.get<Utilisateur>("http://localhost:8080/utililisateur/by-identifiant-and-mot-de-passe/" + identifiant + ":" + mdp);
+    return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/by-identifiant-and-mot-de-passe/" + identifiant + ":" + mdp);
   }
 
   load() {
