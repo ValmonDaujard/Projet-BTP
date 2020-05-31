@@ -64,7 +64,7 @@ public class Prestation {
 	private Projet projet;
 	@ManyToOne
 	@JoinColumn(name = "offre_id")
-	@JsonView(Views.ViewPrestation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Offre offre;
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")

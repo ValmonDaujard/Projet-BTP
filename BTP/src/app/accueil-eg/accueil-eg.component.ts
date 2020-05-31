@@ -14,7 +14,7 @@ export class AccueilEGComponent implements OnInit {
   prestations: Array<Prestation> = new Array<Prestation>();
 
   constructor(private accueilEGService: AccueilEGService) {
-    this.list(49);
+    this.list(16);
   }
 
 

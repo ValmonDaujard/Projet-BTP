@@ -1,0 +1,340 @@
+<div class="container-fluid">
+  <div class="row mx-auto">
+    <div class="col-md-1 grid-margin">
+      <i class="fas fa-arrow-left " style="font-size: 32px"></i>
+    </div>
+    <div class="col-md-10 grid-margin">
+      <div>
+        <h2 class="font-weight-bold mb-0" style="text-align: center;">Projet Mairie St Médard</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white border-bottom border-warning">
+        <div class="row" style="display: flex">
+          <h3 class="font-weight-bold mb-0">Prestation en cours : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col" [(ngModel)]="prestaCours.nom">
+              <option *ngFor="let presta of prestationsEnCours" [ngValue]="presta">{{presta.nom}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body border-bottom border-grey">
+        <div class="row">
+          <i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+          <p class="pr-2"><h4>Date de fin : {{prestaCours.dtFin | date: 'dd/MM/yyyy'}}</h4>
+        </div>
+      </div>
+      <p><h4>Employés affectés : </h4>
+      <table class="my-auto table">
+        <thead class="thead-dark">
+        <tr>
+          <th style="width: 34%">Nom</th>
+          <th style="width: 33%">Prénom</th>
+          <th style="width: 33%">Métier</th>
+        </tr>
+        </thead>
+      </table>
+      <div class="scrollTableEmploye">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <td style="width: 34%">Dupont</td>
+            <td style="width: 33%">Jean</td>
+            <td style="width: 33%">Plombier Chauffagiste</td>
+
+          </tr>
+          <tr>
+            <td>Dupont</td>
+            <td>Jean</td>
+            <td>Plombier Chauffagiste</td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white border-bottom border-warning">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Prestation planifiée : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col" [(ngModel)]="prestaPlanif.nom">
+              <option *ngFor="let presta of prestationsPlanifies">{{presta.nom}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row border-bottom border-grey">
+          <i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+          <p class="pr-2"><h4>Prévue le : {{prestaPlanif.dtDebut | date: 'dd/MM/yyyy'}}</h4>
+        </div>
+        <div class="row border-bottom border-grey">
+          <p class="pr-1 "><h4>Date de fin : {{prestaPlanif.dtFin | date: 'dd/MM/yyyy'}}</h4>
+        </div>
+        <div class="row border-bottom border-grey">
+          <p class="pr-1"><h4>Employés : </h4>
+          <div class="pt-1 pl-2">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Jean Dupont</option>
+              <option>José Dubois</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-warning ml-auto">Affecter</button>
+        </div>
+      </div>
+      <p><h4>Employés affectés : </h4>
+      <table class="my-auto table">
+        <thead class="thead-dark">
+        <tr>
+          <th style="width: 27.5%">Nom</th>
+          <th style="width: 27.5%">Prénom</th>
+          <th style="width: 27.5%">Métier</th>
+          <th style="width: 17.5%" class="text-center">Supprimer</th>
+        </tr>
+        </thead>
+      </table>
+      <div class="scrollTableEmploye">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <td style="width: 27.5%">Dupont</td>
+            <td style="width: 27.5%">Jean</td>
+            <td style="width: 27.5%">Plombier Chauffagiste</td>
+            <td style="width: 17.5%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+          </tr>
+          <tr>
+            <td>Dupont</td>
+            <td>Jean</td>
+            <td>Plombier Chauffagiste</td>
+            <td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pb-3 pl-2">
+        <button type="button" class="btn btn-warning">Valider</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white border-bottom border-warning">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Prestation terminée : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col" [(ngModel)]="prestaEffect.nom">
+              <option *ngFor="let presta of prestationsEffectuees" [ngValue]="presta">{{presta.nom}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row border-bottom border-grey">
+          <i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+          <p class="pr-2"><h4>Date de fin : {{prestaEffect.dtFin | date: 'dd/MM/yyyy'}}</h4>
+        </div>
+      </div>
+      <p><h4>Employés affectés : </h4>
+      <table class="my-auto table">
+        <thead class="thead-dark">
+        <tr>
+          <th style="width: 34%">Nom</th>
+          <th style="width: 33%">Prénom</th>
+          <th style="width: 33%">Métier</th>
+        </tr>
+        </thead>
+      </table>
+      <div class="scrollTableEmploye">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <td style="width: 34%">Dupont</td>
+            <td style="width: 33%">Jean</td>
+            <td style="width: 33%">Plombier Chauffagiste</td>
+          </tr>
+          <tr>
+            <td>Dupont</td>
+            <td>Jean</td>
+            <td>Plombier Chauffagiste</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white border-bottom border-warning">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Actions traitées : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Install. Clim</option>
+              <option>Isolation</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p><h4>Employés affectés : </h4>
+        <table class="my-auto table">
+          <thead class="thead-dark">
+          <tr>
+            <th style="width: 19%">Nom</th>
+            <th style="width: 18%">Prénom</th>
+            <th style="width: 22%">Métier</th>
+            <th style="width: 11%" class="text-center">Détails</th>
+            <th style="width: 15%" class="text-center">Modifier</th>
+            <th style="width: 15%" class="text-center">Supprimer</th>
+          </tr>
+          </thead>
+        </table>
+        <div class="scrollTableEmploye">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td style="width: 19%">Dupont</td>
+              <td style="width: 19%">Jean</td>
+              <td style="width: 22%">Plombier Chauffagiste</td>
+              <td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+              <td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+              <td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+            </tr>
+            <tr>
+              <td>Dupont</td>
+              <td>Jean</td>
+              <td>Plombier Chauffagiste</td>
+              <td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+              <td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+              <td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white border-bottom border-warning">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Actions demandées : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Install. Clim</option>
+              <option>Isolation</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row border-bottom border-grey">
+          <p><h4>Employés : </h4>
+          <div class="pt-1 pl-2">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Jean Dupont</option>
+              <option>José Dubois</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-warning ml-auto">Affecter</button>
+        </div>
+      </div>
+      <div>
+        <p><h4>Employés affectés : </h4>
+        <table class="my-auto table">
+          <thead class="thead-dark">
+          <tr>
+            <th style="width: 19%">Nom</th>
+            <th style="width: 18%">Prénom</th>
+            <th style="width: 22%">Métier</th>
+            <th style="width: 11%" class="text-center">Détails</th>
+            <th style="width: 15%" class="text-center">Modifier</th>
+            <th style="width: 15%" class="text-center">Supprimer</th>
+          </tr>
+          </thead>
+        </table>
+        <div class="scrollTableEmploye">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td style="width: 19%">Dupont</td>
+              <td style="width: 19%">Jean</td>
+              <td style="width: 22%">Plombier Chauffagiste</td>
+              <td style="width: 11%" class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+              <td style="width: 15%" class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+              <td style="width: 16%" class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+            </tr>
+            <tr>
+              <td>Dupont</td>
+              <td>Jean</td>
+              <td>Plombier Chauffagiste</td>
+              <td class="text-center"><button class="btn text-warning border border-warning"><i class="fas fa-info-circle fa-lg"></i></button></td>
+              <td class="text-center"><button class="btn text-info border border-info"><i class="fas fa-pencil-alt fa-lg"></i></button></td>
+              <td class="text-center"><button class="btn text-danger border border-danger"><i class="fas fa-user-slash fa-lg"></i></button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pb-3 pl-2">
+          <button class="btn btn-warning">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Factures émises : </h3>
+          <div class="pt-2 pl-2">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Install. Clim</option>
+              <option>Isolation</option>
+            </select>
+          </div>
+          <button class="btn btn-warning ml-auto">Créer une facture</button>
+        </div>
+      </div>
+    </div>
+    <div class="card col shadow my-4 ml-5 mr-4">
+      <div class="card-header bg-white">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Factures validées : </h3>
+          <div class="pt-2 ml-auto">
+            <select class="form-control col">
+              <option>Sélectionnez</option>
+              <option>Install. Clim</option>
+              <option>Isolation</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto pl-4">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <div class="row">
+          <h3 class="font-weight-bold mb-0">Documents relatifs :</h3>
+          <div class="pt-2 ml-auto">
+            <label class="btn btn-warning">
+              <input class="input-file" type="file" multiple>
+            </label>
+            <label  id="nomFichier"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

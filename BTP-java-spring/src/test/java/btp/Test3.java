@@ -154,9 +154,13 @@ class Test3 {
 				
 				// prestation
 				Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 10000F, sdf.parse("10/04/2020"),
-						sdf.parse("10/05/2020"), false, PhasePresta.enConsult);
-				Prestation presta2 = new Prestation(Categorie.secondOeuvre, "Plomberie", 9000F, sdf.parse("15/09/2020"),
+						sdf.parse("10/06/2020"), false, PhasePresta.enConsult);
+				Prestation presta2 = new Prestation(Categorie.secondOeuvre, "Plomberie", 9000F, sdf.parse("15/03/2020"),
 						sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre);
+				Prestation presta3 = new Prestation(Categorie.secondOeuvre, "Elec", 9000F, sdf.parse("15/06/2020"),
+						sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre);
+				Prestation presta4 = new Prestation(Categorie.secondOeuvre, "Placo", 9000F, sdf.parse("15/03/2020"),
+						sdf.parse("25/05/2020"), false, PhasePresta.ValideMOeuvre);
 				
 				
 				// prestation supplémentaire
@@ -216,6 +220,8 @@ class Test3 {
 				
 				presta1 = prestationRepository.save(presta1);
 				presta2 = prestationRepository.save(presta2);
+				presta3 = prestationRepository.save(presta3);
+				presta4 = prestationRepository.save(presta4);
 				
 				prestaSupp1 = prestationSupplementaireRepository.save(prestaSupp1);
 				prestaSupp2 = prestationSupplementaireRepository.save(prestaSupp2);
@@ -292,6 +298,8 @@ class Test3 {
 				// liens prestation - projet / métériels / offre / prestataire / salarié
 				presta1.setProjet(projet1);
 				presta2.setProjet(projet2);
+				presta3.setProjet(projet1);
+				presta4.setProjet(projet1);
 				presta1.addMateriels(sable);
 				presta1.addMateriels(rouleauCompresseur);
 				presta2.addMateriels(grillage);
@@ -299,8 +307,12 @@ class Test3 {
 				presta2.setOffre(offreBobby);
 				presta1.setPrestataire(colas);
 				presta2.setPrestataire(bouygues);
+				presta3.setPrestataire(colas);
+				presta4.setPrestataire(colas);
 				presta1.addSalaries(jeanLouis);
 				presta2.addSalaries(jeanJacques);
+				presta3.addSalaries(jeanLouis);
+				presta4.addSalaries(jeanJacques);
 
 				// liens prestation supplémentaire - projet / matériels / offre / prestataire /
 				// salarié
@@ -362,6 +374,8 @@ class Test3 {
 				
 				presta1 = prestationRepository.save(presta1);
 				presta2 = prestationRepository.save(presta2);
+				presta3 = prestationRepository.save(presta3);
+				presta4 = prestationRepository.save(presta4);
 				
 				prestaSupp1 = prestationSupplementaireRepository.save(prestaSupp1);
 				prestaSupp2 = prestationSupplementaireRepository.save(prestaSupp2);

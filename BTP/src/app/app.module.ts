@@ -13,6 +13,7 @@ import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
 import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
+import { ProjetEGComponent } from './projet-eg/projet-eg.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
     ReponseAppelOffreComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
-    AccueilEGComponent
+    AccueilEGComponent,
+    ProjetEGComponent
   ],
   imports: [
     BrowserModule,

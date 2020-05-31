@@ -1,8 +1,8 @@
 <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
 <!--ACCUEIL ENTREPRISE GENERALE-->
 
-<div class="container-fluid card mt-3 bandeau-accueil shadow">
-  <h1>Accueil Entreprise Générale</h1>
+<div>
+  <h1 class="font-weight-bold my-5" style="text-align: center;">Accueil</h1>
 </div>
 <!-- 	Projets en Cours -->
 <div class="row">
@@ -110,10 +110,10 @@
       <table class="my-auto table" >
         <thead class="thead-dark">
         <tr>
-          <th style="width: 30%">Nom</th>
-          <th style="width: 28.5%">Catégorie</th>
-          <th style="width: 26%">Lieu</th>
-          <th style="width: 15.5%">Répondre</th>
+          <th style="width: 29%">Nom</th>
+          <th style="width: 29.5%">Catégorie</th>
+          <th style="width: 24%">Lieu</th>
+          <th style="width: 18.5%">Répondre</th>
         </tr>
         </thead>
       </table>
@@ -123,8 +123,8 @@
           <tr *ngFor="let presta of prestations">
             <td style="width: 26%">{{presta.nom}}</td>
             <td style="width: 30%">{{presta.categorie}}</td>
-            <td style="width: 30%">{{presta.projet.offre.appelOffre.adresse.ville}}</td>
-            <td style="width: 14%"><div class="btn-group ml-4">
+            <td style="width: 24%">{{presta.offre.appelOffre.adresse.ville}}</td>
+            <td style="width: 18%"><div class="btn-group ml-4">
               <a class="btn btn-sm btn-lg"><i class="fas fa-plus"></i></a>
             </div></td>
           </tr>
