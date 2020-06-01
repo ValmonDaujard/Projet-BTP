@@ -9,10 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -139,6 +141,10 @@ public class Action {
 
 	public void setSalaries(List<Salarie> salaries) {
 		this.salaries = salaries;
+	}
+	
+	public void addSalaries(Salarie salarie) {
+		this.salaries.add(salarie);
 	}
 
 	public Prestataire getPrestataire() {

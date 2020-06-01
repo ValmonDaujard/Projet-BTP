@@ -17,10 +17,10 @@ const routes: Routes = [
   {path: 'facture', component: FactureComponent},
   {path: 'gestionMaterielSalarie', component: GestionMaterielSalarieComponent},
   {path: 'reponseAppelOffre/:id', component: ReponseAppelOffreComponent},
-  {path: 'accueilMOE', component: AccueilMOEComponent},
-  {path: 'accueilEG', component: AccueilEGComponent},
-  {path: 'accueilMO', component: AccueilMOComponent},
-  {path: 'projetEG', component: ProjetEGComponent},
+  {path: 'accueilMOE/:id', component: AccueilMOEComponent},
+  {path: 'accueilEG/:id', component: AccueilEGComponent},
+  {path: 'accueilMO/:id', component: AccueilMOComponent},
+  {path: 'projetEG/:id', component: ProjetEGComponent},
 ];
 
 @NgModule({

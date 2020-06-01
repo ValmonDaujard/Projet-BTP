@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Projet} from '../model/projet';
 import {Offre} from '../model/offre';
 import {AccueilMOService} from './accueil-mo.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-accueil-mo',
@@ -13,8 +14,10 @@ export class AccueilMOComponent implements OnInit {
   projets: Array<Projet> = new Array<Projet>();
   offres: Array<Offre> = new Array<Offre>();
 
-  constructor(private accueilMOService: AccueilMOService) {
-    this.list(273);
+  constructor(private accueilMOService: AccueilMOService, private route: ActivatedRoute) {
+    this.route.params.subscribe(parameters => {
+      this.list(parameters.id);
+    })
   }
 
   ngOnInit(): void {

@@ -60,7 +60,7 @@ public class Prestation {
 	private List<Materiel> materiels = new ArrayList<Materiel>();
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
-	@JsonView(Views.ViewPrestation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Projet projet;
 	@ManyToOne
 	@JoinColumn(name = "offre_id")

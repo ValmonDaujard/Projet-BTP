@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Projet} from "../model/projet";
 import {AccueilEGService} from "./accueil-eg.service";
 import {Prestation} from "../model/prestation";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-accueil-eg',
@@ -13,8 +14,10 @@ export class AccueilEGComponent implements OnInit {
   projets: Array<Projet> = new Array<Projet>();
   prestations: Array<Prestation> = new Array<Prestation>();
 
-  constructor(private accueilEGService: AccueilEGService) {
-    this.list(16);
+  constructor(private accueilEGService: AccueilEGService, private route : ActivatedRoute) {
+    this.route.params.subscribe(parameters => {
+      this.list(parameters.id);
+    })
   }
 
 

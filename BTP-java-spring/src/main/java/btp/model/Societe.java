@@ -51,6 +51,7 @@ public class Societe {
 	private String numeroDeTva;
 	
 	@OneToOne
+//	@JsonView(Views.ViewSociete.class)
 	private Utilisateur utilisateur;
 	
 	@Embedded

@@ -20,16 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ec045c7-5531-4914-9f8c-db8589132ad9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Offre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Prestataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Prestataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Prestation.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Prestation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/persistence/IPrestationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/persistence/IPrestationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/web/PrestationRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/web/PrestationRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Salarie.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Salarie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/model/Societe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/persistence/IOffreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/main/java/btp/persistence/IOffreRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/Test3.java" beforeDir="false" afterPath="$PROJECT_DIR$/BTP-java-spring/src/test/java/btp/Test3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP/src/app/accueil-eg/accueil-eg.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/accueil-eg/accueil-eg.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP/src/app/accueil-eg/accueil-eg.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/accueil-eg/accueil-eg.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/accueil-mo/accueil-mo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/accueil-mo/accueil-mo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/accueil-moe/accueil-moe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/accueil-moe/accueil-moe.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BTP/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTP/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/model/offre.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/model/offre.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/BTP/src/app/projet-eg/projet-eg.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tp-angular" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -87,7 +95,8 @@
       <workItem from="1590677351886" duration="8854000" />
       <workItem from="1590847782075" duration="53000" />
       <workItem from="1590847835951" duration="17000" />
-      <workItem from="1590847865429" duration="12522000" />
+      <workItem from="1590847865429" duration="28851000" />
+      <workItem from="1590999033368" duration="4641000" />
     </task>
     <servers />
   </component>
@@ -115,11 +124,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590655829621" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590847833623">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590945033183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590655251147" />
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.5.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590847833623" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.5.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590945033183" />
     <state x="812" y="0" width="1124" height="1019" key="dock-window-1" timestamp="1590659866064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

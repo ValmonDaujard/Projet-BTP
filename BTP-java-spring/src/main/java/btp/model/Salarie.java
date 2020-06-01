@@ -8,10 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -32,15 +30,7 @@ public class Salarie {
 	@JsonView(Views.ViewCommon.class)
 	private String metier;
 	
-	@Embedded
-	@JsonView(Views.ViewCommon.class)
-	private Adresse adresse;
-	
-	@ManyToMany
-	@JoinTable(name = "action_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "action_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
+	@ManyToMany(mappedBy = "salaries")
 //	@JsonView(Views.ViewSalarie.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
@@ -48,21 +38,13 @@ public class Salarie {
 	@JoinColumn(name = "prestataire_id")
 	@JsonView(Views.ViewSalarie.class)
 	private Prestataire prestataire;
-
-	@ManyToMany
-	@JoinTable(name = "prestation_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="prestation_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+	
+	@ManyToMany(mappedBy = "salaries")
+//	@JsonView(Views.ViewSalarie.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
-	@ManyToMany
-	@JoinTable(name = "prestationsup_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestationsup_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="prestationsup_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+	@ManyToMany(mappedBy = "salaries")
+//	@JsonView(Views.ViewSalarie.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
 	

@@ -19,7 +19,7 @@ public class Prestataire extends Societe {
 	private List<Action> actions = new ArrayList<Action>();
 
 	@OneToMany(mappedBy = "prestataire")
-	@JsonView(Views.ViewPrestataire.class)
+//	@JsonView(Views.ViewPrestataire.class)
 	private List<Facture> factures = new ArrayList<Facture>();
 
 	@OneToMany(mappedBy = "prestataire")
@@ -27,10 +27,11 @@ public class Prestataire extends Societe {
 	private List<Salarie> salarie = new ArrayList<Salarie>();
 
 	@OneToMany(mappedBy = "prestataire")
-	@JsonView(Views.ViewPrestataire.class)
+//	@JsonView(Views.ViewPrestataire.class)
 	private List<PrestationSupplementaire> prestationSupplementaire = new ArrayList<PrestationSupplementaire>();
 
 	@OneToMany(mappedBy = "prestataire")
+//	@JsonView(Views.ViewPrestataire.class)
 	private List<Materiel> materiel = new ArrayList<Materiel>();
 
 	@OneToMany(mappedBy = "prestataire")
