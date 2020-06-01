@@ -18,13 +18,17 @@ export class ProjetEGComponent implements OnInit {
   prestationsEnCours: Array<Prestation> = new Array<Prestation>();
   prestationsPlanifies: Array<Prestation> = new Array<Prestation>();
   prestationsEffectuees: Array<Prestation> = new Array<Prestation>();
-  actionsTraitees: Array<Action> = new Array<Action>();
-  actionsDemandees: Array<Action> = new Array<Action>();
+  actionTrait: Action = new Action();
+  actionDem: Action = new Action();
+  actionsTraiteesList: Array<Action> = new Array<Action>();
+  actionsDemandeesList: Array<Action> = new Array<Action>();
   salariePrestaCours: Array<Salarie>= new Array<Salarie>();
   salariePrestaPlanif: Array<Salarie>= new Array<Salarie>();
   salariePrestaEffect: Array<Salarie>= new Array<Salarie>();
   salarieList: Array<Salarie>= new Array<Salarie>();
   salarie: Salarie = new Salarie();
+  salariesActionDem : Array<Salarie> = new Array<Salarie>();
+  salariesActionTrait : Array<Salarie> = new Array<Salarie>();
 
   constructor(private projetEGService:ProjetEGService , private route: ActivatedRoute) {
     this.route.params.subscribe(parameters => {
@@ -39,19 +43,30 @@ export class ProjetEGComponent implements OnInit {
   }
 
   chargePrestaCours(idPresta: number) {
-    this.projetEGService.findById(idPresta).subscribe(resp => this.prestaCours = resp, error => console.log(error));
+    this.projetEGService.findPrestaById(idPresta).subscribe(resp => this.prestaCours = resp, error => console.log(error));
     this.projetEGService.findSalariesByPrestation(idPresta).subscribe(resp => this.salariePrestaCours = resp, error => console.log(error));
 
   }
   chargePrestaPlanif(idPresta: number) {
-    this.projetEGService.findById(idPresta).subscribe(resp =>{ this.prestaPlanif = resp, console.log(this.prestaPlanif)}, error => console.log(error));
+    this.projetEGService.findPrestaById(idPresta).subscribe(resp => this.prestaPlanif = resp, error => console.log(error));
     this.projetEGService.findSalariesByPrestation(idPresta).subscribe(resp => this.salariePrestaPlanif = resp, error => console.log(error));
   }
 
   chargePrestaEffect(idPresta:number){
-    this.projetEGService.findById(idPresta).subscribe(resp=> this.prestaEffect = resp, error => console.log(error));
+    this.projetEGService.findPrestaById(idPresta).subscribe(resp=> this.prestaEffect = resp, error => console.log(error));
     this.projetEGService.findSalariesByPrestation(idPresta).subscribe(resp=> this.salariePrestaEffect = resp, error => console.log(error));
   }
+
+  chargeActionTraitees(idAction:number){
+    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionTrait, error => console.log(error));
+    this.projetEGService.findSalarieByAction(idAction).subscribe(resp=> this.salariesActionTrait = resp, error => console.log(error));
+
+  }
+  chargeActionDemandees(idAction:number){
+    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionDem, error => console.log(error));
+    this.projetEGService.findSalarieByAction(idAction).subscribe(resp=> this.salariesActionDem, error => console.log(error));
+  }
+
 
   prestationEnCoursFonction(idProj:number, idEG:number){
     this.projetEGService.findPrestationEnCoursParProjetParEG(idProj,idEG).subscribe(resp => this.prestationsEnCours = resp, error => console.log(error));
@@ -66,11 +81,11 @@ export class ProjetEGComponent implements OnInit {
   }
 
   actionTraiteesFonction(idProj:number, idEG:number){
-    this.projetEGService.findActionsTraiteesParProjetParEG(idProj,idEG).subscribe(resp => this.actionsTraitees = resp, error => console.log(error));
+    this.projetEGService.findActionsTraiteesParProjetParEG(idProj,idEG).subscribe(resp => this.actionsTraiteesList = resp, error => console.log(error));
   }
 
   actionDemandeesFonction(idProj:number, idEG:number){
-    this.projetEGService.findActionsDemandeesParProjetParEG(idProj,idEG).subscribe(resp => this.actionsDemandees = resp, error => console.log(error));
+    this.projetEGService.findActionsDemandeesParProjetParEG(idProj,idEG).subscribe(resp => this.actionsDemandeesList = resp, error => console.log(error));
   }
 
   salariesListFonction(idEG: number){

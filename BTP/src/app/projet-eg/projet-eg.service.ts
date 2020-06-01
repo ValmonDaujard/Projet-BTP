@@ -21,7 +21,15 @@ export class ProjetEGService {
     return this.http.get<Array<Salarie>>('http://localhost:8080/salarie/by-prestation/' + idPresta)
   }
 
-  findById(idPresta:number):Observable<Prestation>{
+  findSalarieByAction(idAction:number):Observable<Array<Salarie>>{
+    return this.http.get<Array<Salarie>>('http://localhost:8080/salarie/by-action/' + idAction)
+  }
+
+  findActionById(idAction: number): Observable<Action>{
+    return this.http.get<Action>('http://localhost:8080/action/' +idAction)
+  }
+
+  findPrestaById(idPresta:number):Observable<Prestation>{
     return this.http.get<Prestation>('http://localhost:8080/prestation/' +idPresta)
   }
 
