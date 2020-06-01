@@ -46,7 +46,7 @@ public class PrestationSupplementaire {
 	private PhasePresta phasePresta;
 	@OneToOne 
 	@JoinColumn(name = "prestation_id")
-	@JsonView(Views.ViewPrestationSupplementaire.class)
+//	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private Prestation prestation;
 	@ManyToMany
 	@JoinTable(name ="matos_prestaSupp",

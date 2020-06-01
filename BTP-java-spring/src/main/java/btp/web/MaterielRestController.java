@@ -51,7 +51,7 @@ public class MaterielRestController {
 	@GetMapping("/by-entreprise/{id}")
 	@JsonView(Views.ViewMateriel.class)
 	public List<Materiel> findByEntreprise(@PathVariable Long id){
-		return materielRepo.findByEntreprise(id);
+		return materielRepo.findMaterielByEntreprise(id);
 	}
 	
 	@PostMapping("")

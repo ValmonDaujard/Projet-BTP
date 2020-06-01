@@ -148,6 +148,18 @@ public class PrestationRestController {
 
 		return prestation;
 	}
+	
+//	@PutMapping("/{id}")
+//	@JsonView(Views.ViewPrestation.class)
+//	public Prestation updatePhase(@RequestBody PhasePresta phase, @PathVariable Long id) {
+//		if (!prestationRepo.existsById(id)) {
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+//		}
+//
+//		phase = prestationRepo.save(prestation);
+//
+//		return prestation;
+//	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {

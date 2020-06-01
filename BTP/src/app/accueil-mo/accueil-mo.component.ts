@@ -14,7 +14,7 @@ export class AccueilMOComponent implements OnInit {
   offres: Array<Offre> = new Array<Offre>();
 
   constructor(private accueilMOService: AccueilMOService) {
-    this.list(76);
+    this.list(273);
   }
 
   ngOnInit(): void {

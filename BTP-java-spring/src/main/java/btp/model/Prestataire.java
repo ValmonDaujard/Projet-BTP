@@ -31,7 +31,6 @@ public class Prestataire extends Societe {
 	private List<PrestationSupplementaire> prestationSupplementaire = new ArrayList<PrestationSupplementaire>();
 
 	@OneToMany(mappedBy = "prestataire")
-	@JsonView(Views.ViewPrestataire.class)
 	private List<Materiel> materiel = new ArrayList<Materiel>();
 
 	@OneToMany(mappedBy = "prestataire")

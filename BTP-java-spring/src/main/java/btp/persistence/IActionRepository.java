@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import btp.model.Action;
-import btp.model.Prestation;
 
 public interface IActionRepository extends JpaRepository<Action, Long> {
 

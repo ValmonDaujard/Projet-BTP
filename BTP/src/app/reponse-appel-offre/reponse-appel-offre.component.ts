@@ -5,8 +5,9 @@ import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
 import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
-import {ProjetService} from "../projet/projet.service";
 import {ActivatedRoute} from "@angular/router";
+import {Adresse} from "../../../../../covid-formation/formation-angular/src/app/model/adresse";
+import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
 
 @Component({
   selector: 'app-reponse-appel-offre',
@@ -18,8 +19,10 @@ export class ReponseAppelOffreComponent implements OnInit {
   prestaEG: Prestation = new Prestation();
   prestaList: Array<Prestation> = new Array<Prestation>();
   prestations: Array<Prestation> = new Array<Prestation>();
+  prestaValideesEG: Array<Prestation> = new Array<Prestation>();
   offre: Offre = new Offre();
   projet: Projet = new Projet();
+  prestaForm: Prestation = new Prestation();
 
 
   constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute) {
@@ -58,7 +61,7 @@ export class ReponseAppelOffreComponent implements OnInit {
       presta.offre.version = this.offre.version;
     }
 
-    console.log(this.offre.prestations)
+    // console.log(this.offre.prestations)
 
 
     this.reponseAppelOffreService.createPrestations(this.offre.prestations).subscribe(resp => {
@@ -69,14 +72,36 @@ export class ReponseAppelOffreComponent implements OnInit {
     )
   }
 
-  listPrestaValideeEG(): Observable<Array<Prestation>>{
+  listPrestaValideeEG(): Array<Prestation> {
 
-    return this.reponseAppelOffreService.findPrestationByPhase();
-    // this.reponseAppelOffreService.findPrestationByPhase().subscribe(resp => {
+    return this.reponseAppelOffreService.findPrestationByPhaseConsult();
+
+    // var data = [];
+    // this.reponseAppelOffreService.findPrestationByPhase("enConsult").subscribe(resp => {
+    //   for(let prestaValideeEG in resp) {
+    //     this.prestaValideesEG.push(data[prestaValideeEG])
+    //   }
     // },
     //   error => console.log(error)
     // )
-    // })
+    }
+
+  suppPrestaValideeEG(id) {
+    this.reponseAppelOffreService.deleteById(id);
   }
+
+  listPrestaValideeMO() {
+    return this.reponseAppelOffreService.findPrestationByPhaseValideeMO();
+    // for (let presta of this.offre.prestations) {
+    //   presta.phasePresta = "enConsult";
+    // }
+  }
+
+  // edit(id: number) {
+  //   this.reponseAppelOffreService.findById(id).subscribe(resp => {
+  //       this.prestaForm.phasePresta = "ValideMOeuvre";
+  //     },
+  //     error => console.log(error));
+  // }
 
 }

@@ -2,6 +2,7 @@ import {Projet} from "./projet";
 import {AppelOffre} from "./appelOffre";
 import {Prestation} from "./prestation";
 import {MaitreOeuvre} from "./maitreOeuvre";
+import {MaitreOuvrage} from './maitreOuvrage';
 
 export class Offre{
   id:number;
@@ -14,6 +15,7 @@ export class Offre{
   projet: Projet;
   appelOffre: AppelOffre;
   maitreOeuvre : MaitreOeuvre;
+  maitreOuvrage : MaitreOuvrage;
 
 
   constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, prestations?: Array<Prestation>, projet?:Projet, maitreOeuvre?:MaitreOeuvre) {
