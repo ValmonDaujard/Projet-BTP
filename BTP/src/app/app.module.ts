@@ -14,6 +14,7 @@ import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
 import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
 import { ProjetEGComponent } from './projet-eg/projet-eg.component';
+import { ConsultationEGComponent } from './consultation-eg/consultation-eg.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProjetEGComponent } from './projet-eg/projet-eg.component';
     AccueilMOEComponent,
     AccueilEGComponent,
     ProjetEGComponent
+    ConsultationEGComponent,
   ],
   imports: [
     BrowserModule,
