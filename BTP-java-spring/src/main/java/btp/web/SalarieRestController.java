@@ -65,7 +65,7 @@ public class SalarieRestController {
 	@GetMapping("/by-action/{id}")
 	@JsonView(Views.ViewSalarie.class)
 	public List<Salarie> findByAction(@PathVariable Long id){
-		return salarieRepo.findByPrestation(id);
+		return salarieRepo.findByAction(id);
 	}
 	
 	@PostMapping("")
