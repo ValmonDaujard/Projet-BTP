@@ -17,7 +17,7 @@ export class Prestataire extends Societe{
   // prestations: Array<Prestation>;
   // materiels: Array<Materiel>;
 
-  constructor(id: number, version: number, type: string, nom: string, siret: string, telephone: string, mail: string, numeroDeTva: string, utilisateur: Utilisateur, adresse: Adresse) {
+  constructor(id?: number, version?: number, type?: string, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
     super(id, version, type, nom, siret, telephone, mail, numeroDeTva, utilisateur, adresse);
   }
 }

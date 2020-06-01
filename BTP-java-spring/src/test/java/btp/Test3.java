@@ -290,14 +290,14 @@ class Test3 {
 				
 				
 				// salariés
-				Salarie jeanLouis = new Salarie(Civilite.M, "DUCHMON", "Jean-Louis", "Manoeuvre");
-				Salarie jeanJacques = new Salarie(Civilite.M, "TRUC", "Jean-Jacques", "Manoeuvre");
-				Salarie salarie1 = new Salarie(Civilite.M, "DUPONT", "Jean", "Electricien");
-				Salarie salarie2 = new Salarie(Civilite.M, "BLANC", "Gilles", "Plombier");
-				Salarie salarie3 = new Salarie(Civilite.M, "DUTEIL", "Michel", "Plaquiste");
-				Salarie salarie4 = new Salarie(Civilite.M, "MARCEAU", "Yves", "Plaquiste");
-				Salarie salarie5 = new Salarie(Civilite.M, "PRADEL", "Sylvain", "Maçon");
-				Salarie salarie6 = new Salarie(Civilite.M, "HINAULT", "François", "Charpentier");
+				Salarie jeanLouis = new Salarie( "DUCHMON", "Jean-Louis", "Manoeuvre");
+				Salarie jeanJacques = new Salarie( "TRUC", "Jean-Jacques", "Manoeuvre");
+				Salarie salarie1 = new Salarie( "DUPONT", "Jean", "Electricien");
+				Salarie salarie2 = new Salarie( "BLANC", "Gilles", "Plombier");
+				Salarie salarie3 = new Salarie( "DUTEIL", "Michel", "Plaquiste");
+				Salarie salarie4 = new Salarie("MARCEAU", "Yves", "Plaquiste");
+				Salarie salarie5 = new Salarie( "PRADEL", "Sylvain", "Maçon");
+				Salarie salarie6 = new Salarie( "HINAULT", "François", "Charpentier");
 				
 				
 				// utilisateurs

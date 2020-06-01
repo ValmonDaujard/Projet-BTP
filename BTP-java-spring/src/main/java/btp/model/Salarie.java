@@ -47,6 +47,10 @@ public class Salarie {
 //	@JsonView(Views.ViewSalarie.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
+	@Embedded
+	@JsonView(Views.ViewSociete.class)
+	private Adresse adresse;
+	
 	
 	public Salarie() {
 		super();

@@ -6,8 +6,7 @@ import {Offre} from "../model/offre";
 import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
 import {ActivatedRoute} from "@angular/router";
-import {Adresse} from "../../../../../covid-formation/formation-angular/src/app/model/adresse";
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
+
 
 @Component({
   selector: 'app-reponse-appel-offre',

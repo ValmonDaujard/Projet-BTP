@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
 
 
 

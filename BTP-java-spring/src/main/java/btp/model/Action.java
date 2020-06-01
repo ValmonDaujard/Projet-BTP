@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -45,8 +44,10 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
-	
-	@ManyToMany(mappedBy = "actions")
+	@ManyToMany
+	@JoinTable(name = "action_salarie",
+	joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewAction.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 
