@@ -43,6 +43,7 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
+	
 	@ManyToMany(mappedBy = "actions")
 	@JsonView(Views.ViewAction.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();

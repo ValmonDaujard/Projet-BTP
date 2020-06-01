@@ -10,7 +10,7 @@ export class Materiel {
   unite: string;
   // prestationSupplementaires: Array<PrestationSupplementaire>
   // prestations: Array<Prestation>
-  // prestataire: Prestataire;
+  prestataire: Prestataire;
 
 
   constructor(id?: number, version?: number, nom?: string, quantite?: number, unite?: string) {

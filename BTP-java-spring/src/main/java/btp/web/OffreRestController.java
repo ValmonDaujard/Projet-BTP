@@ -55,6 +55,12 @@ public class OffreRestController {
 		return offreRepo.findAllByMaitreOeuvreEnConsult(id);
 	}
 	
+	@GetMapping("/by-maitre-ouvrage-en-consult/{id}")
+	@JsonView(Views.ViewOffre.class)
+	public List<Offre> findAllByMaitreOuvrageEnConsult(@PathVariable Long id){
+		return offreRepo.findAllByMaitreOuvrageEnConsult(id);
+	}
+	
 	@PostMapping("")
 	public Offre create(@RequestBody Offre offre) {
 		offre = offreRepo.save(offre);

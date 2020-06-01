@@ -3,9 +3,8 @@ package btp.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -26,9 +25,6 @@ public class Salarie {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCommon.class)
-	private Civilite civilite;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
@@ -36,19 +32,23 @@ public class Salarie {
 	@JsonView(Views.ViewCommon.class)
 	private String metier;
 	
+	@Embedded
+	@JsonView(Views.ViewCommon.class)
+	private Adresse adresse;
+	
 	@ManyToMany
 	@JoinTable(name = "action_salarie", 
 			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "action_id" }),
 			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
 			inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+//	@JsonView(Views.ViewSalarie.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
 	@JsonView(Views.ViewSalarie.class)
 	private Prestataire prestataire;
-	
+
 	@ManyToMany
 	@JoinTable(name = "prestation_salarie", 
 			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
@@ -70,9 +70,8 @@ public class Salarie {
 		super();
 	}
 	
-	public Salarie(Civilite civilite, String nom, String prenom, String metier) {
+	public Salarie(String nom, String prenom, String metier) {
 		super();
-		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.metier = metier;
@@ -92,14 +91,6 @@ public class Salarie {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-	
-	public Civilite getCivilite() {
-		return civilite;
-	}
-
-	public void setCivilite(Civilite civilite) {
-		this.civilite = civilite;
 	}
 
 	public String getNom() {
@@ -124,6 +115,14 @@ public class Salarie {
 
 	public void setMetier(String metier) {
 		this.metier = metier;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 	public List<Action> getActions() {
