@@ -170,3 +170,15 @@ a:hover
   color: rgba(255,255,255,1);
 }
 
+.input_container{
+  position: relative; /*important*/
+}
+
+.input_icon{
+  position: absolute; /*important*/
+  top: 2px;
+  right: 1px;
+  color: lightgrey;
+  font-size: 21px; /*Tu peux changer ici*/
+  width: 50px;
+}

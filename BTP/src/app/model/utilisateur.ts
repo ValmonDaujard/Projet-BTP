@@ -4,13 +4,13 @@ export class Utilisateur{
   id: number;
   identifiant: string;
   motDePasse: string;
-  // societe: Societe;
+  societe: Societe;
 
 
-  constructor(id?: number, identifiant?: string, motDePasse?: string) {
+  constructor(id?: number, identifiant?: string, motDePasse?: string, societe?: Societe) {
     this.id = id;
     this.identifiant = identifiant;
     this.motDePasse = motDePasse;
-    // this.societe = societe;
+    this.societe = societe;
   }
 }

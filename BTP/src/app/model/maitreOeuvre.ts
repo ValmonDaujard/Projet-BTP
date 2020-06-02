@@ -9,9 +9,10 @@ export class MaitreOeuvre extends Societe{
   // factures: Array<Facture>;
 
 
-  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
-    super(id,version, nom, siret, telephone, mail, numeroTva, utilisateur, adresse);
+  constructor(id?: number,version?: number,type?: string, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
+    super(id,version, type, nom, siret, telephone, mail, numeroTva, utilisateur, adresse);
     // this.offres = offres;
-    // this.factures = factures;
+    // this.factures = factures
   }
+
 }

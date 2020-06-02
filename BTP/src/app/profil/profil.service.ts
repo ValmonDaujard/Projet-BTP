@@ -1,42 +1,38 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Projet} from "../model/projet";
-import {Societe} from "../model/societe";
-import {MaitreOuvrage} from "../model/maitreOuvrage";
 import {MaitreOeuvre} from "../model/maitreOeuvre";
+import {MaitreOuvrage} from "../model/maitreOuvrage";
 import {Prestataire} from "../model/prestataire";
 import {Utilisateur} from "../model/utilisateur";
 import {Observable} from "rxjs";
-import {AccueilComponent} from "./accueil.component";
-import {Adresse} from "../model/adresse";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AccueilService {
+export class ProfilService {
 
   private maitreOeuvres: Array<MaitreOeuvre> = new Array<MaitreOeuvre>();
   private maitreOuvrages: Array<MaitreOuvrage> = new Array<MaitreOuvrage>();
   private prestataires: Array<Prestataire> = new Array<Prestataire>();
 
   constructor(private http: HttpClient) {
-    this.load();
+    this.load()
   }
 
-  newMO(maitreOuvrage: MaitreOuvrage) {
-    return this.http.post<MaitreOuvrage>("http://localhost:8080/maitreOuvrage", maitreOuvrage);
+  findById(id: number): Observable<Utilisateur>{
+      return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/" + id);
   }
 
-  newMOE(maitreOeuvre: MaitreOeuvre) {
-    return this.http.post<MaitreOeuvre>("http://localhost:8080/maitreOeuvre", maitreOeuvre);
+  modifyMO(maitreOuvrage: MaitreOuvrage) {
+    return this.http.put<MaitreOuvrage>("http://localhost:8080/maitreOuvrage/" + maitreOuvrage.id, maitreOuvrage);
   }
 
-  newPrestataire(prestataire: Prestataire) {
-    return this.http.post<Prestataire>("http://localhost:8080/prestataire", prestataire);
+  modifyMOE(maitreOeuvre: MaitreOeuvre) {
+    return this.http.put<MaitreOeuvre>("http://localhost:8080/maitreOeuvre/" + maitreOeuvre.id, maitreOeuvre);
   }
 
-  findByIdentifiantAndMotDePasse(identifiant: string, mdp: string): Observable<Utilisateur>{
-    return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/by-identifiant-and-mot-de-passe/" + identifiant + ":" + mdp);
+  modifyPrestataire(prestataire: Prestataire) {
+    return this.http.put<Prestataire>("http://localhost:8080/prestataire/" + prestataire.id, prestataire);
   }
 
   load() {
@@ -50,5 +46,4 @@ export class AccueilService {
       this.prestataires = resp;
     }, error => console.log(error))
   }
-
 }

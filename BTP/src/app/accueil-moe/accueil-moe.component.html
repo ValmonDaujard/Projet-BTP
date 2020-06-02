@@ -34,7 +34,7 @@
           <td style="width: 15%">{{proj.offre.appelOffre.nom}}</td>
           <td style="width: 15%">{{proj.offre.appelOffre.adresse.ville}}</td>
           <td style="width: 15%">{{proj.numeroDevis}}</td>
-          <td style="width: 15%">{{proj.offre.maitreOuvrage.nom}}</td>
+          <td style="width: 15%">{{proj.offre.maitreOuvrage?.nom}}</td>
           <td style="width: 15%">{{proj.dtDebut|date:'dd/MM/yyyy'}}</td>
           <td style="width: 15%">{{proj.dtFin |date:'dd/MM/yyyy'}}</td>
           <td style="width: 10%"><div class="btn-group" style="margin-left: 30px">
@@ -77,7 +77,7 @@
         <tr *ngFor="let off of offres">
           <td style="width: 18%">{{off.appelOffre.nom}}</td>
           <td style="width: 18%">{{off.appelOffre.adresse.ville}}</td>
-          <td style="width: 18%">{{off.maitreOuvrage.nom}}</td>
+          <td style="width: 18%">{{off.maitreOuvrage?.nom}}</td>
           <td style="width: 18%">{{off.appelOffre.objectif}}</td>
           <td style="width: 18%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
           <td style="width: 10%"><div class="btn-group" style="margin-left: 20px">

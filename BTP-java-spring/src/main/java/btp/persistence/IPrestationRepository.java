@@ -16,7 +16,7 @@ public interface IPrestationRepository extends JpaRepository<Prestation, Long> {
 	List<Prestation> findAllByProjet(@Param("id") Long id);
 
 	// Prestation en cours par projet
-	@Query("select p from Prestation p where p.projet.id = :id AND p.dtDebut >= CURRENT_DATE  AND p.dtFin <= CURRENT_DATE")
+	@Query("select p from Prestation p where p.projet.id = :id AND p.dtDebut <= CURRENT_DATE  AND p.dtFin >= CURRENT_DATE")
 	List<Prestation> findPrestationEnCoursParProjet(@Param("id") Long id);
 
 	// Prestation effectuee par projet
@@ -28,7 +28,7 @@ public interface IPrestationRepository extends JpaRepository<Prestation, Long> {
 	List<Prestation> findPrestationPlanifiéeParProjet(@Param("id") Long id);
 
 	// Prestation en cours par projet par EG
-	@Query("select p from Prestation p where p.projet.id = :id AND p.prestataire.id = :idPresta AND p.dtDebut >= CURRENT_DATE  AND p.dtFin <= CURRENT_DATE")
+	@Query("select p from Prestation p where p.projet.id = :id AND p.prestataire.id = :idPresta AND p.dtDebut <= CURRENT_DATE  AND p.dtFin >= CURRENT_DATE")
 	List<Prestation> findPrestationEnCoursParProjetParEG(@Param("id") Long id, @Param("idPresta") Long idPresta);
 
 	// Prestation effectuee par projet par EG
@@ -53,6 +53,6 @@ public interface IPrestationRepository extends JpaRepository<Prestation, Long> {
 	
 	// Find Prestation by ETAT et par projet et par EG
 	@Query("select p from Prestation p where p.phasePresta = :phase and p.prestataire.id = :id")
-	List<Prestation> findPrestationByPhaseByEG(@Param("phase") PhasePresta phase, @Param("id") Long id);
+	List<Prestation> findPrestationByPhaseAndEG(@Param("phase") PhasePresta phase, @Param("id") Long id);
 
 }

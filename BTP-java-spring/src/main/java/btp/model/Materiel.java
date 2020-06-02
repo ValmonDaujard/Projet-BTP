@@ -27,7 +27,7 @@ public class Materiel {
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
-	private Float quantite;
+	private int quantite;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private Unite unite;
@@ -36,6 +36,7 @@ public class Materiel {
 	@ManyToMany (mappedBy = "materiels")
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	@ManyToOne
+	@JsonView(Views.ViewCommon.class)
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	
@@ -44,7 +45,7 @@ public class Materiel {
 	}
 	
 	
-	public Materiel(String nom, Float quantite, Unite unite) {
+	public Materiel(String nom, int quantite, Unite unite) {
 		super();
 		this.nom = nom;
 		this.quantite = quantite;
@@ -64,10 +65,10 @@ public class Materiel {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public Float getQuantite() {
+	public int getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(Float quantite) {
+	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 	public Unite getUnite() {

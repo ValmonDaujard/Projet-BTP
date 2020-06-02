@@ -50,10 +50,10 @@ public class SalarieRestController {
 		}
 	}
 	
-	@GetMapping("/by-entreprise/{nom}")
+	@GetMapping("/by-entreprise/{id}")
 	@JsonView(Views.ViewSalarie.class)
-	public List<Salarie> findByEntreprise(@PathVariable String nom){
-		return salarieRepo.findByEntreprise(nom);
+	public List<Salarie> findByEntreprise(@PathVariable Long id){
+		return salarieRepo.findSalarieByEntreprise(id);
 	}
 	
 	@GetMapping("/by-prestation/{id}")
@@ -65,10 +65,11 @@ public class SalarieRestController {
 	@GetMapping("/by-action/{id}")
 	@JsonView(Views.ViewSalarie.class)
 	public List<Salarie> findByAction(@PathVariable Long id){
-		return salarieRepo.findByPrestation(id);
+		return salarieRepo.findByAction(id);
 	}
 	
 	@PostMapping("")
+	@JsonView(Views.ViewSalarie.class)
 	public Salarie create(@RequestBody Salarie salarie) {
 		salarie = salarieRepo.save(salarie);
 
@@ -76,6 +77,7 @@ public class SalarieRestController {
 	}
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewSalarie.class)
 	public Salarie update(@RequestBody Salarie salarie, @PathVariable Long id) {
 		if (!salarieRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -88,6 +90,19 @@ public class SalarieRestController {
 
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
+		Optional<Salarie> optSalarie = salarieRepo.findById(id);
+
+		if (optSalarie.isPresent()) {
+			Salarie sal =  optSalarie.get();
+			sal.getActions().clear();
+			sal.getPrestations().clear();
+			sal.getPrestationSupplementaires().clear();
+			sal.setPrestataire(null);
+			salarieRepo.save(sal);
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+		}
+		
 		salarieRepo.deleteById(id);
 	}
 }

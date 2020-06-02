@@ -13,6 +13,11 @@ import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
 import {AccueilMOEComponent} from './accueil-moe/accueil-moe.component';
 import { ProjetMOComponent } from './projet-mo/projet-mo.component';
+import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
+import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -20,7 +25,6 @@ import { ProjetMOComponent } from './projet-mo/projet-mo.component';
   declarations: [
     AppComponent,
     FactureComponent,
-    AppComponent,
     AccueilComponent,
     ProjetComponent,
     GestionMaterielSalarieComponent,
@@ -28,12 +32,15 @@ import { ProjetMOComponent } from './projet-mo/projet-mo.component';
     AccueilMOComponent,
     AccueilMOEComponent,
     ProjetMOComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
