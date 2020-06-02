@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ConsultationEGService} from './consultation-eg.service';
+import {ActivatedRoute} from '@angular/router';
+import {Prestation} from '../model/prestation';
+import {errorObject} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-consultation-eg',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultationEGComponent implements OnInit {
 
-  constructor() { }
+  consultPresta: Prestation = new Prestation();
+
+  constructor(private consultationEGService: ConsultationEGService, private route: ActivatedRoute) {
+    this.route.params.subscribe(parameters => {
+      this.consultationEGService.findById(parameters.id).subscribe(resp => this.consultPresta = resp, error => console.log(error));
+    })
+  }
 
   ngOnInit(): void {
   }
-
 }

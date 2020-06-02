@@ -291,13 +291,21 @@ class Test3 {
 				
 				// salariés
 				Salarie jeanLouis = new Salarie( "DUCHMON", "Jean-Louis", "Manoeuvre");
+				jeanLouis.setAdresse(new Adresse("16 rue JFK", "3e étage", "33700", "Mérignac"));
 				Salarie jeanJacques = new Salarie( "TRUC", "Jean-Jacques", "Manoeuvre");
+				jeanJacques.setAdresse(new Adresse("35 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie1 = new Salarie( "DUPONT", "Jean", "Electricien");
+				salarie1.setAdresse(new Adresse("36 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie2 = new Salarie( "BLANC", "Gilles", "Plombier");
+				salarie2.setAdresse(new Adresse("37 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie3 = new Salarie( "DUTEIL", "Michel", "Plaquiste");
+				salarie3.setAdresse(new Adresse("38 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie4 = new Salarie("MARCEAU", "Yves", "Plaquiste");
+				salarie4.setAdresse(new Adresse("39 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie5 = new Salarie( "PRADEL", "Sylvain", "Maçon");
+				salarie5.setAdresse(new Adresse("40 boulevard JFK", null, "33700", "Mérignac"));
 				Salarie salarie6 = new Salarie( "HINAULT", "François", "Charpentier");
+				salarie6.setAdresse(new Adresse("41 boulevard JFK", null, "33700", "Mérignac"));
 				
 				
 				// utilisateurs

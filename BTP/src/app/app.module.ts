@@ -18,6 +18,7 @@ import { ConsultationEGComponent } from './consultation-eg/consultation-eg.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
+import { ReponseConsultationComponent } from './reponse-consultation/reponse-consultation.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { ProfilComponent } from './profil/profil.component';
     AccueilMOComponent,
     AccueilMOEComponent,
     AccueilEGComponent,
-    ProjetEGComponent
+    ProjetEGComponent,
     ConsultationEGComponent,
     ProfilComponent,
+    ReponseConsultationComponent,
   ],
   imports: [
     BrowserModule,

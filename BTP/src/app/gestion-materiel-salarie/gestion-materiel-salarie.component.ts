@@ -5,7 +5,7 @@ import {GestionMaterielSalarieService} from './gestion-materiel-salarie.service'
 import {strict} from 'assert';
 import {Adresse} from '../model/adresse';
 import {Prestataire} from '../model/prestataire';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, convertToParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-gestion-materiel-salarie',
@@ -22,7 +22,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
   idEntreprise: number;
 
   constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService) {
-    this.idEntreprise = 280; // route.params
+    this.idEntreprise = 646; // route.params
     this.list(this.idEntreprise);
   }
 
