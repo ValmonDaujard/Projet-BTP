@@ -101,6 +101,12 @@ public class PrestationRestController {
 	
 	@GetMapping("/by-phase-and-EG/{phase}:{id}")
 	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findPrestationByPhaseAndEG(@PathVariable PhasePresta phase, @PathVariable Long id) {
+		return prestationRepo.findPrestationByPhaseAndEG(phase, id);
+	}
+	
+	@GetMapping("/by-phase-and-projet/{phase}:{id}")
+	@JsonView(Views.ViewPrestation.class)
 	public List<Prestation> findPrestationByPhaseAndProjet(@PathVariable PhasePresta phase, @PathVariable Long id) {
 		return prestationRepo.findPrestationByPhaseAndProjet(phase, id);
 	}
@@ -142,6 +148,18 @@ public class PrestationRestController {
 
 		return prestation;
 	}
+	
+//	@PutMapping("/{id}")
+//	@JsonView(Views.ViewPrestation.class)
+//	public Prestation updatePhase(@RequestBody PhasePresta phase, @PathVariable Long id) {
+//		if (!prestationRepo.existsById(id)) {
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+//		}
+//
+//		phase = prestationRepo.save(prestation);
+//
+//		return prestation;
+//	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {

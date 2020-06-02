@@ -44,7 +44,7 @@ public class Offre {
 	private Etat etat;
 
 	@ManyToOne
-	@JsonView(Views.ViewOffre.class)
+	@JsonView(Views.ViewCommon.class)
 	private MaitreOuvrage maitreOuvrage;
 
 	@ManyToOne
@@ -56,7 +56,6 @@ public class Offre {
 	private AppelOffre appelOffre;
 
 	@OneToMany(mappedBy = "offre")
-	@JsonView(Views.ViewOffre.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
 	@OneToOne (mappedBy = "offre", fetch = FetchType.EAGER)

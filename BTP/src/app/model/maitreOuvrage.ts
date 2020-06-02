@@ -17,4 +17,5 @@ export class MaitreOuvrage extends Societe{
     // this.offres = offres;
     // this.factures = factures;
   }
+
 }

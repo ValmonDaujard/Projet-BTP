@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -43,7 +44,10 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
-	@ManyToMany(mappedBy = "actions")
+	@ManyToMany
+	@JoinTable(name = "action_salarie",
+	joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewAction.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 
@@ -138,6 +142,10 @@ public class Action {
 
 	public void setSalaries(List<Salarie> salaries) {
 		this.salaries = salaries;
+	}
+	
+	public void addSalaries(Salarie salarie) {
+		this.salaries.add(salarie);
 	}
 
 	public Prestataire getPrestataire() {

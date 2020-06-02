@@ -3,16 +3,13 @@ package btp.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -26,9 +23,6 @@ public class Salarie {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCommon.class)
-	private Civilite civilite;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
@@ -36,12 +30,8 @@ public class Salarie {
 	@JsonView(Views.ViewCommon.class)
 	private String metier;
 	
-	@ManyToMany
-	@JoinTable(name = "action_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "action_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+	@ManyToMany(mappedBy = "salaries")
+//	@JsonView(Views.ViewSalarie.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
 	@ManyToOne
@@ -49,30 +39,25 @@ public class Salarie {
 	@JsonView(Views.ViewSalarie.class)
 	private Prestataire prestataire;
 	
-	@ManyToMany
-	@JoinTable(name = "prestation_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="prestation_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+	@ManyToMany(mappedBy = "salaries")
+//	@JsonView(Views.ViewSalarie.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
-	@ManyToMany
-	@JoinTable(name = "prestationsup_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestationsup_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="prestationsup_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewSalarie.class)
+	@ManyToMany(mappedBy = "salaries")
+//	@JsonView(Views.ViewSalarie.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
+	@Embedded
+	@JsonView(Views.ViewSociete.class)
+	private Adresse adresse;
+	
 	
 	public Salarie() {
 		super();
 	}
 	
-	public Salarie(Civilite civilite, String nom, String prenom, String metier) {
+	public Salarie(String nom, String prenom, String metier) {
 		super();
-		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.metier = metier;
@@ -92,14 +77,6 @@ public class Salarie {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-	
-	public Civilite getCivilite() {
-		return civilite;
-	}
-
-	public void setCivilite(Civilite civilite) {
-		this.civilite = civilite;
 	}
 
 	public String getNom() {
@@ -124,6 +101,14 @@ public class Salarie {
 
 	public void setMetier(String metier) {
 		this.metier = metier;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 	public List<Action> getActions() {
