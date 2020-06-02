@@ -36,14 +36,10 @@ p
   line-height: 180%;
 }
 
-a
-{
-  color: #ee0000;
-}
 
 a:hover
 {
-  text-decoration: none;
+  color: white;
 }
 
 .container
@@ -83,6 +79,12 @@ a:hover
 
 .button:hover{
   color : rgb(246,194,59);
+}
+
+.btn.active{
+  color: white;
+  background-color: black;
+  aria-pressed:"true"
 }
 
 

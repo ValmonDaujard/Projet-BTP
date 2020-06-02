@@ -20,6 +20,7 @@ public class Utilisateur {
 //	@Column(unique=true)
 	@JsonView(Views.ViewCommon.class)
 	private String identifiant;
+	@JsonView(Views.ViewUtilisateur.class)
 	private String motDePasse;
 	
 	@OneToOne (mappedBy = "utilisateur")

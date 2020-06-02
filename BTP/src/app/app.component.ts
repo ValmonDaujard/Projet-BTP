@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AccueilComponent} from "./accueil/accueil.component";
+import {CommonService} from "./common.service";
+import {Adresse} from "./model/adresse";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,16 @@ import {AccueilComponent} from "./accueil/accueil.component";
 })
 export class AppComponent {
   title = 'BTP';
-  constructor(public router: Router){}
+  user: any = null;
+  constructor(public router: Router, private commonService: CommonService){
+    this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
+      this.user = resp;
+      console.log(this.user);
+      if(!this.user.societe.adresse) {
+        this.user.societe.adresse = new Adresse();
+      }
+  })
+  }
 
   w3_open() {
     document.getElementById('main').style.marginLeft = '20%';
@@ -28,7 +39,7 @@ export class AppComponent {
   }
 
   deconnexion(){
-
+    sessionStorage.clear()
   }
 
   edit(id: number){

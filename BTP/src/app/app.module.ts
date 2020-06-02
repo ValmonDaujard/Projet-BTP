@@ -16,6 +16,8 @@ import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
+import {ProjetEGComponent} from "./projet-eg/projet-eg.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -25,9 +27,11 @@ import { ProfilComponent } from './profil/profil.component';
     ProjetComponent,
     GestionMaterielSalarieComponent,
     ReponseAppelOffreComponent,
+    AccueilEGComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
     ProfilComponent,
+    ProjetEGComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import { ProfilComponent } from './profil/profil.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

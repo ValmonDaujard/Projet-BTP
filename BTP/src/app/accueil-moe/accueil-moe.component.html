@@ -38,7 +38,7 @@
           <td style="width: 15%">{{proj.dtDebut|date:'dd/MM/yyyy'}}</td>
           <td style="width: 15%">{{proj.dtFin |date:'dd/MM/yyyy'}}</td>
           <td style="width: 10%"><div class="btn-group" style="margin-left: 30px">
-            <a class="btn btn-sm btn-lg" [routerLink]="['/projet/:id']"><i class="fas fa-info"></i></a>
+            <a class="btn btn-sm btn-lg" [routerLink]="['/projet/' + proj.id]"><i class="fas fa-info"></i></a>
           </div></td>
         </tr>
         </tbody>

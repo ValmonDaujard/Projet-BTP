@@ -9,34 +9,34 @@
         <label for="type">Type d'utilisateur :</label> <input type="text"
                                                               class="form-control" id="type" name="type"
                                                               style="border-radius: 25px" disabled readonly
-                                                              value="Maître d'oeuvre, maître d'ouvrage ou prestataire">
+                                                              value="{{user.societe.type}}">
       </div>
 
       <div class="form-group">
         <label for="nom">Nom de l'entreprise:</label> <input type="text"
                                                              class="form-control" id="nom" name="nom"
-                                                             style="border-radius: 25px" value="Nom d'utilisateur">
+                                                             style="border-radius: 25px" [(ngModel)]="user.societe.nom">
       </div>
       <div class="form-group">
         <label for="email">Email :</label> <input type="text"
                                                   class="form-control" id="email" name="email"
-                                                  style="border-radius: 25px" value="Adresse mail de l'utilisateur">
+                                                  style="border-radius: 25px" [(ngModel)]="user.societe.mail">
       </div>
       <div class="form-group">
         <label for="telephone">Téléphone :</label> <input type="text"
                                                           class="form-control" id="telephone" name="telephone"
-                                                          style="border-radius: 25px" value="N° de tel de l'utilisateur">
+                                                          style="border-radius: 25px" [(ngModel)]="user.societe.telephone">
       </div>
       <div class="form-group">
         <label for="numeroSiret">Numéro de siret :</label> <input
         type="text" class="form-control" id="numeroSiret"
         name="numeroSiret" style="border-radius: 25px"
-        value="Numéro de Siret de l'utilisateur">
+        [(ngModel)]="user.societe.siret">
       </div>
       <div class="form-group">
         <label for="numeroTVA">Numéro de TVA :</label> <input type="text"
                                                               class="form-control" id="numeroTVA" name="numeroTVA"
-                                                              style="border-radius: 25px" value="Numero de TVA de l'utilisateur">
+                                                              style="border-radius: 25px" [(ngModel)]="user.societe.numeroDeTva">
       </div>
       <div class="form-group">
         <!-- 				<div class="custom-file"> -->
@@ -55,24 +55,24 @@
     </div>
     <div class="card-body">
       <div class="form-group">
-        <label for="nom">Rue:</label> <input type="text"
+        <label for="rue">Rue:</label> <input type="text"
                                              class="form-control" id="rue" name="rue"
-                                             style="border-radius: 25px" value="999 avenue de france">
+                                             style="border-radius: 25px" [(ngModel)]="user.societe.adresse.rue">
       </div>
       <div class="form-group">
-        <label for="email">Complement :</label> <input type="text"
+        <label for="complement">Complement :</label> <input type="text"
                                                        class="form-control" id="complement" name="complement"
-                                                       style="border-radius: 25px" value="Batiment B">
+                                                       style="border-radius: 25px" [(ngModel)]="user.societe.adresse.complement">
       </div>
       <div class="form-group">
-        <label for="telephone">Code postal :</label> <input type="text"
+        <label for="codePostal">Code postal :</label> <input type="text"
                                                             class="form-control" id="codePostal" name="codePostal"
-                                                            style="border-radius: 25px" value="75001">
+                                                            style="border-radius: 25px" [(ngModel)]="user.societe.adresse.codePostal">
       </div>
       <div class="form-group">
-        <label for="telephone">Ville :</label> <input type="text"
+        <label for="ville">Ville :</label> <input type="text"
                                                       class="form-control" id="ville" name="ville"
-                                                      style="border-radius: 25px" value="Paris">
+                                                      style="border-radius: 25px" [(ngModel)]="user.societe.adresse.ville">
       </div>
     </div>
   </div>
@@ -83,20 +83,19 @@
     </div>
     <div class="card-body">
       <div class="form-group">
-        <label for="identifiant">Identifiant :</label> <input type="text"
-                                                              class="form-control" id="identifiant" name="identifiant"
-                                                              style="border-radius: 25px" value="userForm.identifiant">
+        <label for="identifiant">Identifiant :</label> <input type="text" class="form-control" id="identifiant" name="identifiant"
+                                                              style="border-radius: 25px" [(ngModel)]="user.identifiant">
       </div>
       <div class="form-group">
         <label for="mdp">Mot de Passe :</label>
         <div class="input_container" style="{{display}}">
-          <input type="{{inputType}}" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" value="Mot de passe">
+          <input type="{{inputType}}" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" [(ngModel)]="user.motDePasse">
           <span class="input_icon">
                         <span class="{{showHideClass}}" (click)="showPassword()" style="cursor:pointer"></span>
                     </span>
           <br/>
         </div>
-        <button class="btn btn-outline-warning ml-3" (click)="showInput()">Modifier</button>
+        <button class="btn btn-outline-warning ml-3" (click)="showInput()">{{buttonText}}</button>
       </div>
     </div>
   </div>
