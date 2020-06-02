@@ -12,10 +12,10 @@ export class Societe{
   numeroDeTva: string;
   utilisateur: Utilisateur;
   adresse: Adresse;
-  type: any;
 
 
-  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, type?:any) {
+
+  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, type?:string) {
     this.id = id;
     this.version = version;
     this.type = type;

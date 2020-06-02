@@ -1,6 +1,8 @@
 package btp.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,12 +44,13 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
+	
 	@ManyToMany
 	@JoinTable(name = "action_salarie",
 	joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
 	inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewAction.class)
-	private Salarie salarie;
+	private List<Salarie> salaries = new ArrayList<Salarie>();
 
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
@@ -134,12 +137,16 @@ public class Action {
 		this.version = version;
 	}
 
-	public Salarie getSalarie() {
-		return salarie;
+	public List<Salarie> getSalaries() {
+		return salaries;
 	}
 
-	public void setSalarie (Salarie salarie) {
-		this.salarie = salarie;
+	public void setPrestations(List<Salarie> salaries) {
+		this.salaries = salaries;
+	}
+	
+	public void addSalarie(Salarie salarie) {
+		this.salaries.add(salarie);
 	}
 	
 	public void addSalaries(Salarie salarie) {

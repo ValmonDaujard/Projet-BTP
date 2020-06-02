@@ -11,7 +11,6 @@ import { ProjetComponent } from './projet-moe/projet.component';
 import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
 import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-offre.component';
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
-import {AccueilMOEComponent} from './accueil-moe/accueil-moe.component';
 import { ProjetMOComponent } from './projet-mo/projet-mo.component';
 import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
