@@ -48,6 +48,9 @@ public class Facture {
 	@JsonView(Views.ViewCommon.class)
 	private Boolean payee;
 	
+	@JsonView(Views.ViewCommon.class)
+	private Boolean factureMOEMO;
+	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
 //	@JsonView(Views.ViewCommon.class)
@@ -59,7 +62,7 @@ public class Facture {
 	@ManyToOne
 	private MaitreOuvrage maitreOuvrage;
 	
-	@OneToOne
+	@ManyToOne
 	@JsonView(Views.ViewCommon.class)
 	private Projet projet;
 	
@@ -75,7 +78,7 @@ public class Facture {
 	}
 
 	public Facture(int numeroFacture, Date dtFacturation, Float prixHT, Float remise,
-			Date dtEcheance, Float penaliteRetard, Boolean payee) {
+			Date dtEcheance, Float penaliteRetard, Boolean payee, Boolean factureMOEMO) {
 		super();
 		this.numeroFacture = numeroFacture;
 		this.dtFacturation = dtFacturation;
@@ -84,6 +87,7 @@ public class Facture {
 		this.dtEcheance = dtEcheance;
 		this.penaliteRetard = penaliteRetard;
 		this.payee = payee;
+		this.factureMOEMO = factureMOEMO;
 	}
 	
 	public Facture(int numeroFacture) {
@@ -211,6 +215,14 @@ public class Facture {
 
 	public void setPayee(Boolean payee) {
 		this.payee = payee;
+	}
+	
+	public Boolean getFactureMOEMO() {
+		return factureMOEMO;
+	}
+
+	public void setFactureMOEMO(Boolean factureMOEMO) {
+		this.factureMOEMO = factureMOEMO;
 	}
 
 	@Override

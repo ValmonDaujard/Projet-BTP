@@ -44,6 +44,7 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
+	
 	@ManyToMany
 	@JoinTable(name = "action_salarie",
 	joinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"), 
@@ -140,8 +141,12 @@ public class Action {
 		return salaries;
 	}
 
-	public void setSalaries(List<Salarie> salaries) {
+	public void setPrestations(List<Salarie> salaries) {
 		this.salaries = salaries;
+	}
+	
+	public void addSalarie(Salarie salarie) {
+		this.salaries.add(salarie);
 	}
 	
 	public void addSalaries(Salarie salarie) {
