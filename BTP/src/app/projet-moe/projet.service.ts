@@ -15,6 +15,8 @@ import {Facture} from "../model/facture";
 export class ProjetService {
 
   private projets: Array<Projet> = new Array<Projet>();
+  private actions: Array<Action> = new Array<Action>();
+  private factures: Array<Facture> = new Array<Facture>();
 
   constructor(private http: HttpClient) {
 
@@ -50,8 +52,55 @@ export class ProjetService {
   }
 
 
+
+  modifyAction(action: Action) {
+    action.prestataire.type= "Prestataire";
+    return this.http.put<Action>("http://localhost:8080/action/" + action.id, action);
+  }
+
+  loadAction() {
+    this.http.get<Array<Action>>("http://localhost:8080/action").subscribe(resp => {
+      this.actions = resp;
+    }, error => console.log(error))
+  }
+
+  findAllPrestataire() : Observable<Array<Prestataire>> {
+    return this.http.get<Array<Prestataire>>("http://localhost:8080/prestataire/")
+  }
+
+  findActionById(id: number): Observable<Action> {
+    return this.http.get<Action>("http://localhost:8080/action/" + id);
+  }
+
+  deleteFactureById(id: number) {
+   return this.http.delete("http://localhost:8080/facture/" + id);
+  }
+
+  load() {
+    this.http.get<Array<Facture>>("http://localhost:8080/facture").subscribe(resp => {
+      this.factures = resp;
+    }, error => console.log(error))
+  }
+
+
+
+  findFactureById(id: number) : Observable<Facture> {
+    return this.http.get<Facture>("http://localhost:8080/facture/" + id);
+  }
+
+  modifyFacture(facture: Facture) {
+    return this.http.put<Facture>("http://localhost:8080/facture/" + facture.id, facture);
+  }
+
+
+
   findFactures(id:number) : Observable<Array<Facture>> {
     return this.http.get<Array<Facture>>("http://localhost:8080/facture/par-projet/" + id )
+  }
+
+
+  deleteActionById(id: number) {
+    return this.http.delete("http://localhost:8080/action/" + id);
   }
 }
 

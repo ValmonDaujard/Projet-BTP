@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
+import {Facture} from "../model/facture";
 
 
 
@@ -24,13 +25,12 @@ export class ReponseAppelOffreService {
     return this.egs
   }
 
-  // findById(id: number): Observable<Prestation> {
-  //   return this.http.get<Prestation>("http://localhost:8080/prestation/" + id);
-  // }
-
   findPrestationByPhaseConsult(): Array<Prestation> {
     return this.prestaValideesEG;
-    // return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/" + phase);
+  }
+
+  findPrestationByPhaseValideEG(): Array<Prestation>{
+  return this.prestaValideesEG;
   }
 
   findPrestationByPhaseValideeMO(): Array<Prestation> {
@@ -48,6 +48,9 @@ export class ReponseAppelOffreService {
       this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult").subscribe(resp => {
         this.prestaValideesEG = resp;
       }, error => console.log(error))
+    // this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideEG").subscribe(resp => {
+    //   this.prestaValideesEG = resp;
+    // }, error => console.log(error))
       this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideMOeuvre").subscribe(resp => {
       this.prestaValideesMO = resp;
     }, error => console.log(error))
@@ -56,9 +59,13 @@ export class ReponseAppelOffreService {
   deleteById(id: number) {
     this.http.delete("http://localhost:8080/prestation/" + id).subscribe(resp => this.load(), error => console.log(error))
   }
-  //
-  // modify(stagiaire: Stagiaire) {
-  //   return this.http.put<Stagiaire>("http://localhost:8080/stagiaire/" + stagiaire.id, stagiaire);
-  // }
+
+  findPrestaById(id: number): Observable<Prestation> {
+    return this.http.get<Prestation>("http://localhost:8080/prestation/" + id);
+  }
+
+  modifyPresta(presta: Prestation) {
+    return this.http.put<Prestation>("http://localhost:8080/prestation/" + presta.id, presta);
+  }
 
 }

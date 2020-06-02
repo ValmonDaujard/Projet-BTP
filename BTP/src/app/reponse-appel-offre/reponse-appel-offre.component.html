@@ -6,24 +6,32 @@
           <h3 class="font-weight-bold mb-0 my-3">Sélection des entreprises</h3>
         </div>
         <div class="my-4">
-          <form>
+          <form id="listePresta">
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Sélectionnez un prestataire</label>
-<!--              <select class="form-control" id="exampleFormControlSelect1" *ngFor="let eg of list()">-->
-<!--              <option>EG 1</option>-->
-<!--              <option>EG 2</option>-->
-<!--              <option>EG 3</option>-->
-<!--              <option>EG 4</option>-->
-<!--              <option>EG 5</option>-->
-<!--            </select>-->
+              <label for="exampleFormControlSelect1">Sélectionnez un prestataire :</label>
               <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="prestaEG.prestataire" name="prestataire">
                 <option *ngFor="let eg of listEG()" [ngValue]="eg">{{eg.nom}}</option>
               </select>
             </div>
             <div class="form-group">
+              <label for="descriptif">Nom de la
+                consultation :</label>
+              <input type="text" class="form-control" id="nom" [(ngModel)]="prestaEG.nom" name="nom">
+            </div>
+            <div class="form-group">
+              <label for="descriptif">Date prévue de début de
+                prestation :</label>
+              <input type="date" class="form-control" id="dateDebut" [(ngModel)]="prestaEG.dtDebut" name="dtDebut">
+            </div>
+            <div class="form-group">
+              <label for="descriptif">Date prévue de fin de
+                prestation :</label>
+              <input type="date" class="form-control" id="dateFin" [(ngModel)]="prestaEG.dtFin" name="dtFin">
+            </div>
+            <div class="form-group">
               <label for="descriptif">Motif de la
                 consultation :</label>
-              <input type="text" class="form-control" id="descriptif" rows="3" [(ngModel)]="prestaEG.nom" name="nom">
+              <textarea class="form-control" id="descriptif" form ="listePresta" rows="5" [(ngModel)]="prestaEG.motif" name="motif"></textarea>
             </div>
             <button class="btn btn-block btn-warning tx-tfm" (click)="addToPrestaList()">Ajouter à la liste</button>
           </form>
@@ -89,8 +97,7 @@
                 <td class="text-center" style="width: 10%">{{presta.prix}} €</td>
                 <td class="text-center" style="width: 20%"><button
                   class="btn btn-primary">
-                  <i class="fas fa-plus-circle"></i>
-<!--                  <i class="fas fa-plus-circle" (click)="edit(presta.id)"></i>-->
+                  <i class="fas fa-plus-circle" (click)="validerPresta(presta.id)"></i>
                 </button></td>
                 <td class="text-center" style="width: 20%"><button
                   class="btn btn-danger" (click)="suppPrestaValideeEG(presta.id)">
@@ -109,6 +116,10 @@
           <h3 class="font-weight-bold mb-0 my-3">Construction de votre offre</h3>
         </div>
         <div class="my-4">
+         <div class="form-group">
+           <label><b>Taux de marge prévu (en %) :</b></label>
+          <input type="number" class="form-control"  id="marge" [(ngModel)]="marge" name="marge" placeholder="Renseignez votre % de marge pour obtenir le prix TTC">
+          </div>
           <div>
             <table class="my-auto table">
               <thead class="thead-dark">
@@ -116,8 +127,7 @@
                 <th class="text-center" style="width: 20%">Société</th>
                 <th class="text-center" style="width: 35%">Prestation</th>
                 <th class="text-center" style="width: 10%">Prix</th>
-                <th class="text-center" style="width: 15%">Supprimer</th>
-                <th class="text-center" style="width: 20%">Taux de marge</th>
+                <th class="text-center" style="width: 15%">Annuler</th>
               </tr>
               </thead>
             </table>
@@ -127,15 +137,15 @@
               <tbody>
 <!--              <tr>-->
               <tr *ngFor="let presta of listPrestaValideeMO()">
-                <td class="text-center" style="width: 20%">ajouter prestataire dtb</td>
+                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
                 <td class="text-center" style="width: 35%">{{presta.nom}}</td>
-                <th class="text-center" style="width: 10%">{{presta.prix}}.</th>
+                <th class="text-center" style="width: 10%"><span class="">{{presta.prix}}</span></th>
                 <td class="text-center" style="width: 15%"><button
                   class="btn btn-danger">
-                  <i class="fas fa-ban"></i>
+                  <i class="fas fa-ban" (click)="annulerPresta(presta.id)"></i>
                 </button></td>
-                <th class="text-center" style="width: 20%">25%</th>
               </tr>
+              <tr>
               </tbody>
               <tfoot>
               <tr>
@@ -145,11 +155,11 @@
                 </button></td>
               </tr>
               <tr>
-                <td colspan="3">Prix Total HT</td>
-                <td colspan="2">14 000€</td>
+                <td colspan="3"><b>Prix Total HT :</b></td>
+                <td colspan="2">{{calculTotalHT() | currency:'EUR'}}</td>
               <tr>
-                <td colspan="3">Prix Total TTC</td>
-                <td colspan="2">19 000€</td>
+                <td colspan="3"><b>Prix Total TTC :</b></td>
+                <td colspan="2">{{calculTotalTTC() | currency:'EUR'}}</td>
               </tr>
               </tfoot>
             </table>
