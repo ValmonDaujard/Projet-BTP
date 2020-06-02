@@ -72,8 +72,8 @@ public class Prestation {
 	private Prestataire prestataire;
 	@ManyToMany
 	@JoinTable(name ="salarie_presta", 
-	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id")) 
+	joinColumns = @JoinColumn (name = "prestation_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn (name = "salarie_id", referencedColumnName = "id")) 
 	@JsonView(Views.ViewPrestation.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestation")

@@ -16,6 +16,7 @@ import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
+import {ProjetEGComponent} from "./projet-eg/projet-eg.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { ProfilComponent } from './profil/profil.component';
     AccueilMOComponent,
     AccueilMOEComponent,
     ProfilComponent,
+    AccueilEGComponent,
+    ProjetEGComponent,
   ],
   imports: [
     BrowserModule,
