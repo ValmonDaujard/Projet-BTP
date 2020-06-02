@@ -22,7 +22,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
   idEntreprise: number;
 
   constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService) {
-    this.idEntreprise = 280; // route.params
+    this.idEntreprise = 45; // route.params
     this.list(this.idEntreprise);
   }
 
@@ -125,6 +125,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
     this.gestionMaterielSalarieService.deleteSalarieById(id);
     this.salarieFormDetails = null;
     this.salarieForm = null;
+    this.gestionMaterielSalarieService.load();
   }
 
   deleteMateriel(id: number){
