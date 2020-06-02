@@ -8,6 +8,7 @@ import {ReponseAppelOffreComponent} from './reponse-appel-offre/reponse-appel-of
 import {AccueilMOEComponent} from "./accueil-moe/accueil-moe.component";
 import {AccueilEGComponent} from "./accueil-eg/accueil-eg.component";
 import {AccueilMOComponent} from "./accueil-mo/accueil-mo.component";
+import {ProfilComponent} from "./profil/profil.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'accueilMOE', component: AccueilMOEComponent},
   {path: 'accueilEG', component: AccueilEGComponent},
   {path: 'accueilMO', component: AccueilMOComponent},
+  {path: 'profil', component: ProfilComponent},
 ];
 
 @NgModule({

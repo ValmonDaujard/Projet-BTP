@@ -15,6 +15,7 @@ import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     ReponseAppelOffreComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
