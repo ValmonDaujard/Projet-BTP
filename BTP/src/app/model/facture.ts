@@ -17,10 +17,11 @@ export class Facture {
   projet: Projet;
   // prestation: Prestation;
   // prestationSupplementaire: PrestationSupplementaire;
+  factureMOEMO : boolean;
 
 
   constructor(id?: number, version?: number, numeroFacture?: number, dtFacturation?: Date, prixHT?: number,
-              remise?: number, dtEcheance?: Date, penaliteRetard?: number, payee?: boolean, projet?: Projet) {
+              remise?: number, dtEcheance?: Date, penaliteRetard?: number, payee?: boolean, projet?: Projet, factureMOEMO?: boolean) {
     this.id = id;
     this.version = version;
     this.numeroFacture = numeroFacture;
@@ -31,5 +32,6 @@ export class Facture {
     this.penaliteRetard = penaliteRetard;
     this.payee = payee;
     this.projet = projet
+    this.factureMOEMO=factureMOEMO;
   }
 }

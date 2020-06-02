@@ -14,7 +14,8 @@ export class Societe{
   adresse: Adresse;
 
 
-  constructor(id?: number,version?: number, type?: string, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
+
+  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, type?:string) {
     this.id = id;
     this.version = version;
     this.type = type;
@@ -25,5 +26,6 @@ export class Societe{
     this.numeroDeTva = numeroDeTva;
     this.utilisateur = utilisateur;
     this.adresse = adresse;
+    this.type = type;
   }
 }

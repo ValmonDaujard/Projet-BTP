@@ -18,7 +18,7 @@ export class PrestationSupplementaire {
   obsolete: boolean;
   // prestation: Prestation;
   // materiels: Array<Materiel>;
-  // projet: Projet;
+  // projet-moe: Projet;
   // offre: Offre;
   // prestataire: Prestataire;
   // salaries: Array<Salarie>;
