@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div class="card shadow my-5 mx-auto pr-4 pl-4" style="width: 1000px">
+    <div class="card-header bg-white border-bottom border-warning">
+      <h3 class="font-weight-bold mb-0 my-3">Informations utilisateur</h3>
+    </div>
+    <div class="card-body">
+
+      <div class="form-group">
+        <label for="type">Type d'utilisateur :</label> <input type="text"
+                                                              class="form-control" id="type" name="type"
+                                                              style="border-radius: 25px" disabled readonly
+                                                              value="Maître d'oeuvre, maître d'ouvrage ou prestataire">
+      </div>
+
+      <div class="form-group">
+        <label for="nom">Nom de l'entreprise:</label> <input type="text"
+                                                             class="form-control" id="nom" name="nom"
+                                                             style="border-radius: 25px" value="Nom d'utilisateur">
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label> <input type="text"
+                                                  class="form-control" id="email" name="email"
+                                                  style="border-radius: 25px" value="Adresse mail de l'utilisateur">
+      </div>
+      <div class="form-group">
+        <label for="telephone">Téléphone :</label> <input type="text"
+                                                          class="form-control" id="telephone" name="telephone"
+                                                          style="border-radius: 25px" value="N° de tel de l'utilisateur">
+      </div>
+      <div class="form-group">
+        <label for="numeroSiret">Numéro de siret :</label> <input
+        type="text" class="form-control" id="numeroSiret"
+        name="numeroSiret" style="border-radius: 25px"
+        value="Numéro de Siret de l'utilisateur">
+      </div>
+      <div class="form-group">
+        <label for="numeroTVA">Numéro de TVA :</label> <input type="text"
+                                                              class="form-control" id="numeroTVA" name="numeroTVA"
+                                                              style="border-radius: 25px" value="Numero de TVA de l'utilisateur">
+      </div>
+      <div class="form-group">
+        <!-- 				<div class="custom-file"> -->
+        <!-- 				    <input type="file" class="custom-file-input" id="customFile"> -->
+        <!-- 				    <label class="custom-file-label" for="customFile">Choose file</label> -->
+        <!-- 				 </div> -->
+        <label for="logo">Ajouter le logo de l'entreprise :</label> <input
+        class="btn btn-outline-warning ml-3" type="file" id="logo"
+        name="logo">
+      </div>
+    </div>
+  </div>
+  <div class="card shadow my-5 mx-auto pr-4 pl-4" style="width: 1000px">
+    <div class="card-header bg-white border-bottom border-warning">
+      <h3 class="font-weight-bold mb-0 my-3">Adresse</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nom">Rue:</label> <input type="text"
+                                             class="form-control" id="rue" name="rue"
+                                             style="border-radius: 25px" value="999 avenue de france">
+      </div>
+      <div class="form-group">
+        <label for="email">Complement :</label> <input type="text"
+                                                       class="form-control" id="complement" name="complement"
+                                                       style="border-radius: 25px" value="Batiment B">
+      </div>
+      <div class="form-group">
+        <label for="telephone">Code postal :</label> <input type="text"
+                                                            class="form-control" id="codePostal" name="codePostal"
+                                                            style="border-radius: 25px" value="75001">
+      </div>
+      <div class="form-group">
+        <label for="telephone">Ville :</label> <input type="text"
+                                                      class="form-control" id="ville" name="ville"
+                                                      style="border-radius: 25px" value="Paris">
+      </div>
+    </div>
+  </div>
+  <div class="card shadow my-5 mx-auto pr-4 pl-4" style="width: 1000px">
+    <div class="card-header bg-white border-bottom border-warning">
+      <h3 class="font-weight-bold mb-0 my-3">Informations de
+        connexion</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="identifiant">Identifiant :</label> <input type="text"
+                                                              class="form-control" id="identifiant" name="identifiant"
+                                                              style="border-radius: 25px" value="userForm.identifiant">
+      </div>
+      <div class="form-group">
+        <label for="mdp">Mot de Passe :</label>
+        <div class="input_container" style="{{display}}">
+          <input type="{{inputType}}" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" value="Mot de passe">
+          <span class="input_icon">
+                        <span class="{{showHideClass}}" (click)="showPassword()" style="cursor:pointer"></span>
+                    </span>
+          <br/>
+        </div>
+        <button class="btn btn-outline-warning ml-3" (click)="showInput()">Modifier</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-outline-warning my-3 mx-auto" (click)="update()">
+      <i class="fas fa-user-check"></i>
+      <p class="m-2 font-weight-bold">Enregistrer les modifications</p>
+    </button>
+  </div>
+</div>

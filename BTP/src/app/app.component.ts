@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AccueilComponent} from "./accueil/accueil.component";
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,10 @@ export class AppComponent {
   }
 
   deconnexion(){
+
+  }
+
+  edit(id: number){
 
   }
 }

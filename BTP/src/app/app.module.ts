@@ -15,12 +15,14 @@ import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
 import { ProjetEGComponent } from './projet-eg/projet-eg.component';
 import { ConsultationEGComponent } from './consultation-eg/consultation-eg.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FactureComponent,
-    AppComponent,
     AccueilComponent,
     ProjetComponent,
     GestionMaterielSalarieComponent,
@@ -30,12 +32,15 @@ import { ConsultationEGComponent } from './consultation-eg/consultation-eg.compo
     AccueilEGComponent,
     ProjetEGComponent
     ConsultationEGComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

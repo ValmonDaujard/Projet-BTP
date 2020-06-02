@@ -10,6 +10,7 @@ import {AccueilEGComponent} from "./accueil-eg/accueil-eg.component";
 import {AccueilMOComponent} from "./accueil-mo/accueil-mo.component";
 import {ProjetEGComponent} from "./projet-eg/projet-eg.component";
 import {ConsultationEGComponent} from './consultation-eg/consultation-eg.component';
+import {ProfilComponent} from "./profil/profil.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'accueilMO/:id', component: AccueilMOComponent},
   {path: 'projetEG/:id', component: ProjetEGComponent},
   {path: 'consultationEG/:id', component: ConsultationEGComponent}
+  {path: 'profil', component: ProfilComponent},
 ];
 
 @NgModule({

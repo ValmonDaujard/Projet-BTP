@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {MaitreOuvrage} from "./model/maitreOuvrage";
+import {MaitreOeuvre} from "./model/maitreOeuvre";
+import {Prestataire} from "./model/prestataire";
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +26,17 @@ export class CommonService {
 
   findAllEtats(): Observable<Array<string>> {
     return this.http.get<Array<string>>("http://localhost:8080/api/etats");
+  }
+
+  findMOById(id: number): Observable<MaitreOuvrage>{
+    return this.http.get<MaitreOuvrage>("http://localhost:8080/maitreOuvrage/" + id);
+  }
+
+  findMOEById(id: number): Observable<MaitreOeuvre>{
+    return this.http.get<MaitreOeuvre>("http://localhost:8080/maitreOeuvre/" + id);
+  }
+
+  findPrestataireById(id: number): Observable<Prestataire>{
+    return this.http.get<Prestataire>("http://localhost:8080/prestataire/" + id);
   }
 }
