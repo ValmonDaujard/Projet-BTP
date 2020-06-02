@@ -1,0 +1,483 @@
+<div class="container-fluid">
+
+  <div class="content-wrapper">
+    <div class="row" id="ligne">
+      <div class="col-md-1 grid-margin">
+        <button [routerLink]="['/projet-moe/' + (projet.id-1)]"  routerLinkActive="active"><i class="fas fa-arrow-left " style="font-size: 32px" ></i></button>
+      </div>
+      <div class="col-md-10 grid-margin">
+        <div>
+          <h4 class="font-weight-bold mb-0" style="text-align: center;">
+            {{projet.offre.appelOffre?.nom| titlecase}}</h4>
+        </div>
+      </div>
+      <div class="col-md-1 grid-margin">
+        <button [routerLink]="['/projet-moe/' + (projet.id+1)]"  routerLinkActive="active"><i class="fas fa-arrow-right "
+                                                                                              style="font-size: 32px" ></i></button>
+      </div>
+    </div>
+
+    <div class="row" id="ligne">
+      <div class="col-md-3 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <p class="card-title text-md-center text-xl-left">Numéro de
+              Devis</p>
+            <div
+              class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" >{{projet.numeroDevis}}</h3>
+              <i class="fa fa-tag "
+                 style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <p class="card-title text-md-center text-xl-left">Date de
+              démarrage</p>
+            <div
+              class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtDebut|date:'dd/MM/yyyy'}}</h3>
+              <i class="fas fa-calendar-day " style="font-size: 32px"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <p class="card-title text-md-center text-xl-left">Date de fin
+              de projet</p>
+            <div
+              class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtFin|date:'dd/MM/yyyy'}}</h3>
+              <i class="fas fa-calendar-check " style="font-size: 32px"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <p class="card-title text-md-center text-xl-left">Factures</p>
+            <div
+              class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+              <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">4</h3>
+              <i class="far fa-file " style="font-size: 32px"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="content-wrapper">
+
+    <div class="row" id="ligne">
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded"
+             style="height: 400px;">
+          <div class="card-header bg-white border-bottom border-warning"
+               style="display: flex">
+            <h3 class="font-weight-bold mb-0 my-3">Prestation</h3>
+
+          </div>
+          <div class="card-body">
+            <div>
+              <table class="my-auto table">
+                <thead class="thead-dark">
+                <tr>
+                  <th style="width: 20%">Nom</th>
+                  <th style="width: 20%">Entreprise</th>
+                  <th style="width: 20%">Date de début</th>
+                  <th style="width: 35%" class="text-center">Date de fin</th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="scrollTablePrestations">
+              <table class="table table-striped">
+                <tbody *ngFor="let prestation of prestationref">
+                <tr    *ngIf="prestation.phasePresta=='ValideMOeuvre'">
+                  <td style="width: 19%">{{prestation.nom}}</td>
+                  <td style="width: 19%">{{prestation.prestataire.nom}}</td>
+                  <td style="width: 22%">{{prestation.dtDebut|date:'dd/MM/yyyy'}}</td>
+                  <td style="width: 22%">{{prestation.dtFin|date:'dd/MM/yyyy'}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded"
+             style="height: 400px;">
+          <div class="card-header bg-white border-bottom border-warning"
+               style="display: flex">
+            <h3 class="font-weight-bold mb-0 my-3">Calendrier</h3>
+
+          </div>
+          <div class="card-body">
+            <p class="card-title text-md-center text-xl-left">Calendrier</p>
+
+            <!-- 							Calendrier -->
+
+
+            <!--   Calendrier -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content-wrapper">
+
+
+    <div class="row" id="ligne">
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded"
+             style="height: 500px;">
+          <div class="card-header bg-white border-bottom border-warning"
+               style="display: flex">
+            <h3 class="font-weight-bold mb-0 my-3">Action en cours</h3>
+
+          </div>
+          <div class="card-body">
+            <div style="display: flex; margin-bottom: 5%"></div>
+            <div  class="list-wrapper pt-2">
+              <ul
+                class="d-flex flex-column-reverse todo-list todo-list-custom"
+                style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
+                <div  *ngFor="let action of actionref">
+                <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="action.effectuee==false">
+                  <div >
+                    <label > {{action.nomAction}}
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-sm">
+                    <a class="btn btn-primary" (click)="validerAction(action.id)">Valider<i class="fa fa-edit"></i></a>
+                  </div>
+                  <div class="btn-group btn-group-sm">
+                    <a class="btn btn-primary" (click)="deleteAction(action.id)"> Supprimer<i class="fa fa-trash"></i></a>
+                  </div>
+                </li>
+                </div>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-success btn-lg" (click)="addAction()">
+                <i class="fa fa-plus"></i>
+              </a>
+            </div>
+
+            <div class="add-items d-flex mb-0 mt-4"  *ngIf="currentAction">
+              <input type="text" class="form-control todo-list-input mr-2" [(ngModel)]="currentAction.nomAction"
+                     placeholder="Créer une nouvelle action">
+
+              <button (click)="saveAction()"
+                class="add btn btn-icon text-warning todo-list-add-btn bg-transparent">
+                <i class="far fa-check"> </i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded"
+             style="height: 500px;">
+          <div class="card-header bg-white border-bottom border-warning"
+               style="display: flex">
+            <h3 class="font-weight-bold mb-0 my-3">Action terminée</h3>
+
+          </div>
+          <div class="card-body">
+
+            <div  class="list-wrapper pt-2">
+              <ul
+                  class="d-flex flex-column-reverse todo-list todo-list-custom"
+                  style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
+                <div *ngFor="let action of actionref">
+                <li  style="display: flex; margin-bottom: 2%; margin-right: 2%"  *ngIf="action.effectuee==true">
+                  <div >
+                    <label >  {{action.nomAction}}
+                    </label>
+                  </div>
+                  <div style="margin-left: auto">
+                    <button class="btn text-warning border border-warning"
+                    >
+                      Voir détail
+                    </button>
+                    <button class="btn text-danger border border-danger">
+                      <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>
+                    </button>
+                  </div>
+                </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="row" id="ligne">
+
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card shadow p-3 mb-5 bg-white rounded"
+               style="height: 400px;">
+            <div class="card-header bg-white border-bottom border-warning"
+                 style="display: flex">
+              <h3 class="font-weight-bold mb-0 my-3">Réunion en cours</h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="list-wrapper pt-2"  >
+                <ul
+                  class="d-flex flex-column-reverse todo-list todo-list-custom"
+                  style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
+                  <div *ngFor="let reunion of reunionrefplanifie">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
+                    <div class="form-check form-check-flat">
+                      <label >  {{reunion.sujet}}
+                      </label>
+                    </div>
+                    <button class="btn text-danger border border-danger">
+                      <i class="fas fa-trash-alt" (click)="deleteReunionPlanifiees(reunion.id)"></i>
+                    </button>
+
+                  </li>
+                  </div>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card shadow p-3 mb-5 bg-white rounded"
+               style="height: 400px;">
+            <div class="card-header bg-white border-bottom border-warning"
+                 style="display: flex">
+              <h3 class="font-weight-bold mb-0 my-3">Réunion terminée</h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="list-wrapper pt-2" >
+                <ul
+                  class="d-flex flex-column-reverse todo-list todo-list-custom"
+                  style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
+                  <div *ngFor="let reunion of reunionrefeffectue">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
+                    <div >
+                      <label >  {{reunion.sujet}}
+                      </label>
+                    </div>
+                    <button class="btn text-danger border border-danger">
+                      <i class="fas fa-trash-alt" (click)="deleteReunionEffectues(reunion.id)"></i>
+                    </button>
+
+                  </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card shadow p-3 mb-5 bg-white rounded"
+                   style="height: 400px;">
+                <div class="card-header bg-white border-bottom border-warning"
+                     style="display: flex">
+                  <h3 class="font-weight-bold mb-0 my-3">Planifier une
+                    nouvelle réunion</h3>
+
+                </div>
+                <div class="card-body">
+
+                    <a class="btn btn-success btn-lg" (click)="addReunion()">
+                      <i class="fa fa-plus"></i>
+                    </a>
+
+
+
+                      <div class="form-group" *ngIf="currentReunion">
+                        <label for="telephone">Sujet:</label>
+                        <input type="text" class="form-control" id="telephone" [(ngModel)]="currentReunion.sujet">
+                      </div>
+                      <div class="form-group" *ngIf="currentReunion">
+                        <label for="dtReunion">Date de naissance:</label>
+                        <input type="date" class="form-control" id="dtReunion" [ngModel]="currentReunion.dtReunion | date:'yyyy-MM-dd'" (ngModelChange)="currentReunion.dtReunion = $event">
+                      </div>
+
+                      <button (click)="saveReunion()" *ngIf="currentReunion"
+                              class="add btn btn-icon text-warning todo-list-add-btn bg-transparent">
+                        <i class="far fa-check"> </i>
+                      </button>
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="row" id="ligne">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card shadow p-3 mb-5 bg-white rounded"
+               style="height: 400px;">
+            <div class="card-header bg-white border-bottom border-warning"
+                 style="display: flex">
+              <h3 class="font-weight-bold mb-0 my-3">Facture en attente
+                de validation</h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="list-wrapper pt-2" >
+                <ul
+                    class="d-flex flex-column-reverse todo-list todo-list-custom"
+                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
+                  <div *ngFor="let facture of factureref">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==false&&facture.factureMOEMO==false">
+                    <div >
+                      <label >  {{facture.numeroFacture}}
+                      </label>
+                    </div>
+                    <div class="btn-group btn-group-sm">
+                      <a class="btn btn-primary" (click)="validerFacture(facture.id)">Valider<i class="fa fa-edit"></i></a>
+                    </div>
+                    <div class="btn-group btn-group-sm">
+                      <a class="btn btn-primary" (click)="deleteFacture(facture.id)"> Supprimer<i class="fa fa-trash"></i></a>
+                    </div>
+                  </li>
+                  </div>
+
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card shadow p-3 mb-5 bg-white rounded"
+               style="height: 400px;">
+            <div class="card-header bg-white border-bottom border-warning"
+                 style="display: flex">
+              <h3 class="font-weight-bold mb-0 my-3">Facture validée</h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="list-wrapper pt-2" >
+                <ul
+                    class="d-flex flex-column-reverse todo-list todo-list-custom"
+                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
+                  <div *ngFor="let facture of factureref">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==false">
+
+                      <label >  {{facture.numeroFacture}}
+                      </label>
+
+
+
+                  </li>
+                  </div>
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="content-wrapper"></div>
+
+
+
+  <div class="row" id="ligne">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card shadow p-3 mb-5 bg-white rounded"
+           style="height: 450px;">
+        <div class="card-header bg-white border-bottom border-warning"
+             style="display: flex">
+          <h3 class="font-weight-bold mb-0 my-3">Document relatif au
+            projet</h3>
+
+        </div>
+        <div class="card-body">
+
+          <div >
+
+            <label class="btn text-warning border border-warning my-3"><b>Ajouter un document</b>
+              <input  class="customInput" type="file" style="display:none" />
+            </label>
+            <label  id="nomFichier"></label>
+          </div>
+
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="comment" name="text" style="max-height: 150px"></textarea>
+            </div>
+            <button type="submit"
+                    class="btn text-warning border border-warning my-3 ">
+              <b>Soumettre</b>
+            </button>
+          </form>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- 	Ajouter un fichier : maj nom fichier -->
+<script>
+  $(".customInput").on(
+    "change",
+    function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected")
+        .html(fileName);
+      $("#nomFichier").empty();
+      $("#nomFichier").append(fileName);
+    });
+</script>
+<!-- 	Ajouter un fichier : maj nom fichier -->

@@ -1,15 +1,12 @@
 package btp.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,9 +40,11 @@ public class Action {
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
-	@ManyToMany(mappedBy = "actions")
+	
+	@ManyToOne
+	@JoinColumn(name = "salarie_id")
 	@JsonView(Views.ViewAction.class)
-	private List<Salarie> salaries = new ArrayList<Salarie>();
+	private Salarie salarie;
 
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
@@ -132,12 +131,12 @@ public class Action {
 		this.version = version;
 	}
 
-	public List<Salarie> getSalaries() {
-		return salaries;
+	public Salarie getSalarie() {
+		return salarie;
 	}
 
-	public void setSalaries(List<Salarie> salaries) {
-		this.salaries = salaries;
+	public void setSalarie (Salarie salarie) {
+		this.salarie = salarie;
 	}
 
 	public Prestataire getPrestataire() {

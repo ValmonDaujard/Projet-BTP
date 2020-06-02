@@ -23,6 +23,9 @@ export class ProjetComponent implements OnInit {
   reunionrefplanifie: Array<Reunion> = new Array<Reunion>();
   reunionrefeffectue: Array<Reunion> = new Array<Reunion>();
   factureref: Array<Facture> = new Array<Facture>();
+  prestataires: Array<Prestataire> = new Array<Prestataire>();
+  currentAction: Action = null;
+  currentFacture: Facture = null;
 
 
   constructor(private projetService: ProjetService, private route: ActivatedRoute) {
@@ -49,10 +52,65 @@ export class ProjetComponent implements OnInit {
     })
   }
 
+  editAction(id: number) {
+    this.projetService.findActionById(id).subscribe(resp => {
+      this.currentAction = resp;
+
+      if (this.currentAction.prestataire == null) {
+        this.currentAction.prestataire = new Prestataire();
+      }
+    }, error => console.log(error));
+
+    this.projetService.findAllPrestataire().subscribe(resp => {
+      this.prestataires = resp;
+    }, err => console.log(err));
+  }
+
+
+  saveAction() {
+    this.projetService.modifyAction(this.currentAction).subscribe(resp => {
+      this.currentAction = null;
+      this.projetService.findActions(this.projet.id).subscribe(resp => {
+        this.actionref = resp;
+      }, error => console.log(error));
+    })
+  }
 
   ngOnInit(): void {
 
   }
+
+
+  validerFacture(id: number) {
+    this.projetService.findFactureById(id).subscribe(resp => {
+      this.currentFacture = resp;
+      this.currentFacture.payee = true;
+    this.projetService.modifyFacture(this.currentFacture).subscribe(resp => {
+      this.currentFacture = null;
+      this.projetService.findFactures(this.projet.id).subscribe(resp => {
+        this.factureref = resp;
+      }, error => console.log(error));
+    }, error => console.log(error));
+    })
+  }
+
+  deleteFacture(id: number) {
+      this.projetService.deleteFactureById(id).subscribe(resp => {;
+      this.projetService.findFactures(this.projet.id).subscribe(resp => {
+        this.factureref = resp;
+      }, error => console.log(error));
+      })
+
+    }
+
+  deleteAction(id: number) {
+    this.projetService.deleteActionById(id).subscribe(resp => {;
+      this.projetService.findActions(this.projet.id).subscribe(resp => {
+        this.actionref = resp;
+      }, error => console.log(error));
+    })
+  }
+
 
 
 }

@@ -7,11 +7,14 @@ import { FactureComponent } from './facture/facture.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
-import { ProjetComponent } from './projet/projet.component';
+import { ProjetComponent } from './projet-moe/projet.component';
 import { GestionMaterielSalarieComponent } from './gestion-materiel-salarie/gestion-materiel-salarie.component';
 import { ReponseAppelOffreComponent } from './reponse-appel-offre/reponse-appel-offre.component';
 import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
 import {AccueilMOEComponent} from './accueil-moe/accueil-moe.component';
+import { ProjetMOComponent } from './projet-mo/projet-mo.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import {AccueilMOEComponent} from './accueil-moe/accueil-moe.component';
     ReponseAppelOffreComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
+    ProjetMOComponent,
   ],
   imports: [
     BrowserModule,

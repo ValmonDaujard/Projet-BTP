@@ -109,9 +109,18 @@ class Test3 {
 				
 				// facture
 				Facture factureIsolation = new Facture(111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
-						true);
+						true,false);
 				Facture factureCloture = new Facture(45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
-						false);
+						false,false);
+				
+				Facture factureProjetMoisSeptembre = new Facture(153453, sdf.parse("16/06/2020"), 5000F, 0F, sdf.parse("15/08/2020"), 0F,
+						true,true);
+				Facture factureMoisNovembre = new Facture(83843, sdf.parse("18/06/2021"), 5000F, 15F, sdf.parse("21/08/2022"), 52F,
+						false,true);
+				
+				
+				
+				
 				
 				
 				// maitre d'oeuvre
@@ -197,6 +206,8 @@ class Test3 {
 				
 				factureIsolation = factureRepository.save(factureIsolation);
 				factureCloture = factureRepository.save(factureCloture);
+				factureMoisNovembre = factureRepository.save(factureMoisNovembre);
+				factureProjetMoisSeptembre = factureRepository.save(factureProjetMoisSeptembre);
 				
 				maitreOeuvreBob = maitreOeuvreRepository.save(maitreOeuvreBob);
 				maitreOeuvreGeorges = maitreOeuvreRepository.save(maitreOeuvreGeorges);
@@ -263,6 +274,13 @@ class Test3 {
 				factureCloture.setPrestationSupplementaire(prestaSupp2);
 				factureIsolation.setProjet(projet1);
 				factureCloture.setProjet(projet2);
+				
+				factureProjetMoisSeptembre.setMaitreOeuvre(maitreOeuvreBob);
+				factureProjetMoisSeptembre.setMaitreOuvrage(maitreOuvrageBobby);
+				factureMoisNovembre.setMaitreOeuvre(maitreOeuvreGeorges);
+				factureMoisNovembre.setMaitreOuvrage(maitreOuvrageToto);
+				factureProjetMoisSeptembre.setProjet(projet1);
+				factureMoisNovembre.setProjet(projet1);
 
 				// lien maitre d'oeuvre - utilisateur
 				maitreOeuvreBob.setUtilisateur(utilisateurmaitreOeuvreBob);
@@ -343,6 +361,9 @@ class Test3 {
 				
 				factureIsolation = factureRepository.save(factureIsolation);
 				factureCloture = factureRepository.save(factureCloture);
+				factureMoisNovembre = factureRepository.save(factureMoisNovembre);
+				factureProjetMoisSeptembre = factureRepository.save(factureProjetMoisSeptembre);
+				
 				
 				maitreOeuvreBob = maitreOeuvreRepository.save(maitreOeuvreBob);
 				maitreOeuvreGeorges = maitreOeuvreRepository.save(maitreOeuvreGeorges);

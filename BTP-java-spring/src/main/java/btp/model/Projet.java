@@ -50,9 +50,9 @@ public class Projet {
 	@OneToMany(mappedBy = "projet")
 	@JsonView(Views.ViewProjetDetail.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
-	@OneToOne(mappedBy = "projet")
+	@OneToMany(mappedBy = "projet")
 	@JsonView(Views.ViewProjetDetail.class)
-	private Facture facture;
+	private List<Facture> factures = new ArrayList<Facture>();
 	@OneToOne
 	@JoinColumn(name = "offre_id")
 	@JsonView(Views.ViewProjet.class)
@@ -158,12 +158,16 @@ public class Projet {
 		this.prestations.add(prestation);
 	}
 
-	public Facture getFacture() {
-		return facture;
+	public List<Facture> getFactures() {
+		return factures;
 	}
 
-	public void setFacture(Facture facture) {
-		this.facture = facture;
+	public void setFactures(List<Facture> factures) {
+		this.factures = factures;
+	}
+	
+	public void addFacture(Facture facture) {
+		this.factures.add(facture);
 	}
 
 	public Offre getOffre() {

@@ -5,7 +5,7 @@ import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
 import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
-import {ProjetService} from "../projet/projet.service";
+import {ProjetService} from "../projet-moe/projet.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

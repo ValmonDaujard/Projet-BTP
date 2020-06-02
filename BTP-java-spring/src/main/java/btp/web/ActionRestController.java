@@ -77,6 +77,7 @@ public class ActionRestController {
 	
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewAction.class)
 	public Action update(@RequestBody Action action, @PathVariable Long id) {
 		if (!actionRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");

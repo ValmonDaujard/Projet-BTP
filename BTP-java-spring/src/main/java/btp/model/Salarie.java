@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
@@ -36,11 +37,7 @@ public class Salarie {
 	@JsonView(Views.ViewCommon.class)
 	private String metier;
 	
-	@ManyToMany
-	@JoinTable(name = "action_salarie", 
-			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "action_id" }),
-			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-			inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
+	@OneToMany(mappedBy = "salarie")
 	@JsonView(Views.ViewSalarie.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
