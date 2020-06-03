@@ -39,6 +39,10 @@ export class AccueilService {
     return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/by-identifiant-and-mot-de-passe/" + identifiant + ":" + mdp);
   }
 
+  authentification(utilisateur: Utilisateur){
+    return this.http.post<Utilisateur>("http://localhost:8080/utilisateur/authentification", utilisateur);
+  }
+
   load() {
     this.http.get<Array<MaitreOeuvre>>("http://localhost:8080/maitreOeuvre").subscribe(resp => {
       this.maitreOeuvres = resp;

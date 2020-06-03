@@ -24,6 +24,7 @@ export class AccueilComponent implements OnInit {
 
   constructor(public router : Router, private accueilService: AccueilService, private sessionService: SessionService) {
     this.societeForm.adresse = new Adresse();
+    this.societeForm.utilisateur = new Utilisateur();
   }
 
   ngOnInit(): void {
@@ -78,9 +79,9 @@ export class AccueilComponent implements OnInit {
     console.log(this.userForm);
   }
 
-  connexion(identifiant: string, mdp: string){
+  connexion(utilisateur){
     console.log(this.userForm);
-    this.accueilService.findByIdentifiantAndMotDePasse(identifiant, mdp).subscribe(resp => {
+    this.accueilService.authentification(utilisateur).subscribe(resp => {
       this.userForm = resp;
       this.sessionService.setUser(this.userForm);
       // sessionStorage.setItem('user', JSON.stringify(this.userForm))

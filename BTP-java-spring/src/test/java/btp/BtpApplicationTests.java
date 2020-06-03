@@ -199,9 +199,9 @@ class BtpApplicationTests {
 
 		// prestation
 		Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 10000F, sdf.parse("10/04/2020"),
-				sdf.parse("10/05/2020"), false, PhasePresta.ValideEG, "nouvelles fondations pour hypermarché");
+				sdf.parse("10/05/2020"), false, PhasePresta.ValideEG,"nouvelles fondations pour hypermarché");
 		Prestation presta2 = new Prestation(Categorie.secondOeuvre, "Plomberie", 9000F, sdf.parse("15/09/2020"),
-				sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre, "plomberie sanitaires immeuble");
+				sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
 
 		presta1 = prestationRepository.save(presta1);
 		presta2 = prestationRepository.save(presta2);
@@ -402,11 +402,9 @@ class BtpApplicationTests {
 	public void prestation() throws ParseException {
 		// prestation
 		Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 10000F, sdf.parse("10/04/2020"),
-				sdf.parse("10/05/2020"), false, PhasePresta.ValideEG, "nouvelles fondations pour supermarché");
+				sdf.parse("10/05/2020"), false, PhasePresta.ValideEG,"nouvelles fondations pour supermarché");
 		Prestation presta2 = new Prestation(Categorie.secondOeuvre, "Plomberie", 9000F, sdf.parse("15/09/2020"),
-				sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre, "plomberie sanitaires bâtiment");
-		
-		
+				sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires bâtiment");
 
 		// projet
 		Projet projet1 = new Projet(9371, sdf.parse("07/04/2020"), sdf.parse("07/04/2021"), 1, "nouveau");
@@ -449,7 +447,7 @@ class BtpApplicationTests {
 		jeanLouis = salarieRepository.save(jeanLouis);
 		jeanJacques = salarieRepository.save(jeanJacques);
 
-		// liens prestation - projet / matériels / offre / prestataire / salarié
+		// liens prestation - projet / métériels / offre / prestataire / salarié
 		presta1.setProjet(projet1);
 		presta2.setProjet(projet2);
 		presta1.addMateriels(sable);

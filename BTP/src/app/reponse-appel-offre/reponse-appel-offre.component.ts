@@ -8,6 +8,7 @@ import {Projet} from "../model/projet";
 import {ProjetService} from "../projet-moe/projet.service";
 import {ActivatedRoute} from "@angular/router";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
+import {SessionService} from "../session.service";
 
 
 @Component({
@@ -28,9 +29,9 @@ export class ReponseAppelOffreComponent implements OnInit {
   prixTTC: number;
 
 
-  constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute) {
+  constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
+    this.sessionService.getUser()
     this.route.params.subscribe(parameters => {
-      this.offre.id = parameters.id;
       this.getMOuvrage(parameters.id);
     });
   }

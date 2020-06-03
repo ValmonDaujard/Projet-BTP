@@ -3,6 +3,7 @@ import {Projet} from "../model/projet";
 import {AccueilEGService} from "./accueil-eg.service";
 import {Prestation} from "../model/prestation";
 import {ActivatedRoute} from "@angular/router";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-accueil-eg',
@@ -15,8 +16,8 @@ export class AccueilEGComponent implements OnInit {
   prestations: Array<Prestation> = new Array<Prestation>();
   user: any = null;
 
-  constructor(private accueilEGService: AccueilEGService, private route : ActivatedRoute) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor(private accueilEGService: AccueilEGService, private route : ActivatedRoute, private sessionService : SessionService) {
+    this.user = this.sessionService.getUser();
     this.list(this.user.societe.id);
   }
 
@@ -27,6 +28,8 @@ export class AccueilEGComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.list(this.user.societe.id);
   }
 
 

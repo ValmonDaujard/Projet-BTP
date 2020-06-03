@@ -5,6 +5,7 @@ import {AccueilMOEService} from "./accueil-moe.service";
 import {ActivatedRoute} from "@angular/router";
 import {Utilisateur} from "../model/utilisateur";
 import {CommonService} from "../common.service";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-accueil-moe',
@@ -17,9 +18,9 @@ export class AccueilMOEComponent implements OnInit {
   offres: Array<Offre> = new Array<Offre>();
   user: Utilisateur = new Utilisateur();
 
-  constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute, private commonService: CommonService) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
-    this.list(this.user.societe.id)
+  constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute, private sessionService : SessionService) {
+    this.user = this.sessionService.getUser();
+    this.list(this.user.societe.id);
     // this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
     //   this.user = resp;
     //   this.list(this.user.societe.id);
