@@ -40,11 +40,12 @@ export class ProjetEGComponent implements OnInit {
       this.actionTraiteesFonction(parameters.id,45);
       this.actionDemandeesFonction(parameters.id,45);
       this.salariesListFonction(45);
+      this.findProjet(parameters.id)
     })
   }
 
-  findProjet(){
-
+  findProjet(id:number){
+    this.projetEGService.findProjet(id).subscribe(resp=>this.projet = resp , err => console.log(err));
   }
 
   chargePrestaCours(idPresta: number) {
