@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {AccueilComponent} from "./accueil/accueil.component";
 import {CommonService} from "./common.service";
 import {Adresse} from "./model/adresse";
+import {SessionService} from "./session.service";
+import {Utilisateur} from "./model/utilisateur";
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,8 @@ import {Adresse} from "./model/adresse";
 export class AppComponent {
   title = 'BTP';
   user: any = null;
-  constructor(public router: Router){
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor(public router: Router, private sessionService: SessionService){
+
   }
 
 
@@ -34,13 +36,13 @@ export class AppComponent {
   }
 
   accueil(){
-    if(this.user.societe.type == 'MOuvrage'){
+    if(this.sessionUser().societe.type == 'MOuvrage'){
       [this.router.navigate(['accueilMO'])]
     }
-    else if(this.user.societe.type == 'MOeuvre'){
+    else if(this.sessionUser().societe.type == 'MOeuvre'){
       [this.router.navigate(['accueilMOE'])]
     }
-    else if(this.user.societe.type == 'Prestataire'){
+    else if(this.sessionUser().societe.type == 'Prestataire'){
       [this.router.navigate(['accueilEG'])]
     }
     this.w3_close()
@@ -48,8 +50,11 @@ export class AppComponent {
 
   deconnexion(){
     sessionStorage.clear()
-    this.user = JSON.parse(sessionStorage.getItem('user'));
-    console.log(this.user)
+
+  }
+
+  sessionUser(): Utilisateur {
+    return this.sessionService.getUser();
   }
 
   edit(id: number){

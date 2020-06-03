@@ -45,8 +45,8 @@ export class ProjetEGComponent implements OnInit {
     })
   }
 
-  findProjet(){
-
+  findProjet(id:number){
+    this.projetEGService.findProjet(id).subscribe(resp=>this.projet = resp , err => console.log(err));
   }
 
   chargePrestaCours(idPresta: number) {

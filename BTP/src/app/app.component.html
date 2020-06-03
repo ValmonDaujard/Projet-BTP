@@ -30,7 +30,7 @@
       </div>
       <div class="m-auto">
         <button class="btn text-white policeTitle border-left" id="user" [routerLink]="['/profil']"><i class="fas fa-user mt-1"></i>
-          <h6>{{user?.societe.nom}}</h6>
+          <h6>{{sessionUser()?.societe.nom}}</h6>
         </button>
       </div>
     </div>
