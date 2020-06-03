@@ -19,6 +19,7 @@ export class AccueilMOEComponent implements OnInit {
 
   constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute, private commonService: CommonService) {
     this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.list(this.user.societe.id)
     // this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
     //   this.user = resp;
     //   this.list(this.user.societe.id);

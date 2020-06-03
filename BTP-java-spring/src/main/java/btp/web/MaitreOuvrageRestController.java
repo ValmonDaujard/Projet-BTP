@@ -48,6 +48,19 @@ public class MaitreOuvrageRestController {
 		return maitreOuvrageRepo.findByProjet(id);
 	}
 	
+	@GetMapping("/par-appel-offre/{id}")
+	@JsonView(Views.ViewMaitreOuvrage.class)
+	public MaitreOuvrage findbyAppelOffre(@PathVariable Long id) {
+
+		Optional<MaitreOuvrage> optMaitreOuvrage = maitreOuvrageRepo.findByAppelOffre(id);
+
+		if (optMaitreOuvrage.isPresent()) {
+			return optMaitreOuvrage.get();
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+		}
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewMaitreOuvrage.class)
 	public MaitreOuvrage find(@PathVariable Long id) {

@@ -51,7 +51,7 @@ import {RouterModule} from "@angular/router";
     FormsModule,
     BrowserAnimationsModule,
     MatButtonToggleModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

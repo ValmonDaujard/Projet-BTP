@@ -21,7 +21,9 @@ export class AccueilComponent implements OnInit {
   inputType = 'password';
   showHideClass = 'fas fa-eye';
 
-  constructor(public router : Router, private accueilService: AccueilService) { }
+  constructor(public router : Router, private accueilService: AccueilService) {
+    this.societeForm.adresse = new Adresse();
+  }
 
   ngOnInit(): void {
   }
