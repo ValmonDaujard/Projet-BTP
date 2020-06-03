@@ -174,6 +174,9 @@ export class ProjetMOComponent implements OnInit {
           this.projetMOService.findReunionsPlanifiees(this.projet.id).subscribe(resp => {
             this.reunionrefplanifie = resp;
           }, error => console.log(error));
+          this.projetMOService.findReunionsEffectuees(this.projet.id).subscribe(resp => {
+            this.reunionrefeffectue = resp;
+          }, error => console.log(error));
         },
         error => console.log(error)
       )
