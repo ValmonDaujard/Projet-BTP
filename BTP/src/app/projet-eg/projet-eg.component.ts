@@ -4,6 +4,7 @@ import {ProjetEGService} from "./projet-eg.service";
 import {Salarie} from "../model/salarie";
 import {ActivatedRoute} from "@angular/router";
 import {Action} from "../model/action";
+import {Projet} from "../model/projet";
 
 @Component({
   selector: 'app-projet-eg',
@@ -12,6 +13,7 @@ import {Action} from "../model/action";
 })
 export class ProjetEGComponent implements OnInit {
 
+  projet : Projet = new Projet();
   prestaCours : Prestation = new Prestation();
   prestaPlanif : Prestation = new Prestation();
   prestaEffect : Prestation = new Prestation();
@@ -32,21 +34,24 @@ export class ProjetEGComponent implements OnInit {
 
   constructor(private projetEGService:ProjetEGService , private route: ActivatedRoute) {
     this.route.params.subscribe(parameters => {
-      this.prestationEnCoursFonction(parameters.id, 43);
-      this.prestationPlanifieFonction(parameters.id, 43);
-      this.prestationEffectueFonction(parameters.id, 43);
-      this.actionTraiteesFonction(parameters.id,43);
-      this.actionDemandeesFonction(parameters.id,43);
-      this.salariesListFonction(43);
-      console.log(this.salarieList);
+      this.prestationEnCoursFonction(parameters.id, 45);
+      this.prestationPlanifieFonction(parameters.id, 45);
+      this.prestationEffectueFonction(parameters.id, 45);
+      this.actionTraiteesFonction(parameters.id,45);
+      this.actionDemandeesFonction(parameters.id,45);
+      this.salariesListFonction(45);
     })
+  }
+
+  findProjet(){
+
   }
 
   chargePrestaCours(idPresta: number) {
     this.projetEGService.findPrestaById(idPresta).subscribe(resp => this.prestaCours = resp, error => console.log(error));
     this.projetEGService.findSalariesByPrestation(idPresta).subscribe(resp => this.salariePrestaCours = resp, error => console.log(error));
-
   }
+
   chargePrestaPlanif(idPresta: number) {
     this.projetEGService.findPrestaById(idPresta).subscribe(resp => this.prestaPlanif = resp, error => console.log(error));
     this.projetEGService.findSalariesByPrestation(idPresta).subscribe(resp => this.salariePrestaPlanif = resp, error => console.log(error));
@@ -58,15 +63,19 @@ export class ProjetEGComponent implements OnInit {
   }
 
   chargeActionTraitees(idAction:number){
-    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionTrait, error => console.log(error));
+    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionTrait = resp, error => console.log(error));
     this.projetEGService.findSalarieByAction(idAction).subscribe(resp=> this.salariesActionTrait = resp, error => console.log(error));
 
   }
+
   chargeActionDemandees(idAction:number){
-    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionDem, error => console.log(error));
-    this.projetEGService.findSalarieByAction(idAction).subscribe(resp=> this.salariesActionDem, error => console.log(error));
+    this.projetEGService.findActionById(idAction).subscribe(resp=> this.actionDem=resp, error => console.log(error));
+    this.projetEGService.findSalarieByAction(idAction).subscribe(resp=> this.salariesActionDem = resp, error => console.log(error));
   }
 
+  chargeSalarie(idSalarie:number){
+    this.projetEGService.findSalarieById(idSalarie).subscribe(resp => this.salarie = resp, error => console.log(error));
+  }
 
   prestationEnCoursFonction(idProj:number, idEG:number){
     this.projetEGService.findPrestationEnCoursParProjetParEG(idProj,idEG).subscribe(resp => this.prestationsEnCours = resp, error => console.log(error));
@@ -90,6 +99,33 @@ export class ProjetEGComponent implements OnInit {
 
   salariesListFonction(idEG: number){
     this.projetEGService.findAllSalarieByEG(idEG).subscribe(resp=> this.salarieList = resp,error => console.log(error))
+  }
+
+  addSalarieToListPresta() {
+      this.salariePrestaPlanif.push(this.salarie);
+  }
+
+  addSalarieToListAction(){
+    this.salariesActionDem.push(this.salarie);
+  }
+  suppSalarieListPresta(index) {
+    this.salariePrestaPlanif.splice(index, 1);
+  }
+
+  suppSalarieListAction(index) {
+    this.salariesActionDem.splice(index, 1);
+  }
+
+  validerPrestaPlanif(){
+    this.prestaPlanif.salaries = this.salariePrestaPlanif;
+    this.projetEGService.affectSalariePrestaPlanif(this.prestaPlanif).subscribe(resp=> this.prestaPlanif = resp , error => console.log(error));
+    console.log(this.prestaPlanif);
+  }
+
+  validerActionDem(){
+    this.actionDem.salaries = this.salariesActionDem;
+    this.projetEGService.affectSalarieActionDem(this.actionDem).subscribe(resp=> this.actionDem = resp , error => console.log(error));
+    console.log(this.actionDem);
   }
 
   ngOnInit(): void {

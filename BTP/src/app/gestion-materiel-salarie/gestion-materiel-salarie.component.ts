@@ -125,6 +125,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
     this.gestionMaterielSalarieService.deleteSalarieById(id);
     this.salarieFormDetails = null;
     this.salarieForm = null;
+    this.gestionMaterielSalarieService.load();
   }
 
   deleteMateriel(id: number){

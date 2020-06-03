@@ -17,6 +17,10 @@ export class ProjetEGService {
     return this.http.get<Array<Salarie>>('http://localhost:8080/salarie/by-entreprise/' + idEG)
   }
 
+  findSalarieById(idSalarie:number): Observable<Salarie>{
+    return this.http.get<Salarie>('http://localhost:8080/salarie/' + idSalarie)
+  }
+
   findSalariesByPrestation(idPresta:number):Observable<Array<Salarie>>{
     return this.http.get<Array<Salarie>>('http://localhost:8080/salarie/by-prestation/' + idPresta)
   }
@@ -52,4 +56,13 @@ export class ProjetEGService {
   findActionsDemandeesParProjetParEG(idProj: number, idEG:number): Observable<Array<Action>>{
     return this.http.get<Array<Action>>('http://localhost:8080/action/by-project-and-effectuee-and-EG/' +idProj +':false:'+ idEG );
   }
+
+  affectSalariePrestaPlanif(presta:Prestation){
+    return this.http.put<Prestation>('http://localhost:8080/prestation/' + presta.id, presta )
+  }
+
+  affectSalarieActionDem(action:Action){
+    return this.http.put<Action>('http://localhost:8080/action/' + action.id, action )
+  }
+
 }

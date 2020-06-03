@@ -223,7 +223,7 @@ class Test3 {
 				
 				
 				// maitre d'oeuvre
-				MaitreOeuvre maitreOeuvreBob = new MaitreOeuvre("Philippe LeBras", "14521256431", "0649753159", "philippe.lebras@moeuvre.fr",
+				MaitreOeuvre maitreOeuvreBob = new MaitreOeuvre("Bob LeBricoleur", "14521256431", "0649753159", "bob.bricoleur@moeuvre.fr",
 						"354f435f41f");
 				maitreOeuvreBob.setAdresse(new Adresse("16 rue JFK", "3e étage", "33700", "Mérignac"));
 				MaitreOeuvre maitreOeuvreGeorges = new MaitreOeuvre("Georges Henri", "16793458", "0734159382",
