@@ -3,7 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
-import {Facture} from "../model/facture";
+import {Offre} from "../model/offre";
+import {MaitreOuvrage} from "../model/maitreOuvrage";
 
 
 
@@ -45,12 +46,12 @@ export class ReponseAppelOffreService {
     this.http.get<Array<Prestataire>>("http://localhost:8080/prestataire/").subscribe(resp => {
       this.egs = resp;
     }, error => console.log(error)),
-      this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult").subscribe(resp => {
-        this.prestaValideesEG = resp;
-      }, error => console.log(error))
-    // this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideEG").subscribe(resp => {
-    //   this.prestaValideesEG = resp;
-    // }, error => console.log(error))
+      // this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult").subscribe(resp => {
+      //   this.prestaValideesEG = resp;
+      // }, error => console.log(error))
+    this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideEG").subscribe(resp => {
+      this.prestaValideesEG = resp;
+    }, error => console.log(error))
       this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideMOeuvre").subscribe(resp => {
       this.prestaValideesMO = resp;
     }, error => console.log(error))
@@ -66,6 +67,18 @@ export class ReponseAppelOffreService {
 
   modifyPresta(presta: Prestation) {
     return this.http.put<Prestation>("http://localhost:8080/prestation/" + presta.id, presta);
+  }
+
+  findOffreById(id: number): Observable<Offre> {
+    return this.http.get<Offre>("http://localhost:8080/offre/" + id);
+  }
+
+  findMOuvrageByAppelOffre(id: number): Observable<MaitreOuvrage> {
+   return this.http.get<MaitreOuvrage>("http://localhost:8080/maitreOuvrage/par-appel-offre/" + id);
+  }
+
+  createOffre(offre: Offre) {
+    return this.http.post<Offre>("http://localhost:8080/offre", offre);
   }
 
 }

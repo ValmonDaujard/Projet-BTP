@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
 import {ProjetService} from "../projet-moe/projet.service";
 import {ActivatedRoute} from "@angular/router";
+import {MaitreOuvrage} from "../model/maitreOuvrage";
 
 
 @Component({
@@ -24,10 +25,14 @@ export class ReponseAppelOffreComponent implements OnInit {
   projet: Projet = new Projet();
   currentPresta: Prestation = null;
   marge: number;
+  prixTTC: number;
 
 
   constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute) {
-
+    this.route.params.subscribe(parameters => {
+      this.offre.id = parameters.id;
+      this.getMOuvrage(parameters.id);
+    });
   }
 
   ngOnInit(): void {
@@ -53,7 +58,7 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   addToOffre() {
     this.offre.prestations = this.prestaList;
-    this.offre.id = 40;
+    // this.offre.id = 40;
     for (let presta of this.offre.prestations) {
       presta.phasePresta = "enConsult";
       presta.offre = new Offre();
@@ -72,8 +77,8 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   listPrestaValideeEG(): Array<Prestation> {
 
-    // return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
-    return this.reponseAppelOffreService.findPrestationByPhaseConsult();
+    return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
+    // return this.reponseAppelOffreService.findPrestationByPhaseConsult();
     }
 
     calculTotalHT(): number {
@@ -92,6 +97,8 @@ export class ReponseAppelOffreComponent implements OnInit {
       total+=presta.prix;
     }
       total = total*((this.marge/100)+1);
+      this.prixTTC = total;
+
     return total;
   }
 
@@ -117,12 +124,33 @@ export class ReponseAppelOffreComponent implements OnInit {
   annulerPresta(id: number) {
     this.reponseAppelOffreService.findPrestaById(id).subscribe(resp => {
       this.currentPresta = resp;
-      this.currentPresta.phasePresta = "enConsult";
+      // this.currentPresta.phasePresta = "enConsult";
+      this.currentPresta.phasePresta = "ValideEG";
       this.reponseAppelOffreService.modifyPresta(this.currentPresta).subscribe(resp => {
         this.reponseAppelOffreService.load();
         this.currentPresta = null;
       }, error => console.log(error));
     })
   }
+
+  offreConsultable() {
+      this.offre.prix = this.prixTTC;
+      this.offre.numeroDevis = 55555;
+      this.offre.dtDebut = new Date(2020, 0O5, 0O5);
+      this.offre.dtFin = new Date(2020, 0O7, 0O5);
+      this.offre.etat = "consult";
+
+      this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
+    }, error => console.log(error));
+
+      this.offre = new Offre();
+  }
+
+  getMOuvrage(id: number) {
+    this.reponseAppelOffreService.findMOuvrageByAppelOffre(id).subscribe(resp => {
+      this.offre.maitreOuvrage = resp;
+    }, error => console.log(error));
+  }
+
 
 }

@@ -33,8 +33,23 @@ export class AppComponent {
     document.getElementById('myOverlay').style.display = 'none';
   }
 
+  accueil(){
+    if(this.user.societe.type == 'MOuvrage'){
+      [this.router.navigate(['accueilMO'])]
+    }
+    else if(this.user.societe.type == 'MOeuvre'){
+      [this.router.navigate(['accueilMOE'])]
+    }
+    else if(this.user.societe.type == 'Prestataire'){
+      [this.router.navigate(['accueilEG'])]
+    }
+    this.w3_close()
+  }
+
   deconnexion(){
     sessionStorage.clear()
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    console.log(this.user)
   }
 
   edit(id: number){

@@ -16,10 +16,14 @@ export class ProfilComponent implements OnInit {
   showHideClass = 'fas fa-eye';
   display = 'display: none';
   buttonText = 'Modifier'
-  user: Utilisateur = null;
+  user: any = null;
 
   constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService) {
     this.user = JSON.parse(sessionStorage.getItem('user'));
+    if (!this.user.adresse){
+      this.user.adresse = new Adresse();
+    }
+    console.log(this.user);
   }
 
   ngOnInit(): void {

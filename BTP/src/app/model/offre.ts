@@ -11,6 +11,7 @@ export class Offre{
   numeroDevis: number;
   dtDebut: Date;
   dtFin: Date;
+  etat: string;
   prestations: Array<Prestation>;
   projet: Projet;
   appelOffre: AppelOffre;
@@ -18,12 +19,13 @@ export class Offre{
   maitreOuvrage: MaitreOuvrage;
 
 
-  constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, prestations?: Array<Prestation>, projet?:Projet, maitreOeuvre?:MaitreOeuvre) {
+  constructor(id?: number,version?: number, prix?: number, numeroDevis?: number, dtDebut?: Date, dtFin?: Date, etat?: string, prestations?: Array<Prestation>, projet?:Projet, maitreOeuvre?:MaitreOeuvre) {
     this.id = id;
     this.prix = prix;
     this.numeroDevis = numeroDevis;
     this.dtDebut = dtDebut;
     this.dtFin = dtFin;
+    this.etat = etat;
     this.prestations = prestations;
     this.projet = projet
     this.maitreOeuvre = maitreOeuvre;

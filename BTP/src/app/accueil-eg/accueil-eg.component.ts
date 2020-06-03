@@ -13,11 +13,11 @@ export class AccueilEGComponent implements OnInit {
 
   projets: Array<Projet> = new Array<Projet>();
   prestations: Array<Prestation> = new Array<Prestation>();
+  user: any = null;
 
   constructor(private accueilEGService: AccueilEGService, private route : ActivatedRoute) {
-    this.route.params.subscribe(parameters => {
-      this.list(parameters.id);
-    })
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.list(this.user.societe.id);
   }
 
 
