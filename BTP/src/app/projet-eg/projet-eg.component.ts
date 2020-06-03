@@ -31,15 +31,17 @@ export class ProjetEGComponent implements OnInit {
   salarie: Salarie = new Salarie();
   salariesActionDem : Array<Salarie> = new Array<Salarie>();
   salariesActionTrait : Array<Salarie> = new Array<Salarie>();
+  user: any= null;
 
   constructor(private projetEGService:ProjetEGService , private route: ActivatedRoute) {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
     this.route.params.subscribe(parameters => {
-      this.prestationEnCoursFonction(parameters.id, 45);
-      this.prestationPlanifieFonction(parameters.id, 45);
-      this.prestationEffectueFonction(parameters.id, 45);
-      this.actionTraiteesFonction(parameters.id,45);
-      this.actionDemandeesFonction(parameters.id,45);
-      this.salariesListFonction(45);
+      this.prestationEnCoursFonction(parameters.id, this.user.societe.id);
+      this.prestationPlanifieFonction(parameters.id, this.user.societe.id);
+      this.prestationEffectueFonction(parameters.id, this.user.societe.id);
+      this.actionTraiteesFonction(parameters.id,this.user.societe.id);
+      this.actionDemandeesFonction(parameters.id,this.user.societe.id);
+      this.salariesListFonction(this.user.societe.id);
     })
   }
 
