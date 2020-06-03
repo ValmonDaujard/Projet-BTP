@@ -77,11 +77,9 @@ export class AccueilComponent implements OnInit {
 
   connexion(identifiant: string, mdp: string){
     console.log(this.userForm);
-    sessionStorage.setItem('identifiant',identifiant);
-    sessionStorage.setItem('mdp',mdp);
     this.accueilService.findByIdentifiantAndMotDePasse(identifiant, mdp).subscribe(resp => {
       this.userForm = resp;
-      // sessionStorage.setItem('id',this.userForm.id)
+      sessionStorage.setItem('user', JSON.stringify(this.userForm))
       if(this.userForm.societe.type == 'MOuvrage'){
         [this.router.navigate(['accueilMO'])]
       }
@@ -91,7 +89,8 @@ export class AccueilComponent implements OnInit {
       else if(this.userForm.societe.type == 'Prestataire'){
         [this.router.navigate(['accueilEG'])]
       }
-      console.log(sessionStorage.getItem('identifiant'),sessionStorage.getItem('mdp'))
+      console.log(sessionStorage.getItem('user'))
+      console.log(JSON.parse(sessionStorage.getItem('user')))
     }, err => console.log(err));
   }
 

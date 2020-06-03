@@ -12,15 +12,10 @@ import {Adresse} from "./model/adresse";
 export class AppComponent {
   title = 'BTP';
   user: any = null;
-  constructor(public router: Router, private commonService: CommonService){
-    this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
-      this.user = resp;
-      console.log(this.user);
-      if(!this.user.societe.adresse) {
-        this.user.societe.adresse = new Adresse();
-      }
-  })
+  constructor(public router: Router){
+    this.user = JSON.parse(sessionStorage.getItem('user'));
   }
+
 
   w3_open() {
     document.getElementById('main').style.marginLeft = '20%';

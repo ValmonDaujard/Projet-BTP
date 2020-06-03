@@ -16,21 +16,10 @@ export class ProfilComponent implements OnInit {
   showHideClass = 'fas fa-eye';
   display = 'display: none';
   buttonText = 'Modifier'
-  user: any = null;
+  user: Utilisateur = null;
 
-  constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService, private commonService: CommonService) {
-    // this.route.params.subscribe(parameters => {
-    //   this.profilService.findById(parameters.id).subscribe(resp => {
-    //     this.userForm = resp;
-    //     console.log(resp);
-    //   }, error => console.log(error));})
-    this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
-      this.user = resp;
-      console.log(this.user);
-      if(!this.user.societe.adresse) {
-        this.user.societe.adresse = new Adresse();
-      }
-    }, err => console.log(err));
+  constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService) {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
   }
 
   ngOnInit(): void {
@@ -38,36 +27,13 @@ export class ProfilComponent implements OnInit {
   }
 
   update() {
+    console.log(this.user);
     this.profilService.modifyUser(this.user).subscribe(resp => {
-        this.user = null;
-        console.log(this.user);
-        this.router.navigate(['']);
-        this.router.navigate(['/profil']);
+      this.user = resp;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
+      console.log(this.user);
       },error => console.log(error)
-    )
-    ;
-    // if (this.user.societe.type == 'MOuvrage') {
-    //   this.profilService.modifyMO(this.user).subscribe(resp => {
-    //       this.user = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;
-    // } else if (this.user.societe.type == 'MOeuvre') {
-    //   this.profilService.modifyMOE(this.user).subscribe(resp => {
-    //       this.user = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;
-    // } else if (this.user.societe.type == 'Prestataire') {
-    //   this.profilService.modifyPrestataire(this.user).subscribe(resp => {
-    //       this.user = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;
-    // }
+    ) ;
   };
 
   showPassword() {

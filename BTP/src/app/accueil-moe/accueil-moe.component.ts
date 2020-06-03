@@ -18,10 +18,11 @@ export class AccueilMOEComponent implements OnInit {
   user: Utilisateur = new Utilisateur();
 
   constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute, private commonService: CommonService) {
-    this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
-      this.user = resp;
-      this.list(this.user.societe.id);
-      }, err => console.log(err));
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    // this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
+    //   this.user = resp;
+    //   this.list(this.user.societe.id);
+    //   }, err => console.log(err));
 
   }
 
