@@ -9,7 +9,9 @@ import {AccueilMOEComponent} from "./accueil-moe/accueil-moe.component";
 import {AccueilEGComponent} from "./accueil-eg/accueil-eg.component";
 import {AccueilMOComponent} from "./accueil-mo/accueil-mo.component";
 import {ProjetEGComponent} from "./projet-eg/projet-eg.component";
+import {ConsultationEGComponent} from './consultation-eg/consultation-eg.component';
 import {ProfilComponent} from "./profil/profil.component";
+import {ReponseConsultationComponent} from './reponse-consultation/reponse-consultation.component';
 import {ProjetMOComponent} from "./projet-mo/projet-mo.component";
 
 
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: 'accueilEG/:id', component: AccueilEGComponent},
   {path: 'accueilMO/:id', component: AccueilMOComponent},
   {path: 'projetEG/:id', component: ProjetEGComponent},
+  {path: 'consultationEG/:id', component: ConsultationEGComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'reponseConsultation/:id', component: ReponseConsultationComponent}
 ];
 
 @NgModule({

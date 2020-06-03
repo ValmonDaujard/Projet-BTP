@@ -55,7 +55,7 @@ public class Societe {
 	private Utilisateur utilisateur;
 	
 	@Embedded
-	@JsonView(Views.ViewSociete.class)
+	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse;
 
 // Constructeur

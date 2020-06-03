@@ -105,4 +105,9 @@ public class SalarieRestController {
 		
 		salarieRepo.deleteById(id);
 	}
+	
+//	@DeleteMapping("/{id}")
+//	public void delete(@PathVariable Long id) {
+//		salarieRepo.deleteById(id);
+//	}
 }
