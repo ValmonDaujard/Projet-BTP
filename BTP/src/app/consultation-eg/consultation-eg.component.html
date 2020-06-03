@@ -6,6 +6,10 @@
     </div>
     <div class="card-body">
       <div class="row ml-3 py-4">
+        <label class="col-sm-2 col-form-label" for="categorie"> Catégorie : </label>
+        <div class="form-control col-sm-9 text-center" id="categorie" style="border-radius: 20px;">{{consultPresta.categorie}}</div>
+      </div>
+      <div class="row ml-3 py-4">
         <label class="col-sm-2 col-form-label" for="maitreOeuvre"> Maître d'œuvre : </label>
         <div class="form-control col-sm-9 text-center" id="maitreOeuvre" style="border-radius: 20px;">{{consultPresta.offre.maitreOeuvre.nom}}</div>
       </div>
@@ -30,8 +34,8 @@
         <div class="form-control col-sm-9 text-center" id="date" style="border-radius: 20px;">{{consultPresta.dtFin | date:'dd/MM/yyyy'}}</div>
       </div>
       <div  class="row ml-3 py-4">
-        <label class="col-sm-4 col-form-label pb-3" for="motifConsult"> Motif de la consultation : </label>
-        <div class="ml-3 form-control" id="date" style="border-radius: 20px; height: 200px;">{{consultPresta.nom}}</div>
+        <label class="col-sm-4 col-form-label pb-3" for="motif"> Motif de la consultation : </label>
+        <div class="ml-3 form-control" id="motif" style="border-radius: 20px; height: 200px;">{{consultPresta.motif}}</div>
       </div>
     </div>
   </div>
