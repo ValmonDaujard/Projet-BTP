@@ -72,19 +72,21 @@ public class Prestation {
 	private Prestataire prestataire;
 	@ManyToMany
 	@JoinTable(name ="salarie_presta", 
-	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id")) 
+	joinColumns = @JoinColumn (name = "prestation_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn (name = "salarie_id", referencedColumnName = "id")) 
 	@JsonView(Views.ViewPrestation.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestation")
 	@JsonView(Views.ViewPrestation.class)
 	private Facture facture;
+	@JsonView(Views.ViewCommon.class)
+	private String motif;
 	
 	public Prestation() {
 		super();
 	}
 	
-	public Prestation(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin, Boolean obsolete, PhasePresta phasePresta) {
+	public Prestation(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin, Boolean obsolete, PhasePresta phasePresta, String motif) {
 		super();
 		this.categorie = categorie;
 		this.nom = nom;
@@ -93,6 +95,7 @@ public class Prestation {
 		this.dtFin = dtFin;
 		this.obsolete = obsolete;
 		this.phasePresta = phasePresta;
+		this.motif = motif;
 	}
 
 	public Long getId() {
@@ -209,6 +212,14 @@ public class Prestation {
 
 	public void setPhasePresta(PhasePresta phasePresta) {
 		this.phasePresta = phasePresta;
+	}
+
+	public String getMotif() {
+		return motif;
+	}
+
+	public void setMotif(String motif) {
+		this.motif = motif;
 	}
 	
 	

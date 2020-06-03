@@ -22,7 +22,8 @@ export class ReponseAppelOffreComponent implements OnInit {
   prestaValideesEG: Array<Prestation> = new Array<Prestation>();
   offre: Offre = new Offre();
   projet: Projet = new Projet();
-  prestaForm: Prestation = new Prestation();
+  currentPresta: Prestation = null;
+  marge: number;
 
 
   constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute) {
@@ -51,18 +52,15 @@ export class ReponseAppelOffreComponent implements OnInit {
   }
 
   addToOffre() {
-    // console.log(this.offre);
     this.offre.prestations = this.prestaList;
-    this.offre.id = 88;
+    this.offre.id = 40;
     for (let presta of this.offre.prestations) {
       presta.phasePresta = "enConsult";
       presta.offre = new Offre();
       presta.offre.id = this.offre.id;
       presta.offre.version = this.offre.version;
+      this.prestaList = new Array<Prestation>();
     }
-
-    // console.log(this.offre.prestations)
-
 
     this.reponseAppelOffreService.createPrestations(this.offre.prestations).subscribe(resp => {
         this.reponseAppelOffreService.load();
@@ -74,17 +72,28 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   listPrestaValideeEG(): Array<Prestation> {
 
+    // return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
     return this.reponseAppelOffreService.findPrestationByPhaseConsult();
-
-    // var data = [];
-    // this.reponseAppelOffreService.findPrestationByPhase("enConsult").subscribe(resp => {
-    //   for(let prestaValideeEG in resp) {
-    //     this.prestaValideesEG.push(data[prestaValideeEG])
-    //   }
-    // },
-    //   error => console.log(error)
-    // )
     }
+
+    calculTotalHT(): number {
+      let total:number = 0;
+
+      for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+        total+=presta.prix;
+      }
+      return total;
+    }
+
+  calculTotalTTC(): number {
+    let total:number = 0;
+
+    for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+      total+=presta.prix;
+    }
+      total = total*((this.marge/100)+1);
+    return total;
+  }
 
   suppPrestaValideeEG(id) {
     this.reponseAppelOffreService.deleteById(id);
@@ -92,16 +101,28 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   listPrestaValideeMO() {
     return this.reponseAppelOffreService.findPrestationByPhaseValideeMO();
-    // for (let presta of this.offre.prestations) {
-    //   presta.phasePresta = "enConsult";
-    // }
   }
 
-  // edit(id: number) {
-  //   this.reponseAppelOffreService.findById(id).subscribe(resp => {
-  //       this.prestaForm.phasePresta = "ValideMOeuvre";
-  //     },
-  //     error => console.log(error));
-  // }
+  validerPresta(id: number) {
+    this.reponseAppelOffreService.findPrestaById(id).subscribe(resp => {
+      this.currentPresta = resp;
+      this.currentPresta.phasePresta = "ValideMOeuvre";
+      this.reponseAppelOffreService.modifyPresta(this.currentPresta).subscribe(resp => {
+        this.reponseAppelOffreService.load();
+        this.currentPresta = null;
+      }, error => console.log(error));
+    })
+  }
+
+  annulerPresta(id: number) {
+    this.reponseAppelOffreService.findPrestaById(id).subscribe(resp => {
+      this.currentPresta = resp;
+      this.currentPresta.phasePresta = "enConsult";
+      this.reponseAppelOffreService.modifyPresta(this.currentPresta).subscribe(resp => {
+        this.reponseAppelOffreService.load();
+        this.currentPresta = null;
+      }, error => console.log(error));
+    })
+  }
 
 }

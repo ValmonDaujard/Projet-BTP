@@ -47,8 +47,8 @@ public class Action {
 	
 	@ManyToMany
 	@JoinTable(name = "action_salarie",
-	joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
+	joinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewAction.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 
