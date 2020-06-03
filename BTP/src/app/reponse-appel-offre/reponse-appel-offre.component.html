@@ -92,7 +92,7 @@
             <table class="mx-auto table table-striped">
               <tbody>
               <tr *ngFor="let presta of listPrestaValideeEG()">
-                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
+                <td class="text-center" style="width: 20%">{{presta.id}}</td>
                 <td class="text-center" style="width: 30%">{{presta.nom}}</td>
                 <td class="text-center" style="width: 10%">{{presta.prix}} €</td>
                 <td class="text-center" style="width: 20%"><button
@@ -137,7 +137,8 @@
               <tbody>
 <!--              <tr>-->
               <tr *ngFor="let presta of listPrestaValideeMO()">
-                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
+                <td class="text-center" style="width: 20%" *ngIf="!presta.prestataire">Maître d'oeuvre</td>
+                <td class="text-center" style="width: 20%" *ngIf="presta.prestataire">{{presta.prestataire?.nom}}</td>
                 <td class="text-center" style="width: 35%">{{presta.nom}}</td>
                 <th class="text-center" style="width: 10%"><span class="">{{presta.prix}}</span></th>
                 <td class="text-center" style="width: 15%"><button
@@ -150,9 +151,12 @@
               <tfoot>
               <tr>
                 <td colspan="5"><button
-                  class="btn btn-block btn-primary tx-tfm">
+                  class="btn btn-block btn-warning tx-tfm" (click)="addLigne()">
                   Ajouter une ligne<br /> <i class="fas fa-plus"></i>
                 </button></td>
+
+
+
               </tr>
               <tr>
                 <td colspan="3"><b>Prix Total HT :</b></td>
@@ -171,64 +175,40 @@
           </button>
         </div>
       </div>
-      <div class="card col my-4 mx-4">
+      <div class="card col my-4 mx-4" *ngIf="prestaForm">
         <div class="card-header bg-white border-bottom border-warning">
-          <h3 class="font-weight-bold mb-0 my-3">Calendar</h3>
+          <h3 class="font-weight-bold mb-0 my-3">Ajout manuel d'une prestation :</h3>
         </div>
-        <div class="row">
-          <div class="ml-5 my-1">
-            <div class="my-1">
-              <form>
-                <div class="card col my-4 mx-4">
-                  <div class="card-header bg-white border-bottom border-warning">
-                    <h3>Prestation</h3>
-                  </div>
-                  <div class="form-group my-3">
-                    <label for="exampleFormControlSelect1">Sélectionnez
-                      une EG</label> <select class="form-control"
-                                             id="exampleFormControlSelect">
-                    <option>Presta 1</option>
-                    <option>Presta 2</option>
-                    <option>Presta 3</option>
-                    <option>Presta 4</option>
-                    <option>Presta 5</option>
-                  </select>
+          <div class="my-4">
+                  <form>
+                  <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" class="form-control" id="nomForm" [(ngModel)]="prestaForm.nom" name="nomForm">
                   </div>
                   <div class="form-group">
-                    <label for="descriptif">Date de Début :</label>
-                    <input type="date">
+                    <label for="nom">Prix :</label>
+                    <input type="number" class="form-control" id="prix" [(ngModel)]="prestaForm.prix" name="prix">
+                  </div>
+                    <div class="form-group">
+                      <label for="nom">Date de début :</label>
+                      <input type="date" class="form-control" id="dtDebut" [(ngModel)]="prestaForm.dtDebut" name="dtDebut">
+                    </div>
+                  <div class="form-group">
+                    <label for="nom">Date de fin :</label>
+                    <input type="date" class="form-control" id="dtFin" [(ngModel)]="prestaForm.dtFin" name="dtFin">
                   </div>
                   <div class="form-group">
-                    <label for="descriptif">Date de Début :</label>
-                    <input type="date">
+                    <label for="motif">Motif :</label>
+                    <textarea class="form-control" id="motif" [(ngModel)]="prestaForm.motif" name="motif"></textarea>
                   </div>
+                  </form>
                 </div>
-              </form>
-              <br/>
+                    <div class="btn-group btn-group-lg float-left">
+                      <a class="btn btn-warning" (click)="addPresta()">
+                        <i class="fa fa-check"></i>
+                      </a>
+                      <a class="btn btn-danger" (click)="annulPresta()">
+                        <i class="fa fa-ban"></i>
+                      </a>
+                    </div>
             </div>
-            <div class="my-1">
-              <form>
-                <div class="card col my-4 mx-4">
-                  <div class="card-header bg-white border-bottom border-warning">
-                    <h3>Projet</h3>
-                  </div>
-                  <div class="form-group my-3">
-                    <label for="descriptif">Date de Début : </label>
-                    <input type="date">
-                  </div>
-                  <div class="form-group">
-                    <label for="descriptif">Date de Début : </label>
-                    <input type="date">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="ml-5 my-1">
-            <i class="far fa-9x fa-calendar-alt"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
