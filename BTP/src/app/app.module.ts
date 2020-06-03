@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
 import { ReponseConsultationComponent } from './reponse-consultation/reponse-consultation.component';
+import {RouterModule} from "@angular/router";
 
 
 
