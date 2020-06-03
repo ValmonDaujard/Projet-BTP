@@ -15,6 +15,7 @@ import {ReponseConsultationComponent} from './reponse-consultation/reponse-consu
 import {ProjetMOComponent} from "./projet-mo/projet-mo.component";
 import {ActionComponent} from "./action/action.component";
 import {ReunionComponent} from "./reunion/reunion.component";
+import {CreationAppelOffreComponent} from './creation-appel-offre/creation-appel-offre.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,8 @@ const routes: Routes = [
   {path: 'action/:id', component: ActionComponent},
   {path: 'reunion/:id', component: ReunionComponent},
   {path: 'reponseConsultation/:id', component: ReponseConsultationComponent}
+  {path: 'reponseConsultation/:id', component: ReponseConsultationComponent},
+  {path: 'creationAppelOffre/:id', component: CreationAppelOffreComponent}
 ];
 
 @NgModule({

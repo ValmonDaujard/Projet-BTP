@@ -4,6 +4,7 @@ import {Utilisateur} from "../model/utilisateur";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommonService} from "../common.service";
 import {Adresse} from "../model/adresse";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-profil',
@@ -14,12 +15,13 @@ export class ProfilComponent implements OnInit {
 
   inputType = 'password';
   showHideClass = 'fas fa-eye';
-  display = 'display: none';
+  displayInput = 'display: none';
+  displayButton = '';
   buttonText = 'Modifier'
   user: any = null;
 
-  constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService,  private sessionService : SessionService) {
+    this.user = sessionService.getUser();
     if (!this.user.adresse){
       this.user.adresse = new Adresse();
     }
@@ -34,7 +36,7 @@ export class ProfilComponent implements OnInit {
     console.log(this.user);
     this.profilService.modifyUser(this.user).subscribe(resp => {
       this.user = resp;
-      sessionStorage.setItem('user', JSON.stringify(this.user));
+      this.sessionService.setUser(this.user);
       console.log(this.user);
       },error => console.log(error)
     ) ;
@@ -51,12 +53,9 @@ export class ProfilComponent implements OnInit {
   };
 
   showInput() {
-    if (this.display == 'display: none') {
-      this.display = '';
-      this.buttonText = 'En fait non';
-    } else {
-      this.display = 'display: none';
-      this.buttonText = 'Modifier';
+    if (this.displayInput == 'display: none') {
+      this.displayInput = '';
+      this.displayButton = 'display: none';
     }
   }
 

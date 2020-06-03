@@ -24,6 +24,7 @@ export class AccueilComponent implements OnInit {
 
   constructor(public router : Router, private accueilService: AccueilService, private sessionService: SessionService) {
     this.societeForm.adresse = new Adresse();
+    this.societeForm.utilisateur = new Utilisateur();
   }
 
   ngOnInit(): void {
@@ -78,22 +79,25 @@ export class AccueilComponent implements OnInit {
     console.log(this.userForm);
   }
 
-  connexion(identifiant: string, mdp: string){
+  connexion(){
     console.log(this.userForm);
-    this.accueilService.findByIdentifiantAndMotDePasse(identifiant, mdp).subscribe(resp => {
-      this.userForm = resp;
-      this.sessionService.setUser(this.userForm);
-      // sessionStorage.setItem('user', JSON.stringify(this.userForm))
-      if(this.userForm.societe.type == 'MOuvrage'){
-        [this.router.navigate(['accueilMO'])]
+    this.accueilService.authentification(this.userForm).subscribe(resp => {
+      console.log(resp);
+      if(resp) {
+        this.userForm = resp;
+        this.sessionService.setUser(this.userForm);
+        // sessionStorage.setItem('user', JSON.stringify(this.userForm))
+        if (this.userForm.societe.type == 'MOuvrage') {
+          [this.router.navigate(['accueilMO'])]
+        } else if (this.userForm.societe.type == 'MOeuvre') {
+          [this.router.navigate(['accueilMOE'])]
+        } else if (this.userForm.societe.type == 'Prestataire') {
+          [this.router.navigate(['accueilEG'])]
+        }
+        console.log(this.sessionService.getUser())
+      } else {
+        this.userForm = new Utilisateur();
       }
-      else if(this.userForm.societe.type == 'MOeuvre'){
-        [this.router.navigate(['accueilMOE'])]
-      }
-      else if(this.userForm.societe.type == 'Prestataire'){
-        [this.router.navigate(['accueilEG'])]
-      }
-      console.log(this.sessionService.getUser())
       // console.log(sessionStorage.getItem('user'))
       // console.log(JSON.parse(sessionStorage.getItem('user')))
     }, err => console.log(err));

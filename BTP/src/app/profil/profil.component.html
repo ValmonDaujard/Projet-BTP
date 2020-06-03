@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: #F8F8F8">
   <div class="card shadow my-5 mx-auto pr-4 pl-4" style="width: 1000px">
     <div class="card-header bg-white border-bottom border-warning">
       <h3 class="font-weight-bold mb-0 my-3">Informations utilisateur</h3>
@@ -88,14 +88,14 @@
       </div>
       <div class="form-group">
         <label for="mdp">Mot de Passe :</label>
-        <div class="input_container" style="{{display}}">
+        <div class="input_container" style="{{displayInput}}">
           <input type="{{inputType}}" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" [(ngModel)]="user.motDePasse">
           <span class="input_icon">
                         <span class="{{showHideClass}}" (click)="showPassword()" style="cursor:pointer"></span>
                     </span>
           <br/>
         </div>
-        <button class="btn btn-outline-warning ml-3" (click)="showInput()">{{buttonText}}</button>
+        <button class="btn btn-outline-warning ml-3" (click)="showInput()" style="{{displayButton}}">Modifier</button>
       </div>
     </div>
   </div>

@@ -23,6 +23,7 @@ import { ReponseConsultationComponent } from './reponse-consultation/reponse-con
 import {RouterModule} from "@angular/router";
 import { ActionComponent } from './action/action.component';
 import { ReunionComponent } from './reunion/reunion.component';
+import { CreationAppelOffreComponent } from './creation-appel-offre/creation-appel-offre.component';
 
 
 
@@ -45,6 +46,7 @@ import { ReunionComponent } from './reunion/reunion.component';
     ReponseConsultationComponent,
     AccueilEGComponent,
     ProjetEGComponent,
+    CreationAppelOffreComponent,
     ActionComponent,
     ReunionComponent,
   ],
