@@ -70,6 +70,7 @@ public class FactureRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewFacture.class)
 	public Facture update(@RequestBody Facture facture, @PathVariable Long id) {
 		if (!factureRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");

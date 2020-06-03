@@ -357,7 +357,7 @@
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
                   <div *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==false&&facture.factureMOEMO==false">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==false&&facture.factureMOEMO==true">
                     <div >
                       <label >  {{facture.numeroFacture}}
                       </label>
@@ -398,7 +398,7 @@
                     class="d-flex flex-column-reverse todo-list todo-list-custom"
                     style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
                   <div *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==false">
+                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==true">
 
                       <label >  {{facture.numeroFacture}}
                       </label>
