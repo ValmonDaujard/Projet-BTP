@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ConsultationEGService} from './consultation-eg.service';
 import {ActivatedRoute} from '@angular/router';
 import {Prestation} from '../model/prestation';
-import {errorObject} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-consultation-eg',
@@ -21,4 +20,9 @@ export class ConsultationEGComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // refusConsult(){
+  //   this.consultPresta.phasePresta = "RefuseEG";
+  //   console.log(this.consultPresta.phasePresta);
+  // }
 }

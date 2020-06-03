@@ -18,11 +18,9 @@ export class GestionMaterielSalarieComponent implements OnInit {
   salaries: Array<Salarie> = new Array<Salarie>();
   materiels: Array<Materiel> = new Array<Materiel>();
   idEntreprise: number;
-  user: any = null;
 
   constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService) {
-    this.user = JSON.parse(sessionStorage.getItem('user'))
-    this.idEntreprise = this.user.societe.id; // route.params
+    this.idEntreprise = 646; // route.params
     this.list(this.idEntreprise);
   }
 
@@ -126,7 +124,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
     this.gestionMaterielSalarieService.deleteSalarieById(id);
     this.salarieFormDetails = null;
     this.salarieForm = null;
-    this.gestionMaterielSalarieService.load();
+    // this.gestionMaterielSalarieService.load();
   }
 
   deleteMateriel(id: number){
