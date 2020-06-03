@@ -8,6 +8,7 @@ import {Utilisateur} from "../model/utilisateur";
 import {Societe} from "../model/societe";
 import {Adresse} from "../model/adresse";
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-accueil',
@@ -21,7 +22,7 @@ export class AccueilComponent implements OnInit {
   inputType = 'password';
   showHideClass = 'fas fa-eye';
 
-  constructor(public router : Router, private accueilService: AccueilService) {
+  constructor(public router : Router, private accueilService: AccueilService, private sessionService: SessionService) {
     this.societeForm.adresse = new Adresse();
   }
 
@@ -81,7 +82,8 @@ export class AccueilComponent implements OnInit {
     console.log(this.userForm);
     this.accueilService.findByIdentifiantAndMotDePasse(identifiant, mdp).subscribe(resp => {
       this.userForm = resp;
-      sessionStorage.setItem('user', JSON.stringify(this.userForm))
+      this.sessionService.setUser(this.userForm);
+      // sessionStorage.setItem('user', JSON.stringify(this.userForm))
       if(this.userForm.societe.type == 'MOuvrage'){
         [this.router.navigate(['accueilMO'])]
       }
@@ -91,8 +93,9 @@ export class AccueilComponent implements OnInit {
       else if(this.userForm.societe.type == 'Prestataire'){
         [this.router.navigate(['accueilEG'])]
       }
-      console.log(sessionStorage.getItem('user'))
-      console.log(JSON.parse(sessionStorage.getItem('user')))
+      console.log(this.sessionService.getUser())
+      // console.log(sessionStorage.getItem('user'))
+      // console.log(JSON.parse(sessionStorage.getItem('user')))
     }, err => console.log(err));
   }
 
