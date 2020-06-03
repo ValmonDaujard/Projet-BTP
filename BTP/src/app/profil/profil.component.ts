@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfilService} from "./profil.service";
 import {Utilisateur} from "../model/utilisateur";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CommonService} from "../common.service";
+import {Adresse} from "../model/adresse";
 
 @Component({
   selector: 'app-profil',
@@ -14,68 +16,41 @@ export class ProfilComponent implements OnInit {
   showHideClass = 'fas fa-eye';
   display = 'display: none';
   buttonText = 'Modifier'
-  userForm: Utilisateur = new Utilisateur();
+  user: Utilisateur = null;
 
-  constructor(private route: ActivatedRoute, private profilService: ProfilService) {
-    this.route.params.subscribe(parameters => {
-      this.profilService.findById(parameters.id).subscribe(resp => {
-        this.userForm = resp;
-        console.log(resp);
-      }, error => console.log(error));})
+  constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService) {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
   }
 
   ngOnInit(): void {
+
   }
 
-  update(){
-    // if (this.userForm.societe.type == 'MOuvrage') {
-    //   this.profilService.modifyMO(this.userForm.societe).subscribe(resp => {
-    //       this.profilService.load();
-    //       this.userForm = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;}
-    // else if (this.userForm.societe.type == 'MOeuvre') {
-    //   this.profilService.modifyMOE(this.userForm.societe).subscribe(resp => {
-    //       this.accueilService.load();
-    //       this.userForm = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;
-    // } else if (this.userForm.societe.type == 'Prestataire') {
-    //   this.profilService.modifyPrestataire(this.userForm.societe).subscribe(resp => {
-    //       this.profilService.load();
-    //       this.userForm = null;
-    //     },
-    //     error => console.log(error)
-    //   )
-    //   ;
-    // }
+  update() {
+    console.log(this.user);
+    this.profilService.modifyUser(this.user).subscribe(resp => {
+      this.user = resp;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
+      console.log(this.user);
+      },error => console.log(error)
+    ) ;
   };
 
-  showPassword(){
-      if(this.inputType == 'password')
-      {
-        this.inputType = 'text';
-        this.showHideClass = 'fas fa-eye-slash';
-      }
-      else
-      {
-        this.inputType = 'password';
-        this.showHideClass = 'fas fa-eye';
-      }
-  };
-
-  showInput(){
-    if(this.display == 'display: none')
-    {
-      this.display = '';
-      this.buttonText = 'Garder';
+  showPassword() {
+    if (this.inputType == 'password') {
+      this.inputType = 'text';
+      this.showHideClass = 'fas fa-eye-slash';
+    } else {
+      this.inputType = 'password';
+      this.showHideClass = 'fas fa-eye';
     }
-    else
-    {
+  };
+
+  showInput() {
+    if (this.display == 'display: none') {
+      this.display = '';
+      this.buttonText = 'En fait non';
+    } else {
       this.display = 'display: none';
       this.buttonText = 'Modifier';
     }

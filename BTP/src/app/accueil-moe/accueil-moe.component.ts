@@ -3,6 +3,8 @@ import {Projet} from "../model/projet";
 import {Offre} from "../model/offre";
 import {AccueilMOEService} from "./accueil-moe.service";
 import {ActivatedRoute} from "@angular/router";
+import {Utilisateur} from "../model/utilisateur";
+import {CommonService} from "../common.service";
 
 @Component({
   selector: 'app-accueil-moe',
@@ -13,15 +15,21 @@ export class AccueilMOEComponent implements OnInit {
 
   projets: Array<Projet> = new Array<Projet>();
   offres: Array<Offre> = new Array<Offre>();
+  user: Utilisateur = new Utilisateur();
 
-  constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute) {
-    this.route.params.subscribe(parameters => {
-      this.list(parameters.id);
-    })
+  constructor(private accueilMOEService: AccueilMOEService, private route : ActivatedRoute, private commonService: CommonService) {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    // this.commonService.findByIdentifiantAndMotDePasse(sessionStorage.getItem('identifiant'), sessionStorage.getItem('mdp')).subscribe(resp => {
+    //   this.user = resp;
+    //   this.list(this.user.societe.id);
+    //   }, err => console.log(err));
+
   }
 
   ngOnInit(): void {
+
   }
+
 
 
   list(id: number){

@@ -6,12 +6,15 @@ import {Utilisateur} from "./utilisateur";
 import {Adresse} from "./adresse";
 
 export class MaitreOuvrage extends Societe{
-  // appelOffres: Array<AppelOffre>;
-  // offres: Array<Offre>;
-  // factures: Array<Facture>;
+  appelOffres: Array<AppelOffre>;
+  offres: Array<Offre>;
+  factures: Array<Facture>;
 
 
-  constructor(id?: number, version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, type?: string) {
-    super(id, version, nom, siret, telephone, mail, numeroDeTva, utilisateur, adresse, type);
+  constructor(id?: number, version?: number, type?: string, nom?: string, siret?: string, telephone?: string, mail?: string, numeroDeTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, appelOffres?: Array<AppelOffre>, offres?: Array<Offre>, factures?: Array<Facture>) {
+    super(id, version, type, nom, siret, telephone, mail, numeroDeTva, utilisateur, adresse);
+    this.appelOffres = appelOffres;
+    this.offres = offres;
+    this.factures = factures;
   }
 }

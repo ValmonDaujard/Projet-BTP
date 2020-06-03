@@ -19,7 +19,7 @@ export class Prestataire extends Societe{
      type : any;
 
 
-  constructor(id?: number,version?: number, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse, type?:any) {
-    super(id,version, nom, siret, telephone, mail, numeroTva, utilisateur, adresse, type);
+  constructor(id?: number,version?: number, type?: string, nom?: string, siret?: string, telephone?: string, mail?: string, numeroTva?: string, utilisateur?: Utilisateur, adresse?: Adresse) {
+    super(id,version, type, nom, siret, telephone, mail, numeroTva, utilisateur, adresse);
   }
 }

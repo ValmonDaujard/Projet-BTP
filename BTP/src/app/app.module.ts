@@ -31,6 +31,7 @@ import { ReponseConsultationComponent } from './reponse-consultation/reponse-con
     ProjetComponent,
     GestionMaterielSalarieComponent,
     ReponseAppelOffreComponent,
+    AccueilEGComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
     AccueilEGComponent,
@@ -48,7 +49,8 @@ import { ReponseConsultationComponent } from './reponse-consultation/reponse-con
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

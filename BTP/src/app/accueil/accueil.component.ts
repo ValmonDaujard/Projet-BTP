@@ -16,7 +16,7 @@ import {NG_VALUE_ACCESSOR} from "@angular/forms";
 })
 export class AccueilComponent implements OnInit {
 
-  societeForm: Societe = new Societe();
+  societeForm: any = new Societe();
   userForm: Utilisateur = new Utilisateur();
   inputType = 'password';
   showHideClass = 'fas fa-eye';
@@ -79,6 +79,7 @@ export class AccueilComponent implements OnInit {
     console.log(this.userForm);
     this.accueilService.findByIdentifiantAndMotDePasse(identifiant, mdp).subscribe(resp => {
       this.userForm = resp;
+      sessionStorage.setItem('user', JSON.stringify(this.userForm))
       if(this.userForm.societe.type == 'MOuvrage'){
         [this.router.navigate(['accueilMO'])]
       }
@@ -88,6 +89,8 @@ export class AccueilComponent implements OnInit {
       else if(this.userForm.societe.type == 'Prestataire'){
         [this.router.navigate(['accueilEG'])]
       }
+      console.log(sessionStorage.getItem('user'))
+      console.log(JSON.parse(sessionStorage.getItem('user')))
     }, err => console.log(err));
   }
 

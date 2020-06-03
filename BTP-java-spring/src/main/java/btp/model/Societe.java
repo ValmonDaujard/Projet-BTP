@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 		  @Type(value = MaitreOuvrage.class, name = "MOuvrage"),
 		  @Type(value = Prestataire.class, name = "Prestataire")
 		})
-public class Societe {
+public abstract class Societe {
 	@Id
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)

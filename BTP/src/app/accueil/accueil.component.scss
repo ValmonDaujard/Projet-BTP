@@ -38,7 +38,7 @@ p
 
 a:hover
 {
-  text-decoration: none;
+  color: white;
 }
 
 .container
@@ -78,6 +78,12 @@ a:hover
 
 .button:hover{
   color : rgb(246,194,59);
+}
+
+.active{
+  color: white;
+  background-color: black;
+  aria-pressed:"true"
 }
 
 
