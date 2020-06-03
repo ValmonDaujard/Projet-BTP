@@ -5,6 +5,7 @@ import {Salarie} from "../model/salarie";
 import {ActivatedRoute} from "@angular/router";
 import {Action} from "../model/action";
 import {Projet} from "../model/projet";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-projet-eg',
@@ -33,8 +34,8 @@ export class ProjetEGComponent implements OnInit {
   salariesActionTrait : Array<Salarie> = new Array<Salarie>();
   user: any= null;
 
-  constructor(private projetEGService:ProjetEGService , private route: ActivatedRoute) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor(private projetEGService:ProjetEGService , private route: ActivatedRoute, private sessionService : SessionService) {
+    this.user = this.sessionService.getUser();
     this.route.params.subscribe(parameters => {
       this.prestationEnCoursFonction(parameters.id, this.user.societe.id);
       this.prestationPlanifieFonction(parameters.id, this.user.societe.id);
@@ -42,6 +43,7 @@ export class ProjetEGComponent implements OnInit {
       this.actionTraiteesFonction(parameters.id,this.user.societe.id);
       this.actionDemandeesFonction(parameters.id,this.user.societe.id);
       this.salariesListFonction(this.user.societe.id);
+      this.findProjet(parameters.id)
     })
   }
 

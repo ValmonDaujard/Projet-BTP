@@ -3,6 +3,7 @@ import {Projet} from '../model/projet';
 import {Offre} from '../model/offre';
 import {AccueilMOService} from './accueil-mo.service';
 import {ActivatedRoute} from "@angular/router";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-accueil-mo',
@@ -15,8 +16,8 @@ export class AccueilMOComponent implements OnInit {
   offres: Array<Offre> = new Array<Offre>();
   user: any = null;
 
-  constructor(private accueilMOService: AccueilMOService, private route: ActivatedRoute) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor(private accueilMOService: AccueilMOService, private route: ActivatedRoute, private sessionService : SessionService) {
+    this.user = this.sessionService.getUser();
     this.list(this.user.societe.id)
   }
 

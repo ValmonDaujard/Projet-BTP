@@ -4,6 +4,7 @@ import {Materiel} from '../model/materiel';
 import {GestionMaterielSalarieService} from './gestion-materiel-salarie.service';
 import {Adresse} from '../model/adresse';
 import {Prestataire} from '../model/prestataire';
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-gestion-materiel-salarie',
@@ -18,12 +19,11 @@ export class GestionMaterielSalarieComponent implements OnInit {
   salaries: Array<Salarie> = new Array<Salarie>();
   materiels: Array<Materiel> = new Array<Materiel>();
   idEntreprise: number;
-  user: any = null;
+  user: any = null ;
 
-  constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService) {
-    this.user = JSON.parse(sessionStorage.getItem('user'))
-    this.idEntreprise = this.user.societe.id; // route.params
-    this.list(this.idEntreprise);
+  constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService, private sessionService: SessionService) {
+    this.user = this.sessionService.getUser()
+    this.list(this.user.societe.id);
   }
 
     ngOnInit(): void {
