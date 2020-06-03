@@ -28,6 +28,8 @@ export class AccueilEGComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.list(this.user.societe.id);
   }
 
 

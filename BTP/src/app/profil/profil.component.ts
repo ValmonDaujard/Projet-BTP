@@ -15,7 +15,8 @@ export class ProfilComponent implements OnInit {
 
   inputType = 'password';
   showHideClass = 'fas fa-eye';
-  display = 'display: none';
+  displayInput = 'display: none';
+  displayButton = '';
   buttonText = 'Modifier'
   user: any = null;
 
@@ -52,12 +53,9 @@ export class ProfilComponent implements OnInit {
   };
 
   showInput() {
-    if (this.display == 'display: none') {
-      this.display = '';
-      this.buttonText = 'En fait non';
-    } else {
-      this.display = 'display: none';
-      this.buttonText = 'Modifier';
+    if (this.displayInput == 'display: none') {
+      this.displayInput = '';
+      this.displayButton = 'display: none';
     }
   }
 
