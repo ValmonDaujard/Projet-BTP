@@ -65,4 +65,8 @@ export class ProjetEGService {
     return this.http.put<Action>('http://localhost:8080/action/' + action.id, action )
   }
 
+  findProjet(idProj: number){
+    return this.http.get<Projet>('http://localhost:8080/projet/' + idProj)
+  }
+
 }
