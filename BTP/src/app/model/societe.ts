@@ -26,6 +26,6 @@ export class Societe{
     this.numeroDeTva = numeroDeTva;
     this.utilisateur = utilisateur;
     this.adresse = adresse;
-    this.type = type;
+
   }
 }
