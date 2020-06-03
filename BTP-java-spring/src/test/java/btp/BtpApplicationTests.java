@@ -160,9 +160,9 @@ class BtpApplicationTests {
 	public void facture() throws ParseException {
 		// facture
 		Facture factureIsolation = new Facture(111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
-				true);
+				true, null);
 		Facture factureCloture = new Facture(45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
-				false);
+				false, null);
 
 		// maitre d'oeuvre
 		MaitreOeuvre maitreOeuvreBob = new MaitreOeuvre("Bob", "14521256431", "0649753159", "boblebricoleur@gmail.fr",

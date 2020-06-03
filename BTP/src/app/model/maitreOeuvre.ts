@@ -14,5 +14,4 @@ export class MaitreOeuvre extends Societe{
     this.offres = offres;
     this.factures = factures;
   }
-
 }

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {Salarie} from "../model/salarie";
 import {Materiel} from '../model/materiel';
 import {HttpClient} from '@angular/common/http';
-import {Projet} from '../model/projet';
-import {Offre} from '../model/offre';
 import {Observable} from 'rxjs';
 
 @Injectable({

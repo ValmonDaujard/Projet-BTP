@@ -26,9 +26,12 @@ export class ProjetComponent implements OnInit {
   prestataires: Array<Prestataire> = new Array<Prestataire>();
   currentAction: Action = null;
   currentFacture: Facture = null;
+  projets: Array<Projet> = new Array<Projet>();
+
 
 
   constructor(private projetService: ProjetService, private route: ActivatedRoute) {
+
     this.route.params.subscribe(parameters => {
       this.projetService.findById(parameters.id).subscribe(resp => {
         this.projet = resp;
@@ -49,6 +52,7 @@ export class ProjetComponent implements OnInit {
       this.projetService.findFactures(parameters.id).subscribe(resp => {
         this.factureref = resp;
       }, error => console.log(error));
+
     })
   }
 

@@ -62,6 +62,7 @@ public class MaterielRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewMateriel.class)
 	public Materiel update(@RequestBody Materiel materiel, @PathVariable Long id) {
 		if (!materielRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -74,7 +75,22 @@ public class MaterielRestController {
 	
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
+		Optional<Materiel> optMateriel = materielRepo.findById(id);
+		if (optMateriel.isPresent()) {
+			Materiel mat = optMateriel.get();
+			mat.getPrestations().clear();
+			mat.getPrestationSupplementaires().clear();
+			mat.setPrestataire(null);
+			materielRepo.save(mat);
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+		}
 		materielRepo.deleteById(id);
 	}
+	
+//	@DeleteMapping("/{id}")
+//	public void delete(@PathVariable Long id) {
+//		prestationRepo.deleteById(id);
+//	}
 }
 

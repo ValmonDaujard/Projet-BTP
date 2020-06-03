@@ -21,13 +21,14 @@ export class Prestation {
   projet: Projet;
   offre: Offre;
   prestataire: Prestataire;
-  // salaries: Array<Salarie>;
+  salaries: Array<Salarie>;
   // facture: Facture;
   motif: string;
 
 
   constructor(id?: number,version?: number, categorie?: string, nom?: string, prix?: number, dtDebut?: Date,
-              dtFin?: Date, phasePresta?: string, obsolete?: boolean, projet?: Projet, offre?: Offre, prestataire?: Prestataire, motif?: string) {
+              dtFin?: Date, phasePresta?: string, obsolete?: boolean, projet?: Projet, offre?: Offre, prestataire?: Prestataire, salaries?: Array<Salarie>, motif?: string) {
+
     this.id = id;
     this.categorie = categorie;
     this.nom = nom;
@@ -39,6 +40,9 @@ export class Prestation {
     this.projet = projet;
     this.offre = offre;
     this.prestataire = prestataire;
+    this.salaries = salaries;
     this.motif = motif;
   }
+
+
 }

@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Salarie} from '../model/salarie';
 import {Materiel} from '../model/materiel';
 import {GestionMaterielSalarieService} from './gestion-materiel-salarie.service';
-import {strict} from 'assert';
 import {Adresse} from '../model/adresse';
 import {Prestataire} from '../model/prestataire';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-gestion-materiel-salarie',
@@ -22,16 +20,17 @@ export class GestionMaterielSalarieComponent implements OnInit {
   idEntreprise: number;
 
   constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService) {
-    this.idEntreprise = 280; // route.params
+    this.idEntreprise = 646; // route.params
     this.list(this.idEntreprise);
   }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
   }
 
   addSalarie() {
     this.salarieForm = new Salarie();
     this.salarieForm.adresse = new Adresse();
+    this.salarieFormDetails = null;
   }
 
   addMateriel(){
@@ -125,6 +124,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
     this.gestionMaterielSalarieService.deleteSalarieById(id);
     this.salarieFormDetails = null;
     this.salarieForm = null;
+    this.gestionMaterielSalarieService.load();
   }
 
   deleteMateriel(id: number){

@@ -14,11 +14,12 @@ import { AccueilMOComponent } from './accueil-mo/accueil-mo.component';
 import { ProjetMOComponent } from './projet-mo/projet-mo.component';
 import { AccueilMOEComponent } from './accueil-moe/accueil-moe.component';
 import { AccueilEGComponent } from './accueil-eg/accueil-eg.component';
+import { ProjetEGComponent } from './projet-eg/projet-eg.component';
+import { ConsultationEGComponent } from './consultation-eg/consultation-eg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
-import {ProjetEGComponent} from "./projet-eg/projet-eg.component";
-import {RouterModule} from "@angular/router";
+import { ReponseConsultationComponent } from './reponse-consultation/reponse-consultation.component';
 
 
 
@@ -33,8 +34,13 @@ import {RouterModule} from "@angular/router";
     AccueilEGComponent,
     AccueilMOComponent,
     AccueilMOEComponent,
+    AccueilEGComponent,
+    ProjetEGComponent,
+    ConsultationEGComponent,
     ProjetMOComponent,
     ProfilComponent,
+    ReponseConsultationComponent,
+    AccueilEGComponent,
     ProjetEGComponent,
   ],
   imports: [

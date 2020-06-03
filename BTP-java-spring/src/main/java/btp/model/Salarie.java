@@ -48,7 +48,7 @@ public class Salarie {
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
 	@Embedded
-	@JsonView(Views.ViewSociete.class)
+	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse;
 	
 	

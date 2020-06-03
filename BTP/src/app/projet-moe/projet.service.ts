@@ -51,8 +51,6 @@ export class ProjetService {
     return this.http.get<Array<Reunion>>( "http://localhost:8080/reunion/effectuee/" + id)
   }
 
-
-
   modifyAction(action: Action) {
     action.prestataire.type= "Prestataire";
     return this.http.put<Action>("http://localhost:8080/action/" + action.id, action);
@@ -89,6 +87,7 @@ export class ProjetService {
   }
 
   modifyFacture(facture: Facture) {
+
     return this.http.put<Facture>("http://localhost:8080/facture/" + facture.id, facture);
   }
 
@@ -102,5 +101,7 @@ export class ProjetService {
   deleteActionById(id: number) {
     return this.http.delete("http://localhost:8080/action/" + id);
   }
+
+
 }
 
