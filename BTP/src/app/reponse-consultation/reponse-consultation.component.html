@@ -1,114 +1,113 @@
 <div class="container-fluid" style="background-color: #F8F8F8">
 
-  <h4 class="my-5" style="text-align: center;">
-    Veuillez remplir ce devis afin de le transmettre au maître d'œuvre</h4>
+    <h4 class="my-5" style="text-align: center;">
+      Veuillez remplir ce devis afin de le transmettre au maître d'œuvre</h4>
 
-  <div class="card shadow my-5 mx-auto p-5" style="width: 1200px">
-    <div class="row ml-3">
-      <div class="col-sm-7 ">
-        <h6><i class="fas fa-building fa-3x"> LOGO </i></h6>
-        <p> {{infoPresta.nom}}
-          <br *ngIf="infoPresta.adresse?.complement == null"> {{infoPresta.adresse?.rue}}, {{infoPresta.adresse?.complement}}
-          <br>{{infoPresta.adresse?.codePostal}} {{infoPresta.adresse?.ville}}
-          <br>N° TVA : {{infoPresta.numeroDeTva}}
-          <br> N° téléphone : {{infoPresta.telephone}}
-          <br>Email : {{infoPresta.mail}}
+    <div class="card shadow my-5 mx-auto p-5" style="width: 1200px">
+      <div class="row ml-3">
+        <div class="col-sm-7 ">
+          <h6><i class="fas fa-building fa-3x"> LOGO </i></h6>
+          <p> {{infoPrestation.prestataire?.nom}}
+            <br>{{infoPrestation.prestataire?.adresse?.rue}}, {{infoPrestation.prestataire?.adresse?.complement}}
+            <br>{{infoPrestation.prestataire?.adresse?.codePostal}} {{infoPrestation.prestataire?.adresse?.ville}}
+            <br>N° TVA : {{infoPrestation.prestataire?.numeroDeTva}}
+            <br> N° téléphone : {{infoPrestation.prestataire?.telephone}}
+            <br>Email : {{infoPrestation.prestataire?.mail}}
+        </div>
+        <div class="col-sm-3 mx-auto" style="height:140px;">
+          <h1 class="devis">DEVIS</h1>
+          <div class="mt-5 consultationNomClient pl-3 pt-2" style="border-radius: 10px;"><p>{{infoPrestation.offre?.maitreOeuvre?.nom}}
+            <br>{{infoPrestation.offre?.maitreOeuvre?.adresse?.rue}} {{infoPrestation.offre?.maitreOeuvre?.adresse?.complement}}
+            <br>{{infoPrestation.offre?.maitreOeuvre?.adresse?.codePostal}} {{infoPrestation.offre?.maitreOeuvre?.adresse?.ville}}
+          </p></div>
+        </div>
       </div>
-      <div class="col-sm-3 mx-auto" style="height:140px;">
-        <h1 class="devis">DEVIS</h1>
-        <p> Date de création : 22/05/2020 ????</p>
-        <div class="mt-5 consultationNomClient pl-3 pt-2" style="border-radius: 10px;"><p>{{infoMOE.nom}}
-          <br> {{infoMOE.adresse?.rue}}, {{infoMOE.adresse?.complement}}
-          <br> {{infoMOE.adresse?.codePostal}} {{infoMOE.adresse?.ville}}
-        </p></div>
+      <br>
+      <div class="row ml-2 mt-2">
+        <p><b>Prestation : </b> {{infoPrestation.nom}}</p>
       </div>
-    </div>
-    <br>
-    <div class="row ml-2 mt-5">
-      <p><b>Prestation : </b>Nom de la prestation proposée dans le devis</p>
-    </div>
-    <div class="table-editable mt-3">
-      <table class="table text-center table-bordered">
-        <thead class="thead-dark">
+      <div class="table-editable mt-3">
+        <table class="table text-center table-bordered">
+          <thead class="thead-dark">
+          <tr>
+            <th>Désignation</th>
+            <th>Quantité</th>
+            <th>Unité</th>
+            <th>Prix HT/unité</th>
+            <th>Total HT</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td contenteditable="true">désignation</td>
+            <td contenteditable="true">quantité</td>
+            <td>
+              <select class="form-control col-sm-8 mx-auto">
+                <option disabled="" selected="">Sélectionner l'unité</option>
+                <option value="unite">unité</option>
+                <option value="kg">kg</option>
+                <option value="m2">m²</option>
+                <option value="m3">m³</option>
+                <option value="metreLineaire">mètre linéaire</option>
+              </select>
+            </td>
+            <td contenteditable="true">00,00€</td>
+            <td>00,00€</td>
+          </tr>
+          <tr>
+            <td contenteditable="true">désignation</td>
+            <td contenteditable="true">quantité</td>
+            <td>
+              <select class="form-control col-sm-8 mx-auto">
+                <option disabled="" selected="">Sélectionner l'unité</option>
+                <option value="unite">unité</option>
+                <option value="kg">kg</option>
+                <option value="m2">m²</option>
+                <option value="m3">m³</option>
+                <option value="metreLineaire">mètre linéaire</option>
+              </select>
+            </td>
+            <td contenteditable="true">00,00€</td>
+            <td contenteditable="true">00,00€</td>
+          </tr>
+          <tr>
+            <td contenteditable="true">désignation</td>
+            <td contenteditable="true">quantité</td>
+            <td>
+              <select class="form-control col-sm-8 mx-auto">
+                <option disabled="" selected="">Sélectionner l'unité</option>
+                <option value="unite">unité</option>
+                <option value="kg">kg</option>
+                <option value="m2">m²</option>
+                <option value="m3">m³</option>
+                <option value="metreLineaire">mètre linéaire</option>
+              </select>
+            </td>
+            <td contenteditable="true">00,00€</td>
+            <td contenteditable="true">00,00€</td>
+          </tbody>
+        </table>
+        <div><button class="btn btn-outline-warning"><i class="fas fa-signature"></i> <b>Ajouter une ligne</b></button></div>
+      </div>
+      <table class="table border ml-5 ml-auto" style="width: 400px;">
         <tr>
-          <th>Désignation</th>
-          <th>Quantité</th>
-          <th>Unité</th>
-          <th>Prix HT/unité</th>
-          <th>Total HT</th>
+          <th class="bg-dark text-white border border-secondary">Prix total HT :</th>
+          <td class="text-center">00,00€</td>
         </tr>
-        </thead>
-        <tbody>
         <tr>
-          <td contenteditable="true">désignation</td>
-          <td contenteditable="true">quantité</td>
-          <td>
-            <select class="form-control col-sm-8 mx-auto">
-              <option disabled="" selected="">Sélectionner l'unité</option>
-              <option value="unite">unité</option>
-              <option value="kg">kg</option>
-              <option value="m2">m²</option>
-              <option value="m3">m³</option>
-              <option value="metreLineaire">mètre linéaire</option>
-            </select>
-          </td>
-          <td contenteditable="true">00,00€</td>
-          <td contenteditable="true">00,00€</td>
+          <th class="bg-dark text-white border border-secondary">TVA :</th>
+          <td class="text-center">00,00€</td>
         </tr>
         <tr>
-          <td contenteditable="true">désignation</td>
-          <td contenteditable="true">quantité</td>
-          <td>
-            <select class="form-control col-sm-8 mx-auto">
-              <option disabled="" selected="">Sélectionner l'unité</option>
-              <option value="unite">unité</option>
-              <option value="kg">kg</option>
-              <option value="m2">m²</option>
-              <option value="m3">m³</option>
-              <option value="metreLineaire">mètre linéaire</option>
-            </select>
-          </td>
-          <td contenteditable="true">00,00€</td>
-          <td contenteditable="true">00,00€</td>
+          <th class="bg-dark text-white border border-secondary">Prix TTC :</th>
+          <td class="text-center">00,00€</td>
         </tr>
-        <tr>
-          <td contenteditable="true">désignation</td>
-          <td contenteditable="true">quantité</td>
-          <td>
-            <select class="form-control col-sm-8 mx-auto">
-              <option disabled="" selected="">Sélectionner l'unité</option>
-              <option value="unite">unité</option>
-              <option value="kg">kg</option>
-              <option value="m2">m²</option>
-              <option value="m3">m³</option>
-              <option value="metreLineaire">mètre linéaire</option>
-            </select>
-          </td>
-          <td contenteditable="true">00,00€</td>
-          <td contenteditable="true">00,00€</td>
-        </tbody>
       </table>
-      <div><button class="btn btn-outline-warning"><b>Ajouter une ligne</b></button></div>
     </div>
-    <table class="table border ml-5 ml-auto" style="width: 400px;">
-      <tr>
-        <th class="bg-dark text-white border border-secondary">Prix total HT :</th>
-        <td class="text-center">00,00€</td>
-      </tr>
-      <tr>
-        <th class="bg-dark text-white border border-secondary">TVA 10% :</th>
-        <td class="text-center">00,00€</td>
-      </tr>
-      <tr>
-        <th class="bg-dark text-white border border-secondary">Prix TTC :</th>
-        <td class="text-center">00,00€</td>
-      </tr>
-    </table>
-  </div>
   <div class="row pb-5">
-    <button class="btn btn-outline-warning mx-auto p-3">
-      <i class="fas fa-paper-plane fa-2x"></i>
-      <p class="m-2 font-weight-bold">Valider et envoyer au maître d'œuvre</p>
-    </button>
+    <button class="btn btn-outline-warning mt-2 ml-auto mr-auto"><i class="fas fa-paper-plane fa-2x"></i>
+      <p class="m-2 font-weight-bold">Valider et envoyer au maître d'œuvre</p></button>
+    <button class="btn btn-outline-danger mt-2 mr-auto px-5"><i class="fas fa-undo-alt fa-2x"></i>
+    <p class="m-2 font-weight-bold">Annuler</p></button>
   </div>
-</div>
+  </div>

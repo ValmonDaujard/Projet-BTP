@@ -11,19 +11,19 @@
       </div>
       <div class="row ml-3 py-4">
         <label class="col-sm-2 col-form-label" for="maitreOeuvre"> Maître d'œuvre : </label>
-        <div class="form-control col-sm-9 text-center" id="maitreOeuvre" style="border-radius: 20px;">{{consultPresta.offre.maitreOeuvre.nom}}</div>
+        <div class="form-control col-sm-9 text-center" id="maitreOeuvre" style="border-radius: 20px;">{{consultPresta.offre?.maitreOeuvre?.nom}}</div>
       </div>
       <div class="row ml-3 py-4">
         <label class="col-sm-2 col-form-label" for="projet"> Projet : </label>
-        <div class="form-control col-sm-9 text-center" id="projet" style="border-radius: 20px;">{{consultPresta.offre.appelOffre.nom}}</div>
+        <div class="form-control col-sm-9 text-center" id="projet" style="border-radius: 20px;">{{consultPresta.offre?.appelOffre?.nom}}</div>
       </div>
       <div class="row ml-3 py-4">
         <label class="col-sm-2 col-form-label" for="lieu"> Lieu : </label>
-        <div class="form-control col-sm-9 text-center" id="lieu" style="border-radius: 20px;" *ngIf="consultPresta.offre.appelOffre.adresse.complement != null">{{consultPresta.offre.appelOffre.adresse.rue}},
+        <div class="form-control col-sm-9 text-center" id="lieu" style="border-radius: 20px;" *ngIf="consultPresta.offre?.appelOffre?.adresse?.complement != null">{{consultPresta.offre.appelOffre.adresse.rue}},
           {{consultPresta.offre.appelOffre.adresse.complement}}, {{consultPresta.offre.appelOffre.adresse.codePostal}},
           {{consultPresta.offre.appelOffre.adresse.ville}}</div>
-        <div class="form-control col-sm-9 text-center" id="lieu" style="border-radius: 20px;" *ngIf="consultPresta.offre.appelOffre.adresse.complement == null">
-          {{consultPresta.offre.appelOffre.adresse.rue}}, {{consultPresta.offre.appelOffre.adresse.codePostal}} {{consultPresta.offre.appelOffre.adresse.ville}}</div>
+        <div class="form-control col-sm-9 text-center" id="lieu" style="border-radius: 20px;" *ngIf="consultPresta.offre?.appelOffre?.adresse?.complement == null">
+          {{consultPresta.offre?.appelOffre?.adresse?.rue}}, {{consultPresta.offre?.appelOffre?.adresse?.codePostal}} {{consultPresta.offre?.appelOffre?.adresse?.ville}}</div>
       </div>
       <div class="row ml-3 py-4">
         <label class="col-sm-2 col-form-label" for="date"> Date de début : </label>

@@ -1,0 +1,96 @@
+<div class="container-fluid" style="background-color: #F8F8F8">
+  <div class="card shadow my-5 mx-auto pr-4 pl-4">
+    <div class="card-header bg-white border-bottom border-warning">
+      <h3 class="font-weight-bold mb-0 my-3">Création d'un nouvel Appel d'offre</h3>
+    </div>
+    <div id="employeForm" class="mt-3">
+<!--      <form>-->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="nom">Nom du
+            projet: </label> <input type="text" class="form-control col" id="nom" />
+          <label class="col-sm-2 col-form-label" for="dtDebut">Date
+            de démarrage: </label> <input type="date" class="form-control col"
+                                          id="dtDebut" />
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="obj">Objectif
+            du projet: </label> <input type="text" class="form-control col" id="obj" />
+          <label class="col-sm-2 col-form-label" for="dtFin">Date
+            de fin: </label> <input type="date" class="form-control col" id="dtFin" />
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="nDevis">Numero
+            de Devis: </label> <input type="text" class="form-control col"
+                                      id="nDevis" /> <label class="col-sm-2 col-form-label"
+                                                            for="dtLim">Date limite de réponse: </label> <input type="date"
+                                                                                                                class="form-control col" id="dtLim" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="budget">
+            Budget: </label> <input type="number" class="form-control col-sm-4"
+                                    id="budget" style="width: 100px">
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="rue">Rue: </label> <input
+          type="text" class="form-control col" id="rue" /> <label
+          class="col-sm-2 col-form-label" for="codePostal">Code
+          Postal: </label> <input type="number" class="form-control col"
+                                  id="codePostal" />
+        </div>
+        <div class="row mb-5">
+          <label class="col-sm-2 col-form-label" for="ville">Ville:
+          </label> <input type="text" class="form-control col" id="ville" /> <label
+          class="col-sm-2 col-form-label" for="pays">Pays: </label> <input
+          type="text" class="form-control col" id="pays" />
+        </div>
+        <div class="row row justify-content-start mb-3">
+          <label class="col-sm-2 col-form-label" for="ville">Maitres
+            d'oeuvres: </label> <select class="form-control col-4">
+          <option>Veuillez sélectionner un maitre d'oeuvre</option>
+          <option>Michel</option>
+          <option>Peneloppe</option>
+          <option>Jean Louis</option>
+          <option>Isabelle</option>
+          <option>Arnaud</option>
+        </select>
+          <button class="col-3 btn btn-warning ml-5" >Ajouter à
+            la liste des destinataires</button>
+        </div>
+
+        <div class="col-4"></div>
+        <div  style="width: 485px; margin-left: 230px; margin-top:50px">
+          <table id="tabAppel" class="table table-striped">
+            <thead>
+            <tr>
+              <th style="width: 75%">Maitre d'oeuvre</th>
+              <th style="width: 25%">Supprimer</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+              <td>Isabelle</td>
+              <td><div class="btn-group" style="width: 100 px; margin-left:25px;">
+                <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+              </div></td>
+            </tr>
+            <tr>
+              <td>Michel</td>
+              <td><div class="btn-group" style="width: 100 px; margin-left:25px;">
+                <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+              </div></td>
+            </tr>
+            </tbody>
+
+          </table>
+        </div>
+        <div>
+          <button class="btn btn-warning btn-lg mt-5" style="margin-left: 600px; margin-top: 20px">Valider et envoyer l'appel d'offre</button>
+        </div>
+
+
+
+<!--      </form>-->
+    </div>
+  </div>
+</div>
