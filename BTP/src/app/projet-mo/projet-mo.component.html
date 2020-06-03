@@ -2,19 +2,14 @@
 
   <div class="content-wrapper">
     <div class="row" id="ligne">
-      <div class="col-md-1 grid-margin">
-        <button [routerLink]="['/projet-moe/' + (projet.id-1)]"  routerLinkActive="active"><i class="fas fa-arrow-left " style="font-size: 32px" ></i></button>
-      </div>
-      <div class="col-md-10 grid-margin">
+
+      <div class="col-md-12 grid-margin">
         <div>
           <h4 class="font-weight-bold mb-0" style="text-align: center;">
             {{projet.offre.appelOffre?.nom| titlecase}}</h4>
         </div>
       </div>
-      <div class="col-md-1 grid-margin">
-        <button [routerLink]="['/projet-moe/' + (projet.id+1)]"  routerLinkActive="active"><i class="fas fa-arrow-right "
-                                                                                              style="font-size: 32px" ></i></button>
-      </div>
+
     </div>
 
     <div class="row" id="ligne">
@@ -163,11 +158,15 @@
                     <label > {{action.nomAction}}
                     </label>
                   </div>
-                  <div class="btn-group btn-group-sm">
-                    <a class="btn btn-primary" (click)="validerAction(action.id)">Valider<i class="fa fa-edit"></i></a>
-                  </div>
-                  <div class="btn-group btn-group-sm">
-                    <a class="btn btn-primary" (click)="deleteAction(action.id)"> Supprimer<i class="fa fa-trash"></i></a>
+                  <div style="margin-left: auto">
+                    <button class="btn text-warning border border-warning" (click)="validerAction(action.id)"
+                    >
+                      Valider
+                    </button>
+
+                  <button class="btn text-danger border border-danger">
+                    <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>
+                  </button>
                   </div>
                 </li>
                 </div>
@@ -185,7 +184,7 @@
 
               <button (click)="saveAction()"
                 class="add btn btn-icon text-warning todo-list-add-btn bg-transparent">
-                <i class="far fa-check"> </i>
+                <i class="fa fa-check"> </i>
               </button>
             </div>
 
@@ -253,10 +252,11 @@
                     <div class="form-check form-check-flat">
                       <label >  {{reunion.sujet}}
                       </label>
-                    </div>
+                    </div >
+                    <div style="margin-left:auto ">
                     <button class="btn text-danger border border-danger">
                       <i class="fas fa-trash-alt" (click)="deleteReunionPlanifiees(reunion.id)"></i>
-                    </button>
+                    </button></div>
 
                   </li>
                   </div>
@@ -286,10 +286,11 @@
                       <label >  {{reunion.sujet}}
                       </label>
                     </div>
+                    <div style="margin-left:auto ">
                     <button class="btn text-danger border border-danger">
                       <i class="fas fa-trash-alt" (click)="deleteReunionEffectues(reunion.id)"></i>
                     </button>
-
+                    </div>
                   </li>
                   </div>
                 </ul>
@@ -325,7 +326,7 @@
 
                       <button (click)="saveReunion()" *ngIf="currentReunion"
                               class="add btn btn-icon text-warning todo-list-add-btn bg-transparent">
-                        <i class="far fa-check"> </i>
+                        <i class="fa fa-check"> </i>
                       </button>
 
 
@@ -361,11 +362,15 @@
                       <label >  {{facture.numeroFacture}}
                       </label>
                     </div>
-                    <div class="btn-group btn-group-sm">
-                      <a class="btn btn-primary" (click)="validerFacture(facture.id)">Valider<i class="fa fa-edit"></i></a>
-                    </div>
-                    <div class="btn-group btn-group-sm">
-                      <a class="btn btn-primary" (click)="deleteFacture(facture.id)"> Supprimer<i class="fa fa-trash"></i></a>
+                    <div style="margin-left: auto">
+                      <button class="btn text-warning border border-warning" (click)="validerFacture(facture.id)"
+                      >
+                        Valider
+                      </button>
+
+                      <button class="btn text-danger border border-danger">
+                        <i class="fas fa-trash-alt" (click)="deleteFacture(facture.id)"></i>
+                      </button>
                     </div>
                   </li>
                   </div>
