@@ -65,10 +65,17 @@ public class UtilisateurRestController {
 	
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
-	public Utilisateur create(@RequestBody Utilisateur utilisateur, @RequestBody UserForm user) {
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
 		utilisateur = utilisateurRepo.save(utilisateur);
 
 		return utilisateur;
+	}
+	
+	@PostMapping("/authentification")
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur create(@RequestBody UserForm user) {
+		return utilisateurRepo.findByIdentifiantAndMotDePasse(user.getIdentifiant(), user.getMotDePasse());
+
 	}
 	
 	@PutMapping("/{id}")

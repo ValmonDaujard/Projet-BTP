@@ -16,8 +16,8 @@ export class AccueilEGComponent implements OnInit {
   user: any = null;
 
   constructor(private accueilEGService: AccueilEGService, private route : ActivatedRoute) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
-    this.list(this.user.societe.id);
+    // this.user = JSON.parse(sessionStorage.getItem('user'));
+    // this.list(this.user.societe.id);
   }
 
 
@@ -27,6 +27,8 @@ export class AccueilEGComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.list(this.user.societe.id);
   }
 
 
