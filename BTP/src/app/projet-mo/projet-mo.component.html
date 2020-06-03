@@ -76,7 +76,7 @@
   <div class="content-wrapper">
 
     <div class="row" id="ligne">
-      <div class="col-md-6 grid-margin stretch-card">
+      <div class="col-md-12 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded"
              style="height: 400px;">
           <div class="card-header bg-white border-bottom border-warning"
@@ -112,24 +112,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 grid-margin stretch-card">
-        <div class="card shadow p-3 mb-5 bg-white rounded"
-             style="height: 400px;">
-          <div class="card-header bg-white border-bottom border-warning"
-               style="display: flex">
-            <h3 class="font-weight-bold mb-0 my-3">Calendrier</h3>
 
-          </div>
-          <div class="card-body">
-            <p class="card-title text-md-center text-xl-left">Calendrier</p>
-
-            <!-- 							Calendrier -->
-
-
-            <!--   Calendrier -->
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -427,62 +410,7 @@
 
 
 
-  <div class="content-wrapper"></div>
-
-
-
-  <div class="row" id="ligne">
-    <div class="col-md-12 grid-margin stretch-card">
-      <div class="card shadow p-3 mb-5 bg-white rounded"
-           style="height: 450px;">
-        <div class="card-header bg-white border-bottom border-warning"
-             style="display: flex">
-          <h3 class="font-weight-bold mb-0 my-3">Document relatif au
-            projet</h3>
-
-        </div>
-        <div class="card-body">
-
-          <div >
-
-            <label class="btn text-warning border border-warning my-3"><b>Ajouter un document</b>
-              <input  class="customInput" type="file" style="display:none" />
-            </label>
-            <label  id="nomFichier"></label>
-          </div>
-
-          <form>
-            <div class="form-group">
-              <textarea class="form-control" rows="5" id="comment" name="text" style="max-height: 150px"></textarea>
-            </div>
-            <button type="submit"
-                    class="btn text-warning border border-warning my-3 ">
-              <b>Soumettre</b>
-            </button>
-          </form>
-
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
 
-<!-- 	Ajouter un fichier : maj nom fichier -->
-<script>
-  $(".customInput").on(
-    "change",
-    function() {
-      var fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected")
-        .html(fileName);
-      $("#nomFichier").empty();
-      $("#nomFichier").append(fileName);
-    });
-</script>
-<!-- 	Ajouter un fichier : maj nom fichier -->
