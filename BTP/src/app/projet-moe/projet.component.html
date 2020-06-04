@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12 grid-margin">
         <div>
-          <h2 class="font-weight-bold my-3" style="text-align: center;">
+          <h2 class="font-weight-bold my-5" style="text-align: center;">
             {{projet?.offre.appelOffre.nom| titlecase}}</h2>
         </div>
       </div>
@@ -139,7 +139,7 @@
                   </tbody>
                 </table>
               </div>
-              <div style="display: flex; margin-bottom: 5%"></div>
+<!--              <div style="display: flex; margin-bottom: 5%"></div>-->
               <div class="add-items d-flex mb-0 mt-4" *ngIf="currentAction">
                 <select class="form-control" id="prestataire" [(ngModel)]="currentAction.prestataire.id">
                   <option value="">Affecter une entreprise aux tâches selectionnées</option>
@@ -166,9 +166,9 @@
                 <table class="my-auto table">
                   <thead class="thead-dark">
                   <tr>
-                    <th style="width: 18%">Action</th>
-                    <th style="width: 15%">Entreprise</th>
-                    <th style="width: 20%">Voir détail/Supprimer</th>
+                    <th style="width: 40%">Action</th>
+                    <th style="width: 30%">Entreprise</th>
+                    <th style="width: 30%">Voir détails</th>
                   </tr>
                   </thead>
                 </table>
@@ -177,7 +177,7 @@
                 <table class="table table-striped">
                   <tbody >
                   <tr  *ngFor="let action of actionref" >
-                    <td *ngIf="action.effectuee==true" style="width: 30%">
+                    <td *ngIf="action.effectuee==true" style="width: 40%">
                       <label>  {{action.nomAction}}
                       </label>
                     </td>
@@ -185,9 +185,9 @@
                       <label>  {{action.prestataire?.nom}}
                       </label>
                     </td>
-                    <td *ngIf="action.effectuee==true" style="width: 19%"><button class="btn text-warning border border-warning"
+                    <td *ngIf="action.effectuee==true" style="width: 30%"><button class="btn text-warning border border-warning"
                                                    [routerLink]="['/action/'+ action.id]">
-                      Voir détail
+                      Voir détails
                     </button></td>
 <!--                    <td  style="width: 19%"> <button class="btn text-danger border border-danger">-->
 <!--                      <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>-->
@@ -251,9 +251,9 @@
                   <table class="my-auto table">
                     <thead class="thead-dark">
                     <tr>
-                      <th style="width: 20%">Réunion</th>
-                      <th style="width: 20%">Date</th>
-                      <th style="width: 20%"></th>
+                      <th style="width: 50%">Réunion</th>
+                      <th style="width: 50%">Date</th>
+<!--                      <th style="width: 20%"></th>-->
                     </tr>
                     </thead>
                   </table>
@@ -262,11 +262,8 @@
                   <table class="table table-striped">
                     <tbody>
                     <tr  *ngFor="let reunion of reunionrefeffectue"  >
-                      <td style="width: 30%">
-                        <label>  {{reunion.sujet}}
-                        </label>
-                      </td>
-                      <td >{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
+                      <td style="width: 50%"><label> {{reunion.sujet}} </label></td>
+                      <td style="width: 50%">{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
                     </tr>
                     </tbody>
                   </table>
