@@ -13,6 +13,12 @@ import {Prestation} from '../model/prestation';
 export class ReponseConsultationComponent implements OnInit {
 
   infoPrestation : Prestation = new Prestation();
+  prixTTC : number;
+  prixHT : number;
+  TVA: number = 20;
+  prix1 : number = 0;
+  prix2 : number = 0;
+  prix3 : number = 0;
 
   constructor(private reponseConsultationService: ReponseConsultationService, private route: ActivatedRoute) {
     this.route.params.subscribe(parameters => {

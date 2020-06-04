@@ -50,8 +50,7 @@
 
 <div class="container-fluid card mt-3 shadow">
   <div class="card-header bg-white border-bottom border-warning">
-    <h3 class="font-weight-bold my-3">Appels d'offres en
-      attente</h3>
+    <h3 class="font-weight-bold my-3">Réponses aux appels d'offres</h3>
   </div>
   <div>
     <input class="form-control mt-4" id="appelSearch" type="text"
@@ -62,11 +61,13 @@
     <table class="my-auto table">
       <thead class="thead-dark">
         <tr>
-          <th style="width: 18%">Nom</th>
-          <th style="width: 16.5%">Lieu</th>
-          <th style="width: 30%">Objectif</th>
-          <th style="width: 21%" >Date limite de réponse</th>
-          <th style="width: 14.5%">Détails</th>
+          <th style="width: 12%" >Nom</th>
+          <th style="width: 12%">Lieu</th>
+          <th style="width: 12%">Objectif</th>
+          <th style="width: 12%">Date limite de réponse</th>
+          <th style="width: 12%">Prix</th>
+          <th style="width: 12%">Valider</th>
+          <th style="width: 12%">Refuser</th>
         </tr>
       </thead>
     </table>
@@ -74,12 +75,16 @@
       <table class="table table-striped tableAppel" id="appelTable">
         <tbody>
         <tr *ngFor="let off of offres">
-          <td style="width: 18%">{{off.appelOffre.nom}}</td>
-          <td style="width: 17%">{{off.appelOffre.adresse.ville}}</td>
-          <td style="width: 30%">{{off.appelOffre.objectif}}</td>
-          <td style="width: 21%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
-          <td style="width: 24%"><div class="btn-group" style="margin-left: 20px">
-            <a class="btn btn-sm btn-lg"><i class="fas fa-info"></i></a>
+          <td style="width: 12%">{{off.appelOffre.nom}}</td>
+          <td style="width: 12%">{{off.appelOffre.adresse.ville}}</td>
+          <td style="width: 12%">{{off.appelOffre.objectif}}</td>
+          <td style="width: 12%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
+          <td style="width: 12%">{{off.prix}}</td>
+          <td style="width: 12%"><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-check"></i></a>
+          </div></td>
+          <td style="width: 12%"><div class="btn-group" style="margin-left: 20px">
+            <a class="btn btn-sm btn-lg"><i class="fas fa-trash"></i></a>
           </div></td>
         </tr>
         </tbody>
