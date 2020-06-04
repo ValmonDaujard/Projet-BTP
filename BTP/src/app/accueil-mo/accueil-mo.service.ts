@@ -11,6 +11,7 @@ export class AccueilMOService {
 
   private projets: Array<Projet> = new Array<Projet>();
   private offres: Array<Offre> = new Array<Offre>();
+  private offre = new Offre();
 
   constructor(private http: HttpClient) {
     this.load();
@@ -23,9 +24,17 @@ export class AccueilMOService {
   findAllByMaitreOuvrageEnConsult(id: number): Observable<Array<Offre>>{
     return this.http.get<Array<Offre>>('http://localhost:8080/offre/by-maitre-ouvrage-en-consult/' + id);
   }
+
   createProjet(newProjet : Projet){
     return this.http.post<Projet>('http://localhost:8080/projet/', newProjet);
-}
+  }
+  changeEtatOffre(offre : Offre){
+    return this.http.put<Offre>('http://localhost:8080/offre/' + offre.id, offre );
+  }
+
+  findOffreById(id:number) : Observable<Offre> {
+    return this.http.get<Offre>('http://localhost:8080/offre/' + id);
+  }
 
   load(){
     this.http.get<Array<Projet>>('http://localhost:8080/projet').subscribe(resp => {this.projets = resp;

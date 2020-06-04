@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Projet} from '../model/projet';
 import {Offre} from '../model/offre';
 import {AccueilMOService} from './accueil-mo.service';
@@ -15,8 +15,10 @@ export class AccueilMOComponent implements OnInit {
   projets: Array<Projet> = new Array<Projet>();
   offres: Array<Offre> = new Array<Offre>();
   user: any = null;
+  offre: Offre = new Offre();
+  projet: Projet = new Projet();
 
-  constructor(private accueilMOService: AccueilMOService, private route: ActivatedRoute, private sessionService : SessionService) {
+  constructor(private accueilMOService: AccueilMOService, private route: ActivatedRoute, private sessionService: SessionService) {
     this.user = this.sessionService.getUser();
     this.list(this.user.societe.id)
   }
@@ -24,7 +26,46 @@ export class AccueilMOComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  list(id: number){
+  validerOffre(idOffre: number) {
+    this.accueilMOService.findOffreById(idOffre).subscribe(resp => {
+      this.offre = resp;
+      this.offre.etat = "val";
+      this.accueilMOService.changeEtatOffre(this.offre).subscribe(resp => {
+        this.offre = resp;
+      }, err => console.log(err));
+      this.projet.offre = this.offre;
+      this.projet.arret = 0;
+      this.projet.dtDebut = this.offre.dtDebut;
+      this.projet.dtFin = this.offre.dtFin;
+      this.projet.numeroDevis = this.offre.numeroDevis;
+      this.accueilMOService.createProjet(this.projet).subscribe(resp => {
+        this.projet = resp;
+        this.list(this.user.societe.id)
+      }, err => console.log(err));
+    }, error => console.log(error));
+
+
+  }
+
+  deleteOffre(idOffre: number) {
+    this.accueilMOService.findOffreById(idOffre).subscribe(resp => {
+        this.offre = resp;
+        console.log(this.offre);
+        this.offre.etat = "ref";
+        this.accueilMOService.changeEtatOffre(this.offre).subscribe(resp => {
+          this.offre = resp;
+
+          this.list(this.user.societe.id)
+
+        }, err => console.log(err));
+
+      }
+      , error => console.log(error));
+
+  }
+
+  list(id: number) {
+    console.log(id);
     this.accueilMOService.findAllByMaitreOuvrage(id).subscribe(resp => this.projets = resp, error => console.log(error));
     this.accueilMOService.findAllByMaitreOuvrageEnConsult(id).subscribe(resp => this.offres = resp, error => console.log(error));
   }
@@ -47,6 +88,7 @@ export class AccueilMOComponent implements OnInit {
       }
     }
   }
+
   rechercheAppel() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("appelSearch");
