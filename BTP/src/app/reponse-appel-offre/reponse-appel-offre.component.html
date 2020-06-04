@@ -137,7 +137,7 @@
             <table class="mx-auto table table-striped">
               <tbody>
 <!--              <tr>-->
-              <tr *ngFor="let presta of listPrestaValideeMO()">
+              <tr *ngFor="let presta of listPrestaValideeMO(this.offre.id)">
                 <td class="text-center" style="width: 20%" *ngIf="!presta.prestataire">Maître d'oeuvre</td>
                 <td class="text-center" style="width: 20%" *ngIf="presta.prestataire">{{presta.prestataire?.nom}}</td>
                 <td class="text-center" style="width: 35%">{{presta.nom}}</td>

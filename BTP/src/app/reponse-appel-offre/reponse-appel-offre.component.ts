@@ -22,6 +22,7 @@ export class ReponseAppelOffreComponent implements OnInit {
   prestaList: Array<Prestation> = new Array<Prestation>();
   prestations: Array<Prestation> = new Array<Prestation>();
   prestaValideesEG: Array<Prestation> = new Array<Prestation>();
+  prestaValideesMO: Array<Prestation> = new Array<Prestation>();
   offre: Offre = new Offre();
   projet: Projet = new Projet();
   currentPresta: Prestation = null;
@@ -29,7 +30,6 @@ export class ReponseAppelOffreComponent implements OnInit {
   prixTTC: number;
   prestaForm: Prestation = null;
   user: any = null;
-  modalMarge: Prestation = null;
 
 
   constructor(public router: Router, private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
@@ -39,6 +39,7 @@ export class ReponseAppelOffreComponent implements OnInit {
     });
     this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
     this.offre.maitreOeuvre = this.user.societe;
+    this.offre.id = 88;
   }
 
   ngOnInit(): void {
@@ -87,14 +88,13 @@ export class ReponseAppelOffreComponent implements OnInit {
     )
   }
 
-  listPrestaValideeEG(id:number): Array<Prestation> {
+  listPrestaValideeEG(id:number) {
 
     return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
 
     // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideEG(id).subscribe(resp => {
     //   this.prestaValideesEG = resp;
     //   }, error => console.log(error));
-    // return this.prestaValideesEG
     }
 
     calculTotalHT(): number {
@@ -110,6 +110,7 @@ export class ReponseAppelOffreComponent implements OnInit {
     let total:number = 0;
 
     for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+    // for(let presta of this.prestaValideesMO) {
       total+=presta.prix;
     }
     if(!this.marge) {
@@ -126,8 +127,12 @@ export class ReponseAppelOffreComponent implements OnInit {
     this.reponseAppelOffreService.deleteById(id);
   }
 
-  listPrestaValideeMO() {
+  listPrestaValideeMO(id: number) {
     return this.reponseAppelOffreService.findPrestationByPhaseValideeMO();
+
+    // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideMO(id).subscribe(resp => {
+    //   this.prestaValideesMO = resp;
+    // }, error => console.log(error));
   }
 
   validerPresta(id: number) {
