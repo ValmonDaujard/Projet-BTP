@@ -67,6 +67,7 @@
         </div>
         <br />
       </div>
+
       <div class="card col my-4 mx-4">
         <div class="card-header bg-white border-bottom border-warning">
           <h3 class="font-weight-bold mb-0 my-3">Réponse des entreprises générales</h3>
@@ -91,17 +92,17 @@
           <div>
             <table class="mx-auto table table-striped">
               <tbody>
-              <tr *ngFor="let presta of listPrestaValideeEG()">
-                <td class="text-center" style="width: 20%">{{presta.id}}</td>
+              <tr *ngFor="let presta of listPrestaValideeEG(this.offre.id)">
+                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
                 <td class="text-center" style="width: 30%">{{presta.nom}}</td>
                 <td class="text-center" style="width: 10%">{{presta.prix}} €</td>
                 <td class="text-center" style="width: 20%"><button
-                  class="btn btn-primary">
-                  <i class="fas fa-plus-circle" (click)="validerPresta(presta.id)"></i>
+                  class="btn btn-primary" (click)="validerPresta(presta.id)">
+                  <i class="fas fa-plus-circle"></i>
                 </button></td>
                 <td class="text-center" style="width: 20%"><button
                   class="btn btn-danger" (click)="suppPrestaValideeEG(presta.id)">
-                  <i class="fas fa-ban"></i>
+                  <i class="fas fa-trash-alt"></i>
                 </button></td>
               </tr>
               </tbody>
@@ -136,14 +137,14 @@
             <table class="mx-auto table table-striped">
               <tbody>
 <!--              <tr>-->
-              <tr *ngFor="let presta of listPrestaValideeMO()">
+              <tr *ngFor="let presta of listPrestaValideeMO(this.offre.id)">
                 <td class="text-center" style="width: 20%" *ngIf="!presta.prestataire">Maître d'oeuvre</td>
                 <td class="text-center" style="width: 20%" *ngIf="presta.prestataire">{{presta.prestataire?.nom}}</td>
                 <td class="text-center" style="width: 35%">{{presta.nom}}</td>
                 <th class="text-center" style="width: 10%"><span class="">{{presta.prix}}</span></th>
                 <td class="text-center" style="width: 15%"><button
-                  class="btn btn-danger">
-                  <i class="fas fa-ban" (click)="annulerPresta(presta.id)"></i>
+                  class="btn btn-danger" (click)="annulerPresta(presta.id)">
+                  <i class="fas fa-ban"></i>
                 </button></td>
               </tr>
               <tr>
@@ -173,6 +174,11 @@
             Valider et envoyer votre offre au maitre d'ouvrage <br /> <i
             class="fas fa-cart-plus"></i>
           </button>
+<!--          <div class="card" *ngFor="modalMarge">-->
+<!--            <div>-->
+<!--              Vous n'avez pas indiqué votre % de marge.-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="card col my-4 mx-4" *ngIf="prestaForm">
@@ -212,3 +218,4 @@
                       </a>
                     </div>
             </div>
+

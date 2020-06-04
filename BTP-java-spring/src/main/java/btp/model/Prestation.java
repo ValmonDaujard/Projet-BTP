@@ -50,7 +50,7 @@ public class Prestation {
 	@JsonView(Views.ViewCommon.class)
 	private Boolean obsolete;
 	@OneToOne (mappedBy = "prestation")
-	@JsonView(Views.ViewPrestation.class)
+//	@JsonView(Views.ViewPrestation.class)
 	private PrestationSupplementaire prestationSupplementaire;
 	@ManyToMany
 	@JoinTable(name ="matos_presta",
@@ -77,7 +77,7 @@ public class Prestation {
 	@JsonView(Views.ViewPrestation.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestation")
-	@JsonView(Views.ViewPrestation.class)
+//	@JsonView(Views.ViewPrestation.class)
 	private Facture facture;
 	@JsonView(Views.ViewCommon.class)
 	private String motif;

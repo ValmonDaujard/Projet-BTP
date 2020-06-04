@@ -5,7 +5,6 @@ import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
 import {Offre} from "../model/offre";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
 import {AppelOffre} from "../model/appelOffre";
 
 
@@ -32,10 +31,6 @@ export class ReponseAppelOffreService {
     return this.http.get<AppelOffre>("http://localhost:8080/appelOffre/" + id);
   }
 
-  findPrestationByPhaseConsult(): Array<Prestation> {
-    return this.prestaValideesEG;
-  }
-
   findPrestationByPhaseValideEG(): Array<Prestation>{
   return this.prestaValideesEG;
   }
@@ -44,6 +39,14 @@ export class ReponseAppelOffreService {
     return this.prestaValideesMO;
   }
 
+  // findPrestationByOffreEtPhaseValideEG(id: number): Observable<Array<Prestation>> {
+  //   return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase-offre/ValideEG/" + id);
+  // }
+  //
+  // findPrestationByOffreEtPhaseValideMO(id: number): Observable<Array<Prestation>>{
+  //   return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase-offre/ValideMOeuvre/" + id);
+  // }
+
   createPrestations(prestations: Array<Prestation>) {
     return this.http.post<Array<Prestation>>("http://localhost:8080/prestation/multiple", prestations);
   }
@@ -51,10 +54,8 @@ export class ReponseAppelOffreService {
   load() {
     this.http.get<Array<Prestataire>>("http://localhost:8080/prestataire/").subscribe(resp => {
       this.egs = resp;
-    }, error => console.log(error)),
-      // this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult").subscribe(resp => {
-      //   this.prestaValideesEG = resp;
-      // }, error => console.log(error))
+    }, error => console.log(error))
+    ,
     this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideEG").subscribe(resp => {
       this.prestaValideesEG = resp;
     }, error => console.log(error))

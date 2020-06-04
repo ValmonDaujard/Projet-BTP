@@ -1,4 +1,4 @@
-<div class="container-fluid" style="">
+<div class="container-fluid" style="background-color: #F8F8F8">
 
   <div class="content-wrapper">
     <div class="row" id="ligne">
@@ -13,8 +13,8 @@
     </div>
 
     <div class="row" id="ligne">
-      <div class="col-md-3 grid-margin stretch-card">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
             <p class="card-title text-md-center text-xl-left">Numéro de
               Devis</p>
@@ -28,34 +28,34 @@
         </div>
       </div>
 
-      <div class="col-md-3 grid-margin stretch-card">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
             <p class="card-title text-md-center text-xl-left">Date de
               démarrage</p>
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
               <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtDebut|date:'dd/MM/yyyy'}}</h3>
-              <i class="fas fa-calendar-day " style="font-size: 32px"></i>
+              <i class="fas fa-calendar-check " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-3 grid-margin stretch-card">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
             <p class="card-title text-md-center text-xl-left">Date de fin
               de projet</p>
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
               <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet.dtFin|date:'dd/MM/yyyy'}}</h3>
-              <i class="fas fa-calendar-check " style="font-size: 32px"></i>
+              <i class="fas fa-calendar-check " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3 grid-margin stretch-card">
+      <!--<div class="col-md-3 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded">
           <div class="card-body">
             <p class="card-title text-md-center text-xl-left">Factures</p>
@@ -66,7 +66,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
     </div>
 
@@ -91,20 +91,20 @@
                 <tr>
                   <th style="width: 20%">Nom</th>
                   <th style="width: 20%">Entreprise</th>
-                  <th style="width: 20%">Date de début</th>
-                  <th style="width: 35%" class="text-center">Date de fin</th>
+                  <th style="width: 8%">Date de début</th>
+                  <th style="width: 40%" class="text-center">Date de fin</th>
                 </tr>
                 </thead>
               </table>
             </div>
             <div class="scrollTablePrestations">
               <table class="table table-striped">
-                <tbody *ngFor="let prestation of prestationref">
-                <tr    *ngIf="prestation.phasePresta=='ValideMOeuvre'">
-                  <td style="width: 19%">{{prestation.nom}}</td>
-                  <td style="width: 19%">{{prestation.prestataire.nom}}</td>
-                  <td style="width: 22%">{{prestation.dtDebut|date:'dd/MM/yyyy'}}</td>
-                  <td style="width: 22%">{{prestation.dtFin|date:'dd/MM/yyyy'}}</td>
+                <tbody >
+                <tr  *ngFor="let prestation of prestationref" >
+                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 19%">{{prestation.nom}}</td>
+                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 19%">{{prestation.prestataire.nom}}</td>
+                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 22%">{{prestation.dtDebut|date:'dd/MM/yyyy'}}</td>
+                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 22%">{{prestation.dtFin|date:'dd/MM/yyyy'}}</td>
                 </tr>
                 </tbody>
               </table>
@@ -136,36 +136,23 @@
                   <thead class="thead-dark">
                   <tr>
                     <th style="width: 17%">Action</th>
-                    <th style="width: 20%">Entreprise</th>
-                    <th style="width: 20%"></th>
+                    <th style="width: 25%">Entreprise</th>
+                    <th style="width: 20%">Valider/Supprimer</th>
                   </tr>
                   </thead>
                 </table>
               </div>
               <div class="scrollTablePrestations">
                 <table class="table table-striped">
-                  <tbody *ngFor="let action of actionref">
-                  <tr  *ngIf="action.effectuee == false" >
-                    <td style="width: 30%">		<div class="form-check form-check-flat">
-                      <label>  {{action.nomAction}}
-                      </label>
-                    </div></td>
-                    <td *ngIf="action.prestataire!=null" style="width: 19%">{{action.prestataire.nom}}</td>
-                    <td *ngIf="action.prestataire==null" style="width: 19%">Non défini</td>
-                    <td *ngIf="action.prestataire==null" style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"> <i class="fas fa-times"></i></span>
-
-                    </td>
-                    <td *ngIf="action.prestataire!=null" style="width: 19%"><span style="font-size: 32px; color: rgb(255, 193, 7)"><i class="fas fa-check"></i></span></td>
-                    <td><div style="margin-left: auto">
-                      <button *ngIf="action.prestataire!=null" class="btn text-warning border border-warning" (click)="validerAction(action.id)"
-                      >
-                        Valider
-                      </button>
-
-                      <button class="btn text-danger border border-danger">
-                        <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>
-                      </button>
-                    </div></td>
+                  <tbody  >
+                  <tr  *ngFor="let action of actionref">
+                    <td *ngIf="action.effectuee == false" style="width: 30%">{{action.nomAction}}</td>
+                    <td *ngIf="action.prestataire!=null && action.effectuee == false" style="width: 19%">{{action.prestataire.nom}}</td>
+                    <td *ngIf="action.prestataire==null && action.effectuee == false" style="width: 19%">Non défini</td>
+                    <td *ngIf="action.prestataire==null && action.effectuee == false" style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"></span></td>
+                    <td *ngIf="action.prestataire!=null && action.effectuee == false" style="width: 19%"><span style="font-size: 32px; color: rgb(255, 193, 7)"></span></td>
+                    <td *ngIf="action.effectuee == false"><div style="margin-left: auto"><button *ngIf="action.prestataire!=null"   class="btn text-warning border border-warning" (click)="validerAction(action.id)">Valider</button>
+                      <button class="btn text-danger border border-danger"  (click)="deleteAction(action.id)"><i class="fas fa-trash-alt"></i></button></div></td>
                   </tr>
                   </tbody>
                 </table>
@@ -173,7 +160,7 @@
             <div style="display: flex; margin-bottom: 5%"></div>
 
             <div class="card-footer">
-              <a class="btn btn-success btn-lg" (click)="addAction()">
+              <a class="btn btn-warning btn-lg" (click)="addAction()" >
                 <i class="fa fa-plus"></i>
               </a>
             </div>
@@ -206,26 +193,26 @@
                   <table class="my-auto table">
                     <thead class="thead-dark">
                     <tr>
-                      <th style="width: 24%">Action</th>
-                      <th style="width: 20%">Entreprise</th>
-                      <th style="width: 20%"></th>
+                      <th style="width: 35%">Action</th>
+                      <th style="width: 35%">Entreprise</th>
+                      <th style="width: 20%"> Détail</th>
                     </tr>
                     </thead>
                   </table>
                 </div>
                 <div class="scrollTablePrestations">
                   <table class="table table-striped">
-                    <tbody *ngFor="let action of actionref">
-                    <tr  *ngIf="action.effectuee==true" >
-                      <td style="width: 30%">
+                    <tbody>
+                    <tr  *ngFor="let action of actionref" >
+                      <td style="width: 30%"  *ngIf="action.effectuee==true">
                         <label>  {{action.nomAction}}
                         </label>
                       </td>
-                      <td style="width: 30%">
+                      <td style="width: 30%"  *ngIf="action.effectuee==true">
                         <label>  {{action.prestataire?.nom}}
                         </label>
                       </td>
-                      <td style="width: 19%"><button class="btn text-warning border border-warning"
+                      <td *ngIf="action.effectuee==true" style="width: 19%"><button class="btn text-warning border border-warning"
                                                      [routerLink]="['/action/'+ action.id]">
                         Voir détail
                       </button></td>
@@ -262,17 +249,17 @@
                 <table class="my-auto table">
                   <thead class="thead-dark">
                   <tr>
-                    <th style="width: 20%">Réunion</th>
-                    <th style="width: 20%">Date</th>
-                    <th style="width: 20%"></th>
+                    <th style="width: 25%">Réunion</th>
+                    <th style="width: 25%">Date</th>
+                    <th style="width: 20%">Supprimer</th>
                   </tr>
                   </thead>
                 </table>
               </div>
               <div class="scrollTablePrestations">
                 <table class="table table-striped">
-                  <tbody *ngFor="let reunion of reunionrefplanifie">
-                  <tr  >
+                  <tbody >
+                  <tr *ngFor="let reunion of reunionrefplanifie" >
                     <td style="width: 30%">
                       <label>  {{reunion.sujet}}
                       </label>
@@ -282,8 +269,8 @@
 
 
                   <td><div style="margin-left:auto ">
-                    <button class="btn text-danger border border-danger">
-                      <i class="fas fa-trash-alt" (click)="deleteReunionPlanifiees(reunion.id)"></i>
+                    <button class="btn text-danger border border-danger" (click)="deleteReunionPlanifiees(reunion.id)">
+                      <i class="fas fa-trash-alt" ></i>
                     </button></div></td> </tr>
                   </tbody>
                 </table>
@@ -307,17 +294,17 @@
                 <table class="my-auto table">
                   <thead class="thead-dark">
                   <tr>
-                    <th style="width: 20%">Réunion</th>
-                    <th style="width: 20%">Date</th>
-                    <th style="width: 20%"></th>
+                    <th style="width: 25%">Réunion</th>
+                    <th style="width: 25%">Date</th>
+                    <th style="width: 20%">Supprimer</th>
                   </tr>
                   </thead>
                 </table>
               </div>
               <div class="scrollTablePrestations">
                 <table class="table table-striped">
-                  <tbody *ngFor="let reunion of reunionrefeffectue">
-                  <tr  >
+                  <tbody >
+                  <tr  *ngFor="let reunion of reunionrefeffectue">
                     <td style="width: 30%">
                       <label>  {{reunion.sujet}}
                       </label>
@@ -327,8 +314,8 @@
 
 
                     <td><div style="margin-left:auto ">
-                      <button class="btn text-danger border border-danger">
-                        <i class="fas fa-trash-alt" (click)="deleteReunionEffectues(reunion.id)"></i>
+                      <button class="btn text-danger border border-danger" (click)="deleteReunionEffectues(reunion.id)">
+                        <i class="fas fa-trash-alt" ></i>
                       </button></div></td> </tr>
                   </tbody>
                 </table>
@@ -350,7 +337,7 @@
                 </div>
                 <div class="card-body">
 
-                    <a class="btn btn-success btn-lg" (click)="addReunion()">
+                    <a class="btn btn-warning btn-lg" (click)="addReunion()" >
                       <i class="fa fa-plus"></i>
                     </a>
 
@@ -361,7 +348,7 @@
                         <input type="text" class="form-control" id="telephone" [(ngModel)]="currentReunion.sujet">
                       </div>
                       <div class="form-group" *ngIf="currentReunion">
-                        <label for="dtReunion">Date de naissance:</label>
+                        <label for="dtReunion">Date :</label>
                         <input type="date" class="form-control" id="dtReunion" [ngModel]="currentReunion.dtReunion | date:'yyyy-MM-dd'" (ngModelChange)="currentReunion.dtReunion = $event">
                       </div>
 
@@ -380,7 +367,7 @@
       </div>
     </div>
 
-    <div class="content-wrapper">
+   <!-- <div class="content-wrapper">
       <div class="row" id="ligne">
         <div class="col-md-6 grid-margin stretch-card">
           <div class="card shadow p-3 mb-5 bg-white rounded"
@@ -495,7 +482,7 @@
 
   </div>
 
-
+-->
 
 
 
