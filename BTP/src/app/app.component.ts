@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {SessionService} from "./session.service";
 import {Utilisateur} from "./model/utilisateur";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,12 @@ import {Utilisateur} from "./model/utilisateur";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'BTP';
+  title = 'Build\'Oser';
   user: any = null;
-  constructor(public router: Router, private sessionService: SessionService){
-
+  constructor(public router: Router, private sessionService: SessionService, private titleService : Title){
+    this.titleService.setTitle( "BUILD\'OSER" );
   }
+
 
 
   w3_open() {
