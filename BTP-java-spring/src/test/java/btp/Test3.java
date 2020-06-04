@@ -320,7 +320,7 @@ class Test3 {
 				// utilisateurs
 				Utilisateur utilisateurmaitreOeuvreBob = new Utilisateur("Bob", "123456789");
 				Utilisateur utilisateurmaitreOeuvreGeorges = new Utilisateur("Georges", "987654321");
-				Utilisateur utilisateurmaitreOuvrageToto = new Utilisateur("Toto", "azertyuiop");
+				Utilisateur utilisateurmaitreOuvrageToto = new Utilisateur("Toto", "aertyuiop");
 				Utilisateur utilisateurmaitreOuvrageBobby = new Utilisateur("Bobby", "poiuytreza");
 				Utilisateur utilisateurprestaColas = new Utilisateur("COLAS", "motDePasse");
 				Utilisateur utilisateurprestaBouygues = new Utilisateur("Bouygues", "essaPeDtoM");
