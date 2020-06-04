@@ -39,7 +39,7 @@
           </thead>
           <tbody>
           <tr>
-            <td contenteditable="false">désignation</td>
+            <td contenteditable="false">Matériel</td>
             <td contenteditable="true">quantité</td>
             <td>
               <select class="form-control col-sm-8 mx-auto">
@@ -52,10 +52,10 @@
               </select>
             </td>
             <td contenteditable="true">00,00€</td>
-            <td>00,00€</td>
+            <td><input type="number" style="text-align: center" id="prix1" name="prix1" [(ngModel)]="prix1"></td>
           </tr>
           <tr>
-            <td contenteditable="false">désignation</td>
+            <td contenteditable="false">Main d'oeuvre</td>
             <td contenteditable="true">quantité</td>
             <td>
               <select class="form-control col-sm-8 mx-auto">
@@ -68,10 +68,10 @@
               </select>
             </td>
             <td contenteditable="true">00,00€</td>
-            <td contenteditable="true">00,00€</td>
+            <td><input type="number" style="text-align: center" name="prix2" [(ngModel)]="prix2"></td>
           </tr>
           <tr>
-            <td contenteditable="false">désignation</td>
+            <td contenteditable="false">Frais annexes</td>
             <td contenteditable="true">quantité</td>
             <td>
               <select class="form-control col-sm-8 mx-auto">
@@ -84,15 +84,15 @@
               </select>
             </td>
             <td contenteditable="true">00,00€</td>
-            <td contenteditable="true">00,00€</td>
+            <td><input type="number" style="text-align: center" name="prix3" [(ngModel)]="prix3"></td>
           </tbody>
         </table>
-        <div><button class="btn btn-outline-warning"><i class="fas fa-signature"></i> <b>Ajouter une ligne</b></button></div>
+        <div><button class="btn btn-outline-warning" (click)="calculTotalHT()"><i class="fas fa-signature"></i> <b>Calcul coût total</b></button></div>
       </div>
       <table class="table border ml-5 ml-auto" style="width: 400px;">
         <tr>
           <th class="bg-dark text-white border border-secondary">Prix total HT :</th>
-          <td class="text-center">{{prixHT}} €</td>
+          <td class="text-center">{{prixHT | currency : 'EUR'}}</td>
         </tr>
         <tr>
           <th class="bg-dark text-white border border-secondary">TVA :</th>
@@ -100,13 +100,13 @@
         </tr>
         <tr>
           <th class="bg-dark text-white border border-secondary">Prix TTC :</th>
-          <td class="text-center">{{prixTTC}} €</td>
+          <td class="text-center">{{calculTotalTTC() | currency : 'EUR'}}</td>
         </tr>
       </table>
     </div>
   <div class="row pb-5">
-    <button class="btn btn-outline-warning mt-2 ml-auto mr-auto"><i class="fas fa-paper-plane fa-2x"></i>
-      <p class="m-2 font-weight-bold">Valider et envoyer au maître d'œuvre</p></button>
+    <button class="btn btn-outline-warning mt-2 ml-auto mr-auto" (click)="validerEnvoyer()"><i class="fas fa-paper-plane fa-2x"></i>
+      <p class="m-2 font-weight-bold" >Valider et envoyer au maître d'œuvre</p></button>
     <button class="btn btn-outline-danger mt-2 mr-auto px-5" [routerLink]="['/consultationEG/' + infoPrestation.id]"><i class="fas fa-undo-alt fa-2x"></i>
     <p class="m-2 font-weight-bold">Annuler</p></button>
   </div>

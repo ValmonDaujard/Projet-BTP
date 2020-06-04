@@ -83,11 +83,11 @@ export class AccueilComponent implements OnInit {
         this.sessionService.setUser(this.userForm);
         // sessionStorage.setItem('user', JSON.stringify(this.userForm))
         if (this.userForm.societe.type == 'MOuvrage') {
-          [this.router.navigate(['accueilMO'])]
+          this.router.navigate(['accueilMO'])
         } else if (this.userForm.societe.type == 'MOeuvre') {
-          [this.router.navigate(['accueilMOE'])]
+          this.router.navigate(['accueilMOE'])
         } else if (this.userForm.societe.type == 'Prestataire') {
-          [this.router.navigate(['accueilEG'])]
+          this.router.navigate(['accueilEG'])
         }
         console.log(this.sessionService.getUser())
       } else {

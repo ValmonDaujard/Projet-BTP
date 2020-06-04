@@ -22,8 +22,8 @@ export class ProfilComponent implements OnInit {
 
   constructor(private router: Router,private route: ActivatedRoute, private profilService: ProfilService,  private sessionService : SessionService) {
     this.user = sessionService.getUser();
-    if (!this.user.adresse){
-      this.user.adresse = new Adresse();
+    if (!this.user.societe.adresse){
+      this.user.societe.adresse = new Adresse();
     }
     console.log(this.user);
   }
@@ -35,9 +35,11 @@ export class ProfilComponent implements OnInit {
   update() {
     console.log(this.user);
     this.profilService.modifyUser(this.user).subscribe(resp => {
-      this.user = resp;
-      this.sessionService.setUser(this.user);
-      console.log(this.user);
+      this.profilService.findById(resp.id).subscribe(resp =>{
+        this.sessionService.setUser(resp);
+        this.user = this.sessionService.getUser();
+        console.log(this.user);
+      },error => console.log(error))
       },error => console.log(error)
     ) ;
   };
