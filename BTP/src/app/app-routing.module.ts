@@ -35,6 +35,7 @@ const routes: Routes = [
   {path: 'reunion/:id', component: ReunionComponent},
 
   {path: 'reponseConsultation/:id', component: ReponseConsultationComponent},
+  {path: 'reponseConsultation/:id', component: ReponseConsultationComponent},
   {path: 'creationAppelOffre/:id', component: CreationAppelOffreComponent}
 ];
 

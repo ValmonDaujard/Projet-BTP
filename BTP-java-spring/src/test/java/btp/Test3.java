@@ -207,14 +207,14 @@ class Test3 {
 				projet6 = projetRepository.save(projet6);
 				
 				// facture
-				Facture factureIsolation = new Facture(111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
+				Facture factureIsolation = new Facture("factureIso", 111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
 						true,false);
-				Facture factureCloture = new Facture(45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
+				Facture factureCloture = new Facture("factureClo", 45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
 						false,false);
 				
-				Facture factureProjetMoisSeptembre = new Facture(153453, sdf.parse("16/06/2020"), 5000F, 0F, sdf.parse("15/08/2020"), 0F,
+				Facture factureProjetMoisSeptembre = new Facture("factureSept", 153453, sdf.parse("16/06/2020"), 5000F, 0F, sdf.parse("15/08/2020"), 0F,
 						true,true);
-				Facture factureMoisNovembre = new Facture(83843, sdf.parse("18/06/2021"), 5000F, 15F, sdf.parse("21/08/2022"), 52F,
+				Facture factureMoisNovembre = new Facture("factureNov", 83843, sdf.parse("18/06/2021"), 5000F, 15F, sdf.parse("21/08/2022"), 52F,
 						false,true);
 				
 				
@@ -320,7 +320,7 @@ class Test3 {
 				// utilisateurs
 				Utilisateur utilisateurmaitreOeuvreBob = new Utilisateur("Bob", "123456789");
 				Utilisateur utilisateurmaitreOeuvreGeorges = new Utilisateur("Georges", "987654321");
-				Utilisateur utilisateurmaitreOuvrageToto = new Utilisateur("Toto", "azertyuiop");
+				Utilisateur utilisateurmaitreOuvrageToto = new Utilisateur("Toto", "aertyuiop");
 				Utilisateur utilisateurmaitreOuvrageBobby = new Utilisateur("Bobby", "poiuytreza");
 				Utilisateur utilisateurprestaColas = new Utilisateur("COLAS", "motDePasse");
 				Utilisateur utilisateurprestaBouygues = new Utilisateur("Bouygues", "essaPeDtoM");

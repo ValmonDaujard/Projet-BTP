@@ -111,7 +111,7 @@ public class PrestationRestController {
 		return prestationRepo.findPrestationByPhaseAndProjet(phase, id);
 	}
 	
-	@GetMapping("/by-phase-offre/{phase}:{idOffre}")
+	@GetMapping("/by-phase-offre/{phase}/{idOffre}")
 	@JsonView(Views.ViewPrestation.class)
 	public List<Prestation> findPrestationByPhaseAndOffre(@PathVariable PhasePresta phase, @PathVariable Long idOffre) {
 		return prestationRepo.findPrestationByPhaseAndOffre(phase, idOffre);
