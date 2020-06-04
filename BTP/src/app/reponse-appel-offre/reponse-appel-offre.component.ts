@@ -72,6 +72,7 @@ export class ReponseAppelOffreComponent implements OnInit {
   addToOffre() {
     this.offre.prestations = this.prestaList;
     // this.offre.id = 40;
+    // this.offre.version = 1
     for (let presta of this.offre.prestations) {
       presta.phasePresta = "enConsult";
       presta.offre = new Offre();
