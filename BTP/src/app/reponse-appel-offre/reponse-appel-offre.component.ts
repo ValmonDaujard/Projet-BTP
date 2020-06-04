@@ -4,7 +4,7 @@ import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
 import {Projet} from "../model/projet";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
 import {SessionService} from "../session.service";
 import {AppelOffre} from "../model/appelOffre";
@@ -29,9 +29,10 @@ export class ReponseAppelOffreComponent implements OnInit {
   prixTTC: number;
   prestaForm: Prestation = null;
   user: any = null;
+  modalMarge: Prestation = null;
 
 
-  constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
+  constructor(public router: Router, private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
     this.user = this.sessionService.getUser();
     this.route.params.subscribe(parameters => {
       this.findAppelOffre(parameters.id);
@@ -86,10 +87,14 @@ export class ReponseAppelOffreComponent implements OnInit {
     )
   }
 
-  listPrestaValideeEG(): Array<Prestation> {
+  listPrestaValideeEG(id:number): Array<Prestation> {
 
     return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
-    // return this.reponseAppelOffreService.findPrestationByPhaseConsult();
+
+    // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideEG(id).subscribe(resp => {
+    //   this.prestaValideesEG = resp;
+    //   }, error => console.log(error));
+    // return this.prestaValideesEG
     }
 
     calculTotalHT(): number {
@@ -99,7 +104,7 @@ export class ReponseAppelOffreComponent implements OnInit {
         total+=presta.prix;
       }
       return total;
-    }
+  }
 
   calculTotalTTC(): number {
     let total:number = 0;
@@ -107,8 +112,12 @@ export class ReponseAppelOffreComponent implements OnInit {
     for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
       total+=presta.prix;
     }
-      total = total*((this.marge/100)+1);
+    if(!this.marge) {
       this.prixTTC = total;
+    } else {
+      total = total * ((this.marge / 100) + 1);
+      this.prixTTC = total;
+    }
 
     return total;
   }
@@ -146,15 +155,18 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   offreConsultable() {
       this.offre.prix = this.prixTTC;
-      this.offre.numeroDevis = 55555;
-      this.offre.dtDebut = new Date(2020, 0O5, 0O5);
-      this.offre.dtFin = new Date(2020, 0O7, 0O5);
-      this.offre.etat = "consult";
+        this.offre.numeroDevis = 55555;
+        this.offre.dtDebut = new Date(2020, 0O5, 0O5);
+        this.offre.dtFin = new Date(2020, 0O7, 0O5);
+        this.offre.etat = "consult";
 
-      this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
-    }, error => console.log(error));
+        this.router.navigate(['accueilMOE']);
 
-      this.offre = new Offre();
+        this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
+        }, error => console.log(error));
+
+        this.offre = new Offre();
+
   }
 
   addLigne() {

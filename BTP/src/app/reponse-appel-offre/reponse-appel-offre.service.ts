@@ -32,13 +32,13 @@ export class ReponseAppelOffreService {
     return this.http.get<AppelOffre>("http://localhost:8080/appelOffre/" + id);
   }
 
-  findPrestationByPhaseConsult(): Array<Prestation> {
-    return this.prestaValideesEG;
-  }
-
   findPrestationByPhaseValideEG(): Array<Prestation>{
   return this.prestaValideesEG;
   }
+
+  // findPrestationByOffreEtPhaseValideEG(id: number): Observable<Array<Prestation>> {
+  //   return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase-offre/ValideEG/" + id);
+  // }
 
   findPrestationByPhaseValideeMO(): Array<Prestation> {
     return this.prestaValideesMO;
@@ -52,9 +52,6 @@ export class ReponseAppelOffreService {
     this.http.get<Array<Prestataire>>("http://localhost:8080/prestataire/").subscribe(resp => {
       this.egs = resp;
     }, error => console.log(error)),
-      // this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/enConsult").subscribe(resp => {
-      //   this.prestaValideesEG = resp;
-      // }, error => console.log(error))
     this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase/ValideEG").subscribe(resp => {
       this.prestaValideesEG = resp;
     }, error => console.log(error))
