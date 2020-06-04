@@ -39,6 +39,10 @@ export class ReponseAppelOffreService {
     return this.prestaValideesMO;
   }
 
+  findPrestationByPhaseValideMOAndOffre(idOffre: number): Observable<Array<Prestation>> {
+    return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase-offre/ValideMOeuvre/" + idOffre)
+  }
+
   // findPrestationByOffreEtPhaseValideEG(id: number): Observable<Array<Prestation>> {
   //   return this.http.get<Array<Prestation>>("http://localhost:8080/prestation/by-phase-offre/ValideEG/" + id);
   // }
@@ -81,7 +85,7 @@ export class ReponseAppelOffreService {
   }
 
   createOffre(offre: Offre) {
-    return this.http.post<Offre>("http://localhost:8080/offre", offre);
+    return this.http.put<Offre>("http://localhost:8080/offre/" + offre.id, offre);
   }
 
   createPresta(prestation: Prestation) {

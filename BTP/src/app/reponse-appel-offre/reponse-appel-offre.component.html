@@ -1,4 +1,8 @@
 <div class="container-fluid" style="background-color: #F8F8F8">
+  <div>
+    <h2 class="font-weight-bold mb-0" style="text-align: center;">{{offre.appelOffre?.nom}}</h2>
+    <h2 class="font-weight-bold mb-0" style="text-align: center;">{{offre.appelOffre?.adresse?.rue}} {{offre.appelOffre?.adresse?.codePostal}} {{offre.appelOffre?.adresse?.ville}}</h2>
+  </div>
   <div class="col">
     <div class="row">
       <div class="card col my-4 mx-4">
@@ -137,7 +141,7 @@
             <table class="mx-auto table table-striped">
               <tbody>
 <!--              <tr>-->
-              <tr *ngFor="let presta of listPrestaValideeMO(this.offre.id)">
+              <tr *ngFor="let presta of prestaValideesMO">
                 <td class="text-center" style="width: 20%" *ngIf="!presta.prestataire">Maître d'oeuvre</td>
                 <td class="text-center" style="width: 20%" *ngIf="presta.prestataire">{{presta.prestataire?.nom}}</td>
                 <td class="text-center" style="width: 35%">{{presta.nom}}</td>

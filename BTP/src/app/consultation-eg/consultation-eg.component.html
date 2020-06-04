@@ -40,7 +40,7 @@
     </div>
   </div>
   <div class="row pb-5">
-    <button class="btn btn-outline-danger mx-auto p-3" [routerLink]="['/accueilEG']"><b>Refuser la consultation</b></button>
-    <button class="btn btn-outline-success mx-auto p-3" [routerLink]="['/reponseConsultation/'+ consultPresta.id]"><b>Répondre à la consultation</b></button>
+    <button class="btn btn-outline-danger mx-auto p-3" (click)="refusConsult(consultPresta.id)"><b>Refuser la consultation</b></button>
+    <button class="btn btn-outline-success mx-auto p-3" [routerLink]="['/reponseConsultation/'+ consultPresta.id]" ><b>Répondre à la consultation</b></button>
   </div>
 </div>

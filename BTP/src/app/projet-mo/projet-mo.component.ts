@@ -68,6 +68,28 @@ export class ProjetMOComponent implements OnInit {
   }
 
 
+  // saveAction() {
+  //   if (!this.currentAction.id) {
+  //     this.projetMOService.createAction(this.currentAction).subscribe(resp => {
+  //       console.log(this.currentAction);
+  //         this.currentAction = null;
+  //         this.projetMOService.findActions(this.projet.id).subscribe(resp => {
+  //           this.actionref = resp;
+  //         }, error => console.log(error));
+  //       },
+  //       error => console.log(error)
+  //     )
+  //     ;
+  //   } else {
+  //     this.projetMOService.modifyAction(this.currentAction).subscribe(resp => {
+  //       this.currentAction = null;
+  //       this.projetMOService.findActions(this.projet.id).subscribe(resp => {
+  //         this.actionref = resp;
+  //       }, error => console.log(error));
+  //     })
+  //   }
+  // }
+
   saveAction() {
     if (!this.currentAction.id) {
       this.projetMOService.createAction(this.currentAction).subscribe(resp => {
@@ -141,8 +163,10 @@ export class ProjetMOComponent implements OnInit {
 
   addAction() {
     this.currentAction = new Action();
+    this.currentAction.dtCreation = new Date();
     this.currentAction.projet = this.projet;
     this.currentAction.effectuee = false;
+    console.log(this.currentAction)
   }
 
   deleteReunionEffectues(id: number) {

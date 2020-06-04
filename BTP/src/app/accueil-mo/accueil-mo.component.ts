@@ -4,6 +4,7 @@ import {Offre} from '../model/offre';
 import {AccueilMOService} from './accueil-mo.service';
 import {ActivatedRoute} from "@angular/router";
 import {SessionService} from "../session.service";
+import {Prestation} from "../model/prestation";
 
 @Component({
   selector: 'app-accueil-mo',
@@ -14,6 +15,7 @@ export class AccueilMOComponent implements OnInit {
 
   projets: Array<Projet> = new Array<Projet>();
   offres: Array<Offre> = new Array<Offre>();
+  prestations: Array<Prestation> = new Array<Prestation>();
   user: any = null;
   offre: Offre = new Offre();
   projet: Projet = new Projet();
@@ -32,6 +34,7 @@ export class AccueilMOComponent implements OnInit {
       this.offre.etat = "val";
       this.accueilMOService.changeEtatOffre(this.offre).subscribe(resp => {
         this.offre = resp;
+        this.list(this.user.societe.id);
       }, err => console.log(err));
       this.projet.offre = this.offre;
       this.projet.arret = 0;
@@ -40,7 +43,18 @@ export class AccueilMOComponent implements OnInit {
       this.projet.numeroDevis = this.offre.numeroDevis;
       this.accueilMOService.createProjet(this.projet).subscribe(resp => {
         this.projet = resp;
-        this.list(this.user.societe.id)
+        this.list(this.user.societe.id);
+        this.accueilMOService.findAllByOffre(idOffre).subscribe(resp =>{
+          this.prestations = resp;
+          this.list(this.user.societe.id);
+          for (let presta of this.prestations){
+            presta.projet = this.projet;
+            this.accueilMOService.modifyPresta(presta).subscribe(resp => {
+            presta = resp;
+            this.list(this.user.societe.id);
+            }, error => console.log(error));
+          }
+        }, err => console.log(err));
       }, err => console.log(err));
     }, error => console.log(error));
 

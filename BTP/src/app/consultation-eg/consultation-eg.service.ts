@@ -18,6 +18,10 @@ export class ConsultationEGService {
     return this.http.get<Prestation>('http://localhost:8080/prestation/' + id);
   }
 
+  refusConsult(presta : Prestation){
+    return this.http.put<Prestation>('http://localhost:8080/prestation/' + presta.id, presta)
+  }
+
   load(){
     this.http.get<Array<Prestation>>('http://localhost:8080/prestation').subscribe(resp => {
       this.prestations = resp;

@@ -46,6 +46,7 @@ public class Prestation {
 	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	@JsonView(Views.ViewCommon.class)
+	@Enumerated(EnumType.STRING)
 	private PhasePresta phasePresta;
 	@JsonView(Views.ViewCommon.class)
 	private Boolean obsolete;

@@ -102,7 +102,7 @@
                 <tbody >
                 <tr  *ngFor="let prestation of prestationref" >
                   <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 19%">{{prestation.nom}}</td>
-                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 19%">{{prestation.prestataire.nom}}</td>
+                  <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 19%">{{prestation.prestataire?.nom}}</td>
                   <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 22%">{{prestation.dtDebut|date:'dd/MM/yyyy'}}</td>
                   <td  *ngIf="prestation.phasePresta=='ValideMOeuvre'" style="width: 22%">{{prestation.dtFin|date:'dd/MM/yyyy'}}</td>
                 </tr>

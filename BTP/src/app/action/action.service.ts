@@ -20,4 +20,5 @@ export class ActionService {
   findSalaries(id: number) : Observable<Array<Salarie>> {
     return this.http.get<Array<Salarie>>("http://localhost:8080/salarie/by-action/" + id);
   }
+
 }
