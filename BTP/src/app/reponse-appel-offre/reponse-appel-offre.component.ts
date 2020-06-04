@@ -75,9 +75,9 @@ export class ReponseAppelOffreComponent implements OnInit {
     // this.offre.version = 1
     for (let presta of this.offre.prestations) {
       presta.phasePresta = "enConsult";
-      presta.offre = new Offre();
-      presta.offre.id = this.offre.id;
-      presta.offre.version = this.offre.version;
+      // presta.offre = new Offre();
+      // presta.offre = this.offre;
+      // presta.offre.version = this.offre.version;
       this.prestaList = new Array<Prestation>();
     }
 
