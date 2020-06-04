@@ -35,21 +35,29 @@ export class ReponseAppelOffreComponent implements OnInit {
   constructor(public router: Router, private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
     this.user = this.sessionService.getUser();
     this.route.params.subscribe(parameters => {
-      this.findAppelOffre(parameters.id);
-    });
-    this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
-    this.offre.maitreOeuvre = this.user.societe;
+      this.reponseAppelOffreService.findOffreById(parameters.id).subscribe(resp=> {
+        this.offre = resp;
+        console.log(this.offre);
+        this.reponseAppelOffreService.findPrestationByPhaseValideMOAndOffre(this.offre.id).subscribe(resp => {
+          console.log(resp);
+          this.prestaValideesMO = resp;
+          console.log(this.prestaValideesMO);
+        }, error => console.log(error));
+      }, error => console.log(error));
+    }, error => console.log(error));
+    // this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
+    // this.offre.maitreOeuvre = this.user.societe;
     // this.offre.id = 88;
   }
 
   ngOnInit(): void {
   }
 
-  findAppelOffre(id: number) {
-    this.reponseAppelOffreService.findAppelOffreById(id).subscribe(resp=> {
-      this.appelOffre = resp;
-    }, error => console.log(error));
-  }
+  // findAppelOffre(id: number) {
+  //   this.reponseAppelOffreService.findAppelOffreById(id).subscribe(resp=> {
+  //     this.appelOffre = resp;
+  //   }, error => console.log(error));
+  // }
 
   listEG(): Array<Prestataire> {
     return this.reponseAppelOffreService.findAll();
@@ -70,20 +78,24 @@ export class ReponseAppelOffreComponent implements OnInit {
   }
 
   addToOffre() {
-    this.offre.prestations = this.prestaList;
+    // this.offre.prestations = this.prestaList;
     // this.offre.id = 40;
     // this.offre.version = 1
-    for (let presta of this.offre.prestations) {
+    for (let presta of this.prestaList) {
       presta.phasePresta = "enConsult";
+      presta.offre = this.offre;
+      presta.categorie = "grosOeuvre";
       // presta.offre = new Offre();
       // presta.offre = this.offre;
       // presta.offre.version = this.offre.version;
-      this.prestaList = new Array<Prestation>();
     }
 
-    this.reponseAppelOffreService.createPrestations(this.offre.prestations).subscribe(resp => {
+
+    this.reponseAppelOffreService.createPrestations(this.prestaList).subscribe(resp => {
         this.reponseAppelOffreService.load();
-        this.prestations = resp;
+        this.prestaList = resp;
+        console.log(this.prestaList);
+        this.prestaList = new Array<Prestation>();
       },
       error => console.log(error)
     )
@@ -101,7 +113,8 @@ export class ReponseAppelOffreComponent implements OnInit {
     calculTotalHT(): number {
       let total:number = 0;
 
-      for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+      // for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+      for(let presta of this.prestaValideesMO) {
         total+=presta.prix;
       }
       return total;
@@ -110,8 +123,8 @@ export class ReponseAppelOffreComponent implements OnInit {
   calculTotalTTC(): number {
     let total:number = 0;
 
-    for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
-    // for(let presta of this.prestaValideesMO) {
+    // for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+    for(let presta of this.prestaValideesMO) {
       total+=presta.prix;
     }
     if(!this.marge) {
@@ -128,20 +141,28 @@ export class ReponseAppelOffreComponent implements OnInit {
     this.reponseAppelOffreService.deleteById(id);
   }
 
-  listPrestaValideeMO(id: number) {
-    return this.reponseAppelOffreService.findPrestationByPhaseValideeMO();
-
-    // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideMO(id).subscribe(resp => {
-    //   this.prestaValideesMO = resp;
-    // }, error => console.log(error));
-  }
+  // listPrestaValideeMO(id: number) {
+  //   return this.reponseAppelOffreService.findPrestationByPhaseValideeMOAndProjet(id).subscribe(resp => {
+  //     this.prestaValideesMO = resp;
+  //
+  //   }, error => console.log(error));
+  //
+  //   // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideMO(id).subscribe(resp => {
+  //   //   this.prestaValideesMO = resp;
+  //   // }, error => console.log(error));
+  // }
 
   validerPresta(id: number) {
     this.reponseAppelOffreService.findPrestaById(id).subscribe(resp => {
       this.currentPresta = resp;
       this.currentPresta.phasePresta = "ValideMOeuvre";
       this.reponseAppelOffreService.modifyPresta(this.currentPresta).subscribe(resp => {
+        this.currentPresta = resp;
         this.reponseAppelOffreService.load();
+        this.reponseAppelOffreService.findPrestationByPhaseValideMOAndOffre(this.offre.id).subscribe(resp => {
+          console.log(resp);
+          this.prestaValideesMO = resp;
+          console.log(this.prestaValideesMO)}, error => console.log(error));
         this.currentPresta = null;
       }, error => console.log(error));
     })
@@ -153,7 +174,12 @@ export class ReponseAppelOffreComponent implements OnInit {
       // this.currentPresta.phasePresta = "enConsult";
       this.currentPresta.phasePresta = "ValideEG";
       this.reponseAppelOffreService.modifyPresta(this.currentPresta).subscribe(resp => {
+        this.currentPresta = resp;
         this.reponseAppelOffreService.load();
+        this.reponseAppelOffreService.findPrestationByPhaseValideMOAndOffre(this.offre.id).subscribe(resp => {
+          console.log(resp);
+          this.prestaValideesMO = resp;
+          console.log(this.prestaValideesMO)}, error => console.log(error));
         this.currentPresta = null;
       }, error => console.log(error));
     })
@@ -161,14 +187,12 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   offreConsultable() {
       this.offre.prix = this.prixTTC;
-        this.offre.numeroDevis = 55555;
-        this.offre.dtDebut = new Date(2020, 0O5, 0O5);
-        this.offre.dtFin = new Date(2020, 0O7, 0O5);
         this.offre.etat = "consult";
 
-        this.router.navigate(['accueilMOE']);
 
         this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
+          this.offre = resp;
+          this.router.navigate(['accueilMOE']);
         }, error => console.log(error));
 
         this.offre = new Offre();
@@ -181,12 +205,19 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   addPresta() {
     this.prestaForm.phasePresta = "ValideMOeuvre";
+    this.prestaForm.offre = this.offre;
+    this.prestaForm.categorie = "autre";
     // this.prestaForm.prestataire = this.user.societe;
       // new Prestataire(null,null,null, this.user.societe.nom)
     // console.log(this.user)
     this.reponseAppelOffreService.createPresta(this.prestaForm).subscribe(resp => {
+        this.prestaForm = resp;
         this.prestaForm = null;
         this.reponseAppelOffreService.load();
+        this.reponseAppelOffreService.findPrestationByPhaseValideMOAndOffre(this.offre.id).subscribe(resp => {
+          console.log(resp);
+          this.prestaValideesMO = resp;
+          console.log(this.prestaValideesMO)}, error => console.log(error));
       },
       error => console.log(error)
     )

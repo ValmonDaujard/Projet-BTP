@@ -67,6 +67,12 @@ public class ProjetRestController {
 		return projetRepo.findAllByPrestataire(id);
 	}
 	
+	@GetMapping("/by-offre/{id}")
+	@JsonView(Views.ViewProjet.class)
+	public Projet findProjetByOffreId(@PathVariable Long id){
+		return projetRepo.findProjetByOffreId(id);
+	}
+	
 	@PostMapping("")
 	public Projet create(@RequestBody Projet projet) {
 		projet = projetRepo.save(projet);

@@ -14,6 +14,10 @@ public interface IPrestationRepository extends JpaRepository<Prestation, Long> {
 	// Prestation par projet
 	@Query("select p from Prestation p where p.projet.id = :id")
 	List<Prestation> findAllByProjet(@Param("id") Long id);
+	
+	// Prestation par offre
+	@Query("select p from Prestation p where p.offre.id = :id")
+	List<Prestation> findAllByOffre(@Param("id") Long id);
 
 	// Prestation en cours par projet
 	@Query("select p from Prestation p where p.projet.id = :id AND p.dtDebut <= CURRENT_DATE  AND p.dtFin >= CURRENT_DATE")

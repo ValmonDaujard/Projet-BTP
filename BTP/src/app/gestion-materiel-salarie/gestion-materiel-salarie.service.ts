@@ -48,7 +48,7 @@ export class GestionMaterielSalarieService {
   }
 
   deleteSalarieById(id: number){
-    this.http.delete('http://localhost:8080/salarie/' + id).subscribe(resp => this.load(), error => console.log(error));
+    this.http.delete('http://localhost:8080/salarie/' + id);
   }
 
   deleteMaterielById(id: number){

@@ -39,6 +39,7 @@ export class ProfilComponent implements OnInit {
         this.sessionService.setUser(resp);
         this.user = this.sessionService.getUser();
         console.log(this.user);
+        this.hautDePage();
       },error => console.log(error))
       },error => console.log(error)
     ) ;
@@ -59,6 +60,10 @@ export class ProfilComponent implements OnInit {
       this.displayInput = '';
       this.displayButton = 'display: none';
     }
+  }
+
+  hautDePage() {
+    document.getElementById("nom").focus({preventScroll:false})
   }
 
 }

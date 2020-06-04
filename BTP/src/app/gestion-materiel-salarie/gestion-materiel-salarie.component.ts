@@ -20,6 +20,8 @@ export class GestionMaterielSalarieComponent implements OnInit {
   materiels: Array<Materiel> = new Array<Materiel>();
   idEntreprise: number;
   user: any = null ;
+  salarieDelete : Salarie = new Salarie();
+  materielDelete : Materiel = new Materiel();
 
   constructor(private gestionMaterielSalarieService: GestionMaterielSalarieService, private sessionService: SessionService) {
     this.user = this.sessionService.getUser()
@@ -67,12 +69,13 @@ export class GestionMaterielSalarieComponent implements OnInit {
 
   saveSalarie() {
     if (!this.salarieForm.id) {
-      this.salarieForm.prestataire = new Prestataire();
-      this.salarieForm.prestataire.id = this.idEntreprise;
-      this.salarieForm.prestataire.type = 'Prestataire';
+      this.salarieForm.prestataire = this.user.societe;
+      // this.salarieForm.prestataire.id = this.user.societe.id;
+      // this.salarieForm.prestataire.type = 'Prestataire';
 
       this.gestionMaterielSalarieService.createSalarie(this.salarieForm).subscribe(resp => {
           this.gestionMaterielSalarieService.findSalarieByEntreprise(this.idEntreprise).subscribe(resp => this.salaries = resp, error => console.log(error));
+          this.list(this.user.societe.id)
         },
         error => console.log(error)
       );
@@ -80,6 +83,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
       this.gestionMaterielSalarieService.modifySalarie(this.salarieForm).subscribe(resp => {
         this.salarieForm = null;
         this.gestionMaterielSalarieService.findSalarieByEntreprise(this.idEntreprise).subscribe(resp => this.salaries = resp, error => console.log(error));
+        this.list(this.user.societe.id);
       }, error => console.log(error));
     }
     this.salarieForm = null;
@@ -87,12 +91,13 @@ export class GestionMaterielSalarieComponent implements OnInit {
 
   saveMateriel() {
     if (!this.materielForm.id) {
-      this.materielForm.prestataire = new Prestataire();
-      this.materielForm.prestataire.id = this.idEntreprise;
-      this.materielForm.prestataire.type = 'Prestataire';
+      this.materielForm.prestataire = this.user.societe;
+      // this.materielForm.prestataire.id = this.idEntreprise;
+      // this.materielForm.prestataire.type = 'Prestataire';
 
       this.gestionMaterielSalarieService.createMateriel(this.materielForm).subscribe(resp => {
           this.gestionMaterielSalarieService.findMaterielByEntreprise(this.idEntreprise).subscribe(resp => this.materiels = resp, error => console.log(error));
+          this.list(this.user.societe.id);
         },
         error => console.log(error)
       );
@@ -100,6 +105,7 @@ export class GestionMaterielSalarieComponent implements OnInit {
       this.gestionMaterielSalarieService.modifyMateriel(this.materielForm).subscribe(resp => {
         this.materielForm = null;
         this.gestionMaterielSalarieService.findMaterielByEntreprise(this.idEntreprise).subscribe(resp => this.materiels = resp, error => console.log(error));
+        this.list(this.user.societe.id);
       }, error => console.log(error));
     }
     this.materielForm = null;
@@ -123,15 +129,25 @@ export class GestionMaterielSalarieComponent implements OnInit {
   }
 
   deleteSalarie(id: number) {
-    this.gestionMaterielSalarieService.deleteSalarieById(id);
-    this.salarieFormDetails = null;
-    this.salarieForm = null;
-    // this.gestionMaterielSalarieService.load();
+    this.gestionMaterielSalarieService.findByIdSalarie(id).subscribe(resp => {this.salarieDelete = resp;
+    this.salarieDelete.prestataire = null;
+    this.gestionMaterielSalarieService.modifySalarie(this.salarieDelete).subscribe(resp =>{ this.salarieDelete = resp;
+      this.salarieFormDetails = null;
+      this.salarieForm = null;
+      this.list(this.user.societe.id);
+    }, error => console.log(error))
+    }, error => console.log(error))
+
   }
 
   deleteMateriel(id: number){
-    this.gestionMaterielSalarieService.deleteMaterielById(id);
-    this.materielForm = null;
+    this.gestionMaterielSalarieService.findByIdMateriel(id).subscribe(resp => {this.materielDelete = resp;
+      this.materielDelete.prestataire = null;
+      this.gestionMaterielSalarieService.modifyMateriel(this.materielDelete).subscribe(resp =>{ this.materielDelete = resp;
+        this.materielForm = null;
+        this.list(this.user.societe.id);
+      }, error => console.log(error))
+    }, error => console.log(error))
   }
 
   rechercheEmp() {

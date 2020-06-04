@@ -81,7 +81,7 @@
           <td style="width: 18%" *ngIf="off.appelOffre">{{off.appelOffre.objectif}}</td>
           <td style="width: 18%" *ngIf="off.appelOffre">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
           <td style="width: 10%" *ngIf="off.appelOffre"><div class="btn-group" style="margin-left: 20px">
-            <a class="btn btn-sm btn-lg" [routerLink]="['/reponseAppelOffre/'+ off.appelOffre.id]"><i class="fas fa-info"></i></a>
+            <a class="btn btn-sm btn-lg" [routerLink]="['/reponseAppelOffre/'+ off.id]"><i class="fas fa-info"></i></a>
           </div></td>
         </tr>
         </tbody>

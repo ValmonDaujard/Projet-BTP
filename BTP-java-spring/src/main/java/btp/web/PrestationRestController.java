@@ -56,6 +56,12 @@ public class PrestationRestController {
 	public List<Prestation> findAllByProjet(@PathVariable Long id) {
 		return prestationRepo.findAllByProjet(id);
 	}
+	
+	@GetMapping("/par-offre/{id}")
+	@JsonView(Views.ViewPrestation.class)
+	public List<Prestation> findAllByOffre(@PathVariable Long id) {
+		return prestationRepo.findAllByOffre(id);
+	}
 
 	@GetMapping("/en-cours-par-projet/{id}")
 	@JsonView(Views.ViewPrestation.class)

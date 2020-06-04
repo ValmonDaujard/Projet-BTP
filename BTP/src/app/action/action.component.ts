@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ActionService} from "./action.service";
 import {Action} from "../model/action";
 import {Salarie} from "../model/salarie";
+import {Projet} from "../model/projet";
 
 @Component({
   selector: 'app-action',
@@ -14,6 +15,7 @@ export class ActionComponent implements OnInit {
 
   action : Action = null;
   salariesref : Array<Salarie> = new Array();
+  projet: Projet = new Projet();
 
 
   constructor(private actionService: ActionService, private route: ActivatedRoute) {
@@ -28,6 +30,7 @@ export class ActionComponent implements OnInit {
       }, error => console.log(error));
     })
   }
+
 
   ngOnInit(): void {
   }

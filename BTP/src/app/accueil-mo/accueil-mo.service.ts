@@ -3,6 +3,8 @@ import {Projet} from '../model/projet';
 import {Offre} from '../model/offre';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
+import {Prestation} from "../model/prestation";
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +36,14 @@ export class AccueilMOService {
 
   findOffreById(id:number) : Observable<Offre> {
     return this.http.get<Offre>('http://localhost:8080/offre/' + id);
+  }
+
+  findAllByOffre(id: number): Observable<Array<Prestation>> {
+    return this.http.get<Array<Prestation>>('http://localhost:8080/prestation/par-offre/' + id);
+  }
+
+  modifyPresta(presta: Prestation) {
+    return this.http.put<Prestation>("http://localhost:8080/prestation/" + presta.id, presta);
   }
 
   load(){
