@@ -93,7 +93,7 @@
             <table class="mx-auto table table-striped">
               <tbody>
               <tr *ngFor="let presta of listPrestaValideeEG(this.offre.id)">
-                <td class="text-center" style="width: 20%">{{presta.id}}</td>
+                <td class="text-center" style="width: 20%">{{presta.prestataire.nom}}</td>
                 <td class="text-center" style="width: 30%">{{presta.nom}}</td>
                 <td class="text-center" style="width: 10%">{{presta.prix}} €</td>
                 <td class="text-center" style="width: 20%"><button
