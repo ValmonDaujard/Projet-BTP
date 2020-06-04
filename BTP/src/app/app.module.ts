@@ -21,6 +21,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfilComponent } from './profil/profil.component';
 import { ReponseConsultationComponent } from './reponse-consultation/reponse-consultation.component';
 import {RouterModule} from "@angular/router";
+import { ActionComponent } from './action/action.component';
+import { ReunionComponent } from './reunion/reunion.component';
 import { CreationAppelOffreComponent } from './creation-appel-offre/creation-appel-offre.component';
 
 
@@ -45,6 +47,8 @@ import { CreationAppelOffreComponent } from './creation-appel-offre/creation-app
     AccueilEGComponent,
     ProjetEGComponent,
     CreationAppelOffreComponent,
+    ActionComponent,
+    ReunionComponent,
   ],
   imports: [
     BrowserModule,

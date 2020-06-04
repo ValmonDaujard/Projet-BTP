@@ -13,6 +13,8 @@ import {ConsultationEGComponent} from './consultation-eg/consultation-eg.compone
 import {ProfilComponent} from "./profil/profil.component";
 import {ReponseConsultationComponent} from './reponse-consultation/reponse-consultation.component';
 import {ProjetMOComponent} from "./projet-mo/projet-mo.component";
+import {ActionComponent} from "./action/action.component";
+import {ReunionComponent} from "./reunion/reunion.component";
 import {CreationAppelOffreComponent} from './creation-appel-offre/creation-appel-offre.component';
 
 
@@ -29,6 +31,9 @@ const routes: Routes = [
   {path: 'projetEG/:id', component: ProjetEGComponent},
   {path: 'consultationEG/:id', component: ConsultationEGComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'action/:id', component: ActionComponent},
+  {path: 'reunion/:id', component: ReunionComponent},
+
   {path: 'reponseConsultation/:id', component: ReponseConsultationComponent},
   {path: 'creationAppelOffre/:id', component: CreationAppelOffreComponent}
 ];

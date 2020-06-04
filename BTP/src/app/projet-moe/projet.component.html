@@ -2,12 +2,15 @@
 
   <div class="content-wrapper">
     <div class="row" id="ligne">
-      <div class="col-md-2 grid-margin">
 
+      <div class="col-md-12 grid-margin">
+        <div>
+          <h4 class="font-weight-bold mb-0" style="text-align: center;">
+            {{projet.offre.appelOffre?.nom| titlecase}}</h4>
+        </div>
       </div>
 
     </div>
-
     <div class="row" id="ligne">
       <div class="col-md-3 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -72,7 +75,7 @@
     <div class="content-wrapper">
 
       <div class="row" id="ligne">
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
           <div class="card shadow p-3 mb-5 bg-white rounded"
                style="height: 400px;">
             <div class="card-header bg-white border-bottom border-warning"
@@ -108,25 +111,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 grid-margin stretch-card">
-          <div class="card shadow p-3 mb-5 bg-white rounded"
-               style="height: 400px;">
-            <div class="card-header bg-white border-bottom border-warning"
-                 style="display: flex">
-              <h3 class="font-weight-bold mb-0 my-3">Calendrier</h3>
 
-            </div>
-            <div class="card-body">
-              <p class="card-title text-md-center text-xl-left">Calendrier</p>
-
-              <!-- 							Calendrier -->
-
-
-              <!--   Calendrier -->
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
 
@@ -164,11 +149,11 @@
                     </div></td>
                     <td *ngIf="action.prestataire!=null" style="width: 19%">{{action.prestataire.nom}}</td>
                     <td *ngIf="action.prestataire==null" style="width: 19%">Non défini</td>
-                    <td *ngIf="action.prestataire==null" style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"><i class="fas fa-times"></i></span></td>
+                    <td *ngIf="action.prestataire==null" style="width: 19%"><span style="font-size: 32px; color: rgb(220, 53, 69)"> <button class="btn text-danger border border-danger" (click)="editAction(action.id)"><i class="fas fa-times"></i></button></span>
+
+                    </td>
                     <td *ngIf="action.prestataire!=null" style="width: 19%"><span style="font-size: 32px; color: rgb(255, 193, 7)"><i class="fas fa-check"></i></span></td>
-                    <td *ngIf="action.prestataire==null"><div class="btn-group btn-group-sm">
-                      <a class="btn btn-primary" (click)="editAction(action.id)"><i class="fa fa-edit"></i></a>
-                    </div></td>
+
                   </tr>
                   </tbody>
                 </table>
@@ -198,30 +183,43 @@
 
             </div>
             <div class="card-body">
-
-              <div class="list-wrapper pt-2">
-                <ul
-                  class="d-flex flex-column-reverse todo-list todo-list-custom"
-                  style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
-                  <div *ngFor="let action of actionref" >
-                  <li  style="display: flex; margin-bottom: 2%; margin-right: 2%"  *ngIf="action.effectuee==true">
-                    <div >
-                      <label >  {{action.nomAction}}
-                      </label>
-                    </div>
-                    <div style="margin-left: auto">
-                      <button class="btn text-warning border border-warning"
-                      >
-                        Voir détail
-                      </button>
-                      <button class="btn text-danger border border-danger">
-                        <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>
-                      </button>
-                    </div>
-                  </li>
-                  </div>
-                </ul>
+              <div>
+                <table class="my-auto table">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th style="width: 18%">Action</th>
+                    <th style="width: 20%">Entreprise</th>
+                    <th style="width: 20%"></th>
+                  </tr>
+                  </thead>
+                </table>
               </div>
+              <div class="scrollTablePrestations">
+                <table class="table table-striped">
+                  <tbody *ngFor="let action of actionref">
+                  <tr  *ngIf="action.effectuee==true" >
+                    <td style="width: 30%">
+                      <label>  {{action.nomAction}}
+                      </label>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{action.prestataire?.nom}}
+                      </label>
+                    </td>
+                    <td style="width: 19%"><button class="btn text-warning border border-warning"
+                                                   [routerLink]="['/action/'+ action.id]">
+                      Voir détail
+                    </button></td>
+                    <td  style="width: 19%"> <button class="btn text-danger border border-danger">
+                      <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>
+                    </button></td>
+
+
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
             </div>
           </div>
         </div>
@@ -235,26 +233,38 @@
                  style="height: 400px;">
               <div class="card-header bg-white border-bottom border-warning"
                    style="display: flex">
-                <h3 class="font-weight-bold mb-0 my-3">Réunion en cours</h3>
+                <h3 class="font-weight-bold mb-0 my-3">Réunion planifiée</h3>
 
               </div>
               <div class="card-body">
-
-                <div class="list-wrapper pt-2" >
-                  <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
-                    <div  *ngFor="let reunion of reunionrefplanifie">
-                    <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-                      <div class="form-check form-check-flat">
-                        <label >  {{reunion.sujet}}
-                        </label>
-                      </div>
-
-                    </li>
-                    </div>
-                  </ul>
+                <div>
+                  <table class="my-auto table">
+                    <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 20%">Réunion</th>
+                      <th style="width: 20%">Date</th>
+                      <th style="width: 20%"></th>
+                    </tr>
+                    </thead>
+                  </table>
                 </div>
+                <div class="scrollTablePrestations">
+                  <table class="table table-striped">
+                    <tbody *ngFor="let reunion of reunionrefplanifie">
+                    <tr  >
+                      <td style="width: 30%">
+                        <label>  {{reunion.sujet}}
+                        </label>
+                      </td>
+
+                      <td >{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
               </div>
             </div>
           </div>
@@ -267,22 +277,34 @@
 
               </div>
               <div class="card-body">
-
-                <div class="list-wrapper pt-2" >
-                  <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 200px; overflow-x: hidden; overflow-y: scroll;">
-                    <div *ngFor="let reunion of reunionrefeffectue">
-                    <li style="display: flex; margin-bottom: 2%; margin-right: 2%">
-                      <div >
-                        <label >  {{reunion.sujet}}
-                        </label>
-                      </div>
-
-                    </li>
-                    </div>
-                  </ul>
+                <div>
+                  <table class="my-auto table">
+                    <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 20%">Réunion</th>
+                      <th style="width: 20%">Date</th>
+                      <th style="width: 20%"></th>
+                    </tr>
+                    </thead>
+                  </table>
                 </div>
+                <div class="scrollTablePrestations">
+                  <table class="table table-striped">
+                    <tbody *ngFor="let reunion of reunionrefeffectue">
+                    <tr  >
+                      <td style="width: 30%">
+                        <label>  {{reunion.sujet}}
+                        </label>
+                      </td>
+
+                      <td >{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
               </div>
             </div>
           </div>
@@ -302,36 +324,54 @@
 
               </div>
               <div class="card-body">
+                <div class="card-body">
+                  <div>
+                    <table class="my-auto table">
+                      <thead class="thead-dark">
+                      <tr>
+                        <th style="width: 18%">Nom facture</th>
+                        <th style="width: 18%">Entreprise</th>
+                        <th style="width: 20%">Numero facture</th>
+                        <th style="width: 20%"></th>
+                      </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="scrollTablePrestations">
+                    <table class="table table-striped">
+                      <tbody *ngFor="let facture of factureref">
+                      <tr  *ngIf="facture.payee==false && facture.factureMOEMO==false" >
+                        <td style="width: 30%">
+                          <label>  {{facture.nomFacture}}
+                          </label>
+                        </td>
+                        <td style="width: 30%">
+                          <label>  {{facture.prestataire?.nom}}
+                          </label>
+                        </td>
+                        <td style="width: 30%">
+                          <label>  {{facture.numeroFacture}}
+                          </label>
+                        </td>
 
-                <div class="list-wrapper pt-2" >
-                  <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-                    <div *ngFor="let facture of factureref">
-                    <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==false&&facture.factureMOEMO==false">
-                      <div >
-                        <label >  {{facture.numeroFacture}}
-                        </label>
-                      </div>
-                      <div style="margin-left: auto">
-                        <button (click)="validerFacture(facture.id)" class="btn text-warning border border-warning">
-                         Valider
-                        </button>
-
-                        <button class="btn text-danger border border-danger">
-                          <i class="fas fa-trash-alt"  (click)="deleteFacture(facture.id)"></i>
-                        </button>
-                      </div>
-                    </li>
-                    </div>
+                        <td style="width: 19%"><button (click)="validerFacture(facture.id)" class="btn text-warning border border-warning">
+                          Valider
+                        </button></td>
+                        <td  style="width: 19%"> <button class="btn text-danger border border-danger">
+                          <i class="fas fa-trash-alt" (click)="deleteFacture(facture.id)"></i>
+                        </button></td>
 
 
-                  </ul>
-                </div>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
 
               </div>
             </div>
 
+          </div>
           </div>
           <div class="col-md-6 grid-margin stretch-card">
             <div class="card shadow p-3 mb-5 bg-white rounded"
@@ -342,21 +382,39 @@
 
               </div>
               <div class="card-body">
-
-                <div class="list-wrapper pt-2">
-                  <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-                    <div  *ngFor="let facture of factureref">
-                    <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==false">
-                      <div >
-                        <label >  {{facture.numeroFacture}}
+                <div>
+                  <table class="my-auto table">
+                    <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 30%">Nom facture</th>
+                      <th style="width: 25%">Entreprise</th>
+                      <th style="width: 20%">Numero facture</th>
+                      <th style="width: 15%"></th>
+                    </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="scrollTablePrestations">
+                  <table class="table table-striped">
+                    <tbody *ngFor="let facture of factureref">
+                    <tr  *ngIf="facture.payee==true && facture.factureMOEMO==false" >
+                      <td style="width: 30%">
+                        <label>  {{facture.nomFacture}}
                         </label>
-                      </div>
-                    </li>
-                    </div>
+                      </td>
+                      <td style="width: 30%">
+                        <label>  {{facture.prestataire?.nom}}
+                        </label>
+                      </td>
+                      <td style="width: 30%">
+                        <label>  {{facture.numeroFacture}}
+                        </label>
+                      </td>
 
-                  </ul>
+
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
 
 
@@ -376,29 +434,48 @@
       <div class="row" id="ligne">
         <div class="col-md-6 grid-margin stretch-card">
           <div class="card shadow p-3 mb-5 bg-white rounded"
-               style="height: 400px;">
+               style="height: 500px;">
             <div class="card-header bg-white border-bottom border-warning"
                  style="display: flex">
               <h3 class="font-weight-bold mb-0 my-3">Demandes de facturation émises</h3>
 
             </div>
             <div class="card-body">
-
-              <div class="list-wrapper pt-2" >
-                <ul
-                  class="d-flex flex-column-reverse todo-list todo-list-custom"
-                  style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-                  <div  *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%"  *ngIf="facture.payee==false&&facture.factureMOEMO==true">
-                    <div>
+              <div>
+                <table class="my-auto table">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th style="width: 30%">Nom facture</th>
+                    <th style="width: 25%">Maitre d'ouvrage</th>
+                    <th style="width: 20%">Numero facture</th>
+                    <th style="width: 15%"></th>
+                  </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="scrollTablePrestations">
+                <table class="table table-striped">
+                  <tbody *ngFor="let facture of factureref">
+                  <tr  *ngIf="facture.payee==false && facture.factureMOEMO==true" >
+                    <td style="width: 30%">
+                      <label>  {{facture.nomFacture}}
+                      </label>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{facture.maitreOuvrage?.nom}}
+                      </label>
+                    </td>
+                    <td style="width: 30%">
                       <label>  {{facture.numeroFacture}}
                       </label>
-                    </div>
+                    </td>
 
-                  </li>
-                  </div>
-                </ul>
+
+                  </tr>
+                  </tbody>
+                </table>
               </div>
+
               <div class="add-items d-flex mb-0 mt-4">
                 <button [routerLink]="['/facture']" routerLinkActive="active" class="btn text-warning border border-warning my-3 "
                         style="margin-right: 30px">
@@ -412,30 +489,48 @@
         </div>
         <div class="col-md-6 grid-margin stretch-card">
           <div class="card shadow p-3 mb-5 bg-white rounded"
-               style="height: 400px;">
+               style="height: 500px;">
             <div class="card-header bg-white border-bottom border-warning"
                  style="display: flex">
               <h3 class="font-weight-bold mb-0 my-3">Demandes de facturation validées</h3>
 
             </div>
             <div class="card-body">
-
-              <div class="list-wrapper pt-2"  >
-                <ul
-                  class="d-flex flex-column-reverse todo-list todo-list-custom"
-                  style="height: 150px; overflow-x: hidden; overflow-y: scroll;" >
-                  <div *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==true">
-                    <div >
-                      <label >  {{facture.numeroFacture}}
+              <div>
+                <table class="my-auto table">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th style="width: 35%">Nom facture</th>
+                    <th style="width: 25%">Maitre d'ouvrage</th>
+                    <th style="width: 20%">Numero facture</th>
+                    <th style="width: 15%"></th>
+                  </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="scrollTablePrestations">
+                <table class="table table-striped">
+                  <tbody *ngFor="let facture of factureref">
+                  <tr  *ngIf="facture.payee==true && facture.factureMOEMO==true" >
+                    <td style="width: 30%">
+                      <label>  {{facture.nomFacture}}
                       </label>
-                    </div>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{facture.maitreOuvrage?.nom}}
+                      </label>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{facture.numeroFacture}}
+                      </label>
+                    </td>
 
-                  </li>
-                  </div>
 
-                </ul>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
+
 
 
             </div>
@@ -446,63 +541,8 @@
 
     </div>
 
-
-
-    <div class="content-wrapper"></div>
-
-
-
-    <div class="row" id="ligne">
-      <div class="col-md-12 grid-margin stretch-card">
-        <div class="card shadow p-3 mb-5 bg-white rounded"
-             style="height: 450px;">
-          <div class="card-header bg-white border-bottom border-warning"
-               style="display: flex">
-            <h3 class="font-weight-bold mb-0 my-3">Document relatif au
-              projet</h3>
-
-          </div>
-          <div class="card-body">
-
-            <div >
-
-              <label class="btn text-warning border border-warning my-3"><b>Ajouter un document</b>
-                <input  class="customInput" type="file" style="display:none" />
-              </label>
-              <label  id="nomFichier"></label>
-            </div>
-
-            <form>
-              <div class="form-group">
-                <textarea class="form-control" rows="5" id="comment" name="text" style="max-height: 150px"></textarea>
-              </div>
-              <button type="submit"
-                      class="btn text-warning border border-warning my-3 ">
-                <b>Soumettre</b>
-              </button>
-            </form>
-
-
-
-          </div>
-
-        </div>
-      </div>
-    </div>
 </div>
 
 
 
 
-<!-- 	Ajouter un fichier : maj nom fichier -->
-<script>
-  $(".customInput").on(
-    "change",
-    function() {
-      var fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected")
-        .html(fileName);
-      $("#nomFichier").empty();
-      $("#nomFichier").append(fileName);
-    });
-</script>

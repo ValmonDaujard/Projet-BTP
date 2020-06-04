@@ -259,25 +259,25 @@ class Test3 {
 				
 				// prestation
 				Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 25000F, sdf.parse("25/02/2020"),
-						sdf.parse("10/03/2020"), false, PhasePresta.ValideMOeuvre,"nouvelles fondations pour hypermarché");
+						sdf.parse("10/03/2020"), false, PhasePresta.ValideMOeuvre, "Fondation bâtiment");
 				Prestation presta2 = new Prestation(Categorie.grosOeuvre, "Maçonerie", 30000F, sdf.parse("11/03/2020"),
-						sdf.parse("25/04/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
+						sdf.parse("25/04/2020"), false, PhasePresta.ValideMOeuvre, "Maçonerie bâtiment");
 				Prestation presta3 = new Prestation(Categorie.grosOeuvre, "Charpente", 20000F, sdf.parse("25/04/2020"),
-						sdf.parse("25/05/2020"), false, PhasePresta.ValideMOeuvre,"nouvelles fondations pour hypermarché");
+						sdf.parse("25/05/2020"), false, PhasePresta.ValideMOeuvre, "Charpente bâtiment");
 				Prestation presta4 = new Prestation(Categorie.secondOeuvre, "Placo", 9000F, sdf.parse("25/05/2020"),
-						sdf.parse("25/06/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
+						sdf.parse("25/06/2020"), false, PhasePresta.ValideMOeuvre, "Charpente bâtiment");
 				Prestation presta5 = new Prestation(Categorie.secondOeuvre, "Elec", 6000F, sdf.parse("15/05/2020"),
-						sdf.parse("25/06/2020"), false, PhasePresta.ValideMOeuvre,"nouvelles fondations pour hypermarché");
+						sdf.parse("25/06/2020"), false, PhasePresta.ValideMOeuvre, "Elec bâtiment");
 				Prestation presta6 = new Prestation(Categorie.secondOeuvre, "Plomberie", 6000F, sdf.parse("28/05/2020"),
-						sdf.parse("12/06/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
+						sdf.parse("12/06/2020"), false, PhasePresta.ValideMOeuvre, "Plomberie bâtiment");
 				Prestation presta7 = new Prestation(Categorie.secondOeuvre, "CVC", 10000F, sdf.parse("15/06/2020"),
-						sdf.parse("25/07/2020"), false, PhasePresta.ValideMOeuvre,"nouvelles fondations pour hypermarché");
+						sdf.parse("25/07/2020"), false, PhasePresta.ValideMOeuvre, "CVC bâtiment");
 				Prestation presta8 = new Prestation(Categorie.secondOeuvre, "Toiture", 15000F, sdf.parse("27/07/2020"),
-						sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
+						sdf.parse("25/09/2020"), false, PhasePresta.ValideMOeuvre, "Toiture bâtiment");
 				Prestation presta9 = new Prestation(Categorie.secondOeuvre, "Finitions", 9000F, sdf.parse("15/09/2020"),
-						sdf.parse("02/01/2021"), false, PhasePresta.ValideMOeuvre,"nouvelles fondations pour hypermarché");
+						sdf.parse("02/01/2021"), false, PhasePresta.ValideMOeuvre, "Finitions bâtiment");
 				Prestation presta10 = new Prestation(Categorie.secondOeuvre, "Cloisons", 8000F, sdf.parse("15/01/2021"),
-						sdf.parse("25/05/2021"), false, PhasePresta.ValideMOeuvre,"plomberie sanitaires immeuble");
+						sdf.parse("25/05/2021"), false, PhasePresta.ValideMOeuvre, "Cloisons bâtiment");
 				
 				
 				
