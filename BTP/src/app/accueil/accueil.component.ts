@@ -21,8 +21,9 @@ export class AccueilComponent implements OnInit {
   userForm: Utilisateur = new Utilisateur();
   inputType = 'password';
   showHideClass = 'fas fa-eye';
+  alert = 'display: none'
 
-  constructor(public router : Router, private accueilService: AccueilService, private sessionService: SessionService) {
+  constructor(public router: Router, private accueilService: AccueilService, private sessionService: SessionService) {
     this.societeForm.adresse = new Adresse();
     this.societeForm.utilisateur = new Utilisateur();
   }
@@ -30,38 +31,32 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showPassword(){
-    if(this.userForm.motDePasse != null || this.societeForm.utilisateur.motDePasse != null)
-    {
-      if(this.inputType == 'password')
-      {
+  showPassword() {
+    if (this.userForm.motDePasse != null || this.societeForm.utilisateur.motDePasse != null) {
+      if (this.inputType == 'password') {
         this.inputType = 'text';
         this.showHideClass = 'fas fa-eye-slash';
-      }
-      else
-      {
+      } else {
         this.inputType = 'password';
         this.showHideClass = 'fas fa-eye';
       }
     }
   };
 
-  type(){
+  type() {
     if (this.societeForm.type == "MOuvrage") {
       this.societeForm = new MaitreOuvrage(null, null, this.societeForm.type);
       this.societeForm.adresse = new Adresse();
       this.societeForm.utilisateur = new Utilisateur();
       console.log(this.societeForm)
       console.log(this.societeForm.type)
-    }
-    else if (this.societeForm.type == "MOeuvre") {
-      this.societeForm = new MaitreOeuvre(null,null,this.societeForm.type);
+    } else if (this.societeForm.type == "MOeuvre") {
+      this.societeForm = new MaitreOeuvre(null, null, this.societeForm.type);
       this.societeForm.adresse = new Adresse();
       this.societeForm.utilisateur = new Utilisateur();
       console.log(this.societeForm.type)
-    }
-    else if (this.societeForm.type == "Prestataire") {
-      this.societeForm = new Prestataire(null,null,this.societeForm.type);
+    } else if (this.societeForm.type == "Prestataire") {
+      this.societeForm = new Prestataire(null, null, this.societeForm.type);
       this.societeForm.adresse = new Adresse();
       this.societeForm.utilisateur = new Utilisateur();
       console.log(this.societeForm.type)
@@ -75,15 +70,15 @@ export class AccueilComponent implements OnInit {
 
   }
 
-  show(){
+  show() {
     console.log(this.userForm);
   }
 
-  connexion(){
+  connexion() {
     console.log(this.userForm);
     this.accueilService.authentification(this.userForm).subscribe(resp => {
       console.log(resp);
-      if(resp) {
+      if (resp) {
         this.userForm = resp;
         this.sessionService.setUser(this.userForm);
         // sessionStorage.setItem('user', JSON.stringify(this.userForm))
@@ -111,8 +106,8 @@ export class AccueilComponent implements OnInit {
         },
         error => console.log(error)
       )
-      ;}
-    else if (this.societeForm.type == 'MOeuvre') {
+      ;
+    } else if (this.societeForm.type == 'MOeuvre') {
       this.accueilService.newMOE(this.societeForm).subscribe(resp => {
           this.accueilService.load();
           this.societeForm = null;
@@ -126,9 +121,42 @@ export class AccueilComponent implements OnInit {
           this.societeForm = null;
         },
         error => console.log(error)
-      )
-      ;
+      );
     }
   }
+
+  // this.accueilService.findByIdentifiant(this.societeForm.utilisateur.identifiant).subscribe(resp => {
+  //   console.log(resp);
+  // if (!resp){
+  // if (this.societeForm.type == 'MOuvrage') {
+  //   this.accueilService.newMO(this.societeForm).subscribe(resp => {
+  //       this.accueilService.load();
+  //       this.societeForm = null;
+  //     },
+  //     error => console.log(error)
+  //   )
+  //   ;}
+  // else if (this.societeForm.type == 'MOeuvre') {
+  //   this.accueilService.newMOE(this.societeForm).subscribe(resp => {
+  //       this.accueilService.load();
+  //       this.societeForm = null;
+  //     },
+  //     error => console.log(error)
+  //   )
+  //   ;
+  // } else if (this.societeForm.type == 'Prestataire') {
+  //   this.accueilService.newPrestataire(this.societeForm).subscribe(resp => {
+  //       this.accueilService.load();
+  //       this.societeForm = null;
+  //     },
+  //     error => console.log(error)
+  //   )
+  //   ;
+  // }}
+  // else {
+  //   this.alert = ''
+  // }
+  // }, err => console.log(err));
+// }}
 
 }

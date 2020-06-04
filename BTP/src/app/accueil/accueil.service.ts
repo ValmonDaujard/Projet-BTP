@@ -39,6 +39,10 @@ export class AccueilService {
     return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/by-identifiant-and-mot-de-passe/" + identifiant + ":" + mdp);
   }
 
+  findByIdentifiant(identifiant: string): Observable<Utilisateur>{
+    return this.http.get<Utilisateur>("http://localhost:8080/utilisateur/by-identifiant/" + identifiant);
+  }
+
   authentification(utilisateur: Utilisateur){
     return this.http.post<Utilisateur>("http://localhost:8080/utilisateur/authentification", utilisateur);
   }
