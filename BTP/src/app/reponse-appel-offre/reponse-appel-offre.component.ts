@@ -39,7 +39,7 @@ export class ReponseAppelOffreComponent implements OnInit {
     });
     this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
     this.offre.maitreOeuvre = this.user.societe;
-    this.offre.id = 88;
+    // this.offre.id = 88;
   }
 
   ngOnInit(): void {
