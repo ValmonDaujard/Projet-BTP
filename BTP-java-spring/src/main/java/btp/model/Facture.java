@@ -26,6 +26,9 @@ public class Facture {
 	private int version;
 	
 	@JsonView(Views.ViewCommon.class)
+	private String nomFacture;
+	
+	@JsonView(Views.ViewCommon.class)
 	private int numeroFacture;
 	
 	@Temporal(TemporalType.DATE)
@@ -77,9 +80,10 @@ public class Facture {
 		super();
 	}
 
-	public Facture(int numeroFacture, Date dtFacturation, Float prixHT, Float remise,
+	public Facture(String nomFacture, int numeroFacture, Date dtFacturation, Float prixHT, Float remise,
 			Date dtEcheance, Float penaliteRetard, Boolean payee, Boolean factureMOEMO) {
 		super();
+		this.nomFacture = nomFacture;
 		this.numeroFacture = numeroFacture;
 		this.dtFacturation = dtFacturation;
 		this.prixHT = prixHT;
@@ -96,6 +100,14 @@ public class Facture {
 	}
 
 
+
+	public String getNomFacture() {
+		return nomFacture;
+	}
+
+	public void setNomFacture(String nomFacture) {
+		this.nomFacture = nomFacture;
+	}
 
 	public MaitreOeuvre getMaitreOeuvre() {
 		return maitreOeuvre;
@@ -227,7 +239,7 @@ public class Facture {
 
 	@Override
 	public String toString() {
-		return "Facture [id=" + id + ", version=" + version + ", numeroFacture=" + numeroFacture + ", dtFacturation="
+		return "Facture [id=" + id + ", version=" + version + ", nomFacture=" + nomFacture + ", numeroFacture=" + numeroFacture + ", dtFacturation="
 				+ dtFacturation + ", prixHT=" + prixHT + ", remise=" + remise + ", dtEcheance=" + dtEcheance
 				+ ", penaliteRetard=" + penaliteRetard + "]";
 	}

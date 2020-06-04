@@ -3,12 +3,11 @@ import {ReponseAppelOffreService} from "./reponse-appel-offre.service";
 import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
-import {Observable} from "rxjs";
 import {Projet} from "../model/projet";
-import {ProjetService} from "../projet-moe/projet.service";
 import {ActivatedRoute} from "@angular/router";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
 import {SessionService} from "../session.service";
+import {AppelOffre} from "../model/appelOffre";
 
 
 @Component({
@@ -18,6 +17,7 @@ import {SessionService} from "../session.service";
 })
 export class ReponseAppelOffreComponent implements OnInit {
 
+  appelOffre: AppelOffre = new AppelOffre();
   prestaEG: Prestation = new Prestation();
   prestaList: Array<Prestation> = new Array<Prestation>();
   prestations: Array<Prestation> = new Array<Prestation>();
@@ -27,16 +27,26 @@ export class ReponseAppelOffreComponent implements OnInit {
   currentPresta: Prestation = null;
   marge: number;
   prixTTC: number;
+  prestaForm: Prestation = null;
+  user: any = null;
 
 
   constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
-    this.sessionService.getUser()
+    this.user = this.sessionService.getUser();
     this.route.params.subscribe(parameters => {
-      this.getMOuvrage(parameters.id);
+      this.findAppelOffre(parameters.id);
     });
+    this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
+    this.offre.maitreOeuvre = this.user.societe;
   }
 
   ngOnInit(): void {
+  }
+
+  findAppelOffre(id: number) {
+    this.reponseAppelOffreService.findAppelOffreById(id).subscribe(resp=> {
+      this.appelOffre = resp;
+    }, error => console.log(error));
   }
 
   listEG(): Array<Prestataire> {
@@ -147,11 +157,26 @@ export class ReponseAppelOffreComponent implements OnInit {
       this.offre = new Offre();
   }
 
-  getMOuvrage(id: number) {
-    this.reponseAppelOffreService.findMOuvrageByAppelOffre(id).subscribe(resp => {
-      this.offre.maitreOuvrage = resp;
-    }, error => console.log(error));
+  addLigne() {
+    this.prestaForm= new Prestation();
   }
 
+  addPresta() {
+    this.prestaForm.phasePresta = "ValideMOeuvre";
+    // this.prestaForm.prestataire = this.user.societe;
+      // new Prestataire(null,null,null, this.user.societe.nom)
+    // console.log(this.user)
+    this.reponseAppelOffreService.createPresta(this.prestaForm).subscribe(resp => {
+        this.prestaForm = null;
+        this.reponseAppelOffreService.load();
+      },
+      error => console.log(error)
+    )
+    ;
+  }
+
+  annulPresta() {
+    this.prestaForm = null;
+  }
 
 }

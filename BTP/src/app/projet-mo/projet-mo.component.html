@@ -243,7 +243,8 @@
           </div>
         </div>
       </div>
-    </div>
+
+
 
     <div class="content-wrapper">
       <div class="row" id="ligne">
@@ -277,7 +278,7 @@
                       </label>
 
 
-                    <td >{{reunion.dtReunion}}</td>
+                    <td >{{reunion.dtReunion|date:'dd/MM/yyyy'}}</td>
 
 
                   <td><div style="margin-left:auto ">
@@ -322,7 +323,7 @@
                       </label>
 
 
-                    <td >{{reunion.dtReunion}}</td>
+                    <td >{{reunion.dtReunion|date:'dd/MM/yyyy'}}</td>
 
 
                     <td><div style="margin-left:auto ">
@@ -391,32 +392,48 @@
 
             </div>
             <div class="card-body">
+              <div class="card-body">
+                <div>
+                  <table class="my-auto table">
+                    <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 18%">Nom facture</th>
+                      <th style="width: 18%">Maitre d'Oeuvre</th>
+                      <th style="width: 20%">Numero facture</th>
+                      <th style="width: 20%"></th>
+                    </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="scrollTablePrestations">
+                  <table class="table table-striped">
+                    <tbody *ngFor="let facture of factureref">
+                    <tr  *ngIf="facture.payee==false && facture.factureMOEMO==true" >
+                      <td style="width: 30%">
+                        <label>  {{facture.nomFacture}}
+                        </label>
+                      </td>
+                      <td style="width: 30%">
+                        <label>  {{facture.maitreOeuvre?.nom}}
+                        </label>
+                      </td>
+                      <td style="width: 30%">
+                        <label>  {{facture.numeroFacture}}
+                        </label>
+                      </td>
 
-              <div class="list-wrapper pt-2" >
-                <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-                  <div *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==false&&facture.factureMOEMO==true">
-                    <div >
-                      <label >  {{facture.numeroFacture}}
-                      </label>
-                    </div>
-                    <div style="margin-left: auto">
-                      <button class="btn text-warning border border-warning" (click)="validerFacture(facture.id)"
-                      >
+                      <td style="width: 19%"><button (click)="validerFacture(facture.id)" class="btn text-warning border border-warning">
                         Valider
-                      </button>
-
-                      <button class="btn text-danger border border-danger">
+                      </button></td>
+                      <td  style="width: 19%"> <button class="btn text-danger border border-danger">
                         <i class="fas fa-trash-alt" (click)="deleteFacture(facture.id)"></i>
-                      </button>
-                    </div>
-                  </li>
-                  </div>
+                      </button></td>
 
 
-                </ul>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
             </div>
@@ -432,22 +449,39 @@
 
             </div>
             <div class="card-body">
-
-              <div class="list-wrapper pt-2" >
-                <ul
-                    class="d-flex flex-column-reverse todo-list todo-list-custom"
-                    style="height: 150px; overflow-x: hidden; overflow-y: scroll;">
-                  <div *ngFor="let facture of factureref">
-                  <li style="display: flex; margin-bottom: 2%; margin-right: 2%" *ngIf="facture.payee==true&&facture.factureMOEMO==true">
-
-                      <label >  {{facture.numeroFacture}}
+              <div>
+                <table class="my-auto table">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th style="width: 30%">Nom facture</th>
+                    <th style="width: 25%">Maitre d'Oeuvre</th>
+                    <th style="width: 20%">Numero facture</th>
+                    <th style="width: 15%"></th>
+                  </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="scrollTablePrestations">
+                <table class="table table-striped">
+                  <tbody *ngFor="let facture of factureref">
+                  <tr  *ngIf="facture.payee==true && facture.factureMOEMO==true" >
+                    <td style="width: 30%">
+                      <label>  {{facture.nomFacture}}
                       </label>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{facture.prestataire?.nom}}
+                      </label>
+                    </td>
+                    <td style="width: 30%">
+                      <label>  {{facture.numeroFacture}}
+                      </label>
+                    </td>
 
 
-
-                  </li>
-                  </div>
-                </ul>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
 
 

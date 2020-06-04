@@ -63,6 +63,12 @@ public class UtilisateurRestController {
 		return utilisateurRepo.findByIdentifiantAndMotDePasse(identifiant, motDePasse);
 	}
 	
+	@GetMapping("/by-identifiant/{identifiant}")
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur findByIdentifiant(@PathVariable String identifiant){
+		return utilisateurRepo.findByIdentifiant(identifiant);
+	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur create(@RequestBody Utilisateur utilisateur) {

@@ -5,6 +5,8 @@ import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
 import {Offre} from "../model/offre";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
+import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
+import {AppelOffre} from "../model/appelOffre";
 
 
 
@@ -24,6 +26,10 @@ export class ReponseAppelOffreService {
 
   findAll(): Array<Prestataire> {
     return this.egs
+  }
+
+  findAppelOffreById(id: number): Observable<AppelOffre> {
+    return this.http.get<AppelOffre>("http://localhost:8080/appelOffre/" + id);
   }
 
   findPrestationByPhaseConsult(): Array<Prestation> {
@@ -73,12 +79,12 @@ export class ReponseAppelOffreService {
     return this.http.get<Offre>("http://localhost:8080/offre/" + id);
   }
 
-  findMOuvrageByAppelOffre(id: number): Observable<MaitreOuvrage> {
-   return this.http.get<MaitreOuvrage>("http://localhost:8080/maitreOuvrage/par-appel-offre/" + id);
-  }
-
   createOffre(offre: Offre) {
     return this.http.post<Offre>("http://localhost:8080/offre", offre);
+  }
+
+  createPresta(prestation: Prestation) {
+    return this.http.post<Prestation>("http://localhost:8080/prestation", prestation);
   }
 
 }

@@ -12,4 +12,7 @@ public interface IUtilisateurRepository extends JpaRepository<Utilisateur, Long>
 	@Query("select u from Utilisateur u where u.identifiant = :identifiant and u.motDePasse = :motDePasse")
 	Utilisateur findByIdentifiantAndMotDePasse(@Param("identifiant") String identifiant, @Param("motDePasse") String motDePasse); //Connexion identifiant
 	
+	@Query("select u from Utilisateur u where u.identifiant = :identifiant")
+	Utilisateur findByIdentifiant(@Param("identifiant") String identifiant);
+	
 }
