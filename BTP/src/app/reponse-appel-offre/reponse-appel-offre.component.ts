@@ -4,7 +4,7 @@ import {Prestataire} from "../model/prestataire";
 import {Prestation} from "../model/prestation";
 import {Offre} from "../model/offre";
 import {Projet} from "../model/projet";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
 import {SessionService} from "../session.service";
 import {AppelOffre} from "../model/appelOffre";
@@ -22,6 +22,7 @@ export class ReponseAppelOffreComponent implements OnInit {
   prestaList: Array<Prestation> = new Array<Prestation>();
   prestations: Array<Prestation> = new Array<Prestation>();
   prestaValideesEG: Array<Prestation> = new Array<Prestation>();
+  prestaValideesMO: Array<Prestation> = new Array<Prestation>();
   offre: Offre = new Offre();
   projet: Projet = new Projet();
   currentPresta: Prestation = null;
@@ -31,13 +32,14 @@ export class ReponseAppelOffreComponent implements OnInit {
   user: any = null;
 
 
-  constructor(private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
+  constructor(public router: Router, private reponseAppelOffreService: ReponseAppelOffreService, private route: ActivatedRoute, private sessionService : SessionService) {
     this.user = this.sessionService.getUser();
     this.route.params.subscribe(parameters => {
       this.findAppelOffre(parameters.id);
     });
     this.offre.maitreOuvrage = this.appelOffre.maitreOuvrage;
     this.offre.maitreOeuvre = this.user.societe;
+    // this.offre.id = 88;
   }
 
   ngOnInit(): void {
@@ -70,6 +72,7 @@ export class ReponseAppelOffreComponent implements OnInit {
   addToOffre() {
     this.offre.prestations = this.prestaList;
     // this.offre.id = 40;
+    // this.offre.version = 1
     for (let presta of this.offre.prestations) {
       presta.phasePresta = "enConsult";
       presta.offre = new Offre();
@@ -86,10 +89,13 @@ export class ReponseAppelOffreComponent implements OnInit {
     )
   }
 
-  listPrestaValideeEG(): Array<Prestation> {
+  listPrestaValideeEG(id:number) {
 
     return this.reponseAppelOffreService.findPrestationByPhaseValideEG();
-    // return this.reponseAppelOffreService.findPrestationByPhaseConsult();
+
+    // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideEG(id).subscribe(resp => {
+    //   this.prestaValideesEG = resp;
+    //   }, error => console.log(error));
     }
 
     calculTotalHT(): number {
@@ -99,16 +105,21 @@ export class ReponseAppelOffreComponent implements OnInit {
         total+=presta.prix;
       }
       return total;
-    }
+  }
 
   calculTotalTTC(): number {
     let total:number = 0;
 
     for(let presta of this.reponseAppelOffreService.findPrestationByPhaseValideeMO()) {
+    // for(let presta of this.prestaValideesMO) {
       total+=presta.prix;
     }
-      total = total*((this.marge/100)+1);
+    if(!this.marge) {
       this.prixTTC = total;
+    } else {
+      total = total * ((this.marge / 100) + 1);
+      this.prixTTC = total;
+    }
 
     return total;
   }
@@ -117,8 +128,12 @@ export class ReponseAppelOffreComponent implements OnInit {
     this.reponseAppelOffreService.deleteById(id);
   }
 
-  listPrestaValideeMO() {
+  listPrestaValideeMO(id: number) {
     return this.reponseAppelOffreService.findPrestationByPhaseValideeMO();
+
+    // this.reponseAppelOffreService.findPrestationByOffreEtPhaseValideMO(id).subscribe(resp => {
+    //   this.prestaValideesMO = resp;
+    // }, error => console.log(error));
   }
 
   validerPresta(id: number) {
@@ -146,15 +161,18 @@ export class ReponseAppelOffreComponent implements OnInit {
 
   offreConsultable() {
       this.offre.prix = this.prixTTC;
-      this.offre.numeroDevis = 55555;
-      this.offre.dtDebut = new Date(2020, 0O5, 0O5);
-      this.offre.dtFin = new Date(2020, 0O7, 0O5);
-      this.offre.etat = "consult";
+        this.offre.numeroDevis = 55555;
+        this.offre.dtDebut = new Date(2020, 0O5, 0O5);
+        this.offre.dtFin = new Date(2020, 0O7, 0O5);
+        this.offre.etat = "consult";
 
-      this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
-    }, error => console.log(error));
+        this.router.navigate(['accueilMOE']);
 
-      this.offre = new Offre();
+        this.reponseAppelOffreService.createOffre(this.offre).subscribe(resp => {
+        }, error => console.log(error));
+
+        this.offre = new Offre();
+
   }
 
   addLigne() {
