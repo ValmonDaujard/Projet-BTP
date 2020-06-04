@@ -75,7 +75,7 @@
         <tbody>
         <tr *ngFor="let off of offres">
           <td style="width: 18%">{{off.appelOffre.nom}}</td>
-          <td style="width: 17%">{{off.appelOffre.adresse.ville}}</td>
+          <td style="width: 17%">{{off.appelOffre.adresse?.ville}}</td>
           <td style="width: 30%">{{off.appelOffre.objectif}}</td>
           <td style="width: 21%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
           <td style="width: 24%"><div class="btn-group" style="margin-left: 20px">

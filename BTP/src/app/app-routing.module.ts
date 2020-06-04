@@ -33,9 +33,8 @@ const routes: Routes = [
   {path: 'profil', component: ProfilComponent},
   {path: 'action/:id', component: ActionComponent},
   {path: 'reunion/:id', component: ReunionComponent},
-
   {path: 'reponseConsultation/:id', component: ReponseConsultationComponent},
-  {path: 'creationAppelOffre/:id', component: CreationAppelOffreComponent}
+  {path: 'creationAppelOffre', component: CreationAppelOffreComponent}
 ];
 
 @NgModule({

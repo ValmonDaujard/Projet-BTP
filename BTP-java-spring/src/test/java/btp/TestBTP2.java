@@ -79,9 +79,9 @@ public class TestBTP2 {
 		
 		
 		// facture
-		Facture factureIsolation = new Facture(111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
+		Facture factureIsolation = new Facture("Michel", 111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
 				true, null);
-		Facture factureCloture = new Facture(45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
+		Facture factureCloture = new Facture("Michel", 45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
 				false, null);
 		
 		
