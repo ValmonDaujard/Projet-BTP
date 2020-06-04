@@ -25,4 +25,9 @@ export class ReponseConsultationService {
       this.prestations = resp;
     }, error => console.log(error));
   }
+
+  modifyPrestation(presta: Prestation) {
+    return this.http.put<Prestation>("http://localhost:8080/prestation/" + presta.id, presta);
+  }
+
 }
