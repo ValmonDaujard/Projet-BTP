@@ -15,6 +15,7 @@ export class ActionComponent implements OnInit {
   action : Action = null;
   salariesref : Array<Salarie> = new Array();
 
+
   constructor(private actionService: ActionService, private route: ActivatedRoute) {
 
     this.route.params.subscribe(parameters => {

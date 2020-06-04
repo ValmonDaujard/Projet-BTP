@@ -1,29 +1,15 @@
 <div class="container-fluid">
   <div class="row mx-auto">
-    <div class="col-md-1 grid-margin">
-      <i class="fas fa-arrow-left " style="font-size: 32px"></i>
-    </div>
-    <div class="col-md-10 grid-margin">
+
+    <div class="col-md-12 grid-margin" style="height: 100px;">
       <div>
         <h1 class="font-weight-bold mb-0" style="text-align: center;">Réunion</h1>
       </div>
     </div>
   </div>
   <div class="row mx-auto">
-    <div class="col-md-4 grid-margin stretch-card">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-body">
-          <p class="card-title text-md-center text-xl-left">Date</p>
-          <div
-            class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{reunion.dtReunion}}</h3>
-            <i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="col-md-4 grid-margin stretch-card mx-auto">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
         <div class="card-body">
           <p class="card-title text-md-center text-xl-left">Nom Réunion</p>
           <div
@@ -36,7 +22,20 @@
       </div>
     </div>
     <div class="col-md-4 grid-margin stretch-card">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
+        <div class="card-body">
+          <p class="card-title text-md-center text-xl-left">Date</p>
+          <div
+            class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{reunion.dtReunion|date:'dd/MM/yyyy'}}</h3>
+            <i class="fas fa-calendar-day " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 grid-margin stretch-card">
+      <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
         <div class="card-body">
           <p class="card-title text-md-center text-xl-left">Numero du compte rendu</p>
           <div

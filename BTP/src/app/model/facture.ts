@@ -6,6 +6,7 @@ import {MaitreOeuvre} from "./maitreOeuvre";
 export class Facture {
   id: number;
   version: number;
+  nomFacture : string;
   numeroFacture: number;
   dtFacturation: Date;
   prixHT: number;
@@ -23,10 +24,11 @@ export class Facture {
   factureMOEMO : boolean;
 
 
-  constructor(id?: number, version?: number, numeroFacture?: number, dtFacturation?: Date, prixHT?: number,
+  constructor(id?: number, version?: number,nomFacture?: string, numeroFacture?: number, dtFacturation?: Date, prixHT?: number,
               remise?: number, dtEcheance?: Date, penaliteRetard?: number, payee?: boolean, projet?: Projet, factureMOEMO?: boolean, prestataire?:Prestataire, maitreOeuvre?: MaitreOeuvre, maitreOuvrage?: MaitreOuvrage) {
     this.id = id;
     this.version = version;
+    this.nomFacture = nomFacture;
     this.numeroFacture = numeroFacture;
     this.dtFacturation = dtFacturation;
     this.prixHT = prixHT;
