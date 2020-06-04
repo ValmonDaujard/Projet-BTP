@@ -5,7 +5,6 @@ import {Prestation} from "../model/prestation";
 import {Observable} from "rxjs";
 import {Offre} from "../model/offre";
 import {MaitreOuvrage} from "../model/maitreOuvrage";
-import {Stagiaire} from "../../../../../covid-formation/formation-angular/src/app/model/stagiaire";
 import {AppelOffre} from "../model/appelOffre";
 
 
