@@ -61,13 +61,13 @@
     <table class="my-auto table">
       <thead class="thead-dark">
         <tr>
-          <th style="width: 12%" >Nom</th>
+          <th style="width: 15%" >Nom</th>
           <th style="width: 12%">Lieu</th>
-          <th style="width: 12%">Objectif</th>
-          <th style="width: 12%">Date limite de réponse</th>
-          <th style="width: 12%">Prix</th>
-          <th style="width: 12%">Valider</th>
-          <th style="width: 12%">Refuser</th>
+          <th style="width: 19%">Objectif</th>
+          <th style="width: 19%">Date limite de réponse</th>
+          <th style="width: 15%">Prix</th>
+          <th style="width: 7%">Valider</th>
+          <th style="width: 7%">Refuser</th>
         </tr>
       </thead>
     </table>
@@ -75,15 +75,15 @@
       <table class="table table-striped tableAppel" id="appelTable">
         <tbody>
         <tr *ngFor="let off of offres">
-          <td style="width: 12%">{{off.appelOffre.nom}}</td>
+          <td style="width: 15%">{{off.appelOffre.nom}}</td>
           <td style="width: 12%">{{off.appelOffre.adresse.ville}}</td>
-          <td style="width: 12%">{{off.appelOffre.objectif}}</td>
-          <td style="width: 12%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
-          <td style="width: 12%">{{off.prix}}</td>
-          <td style="width: 12%"><div class="btn-group" style="margin-left: 20px">
+          <td style="width: 19%">{{off.appelOffre.objectif}}</td>
+          <td style="width: 19%">{{off.appelOffre.dtLimite|date:'dd/MM/yyyy'}}</td>
+          <td style="width: 15%">{{off.prix}}</td>
+          <td style="width: 7%"><div class="btn" style="margin-left: 20px" (click)="validerOffre(off.id)">
             <a class="btn btn-sm btn-lg"><i class="fas fa-check"></i></a>
           </div></td>
-          <td style="width: 12%"><div class="btn-group" style="margin-left: 20px">
+          <td style="width: 8%"><div class="btn" style="margin-left: 20px" (click)="deleteOffre(off.id)">
             <a class="btn btn-sm btn-lg"><i class="fas fa-trash"></i></a>
           </div></td>
         </tr>

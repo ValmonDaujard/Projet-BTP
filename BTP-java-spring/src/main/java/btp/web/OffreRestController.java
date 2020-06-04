@@ -69,6 +69,7 @@ public class OffreRestController {
 	}
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewOffre.class)
 	public Offre update(@RequestBody Offre offre, @PathVariable Long id) {
 		if (!offreRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");

@@ -207,14 +207,14 @@ class Test3 {
 				projet6 = projetRepository.save(projet6);
 				
 				// facture
-				Facture factureIsolation = new Facture(111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
+				Facture factureIsolation = new Facture(null, 111, sdf.parse("15/05/2020"), 5000F, 0F, sdf.parse("15/06/2020"), 0F,
 						true,false);
-				Facture factureCloture = new Facture(45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
+				Facture factureCloture = new Facture(null, 45, sdf.parse("18/01/2021"), 5000F, 15F, sdf.parse("21/02/2022"), 52F,
 						false,false);
 				
-				Facture factureProjetMoisSeptembre = new Facture(153453, sdf.parse("16/06/2020"), 5000F, 0F, sdf.parse("15/08/2020"), 0F,
+				Facture factureProjetMoisSeptembre = new Facture(null, 153453, sdf.parse("16/06/2020"), 5000F, 0F, sdf.parse("15/08/2020"), 0F,
 						true,true);
-				Facture factureMoisNovembre = new Facture(83843, sdf.parse("18/06/2021"), 5000F, 15F, sdf.parse("21/08/2022"), 52F,
+				Facture factureMoisNovembre = new Facture(null, 83843, sdf.parse("18/06/2021"), 5000F, 15F, sdf.parse("21/08/2022"), 52F,
 						false,true);
 				
 				
