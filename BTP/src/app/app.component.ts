@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {AccueilComponent} from "./accueil/accueil.component";
-import {CommonService} from "./common.service";
-import {Adresse} from "./model/adresse";
 import {SessionService} from "./session.service";
 import {Utilisateur} from "./model/utilisateur";
 

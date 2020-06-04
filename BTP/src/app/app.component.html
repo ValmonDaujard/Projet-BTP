@@ -29,7 +29,7 @@
         <h1 class="policeTitle">BUILD'OSER</h1>
       </div>
       <div class="m-auto">
-        <button class="btn text-white policeTitle border-left" id="user" [routerLink]="['/profil']"><i class="fas fa-user mt-1"></i>
+        <button class="btn text-white policeTitle border-left px-4" id="user" [routerLink]="['/profil']"><i class="fas fa-user mt-1"></i>
           <h6>{{sessionUser()?.societe.nom}}</h6>
         </button>
       </div>
@@ -44,9 +44,9 @@
 <footer *ngIf="router.url!='/'" >
   <nav class="navbar navbar-expand-md border-top border-warning p-4 text-white">
     <ul class="navbar-nav text-white m-auto">
-      <li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
-      <li class="nav-item border-right border-warning px-5"><a href="#" class="nav-link colorLiensFooter">Partenaires</a></li>
-      <li class="nav-item px-5"><a href="#" class="nav-link colorLiensFooter">Nous contacter</a></li>
+      <li class="nav-item border-right border-warning px-5"><a class="nav-link colorLiensFooter">Qui sommes-nous ?</a></li>
+      <li class="nav-item border-right border-warning px-5"><a class="nav-link colorLiensFooter">Partenaires</a></li>
+      <li class="nav-item px-5"><a class="nav-link colorLiensFooter">Nous contacter</a></li>
     </ul>
   </nav>
 </footer>

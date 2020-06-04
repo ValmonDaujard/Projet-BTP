@@ -1,17 +1,15 @@
 <div class="container-fluid" style="background-color: #F8F8F8">
 
   <div class="content-wrapper">
-    <div class="row" id="ligne">
-
+    <div class="row">
       <div class="col-md-12 grid-margin">
         <div>
-          <h4 class="font-weight-bold mb-0" style="text-align: center;">
-            {{projet?.offre.appelOffre.nom| titlecase}}</h4>
+          <h2 class="font-weight-bold my-3" style="text-align: center;">
+            {{projet?.offre.appelOffre.nom| titlecase}}</h2>
         </div>
       </div>
-
     </div>
-    <div class="row" id="ligne">
+    <div class="row">
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
@@ -26,7 +24,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
@@ -35,12 +32,11 @@
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
               <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet?.dtDebut|date:'dd/MM/yyyy'}}</h3>
-              <i class="fas fa-calendar-day " style="font-size: 32px"></i>
+              <i class="fas fa-calendar-alt" style="font-size: 32px; color: rgb(246, 194, 59)"></i>
             </div>
           </div>
         </div>
       </div>
-
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 150px;">
           <div class="card-body">
@@ -49,7 +45,7 @@
             <div
               class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
               <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{projet?.dtFin|date:'dd/MM/yyyy'}}</h3>
-              <i class="fas fa-calendar-check " style="font-size: 32px"></i>
+              <i class="fas fa-calendar-check " style="font-size: 32px; color: rgb(246, 194, 59)"></i>
             </div>
           </div>
         </div>
@@ -68,20 +64,16 @@
       </div>-->
 
     </div>
-
   </div>
 
-
     <div class="content-wrapper">
-
-      <div class="row" id="ligne">
+      <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card shadow p-3 mb-5 bg-white rounded"
-               style="height: 400px;">
+               style="height: 500px;">
             <div class="card-header bg-white border-bottom border-warning"
                  style="display: flex">
-              <h3 class="font-weight-bold mb-0 my-3">Prestation</h3>
-
+              <h3 class="font-weight-bold mb-0 my-3">Prestations</h3>
             </div>
             <div class="card-body">
               <div>
@@ -96,7 +88,7 @@
                   </thead>
                 </table>
               </div>
-              <div class="tabProjet" id="projetTable">
+              <div class="scrollTablePrestations" id="projetTable">
                 <table class="table table-striped">
                   <tbody >
                   <tr  *ngFor="let prestation of prestationref">
@@ -111,23 +103,16 @@
             </div>
           </div>
         </div>
-
     </div>
 
-
     <div class="content-wrapper">
-
-
-      <div class="row" id="ligne">
-
+      <div class="row">
         <div class="col-md-6 grid-margin stretch-card">
-
           <div class="card shadow p-3 mb-5 bg-white rounded"
                style="height: 500px;">
             <div class="card-header bg-white border-bottom border-warning"
                  style="display: flex">
-              <h3 class="font-weight-bold mb-0 my-3">Action en cours</h3>
-
+              <h3 class="font-weight-bold mb-0 my-3">Actions en cours</h3>
             </div>
             <div class="card-body">
               <div>
@@ -136,13 +121,12 @@
                   <tr>
                     <th style="width: 31%">Action</th>
                     <th style="width: 20%">Entreprise</th>
-
                   </tr>
                   </thead>
                 </table>
               </div>
-              <div class="tabProjet" >
-                <table class="table table-striped" id="projetTable">
+              <div class="tabProjet scrollTableActions" >
+                <table class="table table-striped">
                   <tbody >
                   <tr   *ngFor="let action of actionref">
                     <td *ngIf="action.effectuee == false" style="width: 30%">
@@ -151,9 +135,6 @@
                     </td >
                     <td *ngIf="action.effectuee == false && action.prestataire!=null" style="width: 19%">{{action.prestataire?.nom}}</td>
                     <td (click)="editAction(action.id)" *ngIf="action.effectuee == false && action.prestataire==null" style="width: 19%"><button class="btn text-warning border border-warning">Non défini</button></td>
-
-
-
                   </tr>
                   </tbody>
                 </table>
@@ -169,8 +150,6 @@
                   <i class="fa fa-check"></i>
                 </button>
               </div>
-
-
           </div>
           </div>
         </div>
@@ -180,8 +159,7 @@
                style="height: 500px;">
             <div class="card-header bg-white border-bottom border-warning"
                  style="display: flex">
-              <h3 class="font-weight-bold mb-0 my-3">Action terminée</h3>
-
+              <h3 class="font-weight-bold mb-0 my-3">Actions terminées</h3>
             </div>
             <div class="card-body">
               <div>
@@ -195,7 +173,7 @@
                   </thead>
                 </table>
               </div>
-              <div class="scrollTablePrestations">
+              <div class="scrollTableActions">
                 <table class="table table-striped">
                   <tbody >
                   <tr  *ngFor="let action of actionref" >
@@ -214,28 +192,23 @@
 <!--                    <td  style="width: 19%"> <button class="btn text-danger border border-danger">-->
 <!--                      <i class="fas fa-trash-alt" (click)="deleteAction(action.id)"></i>-->
 <!--                    </button></td>-->
-
-
                   </tr>
                   </tbody>
                 </table>
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
       <div class="content-wrapper">
-        <div class="row" id="ligne">
-
+        <div class="row pb-5">
           <div class="col-md-6 grid-margin stretch-card">
             <div class="card shadow p-3 mb-5 bg-white rounded"
                  style="height: 400px;">
               <div class="card-header bg-white border-bottom border-warning"
                    style="display: flex">
-                <h3 class="font-weight-bold mb-0 my-3">Réunion planifiée</h3>
-
+                <h3 class="font-weight-bold mb-0 my-3">Réunions planifiées</h3>
               </div>
               <div class="card-body">
                 <div>
@@ -249,7 +222,7 @@
                     </thead>
                   </table>
                 </div>
-                <div class="scrollTablePrestations">
+                <div class="scrollTableRéunions">
                   <table class="table table-striped">
                     <tbody >
                     <tr  *ngFor="let reunion of reunionrefplanifie">
@@ -257,15 +230,11 @@
                         <label>  {{reunion.sujet}}
                         </label>
                       </td>
-
                       <td >{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
-
                     </tr>
                     </tbody>
                   </table>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -274,7 +243,7 @@
                  style="height: 400px;">
               <div class="card-header bg-white border-bottom border-warning"
                    style="display: flex">
-                <h3 class="font-weight-bold mb-0 my-3">Réunion terminée</h3>
+                <h3 class="font-weight-bold mb-0 my-3">Réunions terminées</h3>
 
               </div>
               <div class="card-body">
@@ -289,7 +258,7 @@
                     </thead>
                   </table>
                 </div>
-                <div class="scrollTablePrestations">
+                <div class="scrollTableRéunions">
                   <table class="table table-striped">
                     <tbody>
                     <tr  *ngFor="let reunion of reunionrefeffectue"  >
@@ -297,15 +266,11 @@
                         <label>  {{reunion.sujet}}
                         </label>
                       </td>
-
                       <td >{{reunion.dtReunion |date:'dd/MM/yyyy'}}</td>
-
                     </tr>
                     </tbody>
                   </table>
                 </div>
-
-
               </div>
             </div>
           </div>

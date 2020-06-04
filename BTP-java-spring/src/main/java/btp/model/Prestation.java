@@ -49,6 +49,8 @@ public class Prestation {
 	private PhasePresta phasePresta;
 	@JsonView(Views.ViewCommon.class)
 	private Boolean obsolete;
+	@JsonView(Views.ViewCommon.class)
+	private String motif;
 	@OneToOne (mappedBy = "prestation")
 //	@JsonView(Views.ViewPrestation.class)
 	private PrestationSupplementaire prestationSupplementaire;
@@ -79,8 +81,7 @@ public class Prestation {
 	@OneToOne(mappedBy = "prestation")
 //	@JsonView(Views.ViewPrestation.class)
 	private Facture facture;
-	@JsonView(Views.ViewCommon.class)
-	private String motif;
+	
 	
 	public Prestation() {
 		super();
